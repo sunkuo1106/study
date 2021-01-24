@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.AnswerMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.Answer" >
+    <id column="answer_id" property="answerId" jdbcType="BIGINT" />
+    <result column="answer_gmt_create" property="answerGmtCreate" jdbcType="TIMESTAMP" />
+    <result column="answer_gmt_modified" property="answerGmtModified" jdbcType="TIMESTAMP" />
+    <result column="course_id" property="courseId" jdbcType="INTEGER" />
+    <result column="answer_title" property="answerTitle" jdbcType="VARCHAR" />
+    <result column="answer_type" property="answerType" jdbcType="INTEGER" />
+    <result column="answer_status" property="answerStatus" jdbcType="INTEGER" />
+    <result column="answer_hui_count" property="answerHuiCount" jdbcType="INTEGER" />
+    <result column="answer_dian_count" property="answerDianCount" jdbcType="INTEGER" />
+    <result column="answer_add_time" property="answerAddTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.kgc.study.bean.Answer" extends="BaseResultMap" >
+    <result column="answer_content" property="answerContent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    answer_id, answer_gmt_create, answer_gmt_modified, course_id, answer_title, answer_type, 
+    answer_status, answer_hui_count, answer_dian_count, answer_add_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    answer_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.kgc.study.bean.AnswerExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from answer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.AnswerExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from answer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from answer
+    where answer_id = #{answerId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from answer
+    where answer_id = #{answerId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.AnswerExample" >
+    delete from answer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.Answer" >
+    insert into answer (answer_id, answer_gmt_create, answer_gmt_modified, 
+      course_id, answer_title, answer_type, 
+      answer_status, answer_hui_count, answer_dian_count, 
+      answer_add_time, answer_content)
+    values (#{answerId,jdbcType=BIGINT}, #{answerGmtCreate,jdbcType=TIMESTAMP}, #{answerGmtModified,jdbcType=TIMESTAMP}, 
+      #{courseId,jdbcType=INTEGER}, #{answerTitle,jdbcType=VARCHAR}, #{answerType,jdbcType=INTEGER}, 
+      #{answerStatus,jdbcType=INTEGER}, #{answerHuiCount,jdbcType=INTEGER}, #{answerDianCount,jdbcType=INTEGER}, 
+      #{answerAddTime,jdbcType=TIMESTAMP}, #{answerContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.Answer" >
+    insert into answer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="answerId != null" >
+        answer_id,
+      </if>
+      <if test="answerGmtCreate != null" >
+        answer_gmt_create,
+      </if>
+      <if test="answerGmtModified != null" >
+        answer_gmt_modified,
+      </if>
+      <if test="courseId != null" >
+        course_id,
+      </if>
+      <if test="answerTitle != null" >
+        answer_title,
+      </if>
+      <if test="answerType != null" >
+        answer_type,
+      </if>
+      <if test="answerStatus != null" >
+        answer_status,
+      </if>
+      <if test="answerHuiCount != null" >
+        answer_hui_count,
+      </if>
+      <if test="answerDianCount != null" >
+        answer_dian_count,
+      </if>
+      <if test="answerAddTime != null" >
+        answer_add_time,
+      </if>
+      <if test="answerContent != null" >
+        answer_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="answerId != null" >
+        #{answerId,jdbcType=BIGINT},
+      </if>
+      <if test="answerGmtCreate != null" >
+        #{answerGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="answerGmtModified != null" >
+        #{answerGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courseId != null" >
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="answerTitle != null" >
+        #{answerTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="answerType != null" >
+        #{answerType,jdbcType=INTEGER},
+      </if>
+      <if test="answerStatus != null" >
+        #{answerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="answerHuiCount != null" >
+        #{answerHuiCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerDianCount != null" >
+        #{answerDianCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerAddTime != null" >
+        #{answerAddTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="answerContent != null" >
+        #{answerContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.AnswerExample" resultType="java.lang.Integer" >
+    select count(*) from answer
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update answer
+    <set >
+      <if test="record.answerId != null" >
+        answer_id = #{record.answerId,jdbcType=BIGINT},
+      </if>
+      <if test="record.answerGmtCreate != null" >
+        answer_gmt_create = #{record.answerGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.answerGmtModified != null" >
+        answer_gmt_modified = #{record.answerGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.courseId != null" >
+        course_id = #{record.courseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.answerTitle != null" >
+        answer_title = #{record.answerTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answerType != null" >
+        answer_type = #{record.answerType,jdbcType=INTEGER},
+      </if>
+      <if test="record.answerStatus != null" >
+        answer_status = #{record.answerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.answerHuiCount != null" >
+        answer_hui_count = #{record.answerHuiCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.answerDianCount != null" >
+        answer_dian_count = #{record.answerDianCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.answerAddTime != null" >
+        answer_add_time = #{record.answerAddTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.answerContent != null" >
+        answer_content = #{record.answerContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update answer
+    set answer_id = #{record.answerId,jdbcType=BIGINT},
+      answer_gmt_create = #{record.answerGmtCreate,jdbcType=TIMESTAMP},
+      answer_gmt_modified = #{record.answerGmtModified,jdbcType=TIMESTAMP},
+      course_id = #{record.courseId,jdbcType=INTEGER},
+      answer_title = #{record.answerTitle,jdbcType=VARCHAR},
+      answer_type = #{record.answerType,jdbcType=INTEGER},
+      answer_status = #{record.answerStatus,jdbcType=INTEGER},
+      answer_hui_count = #{record.answerHuiCount,jdbcType=INTEGER},
+      answer_dian_count = #{record.answerDianCount,jdbcType=INTEGER},
+      answer_add_time = #{record.answerAddTime,jdbcType=TIMESTAMP},
+      answer_content = #{record.answerContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update answer
+    set answer_id = #{record.answerId,jdbcType=BIGINT},
+      answer_gmt_create = #{record.answerGmtCreate,jdbcType=TIMESTAMP},
+      answer_gmt_modified = #{record.answerGmtModified,jdbcType=TIMESTAMP},
+      course_id = #{record.courseId,jdbcType=INTEGER},
+      answer_title = #{record.answerTitle,jdbcType=VARCHAR},
+      answer_type = #{record.answerType,jdbcType=INTEGER},
+      answer_status = #{record.answerStatus,jdbcType=INTEGER},
+      answer_hui_count = #{record.answerHuiCount,jdbcType=INTEGER},
+      answer_dian_count = #{record.answerDianCount,jdbcType=INTEGER},
+      answer_add_time = #{record.answerAddTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.Answer" >
+    update answer
+    <set >
+      <if test="answerGmtCreate != null" >
+        answer_gmt_create = #{answerGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="answerGmtModified != null" >
+        answer_gmt_modified = #{answerGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courseId != null" >
+        course_id = #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="answerTitle != null" >
+        answer_title = #{answerTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="answerType != null" >
+        answer_type = #{answerType,jdbcType=INTEGER},
+      </if>
+      <if test="answerStatus != null" >
+        answer_status = #{answerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="answerHuiCount != null" >
+        answer_hui_count = #{answerHuiCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerDianCount != null" >
+        answer_dian_count = #{answerDianCount,jdbcType=INTEGER},
+      </if>
+      <if test="answerAddTime != null" >
+        answer_add_time = #{answerAddTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="answerContent != null" >
+        answer_content = #{answerContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where answer_id = #{answerId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kgc.study.bean.Answer" >
+    update answer
+    set answer_gmt_create = #{answerGmtCreate,jdbcType=TIMESTAMP},
+      answer_gmt_modified = #{answerGmtModified,jdbcType=TIMESTAMP},
+      course_id = #{courseId,jdbcType=INTEGER},
+      answer_title = #{answerTitle,jdbcType=VARCHAR},
+      answer_type = #{answerType,jdbcType=INTEGER},
+      answer_status = #{answerStatus,jdbcType=INTEGER},
+      answer_hui_count = #{answerHuiCount,jdbcType=INTEGER},
+      answer_dian_count = #{answerDianCount,jdbcType=INTEGER},
+      answer_add_time = #{answerAddTime,jdbcType=TIMESTAMP},
+      answer_content = #{answerContent,jdbcType=LONGVARCHAR}
+    where answer_id = #{answerId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.Answer" >
+    update answer
+    set answer_gmt_create = #{answerGmtCreate,jdbcType=TIMESTAMP},
+      answer_gmt_modified = #{answerGmtModified,jdbcType=TIMESTAMP},
+      course_id = #{courseId,jdbcType=INTEGER},
+      answer_title = #{answerTitle,jdbcType=VARCHAR},
+      answer_type = #{answerType,jdbcType=INTEGER},
+      answer_status = #{answerStatus,jdbcType=INTEGER},
+      answer_hui_count = #{answerHuiCount,jdbcType=INTEGER},
+      answer_dian_count = #{answerDianCount,jdbcType=INTEGER},
+      answer_add_time = #{answerAddTime,jdbcType=TIMESTAMP}
+    where answer_id = #{answerId,jdbcType=BIGINT}
+  </update>
+</mapper>

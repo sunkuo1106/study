@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.CourseMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.Course" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="course_name" property="courseName" jdbcType="VARCHAR" />
+    <result column="course_subjec" property="courseSubjec" jdbcType="VARCHAR" />
+    <result column="course_addtime" property="courseAddtime" jdbcType="TIMESTAMP" />
+    <result column="course_title" property="courseTitle" jdbcType="VARCHAR" />
+    <result column="course_content" property="courseContent" jdbcType="VARCHAR" />
+    <result column="course_lession_num" property="courseLessionNum" jdbcType="INTEGER" />
+    <result column="course_video_url" property="courseVideoUrl" jdbcType="VARCHAR" />
+    <result column="course_update_time" property="courseUpdateTime" jdbcType="TIMESTAMP" />
+    <result column="page_viewcount" property="pageViewcount" jdbcType="INTEGER" />
+    <result column="course_end_time" property="courseEndTime" jdbcType="TIMESTAMP" />
+    <result column="curr_id" property="currId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, course_name, course_subjec, course_addtime, course_title, course_content, course_lession_num, 
+    course_video_url, course_update_time, page_viewcount, course_end_time, curr_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.CourseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from course
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from course
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.CourseExample" >
+    delete from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.Course" >
+    insert into course (id, course_name, course_subjec, 
+      course_addtime, course_title, course_content, 
+      course_lession_num, course_video_url, course_update_time, 
+      page_viewcount, course_end_time, curr_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{courseName,jdbcType=VARCHAR}, #{courseSubjec,jdbcType=VARCHAR}, 
+      #{courseAddtime,jdbcType=TIMESTAMP}, #{courseTitle,jdbcType=VARCHAR}, #{courseContent,jdbcType=VARCHAR}, 
+      #{courseLessionNum,jdbcType=INTEGER}, #{courseVideoUrl,jdbcType=VARCHAR}, #{courseUpdateTime,jdbcType=TIMESTAMP}, 
+      #{pageViewcount,jdbcType=INTEGER}, #{courseEndTime,jdbcType=TIMESTAMP}, #{currId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.Course" >
+    insert into course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="courseName != null" >
+        course_name,
+      </if>
+      <if test="courseSubjec != null" >
+        course_subjec,
+      </if>
+      <if test="courseAddtime != null" >
+        course_addtime,
+      </if>
+      <if test="courseTitle != null" >
+        course_title,
+      </if>
+      <if test="courseContent != null" >
+        course_content,
+      </if>
+      <if test="courseLessionNum != null" >
+        course_lession_num,
+      </if>
+      <if test="courseVideoUrl != null" >
+        course_video_url,
+      </if>
+      <if test="courseUpdateTime != null" >
+        course_update_time,
+      </if>
+      <if test="pageViewcount != null" >
+        page_viewcount,
+      </if>
+      <if test="courseEndTime != null" >
+        course_end_time,
+      </if>
+      <if test="currId != null" >
+        curr_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="courseName != null" >
+        #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseSubjec != null" >
+        #{courseSubjec,jdbcType=VARCHAR},
+      </if>
+      <if test="courseAddtime != null" >
+        #{courseAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courseTitle != null" >
+        #{courseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="courseContent != null" >
+        #{courseContent,jdbcType=VARCHAR},
+      </if>
+      <if test="courseLessionNum != null" >
+        #{courseLessionNum,jdbcType=INTEGER},
+      </if>
+      <if test="courseVideoUrl != null" >
+        #{courseVideoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="courseUpdateTime != null" >
+        #{courseUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageViewcount != null" >
+        #{pageViewcount,jdbcType=INTEGER},
+      </if>
+      <if test="courseEndTime != null" >
+        #{courseEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currId != null" >
+        #{currId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.CourseExample" resultType="java.lang.Integer" >
+    select count(*) from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update course
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.courseName != null" >
+        course_name = #{record.courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseSubjec != null" >
+        course_subjec = #{record.courseSubjec,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseAddtime != null" >
+        course_addtime = #{record.courseAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.courseTitle != null" >
+        course_title = #{record.courseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseContent != null" >
+        course_content = #{record.courseContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseLessionNum != null" >
+        course_lession_num = #{record.courseLessionNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseVideoUrl != null" >
+        course_video_url = #{record.courseVideoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseUpdateTime != null" >
+        course_update_time = #{record.courseUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.pageViewcount != null" >
+        page_viewcount = #{record.pageViewcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseEndTime != null" >
+        course_end_time = #{record.courseEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.currId != null" >
+        curr_id = #{record.currId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update course
+    set id = #{record.id,jdbcType=BIGINT},
+      course_name = #{record.courseName,jdbcType=VARCHAR},
+      course_subjec = #{record.courseSubjec,jdbcType=VARCHAR},
+      course_addtime = #{record.courseAddtime,jdbcType=TIMESTAMP},
+      course_title = #{record.courseTitle,jdbcType=VARCHAR},
+      course_content = #{record.courseContent,jdbcType=VARCHAR},
+      course_lession_num = #{record.courseLessionNum,jdbcType=INTEGER},
+      course_video_url = #{record.courseVideoUrl,jdbcType=VARCHAR},
+      course_update_time = #{record.courseUpdateTime,jdbcType=TIMESTAMP},
+      page_viewcount = #{record.pageViewcount,jdbcType=INTEGER},
+      course_end_time = #{record.courseEndTime,jdbcType=TIMESTAMP},
+      curr_id = #{record.currId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.Course" >
+    update course
+    <set >
+      <if test="courseName != null" >
+        course_name = #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseSubjec != null" >
+        course_subjec = #{courseSubjec,jdbcType=VARCHAR},
+      </if>
+      <if test="courseAddtime != null" >
+        course_addtime = #{courseAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courseTitle != null" >
+        course_title = #{courseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="courseContent != null" >
+        course_content = #{courseContent,jdbcType=VARCHAR},
+      </if>
+      <if test="courseLessionNum != null" >
+        course_lession_num = #{courseLessionNum,jdbcType=INTEGER},
+      </if>
+      <if test="courseVideoUrl != null" >
+        course_video_url = #{courseVideoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="courseUpdateTime != null" >
+        course_update_time = #{courseUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pageViewcount != null" >
+        page_viewcount = #{pageViewcount,jdbcType=INTEGER},
+      </if>
+      <if test="courseEndTime != null" >
+        course_end_time = #{courseEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currId != null" >
+        curr_id = #{currId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.Course" >
+    update course
+    set course_name = #{courseName,jdbcType=VARCHAR},
+      course_subjec = #{courseSubjec,jdbcType=VARCHAR},
+      course_addtime = #{courseAddtime,jdbcType=TIMESTAMP},
+      course_title = #{courseTitle,jdbcType=VARCHAR},
+      course_content = #{courseContent,jdbcType=VARCHAR},
+      course_lession_num = #{courseLessionNum,jdbcType=INTEGER},
+      course_video_url = #{courseVideoUrl,jdbcType=VARCHAR},
+      course_update_time = #{courseUpdateTime,jdbcType=TIMESTAMP},
+      page_viewcount = #{pageViewcount,jdbcType=INTEGER},
+      course_end_time = #{courseEndTime,jdbcType=TIMESTAMP},
+      curr_id = #{currId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

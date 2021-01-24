@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.EduUserPayTableMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.EduUserPayTable" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="edu_order_name" property="eduOrderName" jdbcType="VARCHAR" />
+    <result column="edu_order_id_card" property="eduOrderIdCard" jdbcType="VARCHAR" />
+    <result column="edu_order_phone" property="eduOrderPhone" jdbcType="VARCHAR" />
+    <result column="edu_order_class_price" property="eduOrderClassPrice" jdbcType="DECIMAL" />
+    <result column="edu_order_type" property="eduOrderType" jdbcType="INTEGER" />
+    <result column="edu_order_payment" property="eduOrderPayment" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_create, gmt_modified, edu_order_name, edu_order_id_card, edu_order_phone, 
+    edu_order_class_price, edu_order_type, edu_order_payment
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.EduUserPayTableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from edu_user_pay_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.EduUserPayTableExample" >
+    delete from edu_user_pay_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.EduUserPayTable" >
+    insert into edu_user_pay_table (id, gmt_create, gmt_modified, 
+      edu_order_name, edu_order_id_card, edu_order_phone, 
+      edu_order_class_price, edu_order_type, edu_order_payment
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{eduOrderName,jdbcType=VARCHAR}, #{eduOrderIdCard,jdbcType=VARCHAR}, #{eduOrderPhone,jdbcType=VARCHAR}, 
+      #{eduOrderClassPrice,jdbcType=DECIMAL}, #{eduOrderType,jdbcType=INTEGER}, #{eduOrderPayment,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.EduUserPayTable" >
+    insert into edu_user_pay_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="eduOrderName != null" >
+        edu_order_name,
+      </if>
+      <if test="eduOrderIdCard != null" >
+        edu_order_id_card,
+      </if>
+      <if test="eduOrderPhone != null" >
+        edu_order_phone,
+      </if>
+      <if test="eduOrderClassPrice != null" >
+        edu_order_class_price,
+      </if>
+      <if test="eduOrderType != null" >
+        edu_order_type,
+      </if>
+      <if test="eduOrderPayment != null" >
+        edu_order_payment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduOrderName != null" >
+        #{eduOrderName,jdbcType=VARCHAR},
+      </if>
+      <if test="eduOrderIdCard != null" >
+        #{eduOrderIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="eduOrderPhone != null" >
+        #{eduOrderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="eduOrderClassPrice != null" >
+        #{eduOrderClassPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="eduOrderType != null" >
+        #{eduOrderType,jdbcType=INTEGER},
+      </if>
+      <if test="eduOrderPayment != null" >
+        #{eduOrderPayment,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.EduUserPayTableExample" resultType="java.lang.Integer" >
+    select count(*) from edu_user_pay_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update edu_user_pay_table
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.eduOrderName != null" >
+        edu_order_name = #{record.eduOrderName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduOrderIdCard != null" >
+        edu_order_id_card = #{record.eduOrderIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduOrderPhone != null" >
+        edu_order_phone = #{record.eduOrderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduOrderClassPrice != null" >
+        edu_order_class_price = #{record.eduOrderClassPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.eduOrderType != null" >
+        edu_order_type = #{record.eduOrderType,jdbcType=INTEGER},
+      </if>
+      <if test="record.eduOrderPayment != null" >
+        edu_order_payment = #{record.eduOrderPayment,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update edu_user_pay_table
+    set id = #{record.id,jdbcType=BIGINT},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      edu_order_name = #{record.eduOrderName,jdbcType=VARCHAR},
+      edu_order_id_card = #{record.eduOrderIdCard,jdbcType=VARCHAR},
+      edu_order_phone = #{record.eduOrderPhone,jdbcType=VARCHAR},
+      edu_order_class_price = #{record.eduOrderClassPrice,jdbcType=DECIMAL},
+      edu_order_type = #{record.eduOrderType,jdbcType=INTEGER},
+      edu_order_payment = #{record.eduOrderPayment,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

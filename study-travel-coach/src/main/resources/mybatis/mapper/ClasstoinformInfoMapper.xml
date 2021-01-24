@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.ClasstoinformInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.ClasstoinformInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="ctf_gmt_create" property="ctfGmtCreate" jdbcType="TIMESTAMP" />
+    <result column="ctf_gmt_modified" property="ctfGmtModified" jdbcType="TIMESTAMP" />
+    <result column="ctf_address_id" property="ctfAddressId" jdbcType="INTEGER" />
+    <result column="ctf_grade_id" property="ctfGradeId" jdbcType="VARCHAR" />
+    <result column="ctf_context" property="ctfContext" jdbcType="VARCHAR" />
+    <result column="ctf_pic" property="ctfPic" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, ctf_gmt_create, ctf_gmt_modified, ctf_address_id, ctf_grade_id, ctf_context, 
+    ctf_pic
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.ClasstoinformInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from classtoinform_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from classtoinform_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from classtoinform_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.ClasstoinformInfoExample" >
+    delete from classtoinform_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.ClasstoinformInfo" >
+    insert into classtoinform_info (id, ctf_gmt_create, ctf_gmt_modified, 
+      ctf_address_id, ctf_grade_id, ctf_context, 
+      ctf_pic)
+    values (#{id,jdbcType=BIGINT}, #{ctfGmtCreate,jdbcType=TIMESTAMP}, #{ctfGmtModified,jdbcType=TIMESTAMP}, 
+      #{ctfAddressId,jdbcType=INTEGER}, #{ctfGradeId,jdbcType=VARCHAR}, #{ctfContext,jdbcType=VARCHAR}, 
+      #{ctfPic,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.ClasstoinformInfo" >
+    insert into classtoinform_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ctfGmtCreate != null" >
+        ctf_gmt_create,
+      </if>
+      <if test="ctfGmtModified != null" >
+        ctf_gmt_modified,
+      </if>
+      <if test="ctfAddressId != null" >
+        ctf_address_id,
+      </if>
+      <if test="ctfGradeId != null" >
+        ctf_grade_id,
+      </if>
+      <if test="ctfContext != null" >
+        ctf_context,
+      </if>
+      <if test="ctfPic != null" >
+        ctf_pic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="ctfGmtCreate != null" >
+        #{ctfGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctfGmtModified != null" >
+        #{ctfGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctfAddressId != null" >
+        #{ctfAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="ctfGradeId != null" >
+        #{ctfGradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="ctfContext != null" >
+        #{ctfContext,jdbcType=VARCHAR},
+      </if>
+      <if test="ctfPic != null" >
+        #{ctfPic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.ClasstoinformInfoExample" resultType="java.lang.Integer" >
+    select count(*) from classtoinform_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update classtoinform_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.ctfGmtCreate != null" >
+        ctf_gmt_create = #{record.ctfGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ctfGmtModified != null" >
+        ctf_gmt_modified = #{record.ctfGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ctfAddressId != null" >
+        ctf_address_id = #{record.ctfAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="record.ctfGradeId != null" >
+        ctf_grade_id = #{record.ctfGradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ctfContext != null" >
+        ctf_context = #{record.ctfContext,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ctfPic != null" >
+        ctf_pic = #{record.ctfPic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update classtoinform_info
+    set id = #{record.id,jdbcType=BIGINT},
+      ctf_gmt_create = #{record.ctfGmtCreate,jdbcType=TIMESTAMP},
+      ctf_gmt_modified = #{record.ctfGmtModified,jdbcType=TIMESTAMP},
+      ctf_address_id = #{record.ctfAddressId,jdbcType=INTEGER},
+      ctf_grade_id = #{record.ctfGradeId,jdbcType=VARCHAR},
+      ctf_context = #{record.ctfContext,jdbcType=VARCHAR},
+      ctf_pic = #{record.ctfPic,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.ClasstoinformInfo" >
+    update classtoinform_info
+    <set >
+      <if test="ctfGmtCreate != null" >
+        ctf_gmt_create = #{ctfGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctfGmtModified != null" >
+        ctf_gmt_modified = #{ctfGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctfAddressId != null" >
+        ctf_address_id = #{ctfAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="ctfGradeId != null" >
+        ctf_grade_id = #{ctfGradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="ctfContext != null" >
+        ctf_context = #{ctfContext,jdbcType=VARCHAR},
+      </if>
+      <if test="ctfPic != null" >
+        ctf_pic = #{ctfPic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.ClasstoinformInfo" >
+    update classtoinform_info
+    set ctf_gmt_create = #{ctfGmtCreate,jdbcType=TIMESTAMP},
+      ctf_gmt_modified = #{ctfGmtModified,jdbcType=TIMESTAMP},
+      ctf_address_id = #{ctfAddressId,jdbcType=INTEGER},
+      ctf_grade_id = #{ctfGradeId,jdbcType=VARCHAR},
+      ctf_context = #{ctfContext,jdbcType=VARCHAR},
+      ctf_pic = #{ctfPic,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

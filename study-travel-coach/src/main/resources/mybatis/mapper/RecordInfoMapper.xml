@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.RecordInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.RecordInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="record_gmt_create" property="recordGmtCreate" jdbcType="TIMESTAMP" />
+    <result column="record_gmt_modified" property="recordGmtModified" jdbcType="TIMESTAMP" />
+    <result column="record_test_name" property="recordTestName" jdbcType="VARCHAR" />
+    <result column="record_test_data" property="recordTestData" jdbcType="TIMESTAMP" />
+    <result column="record_test_score" property="recordTestScore" jdbcType="INTEGER" />
+    <result column="record_test_count" property="recordTestCount" jdbcType="INTEGER" />
+    <result column="record_user_id" property="recordUserId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, record_gmt_create, record_gmt_modified, record_test_name, record_test_data, record_test_score, 
+    record_test_count, record_user_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.RecordInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from record_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from record_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from record_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.RecordInfoExample" >
+    delete from record_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.RecordInfo" >
+    insert into record_info (id, record_gmt_create, record_gmt_modified, 
+      record_test_name, record_test_data, record_test_score, 
+      record_test_count, record_user_id)
+    values (#{id,jdbcType=BIGINT}, #{recordGmtCreate,jdbcType=TIMESTAMP}, #{recordGmtModified,jdbcType=TIMESTAMP}, 
+      #{recordTestName,jdbcType=VARCHAR}, #{recordTestData,jdbcType=TIMESTAMP}, #{recordTestScore,jdbcType=INTEGER}, 
+      #{recordTestCount,jdbcType=INTEGER}, #{recordUserId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.RecordInfo" >
+    insert into record_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="recordGmtCreate != null" >
+        record_gmt_create,
+      </if>
+      <if test="recordGmtModified != null" >
+        record_gmt_modified,
+      </if>
+      <if test="recordTestName != null" >
+        record_test_name,
+      </if>
+      <if test="recordTestData != null" >
+        record_test_data,
+      </if>
+      <if test="recordTestScore != null" >
+        record_test_score,
+      </if>
+      <if test="recordTestCount != null" >
+        record_test_count,
+      </if>
+      <if test="recordUserId != null" >
+        record_user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="recordGmtCreate != null" >
+        #{recordGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordGmtModified != null" >
+        #{recordGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordTestName != null" >
+        #{recordTestName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTestData != null" >
+        #{recordTestData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordTestScore != null" >
+        #{recordTestScore,jdbcType=INTEGER},
+      </if>
+      <if test="recordTestCount != null" >
+        #{recordTestCount,jdbcType=INTEGER},
+      </if>
+      <if test="recordUserId != null" >
+        #{recordUserId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.RecordInfoExample" resultType="java.lang.Integer" >
+    select count(*) from record_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update record_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.recordGmtCreate != null" >
+        record_gmt_create = #{record.recordGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.recordGmtModified != null" >
+        record_gmt_modified = #{record.recordGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.recordTestName != null" >
+        record_test_name = #{record.recordTestName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recordTestData != null" >
+        record_test_data = #{record.recordTestData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.recordTestScore != null" >
+        record_test_score = #{record.recordTestScore,jdbcType=INTEGER},
+      </if>
+      <if test="record.recordTestCount != null" >
+        record_test_count = #{record.recordTestCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.recordUserId != null" >
+        record_user_id = #{record.recordUserId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update record_info
+    set id = #{record.id,jdbcType=BIGINT},
+      record_gmt_create = #{record.recordGmtCreate,jdbcType=TIMESTAMP},
+      record_gmt_modified = #{record.recordGmtModified,jdbcType=TIMESTAMP},
+      record_test_name = #{record.recordTestName,jdbcType=VARCHAR},
+      record_test_data = #{record.recordTestData,jdbcType=TIMESTAMP},
+      record_test_score = #{record.recordTestScore,jdbcType=INTEGER},
+      record_test_count = #{record.recordTestCount,jdbcType=INTEGER},
+      record_user_id = #{record.recordUserId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.RecordInfo" >
+    update record_info
+    <set >
+      <if test="recordGmtCreate != null" >
+        record_gmt_create = #{recordGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordGmtModified != null" >
+        record_gmt_modified = #{recordGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordTestName != null" >
+        record_test_name = #{recordTestName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTestData != null" >
+        record_test_data = #{recordTestData,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recordTestScore != null" >
+        record_test_score = #{recordTestScore,jdbcType=INTEGER},
+      </if>
+      <if test="recordTestCount != null" >
+        record_test_count = #{recordTestCount,jdbcType=INTEGER},
+      </if>
+      <if test="recordUserId != null" >
+        record_user_id = #{recordUserId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.RecordInfo" >
+    update record_info
+    set record_gmt_create = #{recordGmtCreate,jdbcType=TIMESTAMP},
+      record_gmt_modified = #{recordGmtModified,jdbcType=TIMESTAMP},
+      record_test_name = #{recordTestName,jdbcType=VARCHAR},
+      record_test_data = #{recordTestData,jdbcType=TIMESTAMP},
+      record_test_score = #{recordTestScore,jdbcType=INTEGER},
+      record_test_count = #{recordTestCount,jdbcType=INTEGER},
+      record_user_id = #{recordUserId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

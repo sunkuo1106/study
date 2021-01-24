@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.TestInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.TestInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="test_gmt_create" property="testGmtCreate" jdbcType="TIMESTAMP" />
+    <result column="test_gmt_modified" property="testGmtModified" jdbcType="TIMESTAMP" />
+    <result column="test_name" property="testName" jdbcType="VARCHAR" />
+    <result column="test_qb_id" property="testQbId" jdbcType="INTEGER" />
+    <result column="test_time" property="testTime" jdbcType="TIMESTAMP" />
+    <result column="test_score" property="testScore" jdbcType="INTEGER" />
+    <result column="test_type" property="testType" jdbcType="INTEGER" />
+    <result column="test_a" property="testA" jdbcType="VARCHAR" />
+    <result column="test_b" property="testB" jdbcType="VARCHAR" />
+    <result column="test_c" property="testC" jdbcType="VARCHAR" />
+    <result column="test_d" property="testD" jdbcType="VARCHAR" />
+    <result column="test_keys" property="testKeys" jdbcType="VARCHAR" />
+    <result column="test_hints" property="testHints" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, test_gmt_create, test_gmt_modified, test_name, test_qb_id, test_time, test_score, 
+    test_type, test_a, test_b, test_c, test_d, test_keys, test_hints
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.TestInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from test_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from test_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from test_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.TestInfoExample" >
+    delete from test_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.TestInfo" >
+    insert into test_info (id, test_gmt_create, test_gmt_modified, 
+      test_name, test_qb_id, test_time, 
+      test_score, test_type, test_a, 
+      test_b, test_c, test_d, 
+      test_keys, test_hints)
+    values (#{id,jdbcType=BIGINT}, #{testGmtCreate,jdbcType=TIMESTAMP}, #{testGmtModified,jdbcType=TIMESTAMP}, 
+      #{testName,jdbcType=VARCHAR}, #{testQbId,jdbcType=INTEGER}, #{testTime,jdbcType=TIMESTAMP}, 
+      #{testScore,jdbcType=INTEGER}, #{testType,jdbcType=INTEGER}, #{testA,jdbcType=VARCHAR}, 
+      #{testB,jdbcType=VARCHAR}, #{testC,jdbcType=VARCHAR}, #{testD,jdbcType=VARCHAR}, 
+      #{testKeys,jdbcType=VARCHAR}, #{testHints,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.TestInfo" >
+    insert into test_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="testGmtCreate != null" >
+        test_gmt_create,
+      </if>
+      <if test="testGmtModified != null" >
+        test_gmt_modified,
+      </if>
+      <if test="testName != null" >
+        test_name,
+      </if>
+      <if test="testQbId != null" >
+        test_qb_id,
+      </if>
+      <if test="testTime != null" >
+        test_time,
+      </if>
+      <if test="testScore != null" >
+        test_score,
+      </if>
+      <if test="testType != null" >
+        test_type,
+      </if>
+      <if test="testA != null" >
+        test_a,
+      </if>
+      <if test="testB != null" >
+        test_b,
+      </if>
+      <if test="testC != null" >
+        test_c,
+      </if>
+      <if test="testD != null" >
+        test_d,
+      </if>
+      <if test="testKeys != null" >
+        test_keys,
+      </if>
+      <if test="testHints != null" >
+        test_hints,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="testGmtCreate != null" >
+        #{testGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testGmtModified != null" >
+        #{testGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testName != null" >
+        #{testName,jdbcType=VARCHAR},
+      </if>
+      <if test="testQbId != null" >
+        #{testQbId,jdbcType=INTEGER},
+      </if>
+      <if test="testTime != null" >
+        #{testTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testScore != null" >
+        #{testScore,jdbcType=INTEGER},
+      </if>
+      <if test="testType != null" >
+        #{testType,jdbcType=INTEGER},
+      </if>
+      <if test="testA != null" >
+        #{testA,jdbcType=VARCHAR},
+      </if>
+      <if test="testB != null" >
+        #{testB,jdbcType=VARCHAR},
+      </if>
+      <if test="testC != null" >
+        #{testC,jdbcType=VARCHAR},
+      </if>
+      <if test="testD != null" >
+        #{testD,jdbcType=VARCHAR},
+      </if>
+      <if test="testKeys != null" >
+        #{testKeys,jdbcType=VARCHAR},
+      </if>
+      <if test="testHints != null" >
+        #{testHints,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.TestInfoExample" resultType="java.lang.Integer" >
+    select count(*) from test_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update test_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.testGmtCreate != null" >
+        test_gmt_create = #{record.testGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.testGmtModified != null" >
+        test_gmt_modified = #{record.testGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.testName != null" >
+        test_name = #{record.testName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testQbId != null" >
+        test_qb_id = #{record.testQbId,jdbcType=INTEGER},
+      </if>
+      <if test="record.testTime != null" >
+        test_time = #{record.testTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.testScore != null" >
+        test_score = #{record.testScore,jdbcType=INTEGER},
+      </if>
+      <if test="record.testType != null" >
+        test_type = #{record.testType,jdbcType=INTEGER},
+      </if>
+      <if test="record.testA != null" >
+        test_a = #{record.testA,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testB != null" >
+        test_b = #{record.testB,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testC != null" >
+        test_c = #{record.testC,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testD != null" >
+        test_d = #{record.testD,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testKeys != null" >
+        test_keys = #{record.testKeys,jdbcType=VARCHAR},
+      </if>
+      <if test="record.testHints != null" >
+        test_hints = #{record.testHints,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update test_info
+    set id = #{record.id,jdbcType=BIGINT},
+      test_gmt_create = #{record.testGmtCreate,jdbcType=TIMESTAMP},
+      test_gmt_modified = #{record.testGmtModified,jdbcType=TIMESTAMP},
+      test_name = #{record.testName,jdbcType=VARCHAR},
+      test_qb_id = #{record.testQbId,jdbcType=INTEGER},
+      test_time = #{record.testTime,jdbcType=TIMESTAMP},
+      test_score = #{record.testScore,jdbcType=INTEGER},
+      test_type = #{record.testType,jdbcType=INTEGER},
+      test_a = #{record.testA,jdbcType=VARCHAR},
+      test_b = #{record.testB,jdbcType=VARCHAR},
+      test_c = #{record.testC,jdbcType=VARCHAR},
+      test_d = #{record.testD,jdbcType=VARCHAR},
+      test_keys = #{record.testKeys,jdbcType=VARCHAR},
+      test_hints = #{record.testHints,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.TestInfo" >
+    update test_info
+    <set >
+      <if test="testGmtCreate != null" >
+        test_gmt_create = #{testGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testGmtModified != null" >
+        test_gmt_modified = #{testGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testName != null" >
+        test_name = #{testName,jdbcType=VARCHAR},
+      </if>
+      <if test="testQbId != null" >
+        test_qb_id = #{testQbId,jdbcType=INTEGER},
+      </if>
+      <if test="testTime != null" >
+        test_time = #{testTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="testScore != null" >
+        test_score = #{testScore,jdbcType=INTEGER},
+      </if>
+      <if test="testType != null" >
+        test_type = #{testType,jdbcType=INTEGER},
+      </if>
+      <if test="testA != null" >
+        test_a = #{testA,jdbcType=VARCHAR},
+      </if>
+      <if test="testB != null" >
+        test_b = #{testB,jdbcType=VARCHAR},
+      </if>
+      <if test="testC != null" >
+        test_c = #{testC,jdbcType=VARCHAR},
+      </if>
+      <if test="testD != null" >
+        test_d = #{testD,jdbcType=VARCHAR},
+      </if>
+      <if test="testKeys != null" >
+        test_keys = #{testKeys,jdbcType=VARCHAR},
+      </if>
+      <if test="testHints != null" >
+        test_hints = #{testHints,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.TestInfo" >
+    update test_info
+    set test_gmt_create = #{testGmtCreate,jdbcType=TIMESTAMP},
+      test_gmt_modified = #{testGmtModified,jdbcType=TIMESTAMP},
+      test_name = #{testName,jdbcType=VARCHAR},
+      test_qb_id = #{testQbId,jdbcType=INTEGER},
+      test_time = #{testTime,jdbcType=TIMESTAMP},
+      test_score = #{testScore,jdbcType=INTEGER},
+      test_type = #{testType,jdbcType=INTEGER},
+      test_a = #{testA,jdbcType=VARCHAR},
+      test_b = #{testB,jdbcType=VARCHAR},
+      test_c = #{testC,jdbcType=VARCHAR},
+      test_d = #{testD,jdbcType=VARCHAR},
+      test_keys = #{testKeys,jdbcType=VARCHAR},
+      test_hints = #{testHints,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

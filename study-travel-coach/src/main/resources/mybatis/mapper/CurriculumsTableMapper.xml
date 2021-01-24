@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.CurriculumsTableMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.CurriculumsTable" >
+    <result column="curr_id" property="currId" jdbcType="BIGINT" />
+    <result column="curr_name" property="currName" jdbcType="VARCHAR" />
+    <result column="curr_mgr_id" property="currMgrId" jdbcType="BIGINT" />
+    <result column="course_subject_gmt_create" property="courseSubjectGmtCreate" jdbcType="TIMESTAMP" />
+    <result column="course_subject_gmt_modified" property="courseSubjectGmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    curr_id, curr_name, curr_mgr_id, course_subject_gmt_create, course_subject_gmt_modified
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.CurriculumsTableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from curriculums_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.CurriculumsTableExample" >
+    delete from curriculums_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.CurriculumsTable" >
+    insert into curriculums_table (curr_id, curr_name, curr_mgr_id, 
+      course_subject_gmt_create, course_subject_gmt_modified
+      )
+    values (#{currId,jdbcType=BIGINT}, #{currName,jdbcType=VARCHAR}, #{currMgrId,jdbcType=BIGINT}, 
+      #{courseSubjectGmtCreate,jdbcType=TIMESTAMP}, #{courseSubjectGmtModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.CurriculumsTable" >
+    insert into curriculums_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="currId != null" >
+        curr_id,
+      </if>
+      <if test="currName != null" >
+        curr_name,
+      </if>
+      <if test="currMgrId != null" >
+        curr_mgr_id,
+      </if>
+      <if test="courseSubjectGmtCreate != null" >
+        course_subject_gmt_create,
+      </if>
+      <if test="courseSubjectGmtModified != null" >
+        course_subject_gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="currId != null" >
+        #{currId,jdbcType=BIGINT},
+      </if>
+      <if test="currName != null" >
+        #{currName,jdbcType=VARCHAR},
+      </if>
+      <if test="currMgrId != null" >
+        #{currMgrId,jdbcType=BIGINT},
+      </if>
+      <if test="courseSubjectGmtCreate != null" >
+        #{courseSubjectGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courseSubjectGmtModified != null" >
+        #{courseSubjectGmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.CurriculumsTableExample" resultType="java.lang.Integer" >
+    select count(*) from curriculums_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update curriculums_table
+    <set >
+      <if test="record.currId != null" >
+        curr_id = #{record.currId,jdbcType=BIGINT},
+      </if>
+      <if test="record.currName != null" >
+        curr_name = #{record.currName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currMgrId != null" >
+        curr_mgr_id = #{record.currMgrId,jdbcType=BIGINT},
+      </if>
+      <if test="record.courseSubjectGmtCreate != null" >
+        course_subject_gmt_create = #{record.courseSubjectGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.courseSubjectGmtModified != null" >
+        course_subject_gmt_modified = #{record.courseSubjectGmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update curriculums_table
+    set curr_id = #{record.currId,jdbcType=BIGINT},
+      curr_name = #{record.currName,jdbcType=VARCHAR},
+      curr_mgr_id = #{record.currMgrId,jdbcType=BIGINT},
+      course_subject_gmt_create = #{record.courseSubjectGmtCreate,jdbcType=TIMESTAMP},
+      course_subject_gmt_modified = #{record.courseSubjectGmtModified,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

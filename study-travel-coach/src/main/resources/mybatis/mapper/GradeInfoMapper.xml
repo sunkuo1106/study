@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.GradeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.GradeInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="grade_gmt_create" property="gradeGmtCreate" jdbcType="TIMESTAMP" />
+    <result column="frade_gmt_modified" property="fradeGmtModified" jdbcType="TIMESTAMP" />
+    <result column="grade_address_id" property="gradeAddressId" jdbcType="INTEGER" />
+    <result column="grade_name" property="gradeName" jdbcType="VARCHAR" />
+    <result column="grade_type" property="gradeType" jdbcType="VARCHAR" />
+    <result column="grade_person" property="gradePerson" jdbcType="INTEGER" />
+    <result column="grade_date" property="gradeDate" jdbcType="TIMESTAMP" />
+    <result column="grade_price" property="gradePrice" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, grade_gmt_create, frade_gmt_modified, grade_address_id, grade_name, grade_type, 
+    grade_person, grade_date, grade_price
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.GradeInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from grade_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from grade_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from grade_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.GradeInfoExample" >
+    delete from grade_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.GradeInfo" >
+    insert into grade_info (id, grade_gmt_create, frade_gmt_modified, 
+      grade_address_id, grade_name, grade_type, 
+      grade_person, grade_date, grade_price
+      )
+    values (#{id,jdbcType=BIGINT}, #{gradeGmtCreate,jdbcType=TIMESTAMP}, #{fradeGmtModified,jdbcType=TIMESTAMP}, 
+      #{gradeAddressId,jdbcType=INTEGER}, #{gradeName,jdbcType=VARCHAR}, #{gradeType,jdbcType=VARCHAR}, 
+      #{gradePerson,jdbcType=INTEGER}, #{gradeDate,jdbcType=TIMESTAMP}, #{gradePrice,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.GradeInfo" >
+    insert into grade_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gradeGmtCreate != null" >
+        grade_gmt_create,
+      </if>
+      <if test="fradeGmtModified != null" >
+        frade_gmt_modified,
+      </if>
+      <if test="gradeAddressId != null" >
+        grade_address_id,
+      </if>
+      <if test="gradeName != null" >
+        grade_name,
+      </if>
+      <if test="gradeType != null" >
+        grade_type,
+      </if>
+      <if test="gradePerson != null" >
+        grade_person,
+      </if>
+      <if test="gradeDate != null" >
+        grade_date,
+      </if>
+      <if test="gradePrice != null" >
+        grade_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gradeGmtCreate != null" >
+        #{gradeGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fradeGmtModified != null" >
+        #{fradeGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gradeAddressId != null" >
+        #{gradeAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeName != null" >
+        #{gradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeType != null" >
+        #{gradeType,jdbcType=VARCHAR},
+      </if>
+      <if test="gradePerson != null" >
+        #{gradePerson,jdbcType=INTEGER},
+      </if>
+      <if test="gradeDate != null" >
+        #{gradeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gradePrice != null" >
+        #{gradePrice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.GradeInfoExample" resultType="java.lang.Integer" >
+    select count(*) from grade_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update grade_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.gradeGmtCreate != null" >
+        grade_gmt_create = #{record.gradeGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fradeGmtModified != null" >
+        frade_gmt_modified = #{record.fradeGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gradeAddressId != null" >
+        grade_address_id = #{record.gradeAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeName != null" >
+        grade_name = #{record.gradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gradeType != null" >
+        grade_type = #{record.gradeType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gradePerson != null" >
+        grade_person = #{record.gradePerson,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeDate != null" >
+        grade_date = #{record.gradeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gradePrice != null" >
+        grade_price = #{record.gradePrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update grade_info
+    set id = #{record.id,jdbcType=BIGINT},
+      grade_gmt_create = #{record.gradeGmtCreate,jdbcType=TIMESTAMP},
+      frade_gmt_modified = #{record.fradeGmtModified,jdbcType=TIMESTAMP},
+      grade_address_id = #{record.gradeAddressId,jdbcType=INTEGER},
+      grade_name = #{record.gradeName,jdbcType=VARCHAR},
+      grade_type = #{record.gradeType,jdbcType=VARCHAR},
+      grade_person = #{record.gradePerson,jdbcType=INTEGER},
+      grade_date = #{record.gradeDate,jdbcType=TIMESTAMP},
+      grade_price = #{record.gradePrice,jdbcType=DECIMAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.GradeInfo" >
+    update grade_info
+    <set >
+      <if test="gradeGmtCreate != null" >
+        grade_gmt_create = #{gradeGmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fradeGmtModified != null" >
+        frade_gmt_modified = #{fradeGmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gradeAddressId != null" >
+        grade_address_id = #{gradeAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeName != null" >
+        grade_name = #{gradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeType != null" >
+        grade_type = #{gradeType,jdbcType=VARCHAR},
+      </if>
+      <if test="gradePerson != null" >
+        grade_person = #{gradePerson,jdbcType=INTEGER},
+      </if>
+      <if test="gradeDate != null" >
+        grade_date = #{gradeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gradePrice != null" >
+        grade_price = #{gradePrice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.GradeInfo" >
+    update grade_info
+    set grade_gmt_create = #{gradeGmtCreate,jdbcType=TIMESTAMP},
+      frade_gmt_modified = #{fradeGmtModified,jdbcType=TIMESTAMP},
+      grade_address_id = #{gradeAddressId,jdbcType=INTEGER},
+      grade_name = #{gradeName,jdbcType=VARCHAR},
+      grade_type = #{gradeType,jdbcType=VARCHAR},
+      grade_person = #{gradePerson,jdbcType=INTEGER},
+      grade_date = #{gradeDate,jdbcType=TIMESTAMP},
+      grade_price = #{gradePrice,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
