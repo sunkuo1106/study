@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class AdminLoginController {
@@ -14,10 +15,15 @@ public class AdminLoginController {
     @Resource
     AdminLoginService adminLoginService;
 
+    @RequestMapping("/")
+    public String ToLogin(){
+        return "login";
+    }
+
     @RequestMapping("/login")
-    @ResponseBody
-    public AdminLogin login(String adminName,String adminPassword){
+    public String login(String adminName, String adminPassword, HttpSession session){
         AdminLogin adminLogin = adminLoginService.AdminLogin(adminName, adminPassword);
-        return adminLogin;
+        session.setAttribute("admin",adminLogin);
+        return "index";
     }
 }
