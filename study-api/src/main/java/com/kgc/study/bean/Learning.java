@@ -1,17 +1,13 @@
 package com.kgc.study.bean;
 
-import java.util.Date;
-
 public class Learning {
     private Long id;
 
     private Integer courseId;
 
-    private Integer learCount;
-
     private String courseName;
 
-    private Date learUpdateTime;
+    private Integer logicDelete;
 
     public Long getId() {
         return id;
@@ -29,14 +25,6 @@ public class Learning {
         this.courseId = courseId;
     }
 
-    public Integer getLearCount() {
-        return learCount;
-    }
-
-    public void setLearCount(Integer learCount) {
-        this.learCount = learCount;
-    }
-
     public String getCourseName() {
         return courseName;
     }
@@ -45,11 +33,11 @@ public class Learning {
         this.courseName = courseName == null ? null : courseName.trim();
     }
 
-    public Date getLearUpdateTime() {
-        return learUpdateTime;
+    public Integer getLogicDelete() {
+        return logicDelete;
     }
 
-    public void setLearUpdateTime(Date learUpdateTime) {
-        this.learUpdateTime = learUpdateTime;
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

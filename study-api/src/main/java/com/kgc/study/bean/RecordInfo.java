@@ -5,9 +5,9 @@ import java.util.Date;
 public class RecordInfo {
     private Long id;
 
-    private Date recordGmtCreate;
+    private Date gmtCreate;
 
-    private Date recordGmtModified;
+    private Date gmtModified;
 
     private String recordTestName;
 
@@ -17,7 +17,11 @@ public class RecordInfo {
 
     private Integer recordTestCount;
 
-    private Integer recordUserId;
+    private Integer userId;
+
+    private String recordTestIdList;
+
+    private Integer logicDelete;
 
     public Long getId() {
         return id;
@@ -27,20 +31,20 @@ public class RecordInfo {
         this.id = id;
     }
 
-    public Date getRecordGmtCreate() {
-        return recordGmtCreate;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setRecordGmtCreate(Date recordGmtCreate) {
-        this.recordGmtCreate = recordGmtCreate;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public Date getRecordGmtModified() {
-        return recordGmtModified;
+    public Date getGmtModified() {
+        return gmtModified;
     }
 
-    public void setRecordGmtModified(Date recordGmtModified) {
-        this.recordGmtModified = recordGmtModified;
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
     public String getRecordTestName() {
@@ -75,11 +79,27 @@ public class RecordInfo {
         this.recordTestCount = recordTestCount;
     }
 
-    public Integer getRecordUserId() {
-        return recordUserId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setRecordUserId(Integer recordUserId) {
-        this.recordUserId = recordUserId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getRecordTestIdList() {
+        return recordTestIdList;
+    }
+
+    public void setRecordTestIdList(String recordTestIdList) {
+        this.recordTestIdList = recordTestIdList == null ? null : recordTestIdList.trim();
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

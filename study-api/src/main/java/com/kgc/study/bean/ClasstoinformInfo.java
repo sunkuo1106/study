@@ -5,17 +5,21 @@ import java.util.Date;
 public class ClasstoinformInfo {
     private Long id;
 
-    private Date ctfGmtCreate;
+    private Date gmtCreate;
 
-    private Date ctfGmtModified;
+    private Date gmtModified;
 
-    private Integer ctfAddressId;
+    private Integer agencyAddressId;
 
     private String ctfGradeId;
 
     private String ctfContext;
 
     private String ctfPic;
+
+    private Integer ctfGmtFounderId;
+
+    private Integer logicDelete;
 
     public Long getId() {
         return id;
@@ -25,28 +29,28 @@ public class ClasstoinformInfo {
         this.id = id;
     }
 
-    public Date getCtfGmtCreate() {
-        return ctfGmtCreate;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setCtfGmtCreate(Date ctfGmtCreate) {
-        this.ctfGmtCreate = ctfGmtCreate;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public Date getCtfGmtModified() {
-        return ctfGmtModified;
+    public Date getGmtModified() {
+        return gmtModified;
     }
 
-    public void setCtfGmtModified(Date ctfGmtModified) {
-        this.ctfGmtModified = ctfGmtModified;
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
-    public Integer getCtfAddressId() {
-        return ctfAddressId;
+    public Integer getAgencyAddressId() {
+        return agencyAddressId;
     }
 
-    public void setCtfAddressId(Integer ctfAddressId) {
-        this.ctfAddressId = ctfAddressId;
+    public void setAgencyAddressId(Integer agencyAddressId) {
+        this.agencyAddressId = agencyAddressId;
     }
 
     public String getCtfGradeId() {
@@ -71,5 +75,21 @@ public class ClasstoinformInfo {
 
     public void setCtfPic(String ctfPic) {
         this.ctfPic = ctfPic == null ? null : ctfPic.trim();
+    }
+
+    public Integer getCtfGmtFounderId() {
+        return ctfGmtFounderId;
+    }
+
+    public void setCtfGmtFounderId(Integer ctfGmtFounderId) {
+        this.ctfGmtFounderId = ctfGmtFounderId;
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

@@ -9,9 +9,9 @@ public class Course {
 
     private String courseSubjec;
 
-    private Date courseAddtime;
+    private Date courseStartTime;
 
-    private String courseTitle;
+    private String courseIntroduction;
 
     private String courseContent;
 
@@ -19,13 +19,17 @@ public class Course {
 
     private String courseVideoUrl;
 
-    private Date courseUpdateTime;
+    private Date courseEndUpdateTime;
 
     private Integer pageViewcount;
 
     private Date courseEndTime;
 
     private Long currId;
+
+    private Long teacherId;
+
+    private Integer logicDelete;
 
     public Long getId() {
         return id;
@@ -51,20 +55,20 @@ public class Course {
         this.courseSubjec = courseSubjec == null ? null : courseSubjec.trim();
     }
 
-    public Date getCourseAddtime() {
-        return courseAddtime;
+    public Date getCourseStartTime() {
+        return courseStartTime;
     }
 
-    public void setCourseAddtime(Date courseAddtime) {
-        this.courseAddtime = courseAddtime;
+    public void setCourseStartTime(Date courseStartTime) {
+        this.courseStartTime = courseStartTime;
     }
 
-    public String getCourseTitle() {
-        return courseTitle;
+    public String getCourseIntroduction() {
+        return courseIntroduction;
     }
 
-    public void setCourseTitle(String courseTitle) {
-        this.courseTitle = courseTitle == null ? null : courseTitle.trim();
+    public void setCourseIntroduction(String courseIntroduction) {
+        this.courseIntroduction = courseIntroduction == null ? null : courseIntroduction.trim();
     }
 
     public String getCourseContent() {
@@ -91,12 +95,12 @@ public class Course {
         this.courseVideoUrl = courseVideoUrl == null ? null : courseVideoUrl.trim();
     }
 
-    public Date getCourseUpdateTime() {
-        return courseUpdateTime;
+    public Date getCourseEndUpdateTime() {
+        return courseEndUpdateTime;
     }
 
-    public void setCourseUpdateTime(Date courseUpdateTime) {
-        this.courseUpdateTime = courseUpdateTime;
+    public void setCourseEndUpdateTime(Date courseEndUpdateTime) {
+        this.courseEndUpdateTime = courseEndUpdateTime;
     }
 
     public Integer getPageViewcount() {
@@ -121,5 +125,21 @@ public class Course {
 
     public void setCurrId(Long currId) {
         this.currId = currId;
+    }
+
+    public Long getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Long teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

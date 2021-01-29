@@ -3,12 +3,14 @@
 <mapper namespace="com.kgc.study.studytravelcoach.mapper.ClasstoinformInfoMapper" >
   <resultMap id="BaseResultMap" type="com.kgc.study.bean.ClasstoinformInfo" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="ctf_gmt_create" property="ctfGmtCreate" jdbcType="TIMESTAMP" />
-    <result column="ctf_gmt_modified" property="ctfGmtModified" jdbcType="TIMESTAMP" />
-    <result column="ctf_address_id" property="ctfAddressId" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="agency_address_id" property="agencyAddressId" jdbcType="INTEGER" />
     <result column="ctf_grade_id" property="ctfGradeId" jdbcType="VARCHAR" />
     <result column="ctf_context" property="ctfContext" jdbcType="VARCHAR" />
     <result column="ctf_pic" property="ctfPic" jdbcType="VARCHAR" />
+    <result column="ctf_gmt_founder_id" property="ctfGmtFounderId" jdbcType="INTEGER" />
+    <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,8 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, ctf_gmt_create, ctf_gmt_modified, ctf_address_id, ctf_grade_id, ctf_context, 
-    ctf_pic
+    id, gmt_create, gmt_modified, agency_address_id, ctf_grade_id, ctf_context, ctf_pic, 
+    ctf_gmt_founder_id, logic_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.ClasstoinformInfoExample" >
     select
@@ -103,12 +105,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.kgc.study.bean.ClasstoinformInfo" >
-    insert into classtoinform_info (id, ctf_gmt_create, ctf_gmt_modified, 
-      ctf_address_id, ctf_grade_id, ctf_context, 
-      ctf_pic)
-    values (#{id,jdbcType=BIGINT}, #{ctfGmtCreate,jdbcType=TIMESTAMP}, #{ctfGmtModified,jdbcType=TIMESTAMP}, 
-      #{ctfAddressId,jdbcType=INTEGER}, #{ctfGradeId,jdbcType=VARCHAR}, #{ctfContext,jdbcType=VARCHAR}, 
-      #{ctfPic,jdbcType=VARCHAR})
+    insert into classtoinform_info (id, gmt_create, gmt_modified, 
+      agency_address_id, ctf_grade_id, ctf_context, 
+      ctf_pic, ctf_gmt_founder_id, logic_delete
+      )
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{agencyAddressId,jdbcType=INTEGER}, #{ctfGradeId,jdbcType=VARCHAR}, #{ctfContext,jdbcType=VARCHAR}, 
+      #{ctfPic,jdbcType=VARCHAR}, #{ctfGmtFounderId,jdbcType=INTEGER}, #{logicDelete,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.ClasstoinformInfo" >
     insert into classtoinform_info
@@ -116,14 +120,14 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="ctfGmtCreate != null" >
-        ctf_gmt_create,
+      <if test="gmtCreate != null" >
+        gmt_create,
       </if>
-      <if test="ctfGmtModified != null" >
-        ctf_gmt_modified,
+      <if test="gmtModified != null" >
+        gmt_modified,
       </if>
-      <if test="ctfAddressId != null" >
-        ctf_address_id,
+      <if test="agencyAddressId != null" >
+        agency_address_id,
       </if>
       <if test="ctfGradeId != null" >
         ctf_grade_id,
@@ -134,19 +138,25 @@
       <if test="ctfPic != null" >
         ctf_pic,
       </if>
+      <if test="ctfGmtFounderId != null" >
+        ctf_gmt_founder_id,
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="ctfGmtCreate != null" >
-        #{ctfGmtCreate,jdbcType=TIMESTAMP},
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="ctfGmtModified != null" >
-        #{ctfGmtModified,jdbcType=TIMESTAMP},
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="ctfAddressId != null" >
-        #{ctfAddressId,jdbcType=INTEGER},
+      <if test="agencyAddressId != null" >
+        #{agencyAddressId,jdbcType=INTEGER},
       </if>
       <if test="ctfGradeId != null" >
         #{ctfGradeId,jdbcType=VARCHAR},
@@ -156,6 +166,12 @@
       </if>
       <if test="ctfPic != null" >
         #{ctfPic,jdbcType=VARCHAR},
+      </if>
+      <if test="ctfGmtFounderId != null" >
+        #{ctfGmtFounderId,jdbcType=INTEGER},
+      </if>
+      <if test="logicDelete != null" >
+        #{logicDelete,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -171,14 +187,14 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.ctfGmtCreate != null" >
-        ctf_gmt_create = #{record.ctfGmtCreate,jdbcType=TIMESTAMP},
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.ctfGmtModified != null" >
-        ctf_gmt_modified = #{record.ctfGmtModified,jdbcType=TIMESTAMP},
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.ctfAddressId != null" >
-        ctf_address_id = #{record.ctfAddressId,jdbcType=INTEGER},
+      <if test="record.agencyAddressId != null" >
+        agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER},
       </if>
       <if test="record.ctfGradeId != null" >
         ctf_grade_id = #{record.ctfGradeId,jdbcType=VARCHAR},
@@ -189,6 +205,12 @@
       <if test="record.ctfPic != null" >
         ctf_pic = #{record.ctfPic,jdbcType=VARCHAR},
       </if>
+      <if test="record.ctfGmtFounderId != null" >
+        ctf_gmt_founder_id = #{record.ctfGmtFounderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.logicDelete != null" >
+        logic_delete = #{record.logicDelete,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -197,12 +219,14 @@
   <update id="updateByExample" parameterType="map" >
     update classtoinform_info
     set id = #{record.id,jdbcType=BIGINT},
-      ctf_gmt_create = #{record.ctfGmtCreate,jdbcType=TIMESTAMP},
-      ctf_gmt_modified = #{record.ctfGmtModified,jdbcType=TIMESTAMP},
-      ctf_address_id = #{record.ctfAddressId,jdbcType=INTEGER},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER},
       ctf_grade_id = #{record.ctfGradeId,jdbcType=VARCHAR},
       ctf_context = #{record.ctfContext,jdbcType=VARCHAR},
-      ctf_pic = #{record.ctfPic,jdbcType=VARCHAR}
+      ctf_pic = #{record.ctfPic,jdbcType=VARCHAR},
+      ctf_gmt_founder_id = #{record.ctfGmtFounderId,jdbcType=INTEGER},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -210,14 +234,14 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.ClasstoinformInfo" >
     update classtoinform_info
     <set >
-      <if test="ctfGmtCreate != null" >
-        ctf_gmt_create = #{ctfGmtCreate,jdbcType=TIMESTAMP},
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="ctfGmtModified != null" >
-        ctf_gmt_modified = #{ctfGmtModified,jdbcType=TIMESTAMP},
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="ctfAddressId != null" >
-        ctf_address_id = #{ctfAddressId,jdbcType=INTEGER},
+      <if test="agencyAddressId != null" >
+        agency_address_id = #{agencyAddressId,jdbcType=INTEGER},
       </if>
       <if test="ctfGradeId != null" >
         ctf_grade_id = #{ctfGradeId,jdbcType=VARCHAR},
@@ -228,17 +252,25 @@
       <if test="ctfPic != null" >
         ctf_pic = #{ctfPic,jdbcType=VARCHAR},
       </if>
+      <if test="ctfGmtFounderId != null" >
+        ctf_gmt_founder_id = #{ctfGmtFounderId,jdbcType=INTEGER},
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete = #{logicDelete,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.ClasstoinformInfo" >
     update classtoinform_info
-    set ctf_gmt_create = #{ctfGmtCreate,jdbcType=TIMESTAMP},
-      ctf_gmt_modified = #{ctfGmtModified,jdbcType=TIMESTAMP},
-      ctf_address_id = #{ctfAddressId,jdbcType=INTEGER},
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      agency_address_id = #{agencyAddressId,jdbcType=INTEGER},
       ctf_grade_id = #{ctfGradeId,jdbcType=VARCHAR},
       ctf_context = #{ctfContext,jdbcType=VARCHAR},
-      ctf_pic = #{ctfPic,jdbcType=VARCHAR}
+      ctf_pic = #{ctfPic,jdbcType=VARCHAR},
+      ctf_gmt_founder_id = #{ctfGmtFounderId,jdbcType=INTEGER},
+      logic_delete = #{logicDelete,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

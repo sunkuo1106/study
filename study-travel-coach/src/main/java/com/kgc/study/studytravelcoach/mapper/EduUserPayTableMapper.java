@@ -11,13 +11,21 @@ public interface EduUserPayTableMapper {
 
     int deleteByExample(EduUserPayTableExample example);
 
+    int deleteByPrimaryKey(Long id);
+
     int insert(EduUserPayTable record);
 
     int insertSelective(EduUserPayTable record);
 
     List<EduUserPayTable> selectByExample(EduUserPayTableExample example);
 
+    EduUserPayTable selectByPrimaryKey(Long id);
+
     int updateByExampleSelective(@Param("record") EduUserPayTable record, @Param("example") EduUserPayTableExample example);
 
     int updateByExample(@Param("record") EduUserPayTable record, @Param("example") EduUserPayTableExample example);
+
+    int updateByPrimaryKeySelective(EduUserPayTable record);
+
+    int updateByPrimaryKey(EduUserPayTable record);
 }

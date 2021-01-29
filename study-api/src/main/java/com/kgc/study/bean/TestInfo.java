@@ -5,19 +5,15 @@ import java.util.Date;
 public class TestInfo {
     private Long id;
 
-    private Date testGmtCreate;
+    private Date gmtCreate;
 
-    private Date testGmtModified;
-
-    private String testName;
-
-    private Integer testQbId;
+    private Date gmtModified;
 
     private Date testTime;
 
     private Integer testScore;
 
-    private Integer testType;
+    private Integer testTyepe;
 
     private String testA;
 
@@ -31,6 +27,10 @@ public class TestInfo {
 
     private String testHints;
 
+    private String testCourseTitle;
+
+    private Integer logicDelete;
+
     public Long getId() {
         return id;
     }
@@ -39,36 +39,20 @@ public class TestInfo {
         this.id = id;
     }
 
-    public Date getTestGmtCreate() {
-        return testGmtCreate;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setTestGmtCreate(Date testGmtCreate) {
-        this.testGmtCreate = testGmtCreate;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public Date getTestGmtModified() {
-        return testGmtModified;
+    public Date getGmtModified() {
+        return gmtModified;
     }
 
-    public void setTestGmtModified(Date testGmtModified) {
-        this.testGmtModified = testGmtModified;
-    }
-
-    public String getTestName() {
-        return testName;
-    }
-
-    public void setTestName(String testName) {
-        this.testName = testName == null ? null : testName.trim();
-    }
-
-    public Integer getTestQbId() {
-        return testQbId;
-    }
-
-    public void setTestQbId(Integer testQbId) {
-        this.testQbId = testQbId;
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
     public Date getTestTime() {
@@ -87,12 +71,12 @@ public class TestInfo {
         this.testScore = testScore;
     }
 
-    public Integer getTestType() {
-        return testType;
+    public Integer getTestTyepe() {
+        return testTyepe;
     }
 
-    public void setTestType(Integer testType) {
-        this.testType = testType;
+    public void setTestTyepe(Integer testTyepe) {
+        this.testTyepe = testTyepe;
     }
 
     public String getTestA() {
@@ -141,5 +125,21 @@ public class TestInfo {
 
     public void setTestHints(String testHints) {
         this.testHints = testHints == null ? null : testHints.trim();
+    }
+
+    public String getTestCourseTitle() {
+        return testCourseTitle;
+    }
+
+    public void setTestCourseTitle(String testCourseTitle) {
+        this.testCourseTitle = testCourseTitle == null ? null : testCourseTitle.trim();
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

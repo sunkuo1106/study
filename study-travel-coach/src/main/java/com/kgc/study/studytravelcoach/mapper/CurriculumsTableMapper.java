@@ -11,13 +11,21 @@ public interface CurriculumsTableMapper {
 
     int deleteByExample(CurriculumsTableExample example);
 
+    int deleteByPrimaryKey(Long id);
+
     int insert(CurriculumsTable record);
 
     int insertSelective(CurriculumsTable record);
 
     List<CurriculumsTable> selectByExample(CurriculumsTableExample example);
 
+    CurriculumsTable selectByPrimaryKey(Long id);
+
     int updateByExampleSelective(@Param("record") CurriculumsTable record, @Param("example") CurriculumsTableExample example);
 
     int updateByExample(@Param("record") CurriculumsTable record, @Param("example") CurriculumsTableExample example);
+
+    int updateByPrimaryKeySelective(CurriculumsTable record);
+
+    int updateByPrimaryKey(CurriculumsTable record);
 }

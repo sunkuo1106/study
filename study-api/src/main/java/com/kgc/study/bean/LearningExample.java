@@ -1,7 +1,6 @@
 package com.kgc.study.bean;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class LearningExample {
@@ -225,66 +224,6 @@ public class LearningExample {
             return (Criteria) this;
         }
 
-        public Criteria andLearCountIsNull() {
-            addCriterion("lear_count is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountIsNotNull() {
-            addCriterion("lear_count is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountEqualTo(Integer value) {
-            addCriterion("lear_count =", value, "learCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountNotEqualTo(Integer value) {
-            addCriterion("lear_count <>", value, "learCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountGreaterThan(Integer value) {
-            addCriterion("lear_count >", value, "learCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("lear_count >=", value, "learCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountLessThan(Integer value) {
-            addCriterion("lear_count <", value, "learCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountLessThanOrEqualTo(Integer value) {
-            addCriterion("lear_count <=", value, "learCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountIn(List<Integer> values) {
-            addCriterion("lear_count in", values, "learCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountNotIn(List<Integer> values) {
-            addCriterion("lear_count not in", values, "learCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountBetween(Integer value1, Integer value2) {
-            addCriterion("lear_count between", value1, value2, "learCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearCountNotBetween(Integer value1, Integer value2) {
-            addCriterion("lear_count not between", value1, value2, "learCount");
-            return (Criteria) this;
-        }
-
         public Criteria andCourseNameIsNull() {
             addCriterion("course_name is null");
             return (Criteria) this;
@@ -355,63 +294,63 @@ public class LearningExample {
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeIsNull() {
-            addCriterion("lear_update_time is null");
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeIsNotNull() {
-            addCriterion("lear_update_time is not null");
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeEqualTo(Date value) {
-            addCriterion("lear_update_time =", value, "learUpdateTime");
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeNotEqualTo(Date value) {
-            addCriterion("lear_update_time <>", value, "learUpdateTime");
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeGreaterThan(Date value) {
-            addCriterion("lear_update_time >", value, "learUpdateTime");
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("lear_update_time >=", value, "learUpdateTime");
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeLessThan(Date value) {
-            addCriterion("lear_update_time <", value, "learUpdateTime");
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("lear_update_time <=", value, "learUpdateTime");
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeIn(List<Date> values) {
-            addCriterion("lear_update_time in", values, "learUpdateTime");
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeNotIn(List<Date> values) {
-            addCriterion("lear_update_time not in", values, "learUpdateTime");
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeBetween(Date value1, Date value2) {
-            addCriterion("lear_update_time between", value1, value2, "learUpdateTime");
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("lear_update_time not between", value1, value2, "learUpdateTime");
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
     }

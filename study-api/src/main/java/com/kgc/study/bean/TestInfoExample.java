@@ -165,253 +165,123 @@ public class TestInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateIsNull() {
-            addCriterion("test_gmt_create is null");
+        public Criteria andGmtCreateIsNull() {
+            addCriterion("gmt_create is null");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateIsNotNull() {
-            addCriterion("test_gmt_create is not null");
+        public Criteria andGmtCreateIsNotNull() {
+            addCriterion("gmt_create is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateEqualTo(Date value) {
-            addCriterion("test_gmt_create =", value, "testGmtCreate");
+        public Criteria andGmtCreateEqualTo(Date value) {
+            addCriterion("gmt_create =", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateNotEqualTo(Date value) {
-            addCriterion("test_gmt_create <>", value, "testGmtCreate");
+        public Criteria andGmtCreateNotEqualTo(Date value) {
+            addCriterion("gmt_create <>", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateGreaterThan(Date value) {
-            addCriterion("test_gmt_create >", value, "testGmtCreate");
+        public Criteria andGmtCreateGreaterThan(Date value) {
+            addCriterion("gmt_create >", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateGreaterThanOrEqualTo(Date value) {
-            addCriterion("test_gmt_create >=", value, "testGmtCreate");
+        public Criteria andGmtCreateGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_create >=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateLessThan(Date value) {
-            addCriterion("test_gmt_create <", value, "testGmtCreate");
+        public Criteria andGmtCreateLessThan(Date value) {
+            addCriterion("gmt_create <", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateLessThanOrEqualTo(Date value) {
-            addCriterion("test_gmt_create <=", value, "testGmtCreate");
+        public Criteria andGmtCreateLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_create <=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateIn(List<Date> values) {
-            addCriterion("test_gmt_create in", values, "testGmtCreate");
+        public Criteria andGmtCreateIn(List<Date> values) {
+            addCriterion("gmt_create in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateNotIn(List<Date> values) {
-            addCriterion("test_gmt_create not in", values, "testGmtCreate");
+        public Criteria andGmtCreateNotIn(List<Date> values) {
+            addCriterion("gmt_create not in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateBetween(Date value1, Date value2) {
-            addCriterion("test_gmt_create between", value1, value2, "testGmtCreate");
+        public Criteria andGmtCreateBetween(Date value1, Date value2) {
+            addCriterion("gmt_create between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtCreateNotBetween(Date value1, Date value2) {
-            addCriterion("test_gmt_create not between", value1, value2, "testGmtCreate");
+        public Criteria andGmtCreateNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_create not between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedIsNull() {
-            addCriterion("test_gmt_modified is null");
+        public Criteria andGmtModifiedIsNull() {
+            addCriterion("gmt_modified is null");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedIsNotNull() {
-            addCriterion("test_gmt_modified is not null");
+        public Criteria andGmtModifiedIsNotNull() {
+            addCriterion("gmt_modified is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedEqualTo(Date value) {
-            addCriterion("test_gmt_modified =", value, "testGmtModified");
+        public Criteria andGmtModifiedEqualTo(Date value) {
+            addCriterion("gmt_modified =", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedNotEqualTo(Date value) {
-            addCriterion("test_gmt_modified <>", value, "testGmtModified");
+        public Criteria andGmtModifiedNotEqualTo(Date value) {
+            addCriterion("gmt_modified <>", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedGreaterThan(Date value) {
-            addCriterion("test_gmt_modified >", value, "testGmtModified");
+        public Criteria andGmtModifiedGreaterThan(Date value) {
+            addCriterion("gmt_modified >", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedGreaterThanOrEqualTo(Date value) {
-            addCriterion("test_gmt_modified >=", value, "testGmtModified");
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified >=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedLessThan(Date value) {
-            addCriterion("test_gmt_modified <", value, "testGmtModified");
+        public Criteria andGmtModifiedLessThan(Date value) {
+            addCriterion("gmt_modified <", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedLessThanOrEqualTo(Date value) {
-            addCriterion("test_gmt_modified <=", value, "testGmtModified");
+        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified <=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedIn(List<Date> values) {
-            addCriterion("test_gmt_modified in", values, "testGmtModified");
+        public Criteria andGmtModifiedIn(List<Date> values) {
+            addCriterion("gmt_modified in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedNotIn(List<Date> values) {
-            addCriterion("test_gmt_modified not in", values, "testGmtModified");
+        public Criteria andGmtModifiedNotIn(List<Date> values) {
+            addCriterion("gmt_modified not in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedBetween(Date value1, Date value2) {
-            addCriterion("test_gmt_modified between", value1, value2, "testGmtModified");
+        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andTestGmtModifiedNotBetween(Date value1, Date value2) {
-            addCriterion("test_gmt_modified not between", value1, value2, "testGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameIsNull() {
-            addCriterion("test_name is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameIsNotNull() {
-            addCriterion("test_name is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameEqualTo(String value) {
-            addCriterion("test_name =", value, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameNotEqualTo(String value) {
-            addCriterion("test_name <>", value, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameGreaterThan(String value) {
-            addCriterion("test_name >", value, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameGreaterThanOrEqualTo(String value) {
-            addCriterion("test_name >=", value, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameLessThan(String value) {
-            addCriterion("test_name <", value, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameLessThanOrEqualTo(String value) {
-            addCriterion("test_name <=", value, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameLike(String value) {
-            addCriterion("test_name like", value, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameNotLike(String value) {
-            addCriterion("test_name not like", value, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameIn(List<String> values) {
-            addCriterion("test_name in", values, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameNotIn(List<String> values) {
-            addCriterion("test_name not in", values, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameBetween(String value1, String value2) {
-            addCriterion("test_name between", value1, value2, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestNameNotBetween(String value1, String value2) {
-            addCriterion("test_name not between", value1, value2, "testName");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdIsNull() {
-            addCriterion("test_qb_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdIsNotNull() {
-            addCriterion("test_qb_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdEqualTo(Integer value) {
-            addCriterion("test_qb_id =", value, "testQbId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdNotEqualTo(Integer value) {
-            addCriterion("test_qb_id <>", value, "testQbId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdGreaterThan(Integer value) {
-            addCriterion("test_qb_id >", value, "testQbId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("test_qb_id >=", value, "testQbId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdLessThan(Integer value) {
-            addCriterion("test_qb_id <", value, "testQbId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdLessThanOrEqualTo(Integer value) {
-            addCriterion("test_qb_id <=", value, "testQbId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdIn(List<Integer> values) {
-            addCriterion("test_qb_id in", values, "testQbId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdNotIn(List<Integer> values) {
-            addCriterion("test_qb_id not in", values, "testQbId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdBetween(Integer value1, Integer value2) {
-            addCriterion("test_qb_id between", value1, value2, "testQbId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTestQbIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("test_qb_id not between", value1, value2, "testQbId");
+        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
@@ -535,63 +405,63 @@ public class TestInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeIsNull() {
-            addCriterion("test_type is null");
+        public Criteria andTestTyepeIsNull() {
+            addCriterion("test_tyepe is null");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeIsNotNull() {
-            addCriterion("test_type is not null");
+        public Criteria andTestTyepeIsNotNull() {
+            addCriterion("test_tyepe is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeEqualTo(Integer value) {
-            addCriterion("test_type =", value, "testType");
+        public Criteria andTestTyepeEqualTo(Integer value) {
+            addCriterion("test_tyepe =", value, "testTyepe");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeNotEqualTo(Integer value) {
-            addCriterion("test_type <>", value, "testType");
+        public Criteria andTestTyepeNotEqualTo(Integer value) {
+            addCriterion("test_tyepe <>", value, "testTyepe");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeGreaterThan(Integer value) {
-            addCriterion("test_type >", value, "testType");
+        public Criteria andTestTyepeGreaterThan(Integer value) {
+            addCriterion("test_tyepe >", value, "testTyepe");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("test_type >=", value, "testType");
+        public Criteria andTestTyepeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("test_tyepe >=", value, "testTyepe");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeLessThan(Integer value) {
-            addCriterion("test_type <", value, "testType");
+        public Criteria andTestTyepeLessThan(Integer value) {
+            addCriterion("test_tyepe <", value, "testTyepe");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("test_type <=", value, "testType");
+        public Criteria andTestTyepeLessThanOrEqualTo(Integer value) {
+            addCriterion("test_tyepe <=", value, "testTyepe");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeIn(List<Integer> values) {
-            addCriterion("test_type in", values, "testType");
+        public Criteria andTestTyepeIn(List<Integer> values) {
+            addCriterion("test_tyepe in", values, "testTyepe");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeNotIn(List<Integer> values) {
-            addCriterion("test_type not in", values, "testType");
+        public Criteria andTestTyepeNotIn(List<Integer> values) {
+            addCriterion("test_tyepe not in", values, "testTyepe");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeBetween(Integer value1, Integer value2) {
-            addCriterion("test_type between", value1, value2, "testType");
+        public Criteria andTestTyepeBetween(Integer value1, Integer value2) {
+            addCriterion("test_tyepe between", value1, value2, "testTyepe");
             return (Criteria) this;
         }
 
-        public Criteria andTestTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("test_type not between", value1, value2, "testType");
+        public Criteria andTestTyepeNotBetween(Integer value1, Integer value2) {
+            addCriterion("test_tyepe not between", value1, value2, "testTyepe");
             return (Criteria) this;
         }
 
@@ -1012,6 +882,136 @@ public class TestInfoExample {
 
         public Criteria andTestHintsNotBetween(String value1, String value2) {
             addCriterion("test_hints not between", value1, value2, "testHints");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleIsNull() {
+            addCriterion("test_course_title is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleIsNotNull() {
+            addCriterion("test_course_title is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleEqualTo(String value) {
+            addCriterion("test_course_title =", value, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleNotEqualTo(String value) {
+            addCriterion("test_course_title <>", value, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleGreaterThan(String value) {
+            addCriterion("test_course_title >", value, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleGreaterThanOrEqualTo(String value) {
+            addCriterion("test_course_title >=", value, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleLessThan(String value) {
+            addCriterion("test_course_title <", value, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleLessThanOrEqualTo(String value) {
+            addCriterion("test_course_title <=", value, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleLike(String value) {
+            addCriterion("test_course_title like", value, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleNotLike(String value) {
+            addCriterion("test_course_title not like", value, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleIn(List<String> values) {
+            addCriterion("test_course_title in", values, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleNotIn(List<String> values) {
+            addCriterion("test_course_title not in", values, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleBetween(String value1, String value2) {
+            addCriterion("test_course_title between", value1, value2, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestCourseTitleNotBetween(String value1, String value2) {
+            addCriterion("test_course_title not between", value1, value2, "testCourseTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
     }

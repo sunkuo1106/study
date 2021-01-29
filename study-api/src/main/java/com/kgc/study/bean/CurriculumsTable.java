@@ -3,22 +3,24 @@ package com.kgc.study.bean;
 import java.util.Date;
 
 public class CurriculumsTable {
-    private Long currId;
+    private Long id;
 
     private String currName;
 
     private Long currMgrId;
 
-    private Date courseSubjectGmtCreate;
+    private Date gmtCreate;
 
-    private Date courseSubjectGmtModified;
+    private Date gmtModified;
 
-    public Long getCurrId() {
-        return currId;
+    private Integer logicDelete;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setCurrId(Long currId) {
-        this.currId = currId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCurrName() {
@@ -37,19 +39,27 @@ public class CurriculumsTable {
         this.currMgrId = currMgrId;
     }
 
-    public Date getCourseSubjectGmtCreate() {
-        return courseSubjectGmtCreate;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setCourseSubjectGmtCreate(Date courseSubjectGmtCreate) {
-        this.courseSubjectGmtCreate = courseSubjectGmtCreate;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public Date getCourseSubjectGmtModified() {
-        return courseSubjectGmtModified;
+    public Date getGmtModified() {
+        return gmtModified;
     }
 
-    public void setCourseSubjectGmtModified(Date courseSubjectGmtModified) {
-        this.courseSubjectGmtModified = courseSubjectGmtModified;
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

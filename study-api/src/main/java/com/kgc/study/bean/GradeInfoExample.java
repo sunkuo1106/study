@@ -165,183 +165,183 @@ public class GradeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateIsNull() {
-            addCriterion("grade_gmt_create is null");
+        public Criteria andGmtCreateIsNull() {
+            addCriterion("gmt_create is null");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateIsNotNull() {
-            addCriterion("grade_gmt_create is not null");
+        public Criteria andGmtCreateIsNotNull() {
+            addCriterion("gmt_create is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateEqualTo(Date value) {
-            addCriterion("grade_gmt_create =", value, "gradeGmtCreate");
+        public Criteria andGmtCreateEqualTo(Date value) {
+            addCriterion("gmt_create =", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateNotEqualTo(Date value) {
-            addCriterion("grade_gmt_create <>", value, "gradeGmtCreate");
+        public Criteria andGmtCreateNotEqualTo(Date value) {
+            addCriterion("gmt_create <>", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateGreaterThan(Date value) {
-            addCriterion("grade_gmt_create >", value, "gradeGmtCreate");
+        public Criteria andGmtCreateGreaterThan(Date value) {
+            addCriterion("gmt_create >", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateGreaterThanOrEqualTo(Date value) {
-            addCriterion("grade_gmt_create >=", value, "gradeGmtCreate");
+        public Criteria andGmtCreateGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_create >=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateLessThan(Date value) {
-            addCriterion("grade_gmt_create <", value, "gradeGmtCreate");
+        public Criteria andGmtCreateLessThan(Date value) {
+            addCriterion("gmt_create <", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateLessThanOrEqualTo(Date value) {
-            addCriterion("grade_gmt_create <=", value, "gradeGmtCreate");
+        public Criteria andGmtCreateLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_create <=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateIn(List<Date> values) {
-            addCriterion("grade_gmt_create in", values, "gradeGmtCreate");
+        public Criteria andGmtCreateIn(List<Date> values) {
+            addCriterion("gmt_create in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateNotIn(List<Date> values) {
-            addCriterion("grade_gmt_create not in", values, "gradeGmtCreate");
+        public Criteria andGmtCreateNotIn(List<Date> values) {
+            addCriterion("gmt_create not in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateBetween(Date value1, Date value2) {
-            addCriterion("grade_gmt_create between", value1, value2, "gradeGmtCreate");
+        public Criteria andGmtCreateBetween(Date value1, Date value2) {
+            addCriterion("gmt_create between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGradeGmtCreateNotBetween(Date value1, Date value2) {
-            addCriterion("grade_gmt_create not between", value1, value2, "gradeGmtCreate");
+        public Criteria andGmtCreateNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_create not between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedIsNull() {
-            addCriterion("frade_gmt_modified is null");
+        public Criteria andGmtModifiedIsNull() {
+            addCriterion("gmt_modified is null");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedIsNotNull() {
-            addCriterion("frade_gmt_modified is not null");
+        public Criteria andGmtModifiedIsNotNull() {
+            addCriterion("gmt_modified is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedEqualTo(Date value) {
-            addCriterion("frade_gmt_modified =", value, "fradeGmtModified");
+        public Criteria andGmtModifiedEqualTo(Date value) {
+            addCriterion("gmt_modified =", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedNotEqualTo(Date value) {
-            addCriterion("frade_gmt_modified <>", value, "fradeGmtModified");
+        public Criteria andGmtModifiedNotEqualTo(Date value) {
+            addCriterion("gmt_modified <>", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedGreaterThan(Date value) {
-            addCriterion("frade_gmt_modified >", value, "fradeGmtModified");
+        public Criteria andGmtModifiedGreaterThan(Date value) {
+            addCriterion("gmt_modified >", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedGreaterThanOrEqualTo(Date value) {
-            addCriterion("frade_gmt_modified >=", value, "fradeGmtModified");
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified >=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedLessThan(Date value) {
-            addCriterion("frade_gmt_modified <", value, "fradeGmtModified");
+        public Criteria andGmtModifiedLessThan(Date value) {
+            addCriterion("gmt_modified <", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedLessThanOrEqualTo(Date value) {
-            addCriterion("frade_gmt_modified <=", value, "fradeGmtModified");
+        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified <=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedIn(List<Date> values) {
-            addCriterion("frade_gmt_modified in", values, "fradeGmtModified");
+        public Criteria andGmtModifiedIn(List<Date> values) {
+            addCriterion("gmt_modified in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedNotIn(List<Date> values) {
-            addCriterion("frade_gmt_modified not in", values, "fradeGmtModified");
+        public Criteria andGmtModifiedNotIn(List<Date> values) {
+            addCriterion("gmt_modified not in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedBetween(Date value1, Date value2) {
-            addCriterion("frade_gmt_modified between", value1, value2, "fradeGmtModified");
+        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andFradeGmtModifiedNotBetween(Date value1, Date value2) {
-            addCriterion("frade_gmt_modified not between", value1, value2, "fradeGmtModified");
+        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdIsNull() {
-            addCriterion("grade_address_id is null");
+        public Criteria andAgencyAddressIdIsNull() {
+            addCriterion("agency_address_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdIsNotNull() {
-            addCriterion("grade_address_id is not null");
+        public Criteria andAgencyAddressIdIsNotNull() {
+            addCriterion("agency_address_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdEqualTo(Integer value) {
-            addCriterion("grade_address_id =", value, "gradeAddressId");
+        public Criteria andAgencyAddressIdEqualTo(Integer value) {
+            addCriterion("agency_address_id =", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdNotEqualTo(Integer value) {
-            addCriterion("grade_address_id <>", value, "gradeAddressId");
+        public Criteria andAgencyAddressIdNotEqualTo(Integer value) {
+            addCriterion("agency_address_id <>", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdGreaterThan(Integer value) {
-            addCriterion("grade_address_id >", value, "gradeAddressId");
+        public Criteria andAgencyAddressIdGreaterThan(Integer value) {
+            addCriterion("agency_address_id >", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("grade_address_id >=", value, "gradeAddressId");
+        public Criteria andAgencyAddressIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id >=", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdLessThan(Integer value) {
-            addCriterion("grade_address_id <", value, "gradeAddressId");
+        public Criteria andAgencyAddressIdLessThan(Integer value) {
+            addCriterion("agency_address_id <", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdLessThanOrEqualTo(Integer value) {
-            addCriterion("grade_address_id <=", value, "gradeAddressId");
+        public Criteria andAgencyAddressIdLessThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id <=", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdIn(List<Integer> values) {
-            addCriterion("grade_address_id in", values, "gradeAddressId");
+        public Criteria andAgencyAddressIdIn(List<Integer> values) {
+            addCriterion("agency_address_id in", values, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdNotIn(List<Integer> values) {
-            addCriterion("grade_address_id not in", values, "gradeAddressId");
+        public Criteria andAgencyAddressIdNotIn(List<Integer> values) {
+            addCriterion("agency_address_id not in", values, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdBetween(Integer value1, Integer value2) {
-            addCriterion("grade_address_id between", value1, value2, "gradeAddressId");
+        public Criteria andAgencyAddressIdBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id between", value1, value2, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeAddressIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("grade_address_id not between", value1, value2, "gradeAddressId");
+        public Criteria andAgencyAddressIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id not between", value1, value2, "agencyAddressId");
             return (Criteria) this;
         }
 
@@ -415,73 +415,63 @@ public class GradeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeIsNull() {
-            addCriterion("grade_type is null");
+        public Criteria andGradeTypeIdIsNull() {
+            addCriterion("grade_type_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeIsNotNull() {
-            addCriterion("grade_type is not null");
+        public Criteria andGradeTypeIdIsNotNull() {
+            addCriterion("grade_type_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeEqualTo(String value) {
-            addCriterion("grade_type =", value, "gradeType");
+        public Criteria andGradeTypeIdEqualTo(Integer value) {
+            addCriterion("grade_type_id =", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeNotEqualTo(String value) {
-            addCriterion("grade_type <>", value, "gradeType");
+        public Criteria andGradeTypeIdNotEqualTo(Integer value) {
+            addCriterion("grade_type_id <>", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeGreaterThan(String value) {
-            addCriterion("grade_type >", value, "gradeType");
+        public Criteria andGradeTypeIdGreaterThan(Integer value) {
+            addCriterion("grade_type_id >", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeGreaterThanOrEqualTo(String value) {
-            addCriterion("grade_type >=", value, "gradeType");
+        public Criteria andGradeTypeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("grade_type_id >=", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeLessThan(String value) {
-            addCriterion("grade_type <", value, "gradeType");
+        public Criteria andGradeTypeIdLessThan(Integer value) {
+            addCriterion("grade_type_id <", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeLessThanOrEqualTo(String value) {
-            addCriterion("grade_type <=", value, "gradeType");
+        public Criteria andGradeTypeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("grade_type_id <=", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeLike(String value) {
-            addCriterion("grade_type like", value, "gradeType");
+        public Criteria andGradeTypeIdIn(List<Integer> values) {
+            addCriterion("grade_type_id in", values, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeNotLike(String value) {
-            addCriterion("grade_type not like", value, "gradeType");
+        public Criteria andGradeTypeIdNotIn(List<Integer> values) {
+            addCriterion("grade_type_id not in", values, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeIn(List<String> values) {
-            addCriterion("grade_type in", values, "gradeType");
+        public Criteria andGradeTypeIdBetween(Integer value1, Integer value2) {
+            addCriterion("grade_type_id between", value1, value2, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andGradeTypeNotIn(List<String> values) {
-            addCriterion("grade_type not in", values, "gradeType");
-            return (Criteria) this;
-        }
-
-        public Criteria andGradeTypeBetween(String value1, String value2) {
-            addCriterion("grade_type between", value1, value2, "gradeType");
-            return (Criteria) this;
-        }
-
-        public Criteria andGradeTypeNotBetween(String value1, String value2) {
-            addCriterion("grade_type not between", value1, value2, "gradeType");
+        public Criteria andGradeTypeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("grade_type_id not between", value1, value2, "gradeTypeId");
             return (Criteria) this;
         }
 
@@ -545,123 +535,183 @@ public class GradeInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateIsNull() {
-            addCriterion("grade_date is null");
+        public Criteria andGradeStartTimeIsNull() {
+            addCriterion("grade_start_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateIsNotNull() {
-            addCriterion("grade_date is not null");
+        public Criteria andGradeStartTimeIsNotNull() {
+            addCriterion("grade_start_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateEqualTo(Date value) {
-            addCriterion("grade_date =", value, "gradeDate");
+        public Criteria andGradeStartTimeEqualTo(Date value) {
+            addCriterion("grade_start_time =", value, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateNotEqualTo(Date value) {
-            addCriterion("grade_date <>", value, "gradeDate");
+        public Criteria andGradeStartTimeNotEqualTo(Date value) {
+            addCriterion("grade_start_time <>", value, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateGreaterThan(Date value) {
-            addCriterion("grade_date >", value, "gradeDate");
+        public Criteria andGradeStartTimeGreaterThan(Date value) {
+            addCriterion("grade_start_time >", value, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateGreaterThanOrEqualTo(Date value) {
-            addCriterion("grade_date >=", value, "gradeDate");
+        public Criteria andGradeStartTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("grade_start_time >=", value, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateLessThan(Date value) {
-            addCriterion("grade_date <", value, "gradeDate");
+        public Criteria andGradeStartTimeLessThan(Date value) {
+            addCriterion("grade_start_time <", value, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateLessThanOrEqualTo(Date value) {
-            addCriterion("grade_date <=", value, "gradeDate");
+        public Criteria andGradeStartTimeLessThanOrEqualTo(Date value) {
+            addCriterion("grade_start_time <=", value, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateIn(List<Date> values) {
-            addCriterion("grade_date in", values, "gradeDate");
+        public Criteria andGradeStartTimeIn(List<Date> values) {
+            addCriterion("grade_start_time in", values, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateNotIn(List<Date> values) {
-            addCriterion("grade_date not in", values, "gradeDate");
+        public Criteria andGradeStartTimeNotIn(List<Date> values) {
+            addCriterion("grade_start_time not in", values, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateBetween(Date value1, Date value2) {
-            addCriterion("grade_date between", value1, value2, "gradeDate");
+        public Criteria andGradeStartTimeBetween(Date value1, Date value2) {
+            addCriterion("grade_start_time between", value1, value2, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradeDateNotBetween(Date value1, Date value2) {
-            addCriterion("grade_date not between", value1, value2, "gradeDate");
+        public Criteria andGradeStartTimeNotBetween(Date value1, Date value2) {
+            addCriterion("grade_start_time not between", value1, value2, "gradeStartTime");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceIsNull() {
-            addCriterion("grade_price is null");
+        public Criteria andGradeGmtFounderIdIsNull() {
+            addCriterion("grade_gmt_founder_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceIsNotNull() {
-            addCriterion("grade_price is not null");
+        public Criteria andGradeGmtFounderIdIsNotNull() {
+            addCriterion("grade_gmt_founder_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceEqualTo(Long value) {
-            addCriterion("grade_price =", value, "gradePrice");
+        public Criteria andGradeGmtFounderIdEqualTo(Integer value) {
+            addCriterion("grade_gmt_founder_id =", value, "gradeGmtFounderId");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceNotEqualTo(Long value) {
-            addCriterion("grade_price <>", value, "gradePrice");
+        public Criteria andGradeGmtFounderIdNotEqualTo(Integer value) {
+            addCriterion("grade_gmt_founder_id <>", value, "gradeGmtFounderId");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceGreaterThan(Long value) {
-            addCriterion("grade_price >", value, "gradePrice");
+        public Criteria andGradeGmtFounderIdGreaterThan(Integer value) {
+            addCriterion("grade_gmt_founder_id >", value, "gradeGmtFounderId");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceGreaterThanOrEqualTo(Long value) {
-            addCriterion("grade_price >=", value, "gradePrice");
+        public Criteria andGradeGmtFounderIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("grade_gmt_founder_id >=", value, "gradeGmtFounderId");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceLessThan(Long value) {
-            addCriterion("grade_price <", value, "gradePrice");
+        public Criteria andGradeGmtFounderIdLessThan(Integer value) {
+            addCriterion("grade_gmt_founder_id <", value, "gradeGmtFounderId");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceLessThanOrEqualTo(Long value) {
-            addCriterion("grade_price <=", value, "gradePrice");
+        public Criteria andGradeGmtFounderIdLessThanOrEqualTo(Integer value) {
+            addCriterion("grade_gmt_founder_id <=", value, "gradeGmtFounderId");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceIn(List<Long> values) {
-            addCriterion("grade_price in", values, "gradePrice");
+        public Criteria andGradeGmtFounderIdIn(List<Integer> values) {
+            addCriterion("grade_gmt_founder_id in", values, "gradeGmtFounderId");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceNotIn(List<Long> values) {
-            addCriterion("grade_price not in", values, "gradePrice");
+        public Criteria andGradeGmtFounderIdNotIn(List<Integer> values) {
+            addCriterion("grade_gmt_founder_id not in", values, "gradeGmtFounderId");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceBetween(Long value1, Long value2) {
-            addCriterion("grade_price between", value1, value2, "gradePrice");
+        public Criteria andGradeGmtFounderIdBetween(Integer value1, Integer value2) {
+            addCriterion("grade_gmt_founder_id between", value1, value2, "gradeGmtFounderId");
             return (Criteria) this;
         }
 
-        public Criteria andGradePriceNotBetween(Long value1, Long value2) {
-            addCriterion("grade_price not between", value1, value2, "gradePrice");
+        public Criteria andGradeGmtFounderIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("grade_gmt_founder_id not between", value1, value2, "gradeGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
     }

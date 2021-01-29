@@ -115,52 +115,52 @@ public class EduUserOrderItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
+        public Criteria andIdEqualTo(Long value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
+        public Criteria andIdNotEqualTo(Long value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
+        public Criteria andIdGreaterThan(Long value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
+        public Criteria andIdLessThan(Long value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
+        public Criteria andIdLessThanOrEqualTo(Long value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
+        public Criteria andIdIn(List<Long> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
+        public Criteria andIdNotIn(List<Long> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
+        public Criteria andIdBetween(Long value1, Long value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -495,73 +495,133 @@ public class EduUserOrderItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassIsNull() {
-            addCriterion("edu_order_class is null");
+        public Criteria andAgencyAddressIdIsNull() {
+            addCriterion("agency_address_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassIsNotNull() {
-            addCriterion("edu_order_class is not null");
+        public Criteria andAgencyAddressIdIsNotNull() {
+            addCriterion("agency_address_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassEqualTo(String value) {
-            addCriterion("edu_order_class =", value, "eduOrderClass");
+        public Criteria andAgencyAddressIdEqualTo(Integer value) {
+            addCriterion("agency_address_id =", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassNotEqualTo(String value) {
-            addCriterion("edu_order_class <>", value, "eduOrderClass");
+        public Criteria andAgencyAddressIdNotEqualTo(Integer value) {
+            addCriterion("agency_address_id <>", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassGreaterThan(String value) {
-            addCriterion("edu_order_class >", value, "eduOrderClass");
+        public Criteria andAgencyAddressIdGreaterThan(Integer value) {
+            addCriterion("agency_address_id >", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassGreaterThanOrEqualTo(String value) {
-            addCriterion("edu_order_class >=", value, "eduOrderClass");
+        public Criteria andAgencyAddressIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id >=", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassLessThan(String value) {
-            addCriterion("edu_order_class <", value, "eduOrderClass");
+        public Criteria andAgencyAddressIdLessThan(Integer value) {
+            addCriterion("agency_address_id <", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassLessThanOrEqualTo(String value) {
-            addCriterion("edu_order_class <=", value, "eduOrderClass");
+        public Criteria andAgencyAddressIdLessThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id <=", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassLike(String value) {
-            addCriterion("edu_order_class like", value, "eduOrderClass");
+        public Criteria andAgencyAddressIdIn(List<Integer> values) {
+            addCriterion("agency_address_id in", values, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassNotLike(String value) {
-            addCriterion("edu_order_class not like", value, "eduOrderClass");
+        public Criteria andAgencyAddressIdNotIn(List<Integer> values) {
+            addCriterion("agency_address_id not in", values, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassIn(List<String> values) {
-            addCriterion("edu_order_class in", values, "eduOrderClass");
+        public Criteria andAgencyAddressIdBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id between", value1, value2, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassNotIn(List<String> values) {
-            addCriterion("edu_order_class not in", values, "eduOrderClass");
+        public Criteria andAgencyAddressIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id not between", value1, value2, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassBetween(String value1, String value2) {
-            addCriterion("edu_order_class between", value1, value2, "eduOrderClass");
+        public Criteria andAgencyAddressNameIsNull() {
+            addCriterion("agency_address_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassNotBetween(String value1, String value2) {
-            addCriterion("edu_order_class not between", value1, value2, "eduOrderClass");
+        public Criteria andAgencyAddressNameIsNotNull() {
+            addCriterion("agency_address_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameEqualTo(String value) {
+            addCriterion("agency_address_name =", value, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameNotEqualTo(String value) {
+            addCriterion("agency_address_name <>", value, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameGreaterThan(String value) {
+            addCriterion("agency_address_name >", value, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameGreaterThanOrEqualTo(String value) {
+            addCriterion("agency_address_name >=", value, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameLessThan(String value) {
+            addCriterion("agency_address_name <", value, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameLessThanOrEqualTo(String value) {
+            addCriterion("agency_address_name <=", value, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameLike(String value) {
+            addCriterion("agency_address_name like", value, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameNotLike(String value) {
+            addCriterion("agency_address_name not like", value, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameIn(List<String> values) {
+            addCriterion("agency_address_name in", values, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameNotIn(List<String> values) {
+            addCriterion("agency_address_name not in", values, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameBetween(String value1, String value2) {
+            addCriterion("agency_address_name between", value1, value2, "agencyAddressName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressNameNotBetween(String value1, String value2) {
+            addCriterion("agency_address_name not between", value1, value2, "agencyAddressName");
             return (Criteria) this;
         }
 
@@ -645,62 +705,52 @@ public class EduUserOrderItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceEqualTo(String value) {
+        public Criteria andEduOrderClassPriceEqualTo(Long value) {
             addCriterion("edu_order_class_price =", value, "eduOrderClassPrice");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceNotEqualTo(String value) {
+        public Criteria andEduOrderClassPriceNotEqualTo(Long value) {
             addCriterion("edu_order_class_price <>", value, "eduOrderClassPrice");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceGreaterThan(String value) {
+        public Criteria andEduOrderClassPriceGreaterThan(Long value) {
             addCriterion("edu_order_class_price >", value, "eduOrderClassPrice");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceGreaterThanOrEqualTo(String value) {
+        public Criteria andEduOrderClassPriceGreaterThanOrEqualTo(Long value) {
             addCriterion("edu_order_class_price >=", value, "eduOrderClassPrice");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceLessThan(String value) {
+        public Criteria andEduOrderClassPriceLessThan(Long value) {
             addCriterion("edu_order_class_price <", value, "eduOrderClassPrice");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceLessThanOrEqualTo(String value) {
+        public Criteria andEduOrderClassPriceLessThanOrEqualTo(Long value) {
             addCriterion("edu_order_class_price <=", value, "eduOrderClassPrice");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceLike(String value) {
-            addCriterion("edu_order_class_price like", value, "eduOrderClassPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduOrderClassPriceNotLike(String value) {
-            addCriterion("edu_order_class_price not like", value, "eduOrderClassPrice");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduOrderClassPriceIn(List<String> values) {
+        public Criteria andEduOrderClassPriceIn(List<Long> values) {
             addCriterion("edu_order_class_price in", values, "eduOrderClassPrice");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceNotIn(List<String> values) {
+        public Criteria andEduOrderClassPriceNotIn(List<Long> values) {
             addCriterion("edu_order_class_price not in", values, "eduOrderClassPrice");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceBetween(String value1, String value2) {
+        public Criteria andEduOrderClassPriceBetween(Long value1, Long value2) {
             addCriterion("edu_order_class_price between", value1, value2, "eduOrderClassPrice");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderClassPriceNotBetween(String value1, String value2) {
+        public Criteria andEduOrderClassPriceNotBetween(Long value1, Long value2) {
             addCriterion("edu_order_class_price not between", value1, value2, "eduOrderClassPrice");
             return (Criteria) this;
         }
@@ -762,6 +812,206 @@ public class EduUserOrderItemExample {
 
         public Criteria andEduOrderTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("edu_order_type not between", value1, value2, "eduOrderType");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdIsNull() {
+            addCriterion("agency_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdIsNotNull() {
+            addCriterion("agency_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdEqualTo(String value) {
+            addCriterion("agency_id =", value, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdNotEqualTo(String value) {
+            addCriterion("agency_id <>", value, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdGreaterThan(String value) {
+            addCriterion("agency_id >", value, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdGreaterThanOrEqualTo(String value) {
+            addCriterion("agency_id >=", value, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdLessThan(String value) {
+            addCriterion("agency_id <", value, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdLessThanOrEqualTo(String value) {
+            addCriterion("agency_id <=", value, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdLike(String value) {
+            addCriterion("agency_id like", value, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdNotLike(String value) {
+            addCriterion("agency_id not like", value, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdIn(List<String> values) {
+            addCriterion("agency_id in", values, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdNotIn(List<String> values) {
+            addCriterion("agency_id not in", values, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdBetween(String value1, String value2) {
+            addCriterion("agency_id between", value1, value2, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyIdNotBetween(String value1, String value2) {
+            addCriterion("agency_id not between", value1, value2, "agencyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameIsNull() {
+            addCriterion("agency_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameIsNotNull() {
+            addCriterion("agency_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameEqualTo(String value) {
+            addCriterion("agency_name =", value, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameNotEqualTo(String value) {
+            addCriterion("agency_name <>", value, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameGreaterThan(String value) {
+            addCriterion("agency_name >", value, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameGreaterThanOrEqualTo(String value) {
+            addCriterion("agency_name >=", value, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameLessThan(String value) {
+            addCriterion("agency_name <", value, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameLessThanOrEqualTo(String value) {
+            addCriterion("agency_name <=", value, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameLike(String value) {
+            addCriterion("agency_name like", value, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameNotLike(String value) {
+            addCriterion("agency_name not like", value, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameIn(List<String> values) {
+            addCriterion("agency_name in", values, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameNotIn(List<String> values) {
+            addCriterion("agency_name not in", values, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameBetween(String value1, String value2) {
+            addCriterion("agency_name between", value1, value2, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyNameNotBetween(String value1, String value2) {
+            addCriterion("agency_name not between", value1, value2, "agencyName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
     }

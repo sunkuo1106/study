@@ -11,7 +11,7 @@ public interface EduUserOrderItemMapper {
 
     int deleteByExample(EduUserOrderItemExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(EduUserOrderItem record);
 
@@ -19,7 +19,7 @@ public interface EduUserOrderItemMapper {
 
     List<EduUserOrderItem> selectByExample(EduUserOrderItemExample example);
 
-    EduUserOrderItem selectByPrimaryKey(Integer id);
+    EduUserOrderItem selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") EduUserOrderItem record, @Param("example") EduUserOrderItemExample example);
 

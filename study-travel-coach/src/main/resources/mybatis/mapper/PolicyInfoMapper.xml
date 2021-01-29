@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.PolicyInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.PolicyInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="policy_info_title" property="policyInfoTitle" jdbcType="VARCHAR" />
+    <result column="policy_info_summary" property="policyInfoSummary" jdbcType="VARCHAR" />
+    <result column="policy_info_key_word" property="policyInfoKeyWord" jdbcType="VARCHAR" />
+    <result column="policy_info_source" property="policyInfoSource" jdbcType="VARCHAR" />
+    <result column="policy_info_author" property="policyInfoAuthor" jdbcType="VARCHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="policy_info_isTop" property="policyInfoIstop" jdbcType="INTEGER" />
+    <result column="policy_info_thumbnail" property="policyInfoThumbnail" jdbcType="VARCHAR" />
+    <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.kgc.study.bean.PolicyInfo" extends="BaseResultMap" >
+    <result column="policy_info_text" property="policyInfoText" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, policy_info_title, policy_info_summary, policy_info_key_word, policy_info_source, 
+    policy_info_author, gmt_create, gmt_modified, policy_info_isTop, policy_info_thumbnail, 
+    logic_delete
+  </sql>
+  <sql id="Blob_Column_List" >
+    policy_info_text
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.kgc.study.bean.PolicyInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from policy_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.PolicyInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from policy_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from policy_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from policy_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.PolicyInfoExample" >
+    delete from policy_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.PolicyInfo" >
+    insert into policy_info (id, policy_info_title, policy_info_summary, 
+      policy_info_key_word, policy_info_source, policy_info_author, 
+      gmt_create, gmt_modified, policy_info_isTop, 
+      policy_info_thumbnail, logic_delete, policy_info_text
+      )
+    values (#{id,jdbcType=BIGINT}, #{policyInfoTitle,jdbcType=VARCHAR}, #{policyInfoSummary,jdbcType=VARCHAR}, 
+      #{policyInfoKeyWord,jdbcType=VARCHAR}, #{policyInfoSource,jdbcType=VARCHAR}, #{policyInfoAuthor,jdbcType=VARCHAR}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{policyInfoIstop,jdbcType=INTEGER}, 
+      #{policyInfoThumbnail,jdbcType=VARCHAR}, #{logicDelete,jdbcType=INTEGER}, #{policyInfoText,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.PolicyInfo" >
+    insert into policy_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="policyInfoTitle != null" >
+        policy_info_title,
+      </if>
+      <if test="policyInfoSummary != null" >
+        policy_info_summary,
+      </if>
+      <if test="policyInfoKeyWord != null" >
+        policy_info_key_word,
+      </if>
+      <if test="policyInfoSource != null" >
+        policy_info_source,
+      </if>
+      <if test="policyInfoAuthor != null" >
+        policy_info_author,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="policyInfoIstop != null" >
+        policy_info_isTop,
+      </if>
+      <if test="policyInfoThumbnail != null" >
+        policy_info_thumbnail,
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete,
+      </if>
+      <if test="policyInfoText != null" >
+        policy_info_text,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="policyInfoTitle != null" >
+        #{policyInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="policyInfoSummary != null" >
+        #{policyInfoSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="policyInfoKeyWord != null" >
+        #{policyInfoKeyWord,jdbcType=VARCHAR},
+      </if>
+      <if test="policyInfoSource != null" >
+        #{policyInfoSource,jdbcType=VARCHAR},
+      </if>
+      <if test="policyInfoAuthor != null" >
+        #{policyInfoAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="policyInfoIstop != null" >
+        #{policyInfoIstop,jdbcType=INTEGER},
+      </if>
+      <if test="policyInfoThumbnail != null" >
+        #{policyInfoThumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="logicDelete != null" >
+        #{logicDelete,jdbcType=INTEGER},
+      </if>
+      <if test="policyInfoText != null" >
+        #{policyInfoText,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.PolicyInfoExample" resultType="java.lang.Integer" >
+    select count(*) from policy_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update policy_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.policyInfoTitle != null" >
+        policy_info_title = #{record.policyInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policyInfoSummary != null" >
+        policy_info_summary = #{record.policyInfoSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policyInfoKeyWord != null" >
+        policy_info_key_word = #{record.policyInfoKeyWord,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policyInfoSource != null" >
+        policy_info_source = #{record.policyInfoSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.policyInfoAuthor != null" >
+        policy_info_author = #{record.policyInfoAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.policyInfoIstop != null" >
+        policy_info_isTop = #{record.policyInfoIstop,jdbcType=INTEGER},
+      </if>
+      <if test="record.policyInfoThumbnail != null" >
+        policy_info_thumbnail = #{record.policyInfoThumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logicDelete != null" >
+        logic_delete = #{record.logicDelete,jdbcType=INTEGER},
+      </if>
+      <if test="record.policyInfoText != null" >
+        policy_info_text = #{record.policyInfoText,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update policy_info
+    set id = #{record.id,jdbcType=BIGINT},
+      policy_info_title = #{record.policyInfoTitle,jdbcType=VARCHAR},
+      policy_info_summary = #{record.policyInfoSummary,jdbcType=VARCHAR},
+      policy_info_key_word = #{record.policyInfoKeyWord,jdbcType=VARCHAR},
+      policy_info_source = #{record.policyInfoSource,jdbcType=VARCHAR},
+      policy_info_author = #{record.policyInfoAuthor,jdbcType=VARCHAR},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      policy_info_isTop = #{record.policyInfoIstop,jdbcType=INTEGER},
+      policy_info_thumbnail = #{record.policyInfoThumbnail,jdbcType=VARCHAR},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER},
+      policy_info_text = #{record.policyInfoText,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update policy_info
+    set id = #{record.id,jdbcType=BIGINT},
+      policy_info_title = #{record.policyInfoTitle,jdbcType=VARCHAR},
+      policy_info_summary = #{record.policyInfoSummary,jdbcType=VARCHAR},
+      policy_info_key_word = #{record.policyInfoKeyWord,jdbcType=VARCHAR},
+      policy_info_source = #{record.policyInfoSource,jdbcType=VARCHAR},
+      policy_info_author = #{record.policyInfoAuthor,jdbcType=VARCHAR},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      policy_info_isTop = #{record.policyInfoIstop,jdbcType=INTEGER},
+      policy_info_thumbnail = #{record.policyInfoThumbnail,jdbcType=VARCHAR},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.PolicyInfo" >
+    update policy_info
+    <set >
+      <if test="policyInfoTitle != null" >
+        policy_info_title = #{policyInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="policyInfoSummary != null" >
+        policy_info_summary = #{policyInfoSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="policyInfoKeyWord != null" >
+        policy_info_key_word = #{policyInfoKeyWord,jdbcType=VARCHAR},
+      </if>
+      <if test="policyInfoSource != null" >
+        policy_info_source = #{policyInfoSource,jdbcType=VARCHAR},
+      </if>
+      <if test="policyInfoAuthor != null" >
+        policy_info_author = #{policyInfoAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="policyInfoIstop != null" >
+        policy_info_isTop = #{policyInfoIstop,jdbcType=INTEGER},
+      </if>
+      <if test="policyInfoThumbnail != null" >
+        policy_info_thumbnail = #{policyInfoThumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete = #{logicDelete,jdbcType=INTEGER},
+      </if>
+      <if test="policyInfoText != null" >
+        policy_info_text = #{policyInfoText,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kgc.study.bean.PolicyInfo" >
+    update policy_info
+    set policy_info_title = #{policyInfoTitle,jdbcType=VARCHAR},
+      policy_info_summary = #{policyInfoSummary,jdbcType=VARCHAR},
+      policy_info_key_word = #{policyInfoKeyWord,jdbcType=VARCHAR},
+      policy_info_source = #{policyInfoSource,jdbcType=VARCHAR},
+      policy_info_author = #{policyInfoAuthor,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      policy_info_isTop = #{policyInfoIstop,jdbcType=INTEGER},
+      policy_info_thumbnail = #{policyInfoThumbnail,jdbcType=VARCHAR},
+      logic_delete = #{logicDelete,jdbcType=INTEGER},
+      policy_info_text = #{policyInfoText,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.PolicyInfo" >
+    update policy_info
+    set policy_info_title = #{policyInfoTitle,jdbcType=VARCHAR},
+      policy_info_summary = #{policyInfoSummary,jdbcType=VARCHAR},
+      policy_info_key_word = #{policyInfoKeyWord,jdbcType=VARCHAR},
+      policy_info_source = #{policyInfoSource,jdbcType=VARCHAR},
+      policy_info_author = #{policyInfoAuthor,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      policy_info_isTop = #{policyInfoIstop,jdbcType=INTEGER},
+      policy_info_thumbnail = #{policyInfoThumbnail,jdbcType=VARCHAR},
+      logic_delete = #{logicDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

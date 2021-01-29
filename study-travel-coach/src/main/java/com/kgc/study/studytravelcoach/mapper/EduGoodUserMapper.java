@@ -11,7 +11,7 @@ public interface EduGoodUserMapper {
 
     int deleteByExample(EduGoodUserExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(EduGoodUser record);
 
@@ -19,7 +19,7 @@ public interface EduGoodUserMapper {
 
     List<EduGoodUser> selectByExample(EduGoodUserExample example);
 
-    EduGoodUser selectByPrimaryKey(Integer id);
+    EduGoodUser selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") EduGoodUser record, @Param("example") EduGoodUserExample example);
 

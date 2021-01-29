@@ -165,6 +165,76 @@ public class ActivityInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andAcInfoTitleIsNull() {
+            addCriterion("ac_info_title is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleIsNotNull() {
+            addCriterion("ac_info_title is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleEqualTo(String value) {
+            addCriterion("ac_info_title =", value, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleNotEqualTo(String value) {
+            addCriterion("ac_info_title <>", value, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleGreaterThan(String value) {
+            addCriterion("ac_info_title >", value, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleGreaterThanOrEqualTo(String value) {
+            addCriterion("ac_info_title >=", value, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleLessThan(String value) {
+            addCriterion("ac_info_title <", value, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleLessThanOrEqualTo(String value) {
+            addCriterion("ac_info_title <=", value, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleLike(String value) {
+            addCriterion("ac_info_title like", value, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleNotLike(String value) {
+            addCriterion("ac_info_title not like", value, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleIn(List<String> values) {
+            addCriterion("ac_info_title in", values, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleNotIn(List<String> values) {
+            addCriterion("ac_info_title not in", values, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleBetween(String value1, String value2) {
+            addCriterion("ac_info_title between", value1, value2, "acInfoTitle");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcInfoTitleNotBetween(String value1, String value2) {
+            addCriterion("ac_info_title not between", value1, value2, "acInfoTitle");
+            return (Criteria) this;
+        }
+
         public Criteria andAcInfoSummaryIsNull() {
             addCriterion("ac_info_summary is null");
             return (Criteria) this;
@@ -495,186 +565,6 @@ public class ActivityInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAcInfoClickNumIsNull() {
-            addCriterion("ac_info_click_num is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumIsNotNull() {
-            addCriterion("ac_info_click_num is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumEqualTo(Integer value) {
-            addCriterion("ac_info_click_num =", value, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumNotEqualTo(Integer value) {
-            addCriterion("ac_info_click_num <>", value, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumGreaterThan(Integer value) {
-            addCriterion("ac_info_click_num >", value, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ac_info_click_num >=", value, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumLessThan(Integer value) {
-            addCriterion("ac_info_click_num <", value, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumLessThanOrEqualTo(Integer value) {
-            addCriterion("ac_info_click_num <=", value, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumIn(List<Integer> values) {
-            addCriterion("ac_info_click_num in", values, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumNotIn(List<Integer> values) {
-            addCriterion("ac_info_click_num not in", values, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumBetween(Integer value1, Integer value2) {
-            addCriterion("ac_info_click_num between", value1, value2, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoClickNumNotBetween(Integer value1, Integer value2) {
-            addCriterion("ac_info_click_num not between", value1, value2, "acInfoClickNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountIsNull() {
-            addCriterion("ac_info_praise_count is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountIsNotNull() {
-            addCriterion("ac_info_praise_count is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountEqualTo(Integer value) {
-            addCriterion("ac_info_praise_count =", value, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountNotEqualTo(Integer value) {
-            addCriterion("ac_info_praise_count <>", value, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountGreaterThan(Integer value) {
-            addCriterion("ac_info_praise_count >", value, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ac_info_praise_count >=", value, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountLessThan(Integer value) {
-            addCriterion("ac_info_praise_count <", value, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountLessThanOrEqualTo(Integer value) {
-            addCriterion("ac_info_praise_count <=", value, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountIn(List<Integer> values) {
-            addCriterion("ac_info_praise_count in", values, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountNotIn(List<Integer> values) {
-            addCriterion("ac_info_praise_count not in", values, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountBetween(Integer value1, Integer value2) {
-            addCriterion("ac_info_praise_count between", value1, value2, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoPraiseCountNotBetween(Integer value1, Integer value2) {
-            addCriterion("ac_info_praise_count not between", value1, value2, "acInfoPraiseCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumIsNull() {
-            addCriterion("ac_info_comment_num is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumIsNotNull() {
-            addCriterion("ac_info_comment_num is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumEqualTo(Integer value) {
-            addCriterion("ac_info_comment_num =", value, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumNotEqualTo(Integer value) {
-            addCriterion("ac_info_comment_num <>", value, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumGreaterThan(Integer value) {
-            addCriterion("ac_info_comment_num >", value, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ac_info_comment_num >=", value, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumLessThan(Integer value) {
-            addCriterion("ac_info_comment_num <", value, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumLessThanOrEqualTo(Integer value) {
-            addCriterion("ac_info_comment_num <=", value, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumIn(List<Integer> values) {
-            addCriterion("ac_info_comment_num in", values, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumNotIn(List<Integer> values) {
-            addCriterion("ac_info_comment_num not in", values, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumBetween(Integer value1, Integer value2) {
-            addCriterion("ac_info_comment_num between", value1, value2, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcInfoCommentNumNotBetween(Integer value1, Integer value2) {
-            addCriterion("ac_info_comment_num not between", value1, value2, "acInfoCommentNum");
-            return (Criteria) this;
-        }
-
         public Criteria andAcIstopIsNull() {
             addCriterion("ac_isTop is null");
             return (Criteria) this;
@@ -735,66 +625,6 @@ public class ActivityInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAcTypeIdIsNull() {
-            addCriterion("ac_type_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdIsNotNull() {
-            addCriterion("ac_type_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdEqualTo(Integer value) {
-            addCriterion("ac_type_id =", value, "acTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdNotEqualTo(Integer value) {
-            addCriterion("ac_type_id <>", value, "acTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdGreaterThan(Integer value) {
-            addCriterion("ac_type_id >", value, "acTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ac_type_id >=", value, "acTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdLessThan(Integer value) {
-            addCriterion("ac_type_id <", value, "acTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdLessThanOrEqualTo(Integer value) {
-            addCriterion("ac_type_id <=", value, "acTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdIn(List<Integer> values) {
-            addCriterion("ac_type_id in", values, "acTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdNotIn(List<Integer> values) {
-            addCriterion("ac_type_id not in", values, "acTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdBetween(Integer value1, Integer value2) {
-            addCriterion("ac_type_id between", value1, value2, "acTypeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andAcTypeIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("ac_type_id not between", value1, value2, "acTypeId");
-            return (Criteria) this;
-        }
-
         public Criteria andAcThumbnailIsNull() {
             addCriterion("ac_thumbnail is null");
             return (Criteria) this;
@@ -805,53 +635,123 @@ public class ActivityInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailEqualTo(Integer value) {
+        public Criteria andAcThumbnailEqualTo(String value) {
             addCriterion("ac_thumbnail =", value, "acThumbnail");
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailNotEqualTo(Integer value) {
+        public Criteria andAcThumbnailNotEqualTo(String value) {
             addCriterion("ac_thumbnail <>", value, "acThumbnail");
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailGreaterThan(Integer value) {
+        public Criteria andAcThumbnailGreaterThan(String value) {
             addCriterion("ac_thumbnail >", value, "acThumbnail");
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailGreaterThanOrEqualTo(Integer value) {
+        public Criteria andAcThumbnailGreaterThanOrEqualTo(String value) {
             addCriterion("ac_thumbnail >=", value, "acThumbnail");
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailLessThan(Integer value) {
+        public Criteria andAcThumbnailLessThan(String value) {
             addCriterion("ac_thumbnail <", value, "acThumbnail");
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailLessThanOrEqualTo(Integer value) {
+        public Criteria andAcThumbnailLessThanOrEqualTo(String value) {
             addCriterion("ac_thumbnail <=", value, "acThumbnail");
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailIn(List<Integer> values) {
+        public Criteria andAcThumbnailLike(String value) {
+            addCriterion("ac_thumbnail like", value, "acThumbnail");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcThumbnailNotLike(String value) {
+            addCriterion("ac_thumbnail not like", value, "acThumbnail");
+            return (Criteria) this;
+        }
+
+        public Criteria andAcThumbnailIn(List<String> values) {
             addCriterion("ac_thumbnail in", values, "acThumbnail");
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailNotIn(List<Integer> values) {
+        public Criteria andAcThumbnailNotIn(List<String> values) {
             addCriterion("ac_thumbnail not in", values, "acThumbnail");
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailBetween(Integer value1, Integer value2) {
+        public Criteria andAcThumbnailBetween(String value1, String value2) {
             addCriterion("ac_thumbnail between", value1, value2, "acThumbnail");
             return (Criteria) this;
         }
 
-        public Criteria andAcThumbnailNotBetween(Integer value1, Integer value2) {
+        public Criteria andAcThumbnailNotBetween(String value1, String value2) {
             addCriterion("ac_thumbnail not between", value1, value2, "acThumbnail");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
     }
