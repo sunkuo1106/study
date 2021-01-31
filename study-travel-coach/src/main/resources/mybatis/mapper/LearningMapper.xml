@@ -4,7 +4,8 @@
   <resultMap id="BaseResultMap" type="com.kgc.study.bean.Learning" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="course_id" property="courseId" jdbcType="INTEGER" />
-    <result column="course_name" property="courseName" jdbcType="VARCHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, course_id, course_name, logic_delete
+    id, course_id, gmt_create, gmt_modified, logic_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.LearningExample" >
     select
@@ -99,10 +100,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.kgc.study.bean.Learning" >
-    insert into learning (id, course_id, course_name, 
-      logic_delete)
-    values (#{id,jdbcType=BIGINT}, #{courseId,jdbcType=INTEGER}, #{courseName,jdbcType=VARCHAR}, 
-      #{logicDelete,jdbcType=INTEGER})
+    insert into learning (id, course_id, gmt_create, 
+      gmt_modified, logic_delete)
+    values (#{id,jdbcType=BIGINT}, #{courseId,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{logicDelete,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.Learning" >
     insert into learning
@@ -113,8 +114,11 @@
       <if test="courseId != null" >
         course_id,
       </if>
-      <if test="courseName != null" >
-        course_name,
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
       </if>
       <if test="logicDelete != null" >
         logic_delete,
@@ -127,8 +131,11 @@
       <if test="courseId != null" >
         #{courseId,jdbcType=INTEGER},
       </if>
-      <if test="courseName != null" >
-        #{courseName,jdbcType=VARCHAR},
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
       </if>
       <if test="logicDelete != null" >
         #{logicDelete,jdbcType=INTEGER},
@@ -150,8 +157,11 @@
       <if test="record.courseId != null" >
         course_id = #{record.courseId,jdbcType=INTEGER},
       </if>
-      <if test="record.courseName != null" >
-        course_name = #{record.courseName,jdbcType=VARCHAR},
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       </if>
       <if test="record.logicDelete != null" >
         logic_delete = #{record.logicDelete,jdbcType=INTEGER},
@@ -165,7 +175,8 @@
     update learning
     set id = #{record.id,jdbcType=BIGINT},
       course_id = #{record.courseId,jdbcType=INTEGER},
-      course_name = #{record.courseName,jdbcType=VARCHAR},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       logic_delete = #{record.logicDelete,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -177,8 +188,11 @@
       <if test="courseId != null" >
         course_id = #{courseId,jdbcType=INTEGER},
       </if>
-      <if test="courseName != null" >
-        course_name = #{courseName,jdbcType=VARCHAR},
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
       <if test="logicDelete != null" >
         logic_delete = #{logicDelete,jdbcType=INTEGER},
@@ -189,7 +203,8 @@
   <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.Learning" >
     update learning
     set course_id = #{courseId,jdbcType=INTEGER},
-      course_name = #{courseName,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       logic_delete = #{logicDelete,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>

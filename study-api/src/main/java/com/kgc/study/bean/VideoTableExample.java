@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CurriculumsTableExample {
+public class VideoTableExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public CurriculumsTableExample() {
+    public VideoTableExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -105,193 +105,323 @@ public class CurriculumsTableExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andVideoTableIdIsNull() {
+            addCriterion("video_table_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andVideoTableIdIsNotNull() {
+            addCriterion("video_table_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+        public Criteria andVideoTableIdEqualTo(Long value) {
+            addCriterion("video_table_id =", value, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andVideoTableIdNotEqualTo(Long value) {
+            addCriterion("video_table_id <>", value, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+        public Criteria andVideoTableIdGreaterThan(Long value) {
+            addCriterion("video_table_id >", value, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andVideoTableIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("video_table_id >=", value, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+        public Criteria andVideoTableIdLessThan(Long value) {
+            addCriterion("video_table_id <", value, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andVideoTableIdLessThanOrEqualTo(Long value) {
+            addCriterion("video_table_id <=", value, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andVideoTableIdIn(List<Long> values) {
+            addCriterion("video_table_id in", values, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andVideoTableIdNotIn(List<Long> values) {
+            addCriterion("video_table_id not in", values, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andVideoTableIdBetween(Long value1, Long value2) {
+            addCriterion("video_table_id between", value1, value2, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andVideoTableIdNotBetween(Long value1, Long value2) {
+            addCriterion("video_table_id not between", value1, value2, "videoTableId");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameIsNull() {
-            addCriterion("curr_name is null");
+        public Criteria andVideoTableNameIsNull() {
+            addCriterion("video_table_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameIsNotNull() {
-            addCriterion("curr_name is not null");
+        public Criteria andVideoTableNameIsNotNull() {
+            addCriterion("video_table_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameEqualTo(String value) {
-            addCriterion("curr_name =", value, "currName");
+        public Criteria andVideoTableNameEqualTo(String value) {
+            addCriterion("video_table_name =", value, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameNotEqualTo(String value) {
-            addCriterion("curr_name <>", value, "currName");
+        public Criteria andVideoTableNameNotEqualTo(String value) {
+            addCriterion("video_table_name <>", value, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameGreaterThan(String value) {
-            addCriterion("curr_name >", value, "currName");
+        public Criteria andVideoTableNameGreaterThan(String value) {
+            addCriterion("video_table_name >", value, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameGreaterThanOrEqualTo(String value) {
-            addCriterion("curr_name >=", value, "currName");
+        public Criteria andVideoTableNameGreaterThanOrEqualTo(String value) {
+            addCriterion("video_table_name >=", value, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameLessThan(String value) {
-            addCriterion("curr_name <", value, "currName");
+        public Criteria andVideoTableNameLessThan(String value) {
+            addCriterion("video_table_name <", value, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameLessThanOrEqualTo(String value) {
-            addCriterion("curr_name <=", value, "currName");
+        public Criteria andVideoTableNameLessThanOrEqualTo(String value) {
+            addCriterion("video_table_name <=", value, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameLike(String value) {
-            addCriterion("curr_name like", value, "currName");
+        public Criteria andVideoTableNameLike(String value) {
+            addCriterion("video_table_name like", value, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameNotLike(String value) {
-            addCriterion("curr_name not like", value, "currName");
+        public Criteria andVideoTableNameNotLike(String value) {
+            addCriterion("video_table_name not like", value, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameIn(List<String> values) {
-            addCriterion("curr_name in", values, "currName");
+        public Criteria andVideoTableNameIn(List<String> values) {
+            addCriterion("video_table_name in", values, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameNotIn(List<String> values) {
-            addCriterion("curr_name not in", values, "currName");
+        public Criteria andVideoTableNameNotIn(List<String> values) {
+            addCriterion("video_table_name not in", values, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameBetween(String value1, String value2) {
-            addCriterion("curr_name between", value1, value2, "currName");
+        public Criteria andVideoTableNameBetween(String value1, String value2) {
+            addCriterion("video_table_name between", value1, value2, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrNameNotBetween(String value1, String value2) {
-            addCriterion("curr_name not between", value1, value2, "currName");
+        public Criteria andVideoTableNameNotBetween(String value1, String value2) {
+            addCriterion("video_table_name not between", value1, value2, "videoTableName");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdIsNull() {
-            addCriterion("curr_mgr_id is null");
+        public Criteria andVideoTableUrlIsNull() {
+            addCriterion("video_table_url is null");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdIsNotNull() {
-            addCriterion("curr_mgr_id is not null");
+        public Criteria andVideoTableUrlIsNotNull() {
+            addCriterion("video_table_url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdEqualTo(Long value) {
-            addCriterion("curr_mgr_id =", value, "currMgrId");
+        public Criteria andVideoTableUrlEqualTo(String value) {
+            addCriterion("video_table_url =", value, "videoTableUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdNotEqualTo(Long value) {
-            addCriterion("curr_mgr_id <>", value, "currMgrId");
+        public Criteria andVideoTableUrlNotEqualTo(String value) {
+            addCriterion("video_table_url <>", value, "videoTableUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdGreaterThan(Long value) {
-            addCriterion("curr_mgr_id >", value, "currMgrId");
+        public Criteria andVideoTableUrlGreaterThan(String value) {
+            addCriterion("video_table_url >", value, "videoTableUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("curr_mgr_id >=", value, "currMgrId");
+        public Criteria andVideoTableUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("video_table_url >=", value, "videoTableUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdLessThan(Long value) {
-            addCriterion("curr_mgr_id <", value, "currMgrId");
+        public Criteria andVideoTableUrlLessThan(String value) {
+            addCriterion("video_table_url <", value, "videoTableUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdLessThanOrEqualTo(Long value) {
-            addCriterion("curr_mgr_id <=", value, "currMgrId");
+        public Criteria andVideoTableUrlLessThanOrEqualTo(String value) {
+            addCriterion("video_table_url <=", value, "videoTableUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdIn(List<Long> values) {
-            addCriterion("curr_mgr_id in", values, "currMgrId");
+        public Criteria andVideoTableUrlLike(String value) {
+            addCriterion("video_table_url like", value, "videoTableUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdNotIn(List<Long> values) {
-            addCriterion("curr_mgr_id not in", values, "currMgrId");
+        public Criteria andVideoTableUrlNotLike(String value) {
+            addCriterion("video_table_url not like", value, "videoTableUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdBetween(Long value1, Long value2) {
-            addCriterion("curr_mgr_id between", value1, value2, "currMgrId");
+        public Criteria andVideoTableUrlIn(List<String> values) {
+            addCriterion("video_table_url in", values, "videoTableUrl");
             return (Criteria) this;
         }
 
-        public Criteria andCurrMgrIdNotBetween(Long value1, Long value2) {
-            addCriterion("curr_mgr_id not between", value1, value2, "currMgrId");
+        public Criteria andVideoTableUrlNotIn(List<String> values) {
+            addCriterion("video_table_url not in", values, "videoTableUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoTableUrlBetween(String value1, String value2) {
+            addCriterion("video_table_url between", value1, value2, "videoTableUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoTableUrlNotBetween(String value1, String value2) {
+            addCriterion("video_table_url not between", value1, value2, "videoTableUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdIsNull() {
+            addCriterion("chapter_table_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdIsNotNull() {
+            addCriterion("chapter_table_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdEqualTo(Long value) {
+            addCriterion("chapter_table_id =", value, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdNotEqualTo(Long value) {
+            addCriterion("chapter_table_id <>", value, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdGreaterThan(Long value) {
+            addCriterion("chapter_table_id >", value, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("chapter_table_id >=", value, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdLessThan(Long value) {
+            addCriterion("chapter_table_id <", value, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdLessThanOrEqualTo(Long value) {
+            addCriterion("chapter_table_id <=", value, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdIn(List<Long> values) {
+            addCriterion("chapter_table_id in", values, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdNotIn(List<Long> values) {
+            addCriterion("chapter_table_id not in", values, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdBetween(Long value1, Long value2) {
+            addCriterion("chapter_table_id between", value1, value2, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChapterTableIdNotBetween(Long value1, Long value2) {
+            addCriterion("chapter_table_id not between", value1, value2, "chapterTableId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdIsNull() {
+            addCriterion("teacher_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdIsNotNull() {
+            addCriterion("teacher_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdEqualTo(Long value) {
+            addCriterion("teacher_id =", value, "teacherId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdNotEqualTo(Long value) {
+            addCriterion("teacher_id <>", value, "teacherId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdGreaterThan(Long value) {
+            addCriterion("teacher_id >", value, "teacherId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("teacher_id >=", value, "teacherId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdLessThan(Long value) {
+            addCriterion("teacher_id <", value, "teacherId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdLessThanOrEqualTo(Long value) {
+            addCriterion("teacher_id <=", value, "teacherId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdIn(List<Long> values) {
+            addCriterion("teacher_id in", values, "teacherId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdNotIn(List<Long> values) {
+            addCriterion("teacher_id not in", values, "teacherId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdBetween(Long value1, Long value2) {
+            addCriterion("teacher_id between", value1, value2, "teacherId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherIdNotBetween(Long value1, Long value2) {
+            addCriterion("teacher_id not between", value1, value2, "teacherId");
             return (Criteria) this;
         }
 

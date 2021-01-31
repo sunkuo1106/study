@@ -5,6 +5,8 @@ import java.util.Date;
 public class EduGoodUser {
     private Long id;
 
+    private Integer eduUserId;
+
     private String goodUserImg;
 
     private Date gmtCreate;
@@ -25,6 +27,14 @@ public class EduGoodUser {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getEduUserId() {
+        return eduUserId;
+    }
+
+    public void setEduUserId(Integer eduUserId) {
+        this.eduUserId = eduUserId;
     }
 
     public String getGoodUserImg() {

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.kgc.study.studytravelcoach.mapper.EduGoodUserMapper" >
-  <resultMap id="BaseResultMap" type="com.kgc.study.bean.EduGoodUser" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="edu_user_id" property="eduUserId" jdbcType="INTEGER" />
-    <result column="good_user_img" property="goodUserImg" jdbcType="VARCHAR" />
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.ChapterTableMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.ChapterTable" >
+    <id column="chapter_table_id" property="chapterTableId" jdbcType="INTEGER" />
+    <result column="course_name" property="courseName" jdbcType="VARCHAR" />
+    <result column="course_id" property="courseId" jdbcType="BIGINT" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
-    <result column="good_user_school" property="goodUserSchool" jdbcType="VARCHAR" />
-    <result column="good_user_salary" property="goodUserSalary" jdbcType="DECIMAL" />
-    <result column="good_user_company" property="goodUserCompany" jdbcType="VARCHAR" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,16 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, edu_user_id, good_user_img, gmt_create, gmt_modified, good_user_school, good_user_salary, 
-    good_user_company, logic_delete
+    chapter_table_id, course_name, course_id, gmt_create, gmt_modified, logic_delete
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.EduGoodUserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.ChapterTableExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from edu_good_user
+    from chapter_table
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -88,43 +84,41 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from edu_good_user
-    where id = #{id,jdbcType=BIGINT}
+    from chapter_table
+    where chapter_table_id = #{chapterTableId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from edu_good_user
-    where id = #{id,jdbcType=BIGINT}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from chapter_table
+    where chapter_table_id = #{chapterTableId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.kgc.study.bean.EduGoodUserExample" >
-    delete from edu_good_user
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.ChapterTableExample" >
+    delete from chapter_table
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.kgc.study.bean.EduGoodUser" >
-    insert into edu_good_user (id, edu_user_id, good_user_img, 
-      gmt_create, gmt_modified, good_user_school, 
-      good_user_salary, good_user_company, logic_delete
+  <insert id="insert" parameterType="com.kgc.study.bean.ChapterTable" >
+    insert into chapter_table (chapter_table_id, course_name, course_id, 
+      gmt_create, gmt_modified, logic_delete
       )
-    values (#{id,jdbcType=BIGINT}, #{eduUserId,jdbcType=INTEGER}, #{goodUserImg,jdbcType=VARCHAR}, 
-      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{goodUserSchool,jdbcType=VARCHAR}, 
-      #{goodUserSalary,jdbcType=DECIMAL}, #{goodUserCompany,jdbcType=VARCHAR}, #{logicDelete,jdbcType=INTEGER}
+    values (#{chapterTableId,jdbcType=INTEGER}, #{courseName,jdbcType=VARCHAR}, #{courseId,jdbcType=BIGINT}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{logicDelete,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.kgc.study.bean.EduGoodUser" >
-    insert into edu_good_user
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.ChapterTable" >
+    insert into chapter_table
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
+      <if test="chapterTableId != null" >
+        chapter_table_id,
       </if>
-      <if test="eduUserId != null" >
-        edu_user_id,
+      <if test="courseName != null" >
+        course_name,
       </if>
-      <if test="goodUserImg != null" >
-        good_user_img,
+      <if test="courseId != null" >
+        course_id,
       </if>
       <if test="gmtCreate != null" >
         gmt_create,
@@ -132,28 +126,19 @@
       <if test="gmtModified != null" >
         gmt_modified,
       </if>
-      <if test="goodUserSchool != null" >
-        good_user_school,
-      </if>
-      <if test="goodUserSalary != null" >
-        good_user_salary,
-      </if>
-      <if test="goodUserCompany != null" >
-        good_user_company,
-      </if>
       <if test="logicDelete != null" >
         logic_delete,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
+      <if test="chapterTableId != null" >
+        #{chapterTableId,jdbcType=INTEGER},
       </if>
-      <if test="eduUserId != null" >
-        #{eduUserId,jdbcType=INTEGER},
+      <if test="courseName != null" >
+        #{courseName,jdbcType=VARCHAR},
       </if>
-      <if test="goodUserImg != null" >
-        #{goodUserImg,jdbcType=VARCHAR},
+      <if test="courseId != null" >
+        #{courseId,jdbcType=BIGINT},
       </if>
       <if test="gmtCreate != null" >
         #{gmtCreate,jdbcType=TIMESTAMP},
@@ -161,52 +146,34 @@
       <if test="gmtModified != null" >
         #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="goodUserSchool != null" >
-        #{goodUserSchool,jdbcType=VARCHAR},
-      </if>
-      <if test="goodUserSalary != null" >
-        #{goodUserSalary,jdbcType=DECIMAL},
-      </if>
-      <if test="goodUserCompany != null" >
-        #{goodUserCompany,jdbcType=VARCHAR},
-      </if>
       <if test="logicDelete != null" >
         #{logicDelete,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.kgc.study.bean.EduGoodUserExample" resultType="java.lang.Integer" >
-    select count(*) from edu_good_user
+  <select id="countByExample" parameterType="com.kgc.study.bean.ChapterTableExample" resultType="java.lang.Integer" >
+    select count(*) from chapter_table
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update edu_good_user
+    update chapter_table
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=BIGINT},
+      <if test="record.chapterTableId != null" >
+        chapter_table_id = #{record.chapterTableId,jdbcType=INTEGER},
       </if>
-      <if test="record.eduUserId != null" >
-        edu_user_id = #{record.eduUserId,jdbcType=INTEGER},
+      <if test="record.courseName != null" >
+        course_name = #{record.courseName,jdbcType=VARCHAR},
       </if>
-      <if test="record.goodUserImg != null" >
-        good_user_img = #{record.goodUserImg,jdbcType=VARCHAR},
+      <if test="record.courseId != null" >
+        course_id = #{record.courseId,jdbcType=BIGINT},
       </if>
       <if test="record.gmtCreate != null" >
         gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.gmtModified != null" >
         gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.goodUserSchool != null" >
-        good_user_school = #{record.goodUserSchool,jdbcType=VARCHAR},
-      </if>
-      <if test="record.goodUserSalary != null" >
-        good_user_salary = #{record.goodUserSalary,jdbcType=DECIMAL},
-      </if>
-      <if test="record.goodUserCompany != null" >
-        good_user_company = #{record.goodUserCompany,jdbcType=VARCHAR},
       </if>
       <if test="record.logicDelete != null" >
         logic_delete = #{record.logicDelete,jdbcType=INTEGER},
@@ -217,28 +184,25 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update edu_good_user
-    set id = #{record.id,jdbcType=BIGINT},
-      edu_user_id = #{record.eduUserId,jdbcType=INTEGER},
-      good_user_img = #{record.goodUserImg,jdbcType=VARCHAR},
+    update chapter_table
+    set chapter_table_id = #{record.chapterTableId,jdbcType=INTEGER},
+      course_name = #{record.courseName,jdbcType=VARCHAR},
+      course_id = #{record.courseId,jdbcType=BIGINT},
       gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
-      good_user_school = #{record.goodUserSchool,jdbcType=VARCHAR},
-      good_user_salary = #{record.goodUserSalary,jdbcType=DECIMAL},
-      good_user_company = #{record.goodUserCompany,jdbcType=VARCHAR},
       logic_delete = #{record.logicDelete,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.EduGoodUser" >
-    update edu_good_user
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.ChapterTable" >
+    update chapter_table
     <set >
-      <if test="eduUserId != null" >
-        edu_user_id = #{eduUserId,jdbcType=INTEGER},
+      <if test="courseName != null" >
+        course_name = #{courseName,jdbcType=VARCHAR},
       </if>
-      <if test="goodUserImg != null" >
-        good_user_img = #{goodUserImg,jdbcType=VARCHAR},
+      <if test="courseId != null" >
+        course_id = #{courseId,jdbcType=BIGINT},
       </if>
       <if test="gmtCreate != null" >
         gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
@@ -246,31 +210,19 @@
       <if test="gmtModified != null" >
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="goodUserSchool != null" >
-        good_user_school = #{goodUserSchool,jdbcType=VARCHAR},
-      </if>
-      <if test="goodUserSalary != null" >
-        good_user_salary = #{goodUserSalary,jdbcType=DECIMAL},
-      </if>
-      <if test="goodUserCompany != null" >
-        good_user_company = #{goodUserCompany,jdbcType=VARCHAR},
-      </if>
       <if test="logicDelete != null" >
         logic_delete = #{logicDelete,jdbcType=INTEGER},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where chapter_table_id = #{chapterTableId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.EduGoodUser" >
-    update edu_good_user
-    set edu_user_id = #{eduUserId,jdbcType=INTEGER},
-      good_user_img = #{goodUserImg,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.ChapterTable" >
+    update chapter_table
+    set course_name = #{courseName,jdbcType=VARCHAR},
+      course_id = #{courseId,jdbcType=BIGINT},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      good_user_school = #{goodUserSchool,jdbcType=VARCHAR},
-      good_user_salary = #{goodUserSalary,jdbcType=DECIMAL},
-      good_user_company = #{goodUserCompany,jdbcType=VARCHAR},
       logic_delete = #{logicDelete,jdbcType=INTEGER}
-    where id = #{id,jdbcType=BIGINT}
+    where chapter_table_id = #{chapterTableId,jdbcType=INTEGER}
   </update>
 </mapper>

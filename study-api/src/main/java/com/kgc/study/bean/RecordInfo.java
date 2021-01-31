@@ -21,6 +21,8 @@ public class RecordInfo {
 
     private String recordTestIdList;
 
+    private String recordTestKeysList;
+
     private Integer logicDelete;
 
     public Long getId() {
@@ -93,6 +95,14 @@ public class RecordInfo {
 
     public void setRecordTestIdList(String recordTestIdList) {
         this.recordTestIdList = recordTestIdList == null ? null : recordTestIdList.trim();
+    }
+
+    public String getRecordTestKeysList() {
+        return recordTestKeysList;
+    }
+
+    public void setRecordTestKeysList(String recordTestKeysList) {
+        this.recordTestKeysList = recordTestKeysList == null ? null : recordTestKeysList.trim();
     }
 
     public Integer getLogicDelete() {

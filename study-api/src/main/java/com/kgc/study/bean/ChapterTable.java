@@ -2,12 +2,12 @@ package com.kgc.study.bean;
 
 import java.util.Date;
 
-public class CurriculumsTable {
-    private Long id;
+public class ChapterTable {
+    private Integer chapterTableId;
 
-    private String currName;
+    private String courseName;
 
-    private Long currMgrId;
+    private Long courseId;
 
     private Date gmtCreate;
 
@@ -15,28 +15,28 @@ public class CurriculumsTable {
 
     private Integer logicDelete;
 
-    public Long getId() {
-        return id;
+    public Integer getChapterTableId() {
+        return chapterTableId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setChapterTableId(Integer chapterTableId) {
+        this.chapterTableId = chapterTableId;
     }
 
-    public String getCurrName() {
-        return currName;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setCurrName(String currName) {
-        this.currName = currName == null ? null : currName.trim();
+    public void setCourseName(String courseName) {
+        this.courseName = courseName == null ? null : courseName.trim();
     }
 
-    public Long getCurrMgrId() {
-        return currMgrId;
+    public Long getCourseId() {
+        return courseId;
     }
 
-    public void setCurrMgrId(Long currMgrId) {
-        this.currMgrId = currMgrId;
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
     }
 
     public Date getGmtCreate() {

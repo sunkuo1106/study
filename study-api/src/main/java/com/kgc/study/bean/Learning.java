@@ -1,11 +1,15 @@
 package com.kgc.study.bean;
 
+import java.util.Date;
+
 public class Learning {
     private Long id;
 
     private Integer courseId;
 
-    private String courseName;
+    private Date gmtCreate;
+
+    private Date gmtModified;
 
     private Integer logicDelete;
 
@@ -25,12 +29,20 @@ public class Learning {
         this.courseId = courseId;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName == null ? null : courseName.trim();
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
     public Integer getLogicDelete() {

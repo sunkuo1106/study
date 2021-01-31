@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AdvertisementClickRecordExample {
+public class ChapterTableExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public AdvertisementClickRecordExample() {
+    public ChapterTableExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -105,183 +105,193 @@ public class AdvertisementClickRecordExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andChapterTableIdIsNull() {
+            addCriterion("chapter_table_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andChapterTableIdIsNotNull() {
+            addCriterion("chapter_table_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+        public Criteria andChapterTableIdEqualTo(Integer value) {
+            addCriterion("chapter_table_id =", value, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andChapterTableIdNotEqualTo(Integer value) {
+            addCriterion("chapter_table_id <>", value, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+        public Criteria andChapterTableIdGreaterThan(Integer value) {
+            addCriterion("chapter_table_id >", value, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andChapterTableIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("chapter_table_id >=", value, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+        public Criteria andChapterTableIdLessThan(Integer value) {
+            addCriterion("chapter_table_id <", value, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andChapterTableIdLessThanOrEqualTo(Integer value) {
+            addCriterion("chapter_table_id <=", value, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andChapterTableIdIn(List<Integer> values) {
+            addCriterion("chapter_table_id in", values, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andChapterTableIdNotIn(List<Integer> values) {
+            addCriterion("chapter_table_id not in", values, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andChapterTableIdBetween(Integer value1, Integer value2) {
+            addCriterion("chapter_table_id between", value1, value2, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
+        public Criteria andChapterTableIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("chapter_table_id not between", value1, value2, "chapterTableId");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdIsNull() {
-            addCriterion("ad_id is null");
+        public Criteria andCourseNameIsNull() {
+            addCriterion("course_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdIsNotNull() {
-            addCriterion("ad_id is not null");
+        public Criteria andCourseNameIsNotNull() {
+            addCriterion("course_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdEqualTo(Long value) {
-            addCriterion("ad_id =", value, "adId");
+        public Criteria andCourseNameEqualTo(String value) {
+            addCriterion("course_name =", value, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdNotEqualTo(Long value) {
-            addCriterion("ad_id <>", value, "adId");
+        public Criteria andCourseNameNotEqualTo(String value) {
+            addCriterion("course_name <>", value, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdGreaterThan(Long value) {
-            addCriterion("ad_id >", value, "adId");
+        public Criteria andCourseNameGreaterThan(String value) {
+            addCriterion("course_name >", value, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("ad_id >=", value, "adId");
+        public Criteria andCourseNameGreaterThanOrEqualTo(String value) {
+            addCriterion("course_name >=", value, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdLessThan(Long value) {
-            addCriterion("ad_id <", value, "adId");
+        public Criteria andCourseNameLessThan(String value) {
+            addCriterion("course_name <", value, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdLessThanOrEqualTo(Long value) {
-            addCriterion("ad_id <=", value, "adId");
+        public Criteria andCourseNameLessThanOrEqualTo(String value) {
+            addCriterion("course_name <=", value, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdIn(List<Long> values) {
-            addCriterion("ad_id in", values, "adId");
+        public Criteria andCourseNameLike(String value) {
+            addCriterion("course_name like", value, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdNotIn(List<Long> values) {
-            addCriterion("ad_id not in", values, "adId");
+        public Criteria andCourseNameNotLike(String value) {
+            addCriterion("course_name not like", value, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdBetween(Long value1, Long value2) {
-            addCriterion("ad_id between", value1, value2, "adId");
+        public Criteria andCourseNameIn(List<String> values) {
+            addCriterion("course_name in", values, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdIdNotBetween(Long value1, Long value2) {
-            addCriterion("ad_id not between", value1, value2, "adId");
+        public Criteria andCourseNameNotIn(List<String> values) {
+            addCriterion("course_name not in", values, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountIsNull() {
-            addCriterion("ad_click_count is null");
+        public Criteria andCourseNameBetween(String value1, String value2) {
+            addCriterion("course_name between", value1, value2, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountIsNotNull() {
-            addCriterion("ad_click_count is not null");
+        public Criteria andCourseNameNotBetween(String value1, String value2) {
+            addCriterion("course_name not between", value1, value2, "courseName");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountEqualTo(Long value) {
-            addCriterion("ad_click_count =", value, "adClickCount");
+        public Criteria andCourseIdIsNull() {
+            addCriterion("course_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountNotEqualTo(Long value) {
-            addCriterion("ad_click_count <>", value, "adClickCount");
+        public Criteria andCourseIdIsNotNull() {
+            addCriterion("course_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountGreaterThan(Long value) {
-            addCriterion("ad_click_count >", value, "adClickCount");
+        public Criteria andCourseIdEqualTo(Long value) {
+            addCriterion("course_id =", value, "courseId");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountGreaterThanOrEqualTo(Long value) {
-            addCriterion("ad_click_count >=", value, "adClickCount");
+        public Criteria andCourseIdNotEqualTo(Long value) {
+            addCriterion("course_id <>", value, "courseId");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountLessThan(Long value) {
-            addCriterion("ad_click_count <", value, "adClickCount");
+        public Criteria andCourseIdGreaterThan(Long value) {
+            addCriterion("course_id >", value, "courseId");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountLessThanOrEqualTo(Long value) {
-            addCriterion("ad_click_count <=", value, "adClickCount");
+        public Criteria andCourseIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("course_id >=", value, "courseId");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountIn(List<Long> values) {
-            addCriterion("ad_click_count in", values, "adClickCount");
+        public Criteria andCourseIdLessThan(Long value) {
+            addCriterion("course_id <", value, "courseId");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountNotIn(List<Long> values) {
-            addCriterion("ad_click_count not in", values, "adClickCount");
+        public Criteria andCourseIdLessThanOrEqualTo(Long value) {
+            addCriterion("course_id <=", value, "courseId");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountBetween(Long value1, Long value2) {
-            addCriterion("ad_click_count between", value1, value2, "adClickCount");
+        public Criteria andCourseIdIn(List<Long> values) {
+            addCriterion("course_id in", values, "courseId");
             return (Criteria) this;
         }
 
-        public Criteria andAdClickCountNotBetween(Long value1, Long value2) {
-            addCriterion("ad_click_count not between", value1, value2, "adClickCount");
+        public Criteria andCourseIdNotIn(List<Long> values) {
+            addCriterion("course_id not in", values, "courseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseIdBetween(Long value1, Long value2) {
+            addCriterion("course_id between", value1, value2, "courseId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseIdNotBetween(Long value1, Long value2) {
+            addCriterion("course_id not between", value1, value2, "courseId");
             return (Criteria) this;
         }
 

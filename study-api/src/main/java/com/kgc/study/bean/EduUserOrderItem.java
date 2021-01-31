@@ -23,6 +23,8 @@ public class EduUserOrderItem {
 
     private Long eduOrderClassPrice;
 
+    private Long eduOrderClassDiscountPrice;
+
     private Integer eduOrderType;
 
     private String agencyId;
@@ -109,6 +111,14 @@ public class EduUserOrderItem {
 
     public void setEduOrderClassPrice(Long eduOrderClassPrice) {
         this.eduOrderClassPrice = eduOrderClassPrice;
+    }
+
+    public Long getEduOrderClassDiscountPrice() {
+        return eduOrderClassDiscountPrice;
+    }
+
+    public void setEduOrderClassDiscountPrice(Long eduOrderClassDiscountPrice) {
+        this.eduOrderClassDiscountPrice = eduOrderClassDiscountPrice;
     }
 
     public Integer getEduOrderType() {

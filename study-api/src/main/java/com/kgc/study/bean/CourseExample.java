@@ -305,66 +305,6 @@ public class CourseExample {
             return (Criteria) this;
         }
 
-        public Criteria andCourseStartTimeIsNull() {
-            addCriterion("course_start_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeIsNotNull() {
-            addCriterion("course_start_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeEqualTo(Date value) {
-            addCriterion("course_start_time =", value, "courseStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeNotEqualTo(Date value) {
-            addCriterion("course_start_time <>", value, "courseStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeGreaterThan(Date value) {
-            addCriterion("course_start_time >", value, "courseStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("course_start_time >=", value, "courseStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeLessThan(Date value) {
-            addCriterion("course_start_time <", value, "courseStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeLessThanOrEqualTo(Date value) {
-            addCriterion("course_start_time <=", value, "courseStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeIn(List<Date> values) {
-            addCriterion("course_start_time in", values, "courseStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeNotIn(List<Date> values) {
-            addCriterion("course_start_time not in", values, "courseStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeBetween(Date value1, Date value2) {
-            addCriterion("course_start_time between", value1, value2, "courseStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseStartTimeNotBetween(Date value1, Date value2) {
-            addCriterion("course_start_time not between", value1, value2, "courseStartTime");
-            return (Criteria) this;
-        }
-
         public Criteria andCourseIntroductionIsNull() {
             addCriterion("course_introduction is null");
             return (Criteria) this;
@@ -435,503 +375,123 @@ public class CourseExample {
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentIsNull() {
-            addCriterion("course_content is null");
+        public Criteria andGmtCreateIsNull() {
+            addCriterion("gmt_create is null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentIsNotNull() {
-            addCriterion("course_content is not null");
+        public Criteria andGmtCreateIsNotNull() {
+            addCriterion("gmt_create is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentEqualTo(String value) {
-            addCriterion("course_content =", value, "courseContent");
+        public Criteria andGmtCreateEqualTo(Date value) {
+            addCriterion("gmt_create =", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentNotEqualTo(String value) {
-            addCriterion("course_content <>", value, "courseContent");
+        public Criteria andGmtCreateNotEqualTo(Date value) {
+            addCriterion("gmt_create <>", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentGreaterThan(String value) {
-            addCriterion("course_content >", value, "courseContent");
+        public Criteria andGmtCreateGreaterThan(Date value) {
+            addCriterion("gmt_create >", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentGreaterThanOrEqualTo(String value) {
-            addCriterion("course_content >=", value, "courseContent");
+        public Criteria andGmtCreateGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_create >=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentLessThan(String value) {
-            addCriterion("course_content <", value, "courseContent");
+        public Criteria andGmtCreateLessThan(Date value) {
+            addCriterion("gmt_create <", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentLessThanOrEqualTo(String value) {
-            addCriterion("course_content <=", value, "courseContent");
+        public Criteria andGmtCreateLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_create <=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentLike(String value) {
-            addCriterion("course_content like", value, "courseContent");
+        public Criteria andGmtCreateIn(List<Date> values) {
+            addCriterion("gmt_create in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentNotLike(String value) {
-            addCriterion("course_content not like", value, "courseContent");
+        public Criteria andGmtCreateNotIn(List<Date> values) {
+            addCriterion("gmt_create not in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentIn(List<String> values) {
-            addCriterion("course_content in", values, "courseContent");
+        public Criteria andGmtCreateBetween(Date value1, Date value2) {
+            addCriterion("gmt_create between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentNotIn(List<String> values) {
-            addCriterion("course_content not in", values, "courseContent");
+        public Criteria andGmtCreateNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_create not between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentBetween(String value1, String value2) {
-            addCriterion("course_content between", value1, value2, "courseContent");
+        public Criteria andGmtModifiedIsNull() {
+            addCriterion("gmt_modified is null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseContentNotBetween(String value1, String value2) {
-            addCriterion("course_content not between", value1, value2, "courseContent");
+        public Criteria andGmtModifiedIsNotNull() {
+            addCriterion("gmt_modified is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumIsNull() {
-            addCriterion("course_lession_num is null");
+        public Criteria andGmtModifiedEqualTo(Date value) {
+            addCriterion("gmt_modified =", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumIsNotNull() {
-            addCriterion("course_lession_num is not null");
+        public Criteria andGmtModifiedNotEqualTo(Date value) {
+            addCriterion("gmt_modified <>", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumEqualTo(Integer value) {
-            addCriterion("course_lession_num =", value, "courseLessionNum");
+        public Criteria andGmtModifiedGreaterThan(Date value) {
+            addCriterion("gmt_modified >", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumNotEqualTo(Integer value) {
-            addCriterion("course_lession_num <>", value, "courseLessionNum");
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified >=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumGreaterThan(Integer value) {
-            addCriterion("course_lession_num >", value, "courseLessionNum");
+        public Criteria andGmtModifiedLessThan(Date value) {
+            addCriterion("gmt_modified <", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumGreaterThanOrEqualTo(Integer value) {
-            addCriterion("course_lession_num >=", value, "courseLessionNum");
+        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified <=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumLessThan(Integer value) {
-            addCriterion("course_lession_num <", value, "courseLessionNum");
+        public Criteria andGmtModifiedIn(List<Date> values) {
+            addCriterion("gmt_modified in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumLessThanOrEqualTo(Integer value) {
-            addCriterion("course_lession_num <=", value, "courseLessionNum");
+        public Criteria andGmtModifiedNotIn(List<Date> values) {
+            addCriterion("gmt_modified not in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumIn(List<Integer> values) {
-            addCriterion("course_lession_num in", values, "courseLessionNum");
+        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseLessionNumNotIn(List<Integer> values) {
-            addCriterion("course_lession_num not in", values, "courseLessionNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseLessionNumBetween(Integer value1, Integer value2) {
-            addCriterion("course_lession_num between", value1, value2, "courseLessionNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseLessionNumNotBetween(Integer value1, Integer value2) {
-            addCriterion("course_lession_num not between", value1, value2, "courseLessionNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlIsNull() {
-            addCriterion("course_video_url is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlIsNotNull() {
-            addCriterion("course_video_url is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlEqualTo(String value) {
-            addCriterion("course_video_url =", value, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlNotEqualTo(String value) {
-            addCriterion("course_video_url <>", value, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlGreaterThan(String value) {
-            addCriterion("course_video_url >", value, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlGreaterThanOrEqualTo(String value) {
-            addCriterion("course_video_url >=", value, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlLessThan(String value) {
-            addCriterion("course_video_url <", value, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlLessThanOrEqualTo(String value) {
-            addCriterion("course_video_url <=", value, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlLike(String value) {
-            addCriterion("course_video_url like", value, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlNotLike(String value) {
-            addCriterion("course_video_url not like", value, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlIn(List<String> values) {
-            addCriterion("course_video_url in", values, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlNotIn(List<String> values) {
-            addCriterion("course_video_url not in", values, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlBetween(String value1, String value2) {
-            addCriterion("course_video_url between", value1, value2, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseVideoUrlNotBetween(String value1, String value2) {
-            addCriterion("course_video_url not between", value1, value2, "courseVideoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeIsNull() {
-            addCriterion("course_end_update_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeIsNotNull() {
-            addCriterion("course_end_update_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeEqualTo(Date value) {
-            addCriterion("course_end_update_time =", value, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeNotEqualTo(Date value) {
-            addCriterion("course_end_update_time <>", value, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeGreaterThan(Date value) {
-            addCriterion("course_end_update_time >", value, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("course_end_update_time >=", value, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeLessThan(Date value) {
-            addCriterion("course_end_update_time <", value, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("course_end_update_time <=", value, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeIn(List<Date> values) {
-            addCriterion("course_end_update_time in", values, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeNotIn(List<Date> values) {
-            addCriterion("course_end_update_time not in", values, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeBetween(Date value1, Date value2) {
-            addCriterion("course_end_update_time between", value1, value2, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndUpdateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("course_end_update_time not between", value1, value2, "courseEndUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountIsNull() {
-            addCriterion("page_viewcount is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountIsNotNull() {
-            addCriterion("page_viewcount is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountEqualTo(Integer value) {
-            addCriterion("page_viewcount =", value, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountNotEqualTo(Integer value) {
-            addCriterion("page_viewcount <>", value, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountGreaterThan(Integer value) {
-            addCriterion("page_viewcount >", value, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("page_viewcount >=", value, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountLessThan(Integer value) {
-            addCriterion("page_viewcount <", value, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountLessThanOrEqualTo(Integer value) {
-            addCriterion("page_viewcount <=", value, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountIn(List<Integer> values) {
-            addCriterion("page_viewcount in", values, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountNotIn(List<Integer> values) {
-            addCriterion("page_viewcount not in", values, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountBetween(Integer value1, Integer value2) {
-            addCriterion("page_viewcount between", value1, value2, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPageViewcountNotBetween(Integer value1, Integer value2) {
-            addCriterion("page_viewcount not between", value1, value2, "pageViewcount");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeIsNull() {
-            addCriterion("course_end_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeIsNotNull() {
-            addCriterion("course_end_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeEqualTo(Date value) {
-            addCriterion("course_end_time =", value, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeNotEqualTo(Date value) {
-            addCriterion("course_end_time <>", value, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeGreaterThan(Date value) {
-            addCriterion("course_end_time >", value, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("course_end_time >=", value, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeLessThan(Date value) {
-            addCriterion("course_end_time <", value, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeLessThanOrEqualTo(Date value) {
-            addCriterion("course_end_time <=", value, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeIn(List<Date> values) {
-            addCriterion("course_end_time in", values, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeNotIn(List<Date> values) {
-            addCriterion("course_end_time not in", values, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeBetween(Date value1, Date value2) {
-            addCriterion("course_end_time between", value1, value2, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseEndTimeNotBetween(Date value1, Date value2) {
-            addCriterion("course_end_time not between", value1, value2, "courseEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdIsNull() {
-            addCriterion("curr_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdIsNotNull() {
-            addCriterion("curr_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdEqualTo(Long value) {
-            addCriterion("curr_id =", value, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdNotEqualTo(Long value) {
-            addCriterion("curr_id <>", value, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdGreaterThan(Long value) {
-            addCriterion("curr_id >", value, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("curr_id >=", value, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdLessThan(Long value) {
-            addCriterion("curr_id <", value, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdLessThanOrEqualTo(Long value) {
-            addCriterion("curr_id <=", value, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdIn(List<Long> values) {
-            addCriterion("curr_id in", values, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdNotIn(List<Long> values) {
-            addCriterion("curr_id not in", values, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdBetween(Long value1, Long value2) {
-            addCriterion("curr_id between", value1, value2, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrIdNotBetween(Long value1, Long value2) {
-            addCriterion("curr_id not between", value1, value2, "currId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdIsNull() {
-            addCriterion("teacher_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdIsNotNull() {
-            addCriterion("teacher_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdEqualTo(Long value) {
-            addCriterion("teacher_id =", value, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdNotEqualTo(Long value) {
-            addCriterion("teacher_id <>", value, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdGreaterThan(Long value) {
-            addCriterion("teacher_id >", value, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("teacher_id >=", value, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdLessThan(Long value) {
-            addCriterion("teacher_id <", value, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdLessThanOrEqualTo(Long value) {
-            addCriterion("teacher_id <=", value, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdIn(List<Long> values) {
-            addCriterion("teacher_id in", values, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdNotIn(List<Long> values) {
-            addCriterion("teacher_id not in", values, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdBetween(Long value1, Long value2) {
-            addCriterion("teacher_id between", value1, value2, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherIdNotBetween(Long value1, Long value2) {
-            addCriterion("teacher_id not between", value1, value2, "teacherId");
+        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 

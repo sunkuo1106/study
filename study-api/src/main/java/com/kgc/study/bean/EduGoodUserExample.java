@@ -165,6 +165,66 @@ public class EduGoodUserExample {
             return (Criteria) this;
         }
 
+        public Criteria andEduUserIdIsNull() {
+            addCriterion("edu_user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdIsNotNull() {
+            addCriterion("edu_user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdEqualTo(Integer value) {
+            addCriterion("edu_user_id =", value, "eduUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdNotEqualTo(Integer value) {
+            addCriterion("edu_user_id <>", value, "eduUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdGreaterThan(Integer value) {
+            addCriterion("edu_user_id >", value, "eduUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("edu_user_id >=", value, "eduUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdLessThan(Integer value) {
+            addCriterion("edu_user_id <", value, "eduUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("edu_user_id <=", value, "eduUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdIn(List<Integer> values) {
+            addCriterion("edu_user_id in", values, "eduUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdNotIn(List<Integer> values) {
+            addCriterion("edu_user_id not in", values, "eduUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("edu_user_id between", value1, value2, "eduUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("edu_user_id not between", value1, value2, "eduUserId");
+            return (Criteria) this;
+        }
+
         public Criteria andGoodUserImgIsNull() {
             addCriterion("good_user_img is null");
             return (Criteria) this;

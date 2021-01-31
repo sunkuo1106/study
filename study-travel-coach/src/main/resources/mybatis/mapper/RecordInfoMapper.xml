@@ -11,6 +11,7 @@
     <result column="record_test_count" property="recordTestCount" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="record_test_id_list" property="recordTestIdList" jdbcType="VARCHAR" />
+    <result column="record_test_keys_list" property="recordTestKeysList" jdbcType="VARCHAR" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -73,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List" >
     id, gmt_create, gmt_modified, record_test_name, record_test_data, record_test_score, 
-    record_test_count, user_id, record_test_id_list, logic_delete
+    record_test_count, user_id, record_test_id_list, record_test_keys_list, logic_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.RecordInfoExample" >
     select
@@ -109,11 +110,11 @@
     insert into record_info (id, gmt_create, gmt_modified, 
       record_test_name, record_test_data, record_test_score, 
       record_test_count, user_id, record_test_id_list, 
-      logic_delete)
+      record_test_keys_list, logic_delete)
     values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{recordTestName,jdbcType=VARCHAR}, #{recordTestData,jdbcType=TIMESTAMP}, #{recordTestScore,jdbcType=INTEGER}, 
       #{recordTestCount,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{recordTestIdList,jdbcType=VARCHAR}, 
-      #{logicDelete,jdbcType=INTEGER})
+      #{recordTestKeysList,jdbcType=VARCHAR}, #{logicDelete,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.RecordInfo" >
     insert into record_info
@@ -144,6 +145,9 @@
       </if>
       <if test="recordTestIdList != null" >
         record_test_id_list,
+      </if>
+      <if test="recordTestKeysList != null" >
+        record_test_keys_list,
       </if>
       <if test="logicDelete != null" >
         logic_delete,
@@ -176,6 +180,9 @@
       </if>
       <if test="recordTestIdList != null" >
         #{recordTestIdList,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTestKeysList != null" >
+        #{recordTestKeysList,jdbcType=VARCHAR},
       </if>
       <if test="logicDelete != null" >
         #{logicDelete,jdbcType=INTEGER},
@@ -218,6 +225,9 @@
       <if test="record.recordTestIdList != null" >
         record_test_id_list = #{record.recordTestIdList,jdbcType=VARCHAR},
       </if>
+      <if test="record.recordTestKeysList != null" >
+        record_test_keys_list = #{record.recordTestKeysList,jdbcType=VARCHAR},
+      </if>
       <if test="record.logicDelete != null" >
         logic_delete = #{record.logicDelete,jdbcType=INTEGER},
       </if>
@@ -237,6 +247,7 @@
       record_test_count = #{record.recordTestCount,jdbcType=INTEGER},
       user_id = #{record.userId,jdbcType=INTEGER},
       record_test_id_list = #{record.recordTestIdList,jdbcType=VARCHAR},
+      record_test_keys_list = #{record.recordTestKeysList,jdbcType=VARCHAR},
       logic_delete = #{record.logicDelete,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -269,6 +280,9 @@
       <if test="recordTestIdList != null" >
         record_test_id_list = #{recordTestIdList,jdbcType=VARCHAR},
       </if>
+      <if test="recordTestKeysList != null" >
+        record_test_keys_list = #{recordTestKeysList,jdbcType=VARCHAR},
+      </if>
       <if test="logicDelete != null" >
         logic_delete = #{logicDelete,jdbcType=INTEGER},
       </if>
@@ -285,6 +299,7 @@
       record_test_count = #{recordTestCount,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER},
       record_test_id_list = #{recordTestIdList,jdbcType=VARCHAR},
+      record_test_keys_list = #{recordTestKeysList,jdbcType=VARCHAR},
       logic_delete = #{logicDelete,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>

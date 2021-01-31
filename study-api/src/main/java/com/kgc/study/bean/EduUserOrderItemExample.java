@@ -755,6 +755,66 @@ public class EduUserOrderItemExample {
             return (Criteria) this;
         }
 
+        public Criteria andEduOrderClassDiscountPriceIsNull() {
+            addCriterion("edu_order_class_discount_price is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceIsNotNull() {
+            addCriterion("edu_order_class_discount_price is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceEqualTo(Long value) {
+            addCriterion("edu_order_class_discount_price =", value, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceNotEqualTo(Long value) {
+            addCriterion("edu_order_class_discount_price <>", value, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceGreaterThan(Long value) {
+            addCriterion("edu_order_class_discount_price >", value, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceGreaterThanOrEqualTo(Long value) {
+            addCriterion("edu_order_class_discount_price >=", value, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceLessThan(Long value) {
+            addCriterion("edu_order_class_discount_price <", value, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceLessThanOrEqualTo(Long value) {
+            addCriterion("edu_order_class_discount_price <=", value, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceIn(List<Long> values) {
+            addCriterion("edu_order_class_discount_price in", values, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceNotIn(List<Long> values) {
+            addCriterion("edu_order_class_discount_price not in", values, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceBetween(Long value1, Long value2) {
+            addCriterion("edu_order_class_discount_price between", value1, value2, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
+        public Criteria andEduOrderClassDiscountPriceNotBetween(Long value1, Long value2) {
+            addCriterion("edu_order_class_discount_price not between", value1, value2, "eduOrderClassDiscountPrice");
+            return (Criteria) this;
+        }
+
         public Criteria andEduOrderTypeIsNull() {
             addCriterion("edu_order_type is null");
             return (Criteria) this;

@@ -665,6 +665,76 @@ public class RecordInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andRecordTestKeysListIsNull() {
+            addCriterion("record_test_keys_list is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListIsNotNull() {
+            addCriterion("record_test_keys_list is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListEqualTo(String value) {
+            addCriterion("record_test_keys_list =", value, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListNotEqualTo(String value) {
+            addCriterion("record_test_keys_list <>", value, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListGreaterThan(String value) {
+            addCriterion("record_test_keys_list >", value, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListGreaterThanOrEqualTo(String value) {
+            addCriterion("record_test_keys_list >=", value, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListLessThan(String value) {
+            addCriterion("record_test_keys_list <", value, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListLessThanOrEqualTo(String value) {
+            addCriterion("record_test_keys_list <=", value, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListLike(String value) {
+            addCriterion("record_test_keys_list like", value, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListNotLike(String value) {
+            addCriterion("record_test_keys_list not like", value, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListIn(List<String> values) {
+            addCriterion("record_test_keys_list in", values, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListNotIn(List<String> values) {
+            addCriterion("record_test_keys_list not in", values, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListBetween(String value1, String value2) {
+            addCriterion("record_test_keys_list between", value1, value2, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
+        public Criteria andRecordTestKeysListNotBetween(String value1, String value2) {
+            addCriterion("record_test_keys_list not between", value1, value2, "recordTestKeysList");
+            return (Criteria) this;
+        }
+
         public Criteria andLogicDeleteIsNull() {
             addCriterion("logic_delete is null");
             return (Criteria) this;
