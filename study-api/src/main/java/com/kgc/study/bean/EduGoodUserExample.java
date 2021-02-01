@@ -165,66 +165,6 @@ public class EduGoodUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIdIsNull() {
-            addCriterion("edu_user_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdIsNotNull() {
-            addCriterion("edu_user_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdEqualTo(Integer value) {
-            addCriterion("edu_user_id =", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdNotEqualTo(Integer value) {
-            addCriterion("edu_user_id <>", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdGreaterThan(Integer value) {
-            addCriterion("edu_user_id >", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("edu_user_id >=", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdLessThan(Integer value) {
-            addCriterion("edu_user_id <", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdLessThanOrEqualTo(Integer value) {
-            addCriterion("edu_user_id <=", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdIn(List<Integer> values) {
-            addCriterion("edu_user_id in", values, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdNotIn(List<Integer> values) {
-            addCriterion("edu_user_id not in", values, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdBetween(Integer value1, Integer value2) {
-            addCriterion("edu_user_id between", value1, value2, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("edu_user_id not between", value1, value2, "eduUserId");
-            return (Criteria) this;
-        }
-
         public Criteria andGoodUserImgIsNull() {
             addCriterion("good_user_img is null");
             return (Criteria) this;
@@ -672,6 +612,76 @@ public class EduGoodUserExample {
 
         public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
             addCriterion("logic_delete not between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameIsNull() {
+            addCriterion("good_user_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameIsNotNull() {
+            addCriterion("good_user_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameEqualTo(String value) {
+            addCriterion("good_user_name =", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameNotEqualTo(String value) {
+            addCriterion("good_user_name <>", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameGreaterThan(String value) {
+            addCriterion("good_user_name >", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameGreaterThanOrEqualTo(String value) {
+            addCriterion("good_user_name >=", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameLessThan(String value) {
+            addCriterion("good_user_name <", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameLessThanOrEqualTo(String value) {
+            addCriterion("good_user_name <=", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameLike(String value) {
+            addCriterion("good_user_name like", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameNotLike(String value) {
+            addCriterion("good_user_name not like", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameIn(List<String> values) {
+            addCriterion("good_user_name in", values, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameNotIn(List<String> values) {
+            addCriterion("good_user_name not in", values, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameBetween(String value1, String value2) {
+            addCriterion("good_user_name between", value1, value2, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameNotBetween(String value1, String value2) {
+            addCriterion("good_user_name not between", value1, value2, "goodUserName");
             return (Criteria) this;
         }
     }

@@ -1604,6 +1604,66 @@ public class EduUserExample {
             addCriterion("grade_type_id not between", value1, value2, "gradeTypeId");
             return (Criteria) this;
         }
+
+        public Criteria andAgencyAddressIdIsNull() {
+            addCriterion("agency_address_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdIsNotNull() {
+            addCriterion("agency_address_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdEqualTo(Integer value) {
+            addCriterion("agency_address_id =", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdNotEqualTo(Integer value) {
+            addCriterion("agency_address_id <>", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdGreaterThan(Integer value) {
+            addCriterion("agency_address_id >", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id >=", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdLessThan(Integer value) {
+            addCriterion("agency_address_id <", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdLessThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id <=", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdIn(List<Integer> values) {
+            addCriterion("agency_address_id in", values, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdNotIn(List<Integer> values) {
+            addCriterion("agency_address_id not in", values, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id between", value1, value2, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id not between", value1, value2, "agencyAddressId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

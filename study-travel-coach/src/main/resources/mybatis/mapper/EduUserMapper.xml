@@ -25,6 +25,7 @@
     <result column="edu_user_highest_education" property="eduUserHighestEducation" jdbcType="VARCHAR" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
     <result column="grade_type_id" property="gradeTypeId" jdbcType="INTEGER" />
+    <result column="agency_address_id" property="agencyAddressId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -89,7 +90,7 @@
     edu_user_pic_img, edu_user_school_roll, edu_user_is_pass, edu_user_email, edu_user_is_avalible, 
     edu_user_is_good_student, edu_user_enrollment_method, agency_id, edu_user_identity_front, 
     edu_user_identity_reverse, edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove, 
-    edu_user_highest_education, grade_id, grade_type_id
+    edu_user_highest_education, grade_id, grade_type_id, agency_address_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.EduUserExample" >
     select
@@ -129,8 +130,8 @@
       edu_user_is_good_student, edu_user_enrollment_method, 
       agency_id, edu_user_identity_front, edu_user_identity_reverse, 
       edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove, 
-      edu_user_highest_education, grade_id, grade_type_id
-      )
+      edu_user_highest_education, grade_id, grade_type_id, 
+      agency_address_id)
     values (#{id,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{eduUserName,jdbcType=VARCHAR}, #{eduUserPhone,jdbcType=VARCHAR}, #{eduUserIdCard,jdbcType=VARCHAR}, 
       #{eduUserGender,jdbcType=TINYINT}, #{eduUserPicImg,jdbcType=VARCHAR}, #{eduUserSchoolRoll,jdbcType=TIMESTAMP}, 
@@ -138,8 +139,8 @@
       #{eduUserIsGoodStudent,jdbcType=INTEGER}, #{eduUserEnrollmentMethod,jdbcType=TINYINT}, 
       #{agencyId,jdbcType=INTEGER}, #{eduUserIdentityFront,jdbcType=VARCHAR}, #{eduUserIdentityReverse,jdbcType=VARCHAR}, 
       #{eduUserSchoolProve,jdbcType=VARCHAR}, #{eduUserWorkProve,jdbcType=VARCHAR}, #{eduUserSoldierProve,jdbcType=VARCHAR}, 
-      #{eduUserHighestEducation,jdbcType=VARCHAR}, #{gradeId,jdbcType=INTEGER}, #{gradeTypeId,jdbcType=INTEGER}
-      )
+      #{eduUserHighestEducation,jdbcType=VARCHAR}, #{gradeId,jdbcType=INTEGER}, #{gradeTypeId,jdbcType=INTEGER}, 
+      #{agencyAddressId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.EduUser" >
     insert into edu_user
@@ -213,6 +214,9 @@
       <if test="gradeTypeId != null" >
         grade_type_id,
       </if>
+      <if test="agencyAddressId != null" >
+        agency_address_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -283,6 +287,9 @@
       </if>
       <if test="gradeTypeId != null" >
         #{gradeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="agencyAddressId != null" >
+        #{agencyAddressId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -364,6 +371,9 @@
       <if test="record.gradeTypeId != null" >
         grade_type_id = #{record.gradeTypeId,jdbcType=INTEGER},
       </if>
+      <if test="record.agencyAddressId != null" >
+        agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -393,7 +403,8 @@
       edu_user_soldier_prove = #{record.eduUserSoldierProve,jdbcType=VARCHAR},
       edu_user_highest_education = #{record.eduUserHighestEducation,jdbcType=VARCHAR},
       grade_id = #{record.gradeId,jdbcType=INTEGER},
-      grade_type_id = #{record.gradeTypeId,jdbcType=INTEGER}
+      grade_type_id = #{record.gradeTypeId,jdbcType=INTEGER},
+      agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -467,6 +478,9 @@
       <if test="gradeTypeId != null" >
         grade_type_id = #{gradeTypeId,jdbcType=INTEGER},
       </if>
+      <if test="agencyAddressId != null" >
+        agency_address_id = #{agencyAddressId,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -493,7 +507,8 @@
       edu_user_soldier_prove = #{eduUserSoldierProve,jdbcType=VARCHAR},
       edu_user_highest_education = #{eduUserHighestEducation,jdbcType=VARCHAR},
       grade_id = #{gradeId,jdbcType=INTEGER},
-      grade_type_id = #{gradeTypeId,jdbcType=INTEGER}
+      grade_type_id = #{gradeTypeId,jdbcType=INTEGER},
+      agency_address_id = #{agencyAddressId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
