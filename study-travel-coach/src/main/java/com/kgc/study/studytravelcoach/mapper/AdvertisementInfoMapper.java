@@ -11,7 +11,7 @@ public interface AdvertisementInfoMapper {
 
     int deleteByExample(AdvertisementInfoExample example);
 
-    int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long adId);
 
     int insert(AdvertisementInfo record);
 
@@ -19,7 +19,7 @@ public interface AdvertisementInfoMapper {
 
     List<AdvertisementInfo> selectByExample(AdvertisementInfoExample example);
 
-    AdvertisementInfo selectByPrimaryKey(Long id);
+    AdvertisementInfo selectByPrimaryKey(Long adId);
 
     int updateByExampleSelective(@Param("record") AdvertisementInfo record, @Param("example") AdvertisementInfoExample example);
 

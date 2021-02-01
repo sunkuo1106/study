@@ -105,183 +105,63 @@ public class AdvertisementInfoExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andIdIsNull() {
-            addCriterion("id is null");
+        public Criteria andAdIdIsNull() {
+            addCriterion("ad_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andIdIsNotNull() {
-            addCriterion("id is not null");
+        public Criteria andAdIdIsNotNull() {
+            addCriterion("ad_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Long value) {
-            addCriterion("id =", value, "id");
+        public Criteria andAdIdEqualTo(Long value) {
+            addCriterion("ad_id =", value, "adId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Long value) {
-            addCriterion("id <>", value, "id");
+        public Criteria andAdIdNotEqualTo(Long value) {
+            addCriterion("ad_id <>", value, "adId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Long value) {
-            addCriterion("id >", value, "id");
+        public Criteria andAdIdGreaterThan(Long value) {
+            addCriterion("ad_id >", value, "adId");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("id >=", value, "id");
+        public Criteria andAdIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ad_id >=", value, "adId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Long value) {
-            addCriterion("id <", value, "id");
+        public Criteria andAdIdLessThan(Long value) {
+            addCriterion("ad_id <", value, "adId");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Long value) {
-            addCriterion("id <=", value, "id");
+        public Criteria andAdIdLessThanOrEqualTo(Long value) {
+            addCriterion("ad_id <=", value, "adId");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Long> values) {
-            addCriterion("id in", values, "id");
+        public Criteria andAdIdIn(List<Long> values) {
+            addCriterion("ad_id in", values, "adId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Long> values) {
-            addCriterion("id not in", values, "id");
+        public Criteria andAdIdNotIn(List<Long> values) {
+            addCriterion("ad_id not in", values, "adId");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Long value1, Long value2) {
-            addCriterion("id between", value1, value2, "id");
+        public Criteria andAdIdBetween(Long value1, Long value2) {
+            addCriterion("ad_id between", value1, value2, "adId");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Long value1, Long value2) {
-            addCriterion("id not between", value1, value2, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeIsNull() {
-            addCriterion("ad_start_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeIsNotNull() {
-            addCriterion("ad_start_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeEqualTo(Date value) {
-            addCriterion("ad_start_time =", value, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeNotEqualTo(Date value) {
-            addCriterion("ad_start_time <>", value, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeGreaterThan(Date value) {
-            addCriterion("ad_start_time >", value, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("ad_start_time >=", value, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeLessThan(Date value) {
-            addCriterion("ad_start_time <", value, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeLessThanOrEqualTo(Date value) {
-            addCriterion("ad_start_time <=", value, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeIn(List<Date> values) {
-            addCriterion("ad_start_time in", values, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeNotIn(List<Date> values) {
-            addCriterion("ad_start_time not in", values, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeBetween(Date value1, Date value2) {
-            addCriterion("ad_start_time between", value1, value2, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdStartTimeNotBetween(Date value1, Date value2) {
-            addCriterion("ad_start_time not between", value1, value2, "adStartTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeIsNull() {
-            addCriterion("ad_end_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeIsNotNull() {
-            addCriterion("ad_end_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeEqualTo(Date value) {
-            addCriterion("ad_end_time =", value, "adEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeNotEqualTo(Date value) {
-            addCriterion("ad_end_time <>", value, "adEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeGreaterThan(Date value) {
-            addCriterion("ad_end_time >", value, "adEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("ad_end_time >=", value, "adEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeLessThan(Date value) {
-            addCriterion("ad_end_time <", value, "adEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeLessThanOrEqualTo(Date value) {
-            addCriterion("ad_end_time <=", value, "adEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeIn(List<Date> values) {
-            addCriterion("ad_end_time in", values, "adEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeNotIn(List<Date> values) {
-            addCriterion("ad_end_time not in", values, "adEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeBetween(Date value1, Date value2) {
-            addCriterion("ad_end_time between", value1, value2, "adEndTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andAdEndTimeNotBetween(Date value1, Date value2) {
-            addCriterion("ad_end_time not between", value1, value2, "adEndTime");
+        public Criteria andAdIdNotBetween(Long value1, Long value2) {
+            addCriterion("ad_id not between", value1, value2, "adId");
             return (Criteria) this;
         }
 
@@ -635,183 +515,123 @@ public class AdvertisementInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusIsNull() {
-            addCriterion("ad_status is null");
+        public Criteria andAdGmtCreateIsNull() {
+            addCriterion("ad_gmt_create is null");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusIsNotNull() {
-            addCriterion("ad_status is not null");
+        public Criteria andAdGmtCreateIsNotNull() {
+            addCriterion("ad_gmt_create is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusEqualTo(Integer value) {
-            addCriterion("ad_status =", value, "adStatus");
+        public Criteria andAdGmtCreateEqualTo(Date value) {
+            addCriterion("ad_gmt_create =", value, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusNotEqualTo(Integer value) {
-            addCriterion("ad_status <>", value, "adStatus");
+        public Criteria andAdGmtCreateNotEqualTo(Date value) {
+            addCriterion("ad_gmt_create <>", value, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusGreaterThan(Integer value) {
-            addCriterion("ad_status >", value, "adStatus");
+        public Criteria andAdGmtCreateGreaterThan(Date value) {
+            addCriterion("ad_gmt_create >", value, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ad_status >=", value, "adStatus");
+        public Criteria andAdGmtCreateGreaterThanOrEqualTo(Date value) {
+            addCriterion("ad_gmt_create >=", value, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusLessThan(Integer value) {
-            addCriterion("ad_status <", value, "adStatus");
+        public Criteria andAdGmtCreateLessThan(Date value) {
+            addCriterion("ad_gmt_create <", value, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("ad_status <=", value, "adStatus");
+        public Criteria andAdGmtCreateLessThanOrEqualTo(Date value) {
+            addCriterion("ad_gmt_create <=", value, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusIn(List<Integer> values) {
-            addCriterion("ad_status in", values, "adStatus");
+        public Criteria andAdGmtCreateIn(List<Date> values) {
+            addCriterion("ad_gmt_create in", values, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusNotIn(List<Integer> values) {
-            addCriterion("ad_status not in", values, "adStatus");
+        public Criteria andAdGmtCreateNotIn(List<Date> values) {
+            addCriterion("ad_gmt_create not in", values, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusBetween(Integer value1, Integer value2) {
-            addCriterion("ad_status between", value1, value2, "adStatus");
+        public Criteria andAdGmtCreateBetween(Date value1, Date value2) {
+            addCriterion("ad_gmt_create between", value1, value2, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andAdStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("ad_status not between", value1, value2, "adStatus");
+        public Criteria andAdGmtCreateNotBetween(Date value1, Date value2) {
+            addCriterion("ad_gmt_create not between", value1, value2, "adGmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateIsNull() {
-            addCriterion("gmt_create is null");
+        public Criteria andAdGmtModifiedIsNull() {
+            addCriterion("ad_gmt_modified is null");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateIsNotNull() {
-            addCriterion("gmt_create is not null");
+        public Criteria andAdGmtModifiedIsNotNull() {
+            addCriterion("ad_gmt_modified is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateEqualTo(Date value) {
-            addCriterion("gmt_create =", value, "gmtCreate");
+        public Criteria andAdGmtModifiedEqualTo(Date value) {
+            addCriterion("ad_gmt_modified =", value, "adGmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateNotEqualTo(Date value) {
-            addCriterion("gmt_create <>", value, "gmtCreate");
+        public Criteria andAdGmtModifiedNotEqualTo(Date value) {
+            addCriterion("ad_gmt_modified <>", value, "adGmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateGreaterThan(Date value) {
-            addCriterion("gmt_create >", value, "gmtCreate");
+        public Criteria andAdGmtModifiedGreaterThan(Date value) {
+            addCriterion("ad_gmt_modified >", value, "adGmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateGreaterThanOrEqualTo(Date value) {
-            addCriterion("gmt_create >=", value, "gmtCreate");
+        public Criteria andAdGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("ad_gmt_modified >=", value, "adGmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateLessThan(Date value) {
-            addCriterion("gmt_create <", value, "gmtCreate");
+        public Criteria andAdGmtModifiedLessThan(Date value) {
+            addCriterion("ad_gmt_modified <", value, "adGmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateLessThanOrEqualTo(Date value) {
-            addCriterion("gmt_create <=", value, "gmtCreate");
+        public Criteria andAdGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("ad_gmt_modified <=", value, "adGmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateIn(List<Date> values) {
-            addCriterion("gmt_create in", values, "gmtCreate");
+        public Criteria andAdGmtModifiedIn(List<Date> values) {
+            addCriterion("ad_gmt_modified in", values, "adGmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateNotIn(List<Date> values) {
-            addCriterion("gmt_create not in", values, "gmtCreate");
+        public Criteria andAdGmtModifiedNotIn(List<Date> values) {
+            addCriterion("ad_gmt_modified not in", values, "adGmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateBetween(Date value1, Date value2) {
-            addCriterion("gmt_create between", value1, value2, "gmtCreate");
+        public Criteria andAdGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("ad_gmt_modified between", value1, value2, "adGmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andGmtCreateNotBetween(Date value1, Date value2) {
-            addCriterion("gmt_create not between", value1, value2, "gmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedIsNull() {
-            addCriterion("gmt_modified is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedIsNotNull() {
-            addCriterion("gmt_modified is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedEqualTo(Date value) {
-            addCriterion("gmt_modified =", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedNotEqualTo(Date value) {
-            addCriterion("gmt_modified <>", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedGreaterThan(Date value) {
-            addCriterion("gmt_modified >", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
-            addCriterion("gmt_modified >=", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedLessThan(Date value) {
-            addCriterion("gmt_modified <", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
-            addCriterion("gmt_modified <=", value, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedIn(List<Date> values) {
-            addCriterion("gmt_modified in", values, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedNotIn(List<Date> values) {
-            addCriterion("gmt_modified not in", values, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
-            addCriterion("gmt_modified between", value1, value2, "gmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
-            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
+        public Criteria andAdGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("ad_gmt_modified not between", value1, value2, "adGmtModified");
             return (Criteria) this;
         }
 

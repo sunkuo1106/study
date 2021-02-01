@@ -3,11 +3,7 @@ package com.kgc.study.bean;
 import java.util.Date;
 
 public class AdvertisementInfo {
-    private Long id;
-
-    private Date adStartTime;
-
-    private Date adEndTime;
+    private Long adId;
 
     private String adName;
 
@@ -19,36 +15,18 @@ public class AdvertisementInfo {
 
     private String adTitle;
 
-    private Integer adStatus;
+    private Date adGmtCreate;
 
-    private Date gmtCreate;
-
-    private Date gmtModified;
+    private Date adGmtModified;
 
     private Integer logicDelete;
 
-    public Long getId() {
-        return id;
+    public Long getAdId() {
+        return adId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Date getAdStartTime() {
-        return adStartTime;
-    }
-
-    public void setAdStartTime(Date adStartTime) {
-        this.adStartTime = adStartTime;
-    }
-
-    public Date getAdEndTime() {
-        return adEndTime;
-    }
-
-    public void setAdEndTime(Date adEndTime) {
-        this.adEndTime = adEndTime;
+    public void setAdId(Long adId) {
+        this.adId = adId;
     }
 
     public String getAdName() {
@@ -91,28 +69,20 @@ public class AdvertisementInfo {
         this.adTitle = adTitle == null ? null : adTitle.trim();
     }
 
-    public Integer getAdStatus() {
-        return adStatus;
+    public Date getAdGmtCreate() {
+        return adGmtCreate;
     }
 
-    public void setAdStatus(Integer adStatus) {
-        this.adStatus = adStatus;
+    public void setAdGmtCreate(Date adGmtCreate) {
+        this.adGmtCreate = adGmtCreate;
     }
 
-    public Date getGmtCreate() {
-        return gmtCreate;
+    public Date getAdGmtModified() {
+        return adGmtModified;
     }
 
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Date getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
+    public void setAdGmtModified(Date adGmtModified) {
+        this.adGmtModified = adGmtModified;
     }
 
     public Integer getLogicDelete() {
