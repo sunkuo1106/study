@@ -12,6 +12,13 @@
     <result column="ad_gmt_modified" property="adGmtModified" jdbcType="TIMESTAMP" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
+  <!--批量删除-->
+<delete id="deletelist">
+  DELETE  FROM  advertisement_info WHERE  ad_id IN
+  <foreach collection="list" separator="," open="(" close=")" item="id">
+    #{id}
+  </foreach>
+</delete>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

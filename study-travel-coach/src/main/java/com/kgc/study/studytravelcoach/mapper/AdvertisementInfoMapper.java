@@ -28,4 +28,6 @@ public interface AdvertisementInfoMapper {
     int updateByPrimaryKeySelective(AdvertisementInfo record);
 
     int updateByPrimaryKey(AdvertisementInfo record);
+
+    int deletelist(List id);//批量删除广告
 }
