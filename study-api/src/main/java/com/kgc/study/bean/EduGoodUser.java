@@ -5,8 +5,6 @@ import java.util.Date;
 public class EduGoodUser {
     private Long id;
 
-    private Integer eduUserId;
-
     private String goodUserImg;
 
     private Date gmtCreate;
@@ -21,20 +19,14 @@ public class EduGoodUser {
 
     private Integer logicDelete;
 
+    private String goodUserName;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getEduUserId() {
-        return eduUserId;
-    }
-
-    public void setEduUserId(Integer eduUserId) {
-        this.eduUserId = eduUserId;
     }
 
     public String getGoodUserImg() {
@@ -91,5 +83,13 @@ public class EduGoodUser {
 
     public void setLogicDelete(Integer logicDelete) {
         this.logicDelete = logicDelete;
+    }
+
+    public String getGoodUserName() {
+        return goodUserName;
+    }
+
+    public void setGoodUserName(String goodUserName) {
+        this.goodUserName = goodUserName == null ? null : goodUserName.trim();
     }
 }

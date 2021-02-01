@@ -49,6 +49,8 @@ public class EduUser {
 
     private Integer gradeTypeId;
 
+    private Integer agencyAddressId;
+
     public Integer getId() {
         return id;
     }
@@ -231,5 +233,13 @@ public class EduUser {
 
     public void setGradeTypeId(Integer gradeTypeId) {
         this.gradeTypeId = gradeTypeId;
+    }
+
+    public Integer getAgencyAddressId() {
+        return agencyAddressId;
+    }
+
+    public void setAgencyAddressId(Integer agencyAddressId) {
+        this.agencyAddressId = agencyAddressId;
     }
 }
