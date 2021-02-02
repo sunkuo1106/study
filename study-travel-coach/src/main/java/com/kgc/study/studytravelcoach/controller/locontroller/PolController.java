@@ -1,8 +1,12 @@
 package com.kgc.study.studytravelcoach.controller.locontroller;
 
+import org.springframework.stereotype.Controller;
+
 /**
- * @author shkstart
+ * @author 吕东
  * @create 2021-02-02 14:25
  */
+@Controller
 public class PolController {
+   //开始
 }
