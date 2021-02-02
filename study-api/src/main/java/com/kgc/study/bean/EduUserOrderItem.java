@@ -3,7 +3,7 @@ package com.kgc.study.bean;
 import java.util.Date;
 
 public class EduUserOrderItem {
-    private Integer id;
+    private Long id;
 
     private Date gmtCreate;
 
@@ -15,19 +15,29 @@ public class EduUserOrderItem {
 
     private String eduOrderPhone;
 
-    private String eduOrderClass;
+    private Integer agencyAddressId;
+
+    private String agencyAddressName;
 
     private String eduOrderClassType;
 
-    private String eduOrderClassPrice;
+    private Long eduOrderClassPrice;
+
+    private Long eduOrderClassDiscountPrice;
 
     private Integer eduOrderType;
 
-    public Integer getId() {
+    private String agencyId;
+
+    private String agencyName;
+
+    private Integer logicDelete;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -71,12 +81,20 @@ public class EduUserOrderItem {
         this.eduOrderPhone = eduOrderPhone == null ? null : eduOrderPhone.trim();
     }
 
-    public String getEduOrderClass() {
-        return eduOrderClass;
+    public Integer getAgencyAddressId() {
+        return agencyAddressId;
     }
 
-    public void setEduOrderClass(String eduOrderClass) {
-        this.eduOrderClass = eduOrderClass == null ? null : eduOrderClass.trim();
+    public void setAgencyAddressId(Integer agencyAddressId) {
+        this.agencyAddressId = agencyAddressId;
+    }
+
+    public String getAgencyAddressName() {
+        return agencyAddressName;
+    }
+
+    public void setAgencyAddressName(String agencyAddressName) {
+        this.agencyAddressName = agencyAddressName == null ? null : agencyAddressName.trim();
     }
 
     public String getEduOrderClassType() {
@@ -87,12 +105,20 @@ public class EduUserOrderItem {
         this.eduOrderClassType = eduOrderClassType == null ? null : eduOrderClassType.trim();
     }
 
-    public String getEduOrderClassPrice() {
+    public Long getEduOrderClassPrice() {
         return eduOrderClassPrice;
     }
 
-    public void setEduOrderClassPrice(String eduOrderClassPrice) {
-        this.eduOrderClassPrice = eduOrderClassPrice == null ? null : eduOrderClassPrice.trim();
+    public void setEduOrderClassPrice(Long eduOrderClassPrice) {
+        this.eduOrderClassPrice = eduOrderClassPrice;
+    }
+
+    public Long getEduOrderClassDiscountPrice() {
+        return eduOrderClassDiscountPrice;
+    }
+
+    public void setEduOrderClassDiscountPrice(Long eduOrderClassDiscountPrice) {
+        this.eduOrderClassDiscountPrice = eduOrderClassDiscountPrice;
     }
 
     public Integer getEduOrderType() {
@@ -101,5 +127,29 @@ public class EduUserOrderItem {
 
     public void setEduOrderType(Integer eduOrderType) {
         this.eduOrderType = eduOrderType;
+    }
+
+    public String getAgencyId() {
+        return agencyId;
+    }
+
+    public void setAgencyId(String agencyId) {
+        this.agencyId = agencyId == null ? null : agencyId.trim();
+    }
+
+    public String getAgencyName() {
+        return agencyName;
+    }
+
+    public void setAgencyName(String agencyName) {
+        this.agencyName = agencyName == null ? null : agencyName.trim();
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

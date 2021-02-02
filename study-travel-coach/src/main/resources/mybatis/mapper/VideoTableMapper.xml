@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.VideoTableMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.VideoTable" >
+    <id column="video_table_id" property="videoTableId" jdbcType="BIGINT" />
+    <result column="video_table_name" property="videoTableName" jdbcType="VARCHAR" />
+    <result column="video_table_url" property="videoTableUrl" jdbcType="VARCHAR" />
+    <result column="chapter_table_id" property="chapterTableId" jdbcType="BIGINT" />
+    <result column="teacher_id" property="teacherId" jdbcType="BIGINT" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    video_table_id, video_table_name, video_table_url, chapter_table_id, teacher_id, 
+    gmt_create, gmt_modified, logic_delete
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.VideoTableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from video_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from video_table
+    where video_table_id = #{videoTableId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from video_table
+    where video_table_id = #{videoTableId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.VideoTableExample" >
+    delete from video_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.VideoTable" >
+    insert into video_table (video_table_id, video_table_name, video_table_url, 
+      chapter_table_id, teacher_id, gmt_create, 
+      gmt_modified, logic_delete)
+    values (#{videoTableId,jdbcType=BIGINT}, #{videoTableName,jdbcType=VARCHAR}, #{videoTableUrl,jdbcType=VARCHAR}, 
+      #{chapterTableId,jdbcType=BIGINT}, #{teacherId,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{logicDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.VideoTable" >
+    insert into video_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="videoTableId != null" >
+        video_table_id,
+      </if>
+      <if test="videoTableName != null" >
+        video_table_name,
+      </if>
+      <if test="videoTableUrl != null" >
+        video_table_url,
+      </if>
+      <if test="chapterTableId != null" >
+        chapter_table_id,
+      </if>
+      <if test="teacherId != null" >
+        teacher_id,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="videoTableId != null" >
+        #{videoTableId,jdbcType=BIGINT},
+      </if>
+      <if test="videoTableName != null" >
+        #{videoTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoTableUrl != null" >
+        #{videoTableUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterTableId != null" >
+        #{chapterTableId,jdbcType=BIGINT},
+      </if>
+      <if test="teacherId != null" >
+        #{teacherId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logicDelete != null" >
+        #{logicDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.VideoTableExample" resultType="java.lang.Integer" >
+    select count(*) from video_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update video_table
+    <set >
+      <if test="record.videoTableId != null" >
+        video_table_id = #{record.videoTableId,jdbcType=BIGINT},
+      </if>
+      <if test="record.videoTableName != null" >
+        video_table_name = #{record.videoTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoTableUrl != null" >
+        video_table_url = #{record.videoTableUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chapterTableId != null" >
+        chapter_table_id = #{record.chapterTableId,jdbcType=BIGINT},
+      </if>
+      <if test="record.teacherId != null" >
+        teacher_id = #{record.teacherId,jdbcType=BIGINT},
+      </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.logicDelete != null" >
+        logic_delete = #{record.logicDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update video_table
+    set video_table_id = #{record.videoTableId,jdbcType=BIGINT},
+      video_table_name = #{record.videoTableName,jdbcType=VARCHAR},
+      video_table_url = #{record.videoTableUrl,jdbcType=VARCHAR},
+      chapter_table_id = #{record.chapterTableId,jdbcType=BIGINT},
+      teacher_id = #{record.teacherId,jdbcType=BIGINT},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.VideoTable" >
+    update video_table
+    <set >
+      <if test="videoTableName != null" >
+        video_table_name = #{videoTableName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoTableUrl != null" >
+        video_table_url = #{videoTableUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterTableId != null" >
+        chapter_table_id = #{chapterTableId,jdbcType=BIGINT},
+      </if>
+      <if test="teacherId != null" >
+        teacher_id = #{teacherId,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete = #{logicDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where video_table_id = #{videoTableId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.VideoTable" >
+    update video_table
+    set video_table_name = #{videoTableName,jdbcType=VARCHAR},
+      video_table_url = #{videoTableUrl,jdbcType=VARCHAR},
+      chapter_table_id = #{chapterTableId,jdbcType=BIGINT},
+      teacher_id = #{teacherId,jdbcType=BIGINT},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      logic_delete = #{logicDelete,jdbcType=INTEGER}
+    where video_table_id = #{videoTableId,jdbcType=BIGINT}
+  </update>
+</mapper>

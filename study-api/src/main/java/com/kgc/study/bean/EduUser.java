@@ -31,7 +31,7 @@ public class EduUser {
 
     private Byte eduUserEnrollmentMethod;
 
-    private Integer mechanismId;
+    private Integer agencyId;
 
     private String eduUserIdentityFront;
 
@@ -45,9 +45,11 @@ public class EduUser {
 
     private String eduUserHighestEducation;
 
-    private Integer eduUserClass;
+    private Integer gradeId;
 
-    private Integer eduUserClassType;
+    private Integer gradeTypeId;
+
+    private Integer agencyAddressId;
 
     public Integer getId() {
         return id;
@@ -161,12 +163,12 @@ public class EduUser {
         this.eduUserEnrollmentMethod = eduUserEnrollmentMethod;
     }
 
-    public Integer getMechanismId() {
-        return mechanismId;
+    public Integer getAgencyId() {
+        return agencyId;
     }
 
-    public void setMechanismId(Integer mechanismId) {
-        this.mechanismId = mechanismId;
+    public void setAgencyId(Integer agencyId) {
+        this.agencyId = agencyId;
     }
 
     public String getEduUserIdentityFront() {
@@ -217,19 +219,27 @@ public class EduUser {
         this.eduUserHighestEducation = eduUserHighestEducation == null ? null : eduUserHighestEducation.trim();
     }
 
-    public Integer getEduUserClass() {
-        return eduUserClass;
+    public Integer getGradeId() {
+        return gradeId;
     }
 
-    public void setEduUserClass(Integer eduUserClass) {
-        this.eduUserClass = eduUserClass;
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
     }
 
-    public Integer getEduUserClassType() {
-        return eduUserClassType;
+    public Integer getGradeTypeId() {
+        return gradeTypeId;
     }
 
-    public void setEduUserClassType(Integer eduUserClassType) {
-        this.eduUserClassType = eduUserClassType;
+    public void setGradeTypeId(Integer gradeTypeId) {
+        this.gradeTypeId = gradeTypeId;
+    }
+
+    public Integer getAgencyAddressId() {
+        return agencyAddressId;
+    }
+
+    public void setAgencyAddressId(Integer agencyAddressId) {
+        this.agencyAddressId = agencyAddressId;
     }
 }

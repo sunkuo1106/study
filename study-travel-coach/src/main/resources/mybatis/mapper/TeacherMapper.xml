@@ -2,15 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.kgc.study.studytravelcoach.mapper.TeacherMapper" >
   <resultMap id="BaseResultMap" type="com.kgc.study.bean.Teacher" >
-    <id column="teacher_id" property="teacherId" jdbcType="BIGINT" />
-    <result column="teacher_gmt_create" property="teacherGmtCreate" jdbcType="TIMESTAMP" />
-    <result column="teacher_gmt_modified" property="teacherGmtModified" jdbcType="TIMESTAMP" />
+    <id column="id" property="id" jdbcType="BIGINT" />
     <result column="tch_name" property="tchName" jdbcType="VARCHAR" />
-    <result column="tch_education" property="tchEducation" jdbcType="VARCHAR" />
-    <result column="tch_is_star" property="tchIsStar" jdbcType="INTEGER" />
     <result column="tch_pic_path" property="tchPicPath" jdbcType="VARCHAR" />
-    <result column="tch_status" property="tchStatus" jdbcType="TIMESTAMP" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="tch_subject" property="tchSubject" jdbcType="VARCHAR" />
+    <result column="tch_status" property="tchStatus" jdbcType="INTEGER" />
+    <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.kgc.study.bean.Teacher" extends="BaseResultMap" >
     <result column="tch_career" property="tchCareer" jdbcType="LONGVARCHAR" />
@@ -74,8 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    teacher_id, teacher_gmt_create, teacher_gmt_modified, tch_name, tch_education, tch_is_star, 
-    tch_pic_path, tch_status, tch_subject
+    id, tch_name, tch_pic_path, gmt_create, gmt_modified, tch_subject, tch_status, logic_delete
   </sql>
   <sql id="Blob_Column_List" >
     tch_career
@@ -116,11 +114,11 @@
     ,
     <include refid="Blob_Column_List" />
     from teacher
-    where teacher_id = #{teacherId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from teacher
-    where teacher_id = #{teacherId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.kgc.study.bean.TeacherExample" >
     delete from teacher
@@ -129,76 +127,70 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.kgc.study.bean.Teacher" >
-    insert into teacher (teacher_id, teacher_gmt_create, teacher_gmt_modified, 
-      tch_name, tch_education, tch_is_star, 
-      tch_pic_path, tch_status, tch_subject, 
-      tch_career)
-    values (#{teacherId,jdbcType=BIGINT}, #{teacherGmtCreate,jdbcType=TIMESTAMP}, #{teacherGmtModified,jdbcType=TIMESTAMP}, 
-      #{tchName,jdbcType=VARCHAR}, #{tchEducation,jdbcType=VARCHAR}, #{tchIsStar,jdbcType=INTEGER}, 
-      #{tchPicPath,jdbcType=VARCHAR}, #{tchStatus,jdbcType=TIMESTAMP}, #{tchSubject,jdbcType=VARCHAR}, 
-      #{tchCareer,jdbcType=LONGVARCHAR})
+    insert into teacher (id, tch_name, tch_pic_path, 
+      gmt_create, gmt_modified, tch_subject, 
+      tch_status, logic_delete, tch_career
+      )
+    values (#{id,jdbcType=BIGINT}, #{tchName,jdbcType=VARCHAR}, #{tchPicPath,jdbcType=VARCHAR}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{tchSubject,jdbcType=VARCHAR}, 
+      #{tchStatus,jdbcType=INTEGER}, #{logicDelete,jdbcType=INTEGER}, #{tchCareer,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.Teacher" >
     insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="teacherId != null" >
-        teacher_id,
-      </if>
-      <if test="teacherGmtCreate != null" >
-        teacher_gmt_create,
-      </if>
-      <if test="teacherGmtModified != null" >
-        teacher_gmt_modified,
+      <if test="id != null" >
+        id,
       </if>
       <if test="tchName != null" >
         tch_name,
       </if>
-      <if test="tchEducation != null" >
-        tch_education,
-      </if>
-      <if test="tchIsStar != null" >
-        tch_is_star,
-      </if>
       <if test="tchPicPath != null" >
         tch_pic_path,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="tchSubject != null" >
+        tch_subject,
       </if>
       <if test="tchStatus != null" >
         tch_status,
       </if>
-      <if test="tchSubject != null" >
-        tch_subject,
+      <if test="logicDelete != null" >
+        logic_delete,
       </if>
       <if test="tchCareer != null" >
         tch_career,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="teacherId != null" >
-        #{teacherId,jdbcType=BIGINT},
-      </if>
-      <if test="teacherGmtCreate != null" >
-        #{teacherGmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="teacherGmtModified != null" >
-        #{teacherGmtModified,jdbcType=TIMESTAMP},
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
       </if>
       <if test="tchName != null" >
         #{tchName,jdbcType=VARCHAR},
       </if>
-      <if test="tchEducation != null" >
-        #{tchEducation,jdbcType=VARCHAR},
-      </if>
-      <if test="tchIsStar != null" >
-        #{tchIsStar,jdbcType=INTEGER},
-      </if>
       <if test="tchPicPath != null" >
         #{tchPicPath,jdbcType=VARCHAR},
       </if>
-      <if test="tchStatus != null" >
-        #{tchStatus,jdbcType=TIMESTAMP},
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
       </if>
       <if test="tchSubject != null" >
         #{tchSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="tchStatus != null" >
+        #{tchStatus,jdbcType=INTEGER},
+      </if>
+      <if test="logicDelete != null" >
+        #{logicDelete,jdbcType=INTEGER},
       </if>
       <if test="tchCareer != null" >
         #{tchCareer,jdbcType=LONGVARCHAR},
@@ -214,32 +206,29 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update teacher
     <set >
-      <if test="record.teacherId != null" >
-        teacher_id = #{record.teacherId,jdbcType=BIGINT},
-      </if>
-      <if test="record.teacherGmtCreate != null" >
-        teacher_gmt_create = #{record.teacherGmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.teacherGmtModified != null" >
-        teacher_gmt_modified = #{record.teacherGmtModified,jdbcType=TIMESTAMP},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.tchName != null" >
         tch_name = #{record.tchName,jdbcType=VARCHAR},
       </if>
-      <if test="record.tchEducation != null" >
-        tch_education = #{record.tchEducation,jdbcType=VARCHAR},
-      </if>
-      <if test="record.tchIsStar != null" >
-        tch_is_star = #{record.tchIsStar,jdbcType=INTEGER},
-      </if>
       <if test="record.tchPicPath != null" >
         tch_pic_path = #{record.tchPicPath,jdbcType=VARCHAR},
       </if>
-      <if test="record.tchStatus != null" >
-        tch_status = #{record.tchStatus,jdbcType=TIMESTAMP},
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       </if>
       <if test="record.tchSubject != null" >
         tch_subject = #{record.tchSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tchStatus != null" >
+        tch_status = #{record.tchStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.logicDelete != null" >
+        logic_delete = #{record.logicDelete,jdbcType=INTEGER},
       </if>
       <if test="record.tchCareer != null" >
         tch_career = #{record.tchCareer,jdbcType=LONGVARCHAR},
@@ -251,15 +240,14 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update teacher
-    set teacher_id = #{record.teacherId,jdbcType=BIGINT},
-      teacher_gmt_create = #{record.teacherGmtCreate,jdbcType=TIMESTAMP},
-      teacher_gmt_modified = #{record.teacherGmtModified,jdbcType=TIMESTAMP},
+    set id = #{record.id,jdbcType=BIGINT},
       tch_name = #{record.tchName,jdbcType=VARCHAR},
-      tch_education = #{record.tchEducation,jdbcType=VARCHAR},
-      tch_is_star = #{record.tchIsStar,jdbcType=INTEGER},
       tch_pic_path = #{record.tchPicPath,jdbcType=VARCHAR},
-      tch_status = #{record.tchStatus,jdbcType=TIMESTAMP},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       tch_subject = #{record.tchSubject,jdbcType=VARCHAR},
+      tch_status = #{record.tchStatus,jdbcType=INTEGER},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER},
       tch_career = #{record.tchCareer,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -267,15 +255,14 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update teacher
-    set teacher_id = #{record.teacherId,jdbcType=BIGINT},
-      teacher_gmt_create = #{record.teacherGmtCreate,jdbcType=TIMESTAMP},
-      teacher_gmt_modified = #{record.teacherGmtModified,jdbcType=TIMESTAMP},
+    set id = #{record.id,jdbcType=BIGINT},
       tch_name = #{record.tchName,jdbcType=VARCHAR},
-      tch_education = #{record.tchEducation,jdbcType=VARCHAR},
-      tch_is_star = #{record.tchIsStar,jdbcType=INTEGER},
       tch_pic_path = #{record.tchPicPath,jdbcType=VARCHAR},
-      tch_status = #{record.tchStatus,jdbcType=TIMESTAMP},
-      tch_subject = #{record.tchSubject,jdbcType=VARCHAR}
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      tch_subject = #{record.tchSubject,jdbcType=VARCHAR},
+      tch_status = #{record.tchStatus,jdbcType=INTEGER},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -283,59 +270,54 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.Teacher" >
     update teacher
     <set >
-      <if test="teacherGmtCreate != null" >
-        teacher_gmt_create = #{teacherGmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="teacherGmtModified != null" >
-        teacher_gmt_modified = #{teacherGmtModified,jdbcType=TIMESTAMP},
-      </if>
       <if test="tchName != null" >
         tch_name = #{tchName,jdbcType=VARCHAR},
-      </if>
-      <if test="tchEducation != null" >
-        tch_education = #{tchEducation,jdbcType=VARCHAR},
-      </if>
-      <if test="tchIsStar != null" >
-        tch_is_star = #{tchIsStar,jdbcType=INTEGER},
       </if>
       <if test="tchPicPath != null" >
         tch_pic_path = #{tchPicPath,jdbcType=VARCHAR},
       </if>
-      <if test="tchStatus != null" >
-        tch_status = #{tchStatus,jdbcType=TIMESTAMP},
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
       <if test="tchSubject != null" >
         tch_subject = #{tchSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="tchStatus != null" >
+        tch_status = #{tchStatus,jdbcType=INTEGER},
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete = #{logicDelete,jdbcType=INTEGER},
       </if>
       <if test="tchCareer != null" >
         tch_career = #{tchCareer,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where teacher_id = #{teacherId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kgc.study.bean.Teacher" >
     update teacher
-    set teacher_gmt_create = #{teacherGmtCreate,jdbcType=TIMESTAMP},
-      teacher_gmt_modified = #{teacherGmtModified,jdbcType=TIMESTAMP},
-      tch_name = #{tchName,jdbcType=VARCHAR},
-      tch_education = #{tchEducation,jdbcType=VARCHAR},
-      tch_is_star = #{tchIsStar,jdbcType=INTEGER},
+    set tch_name = #{tchName,jdbcType=VARCHAR},
       tch_pic_path = #{tchPicPath,jdbcType=VARCHAR},
-      tch_status = #{tchStatus,jdbcType=TIMESTAMP},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       tch_subject = #{tchSubject,jdbcType=VARCHAR},
+      tch_status = #{tchStatus,jdbcType=INTEGER},
+      logic_delete = #{logicDelete,jdbcType=INTEGER},
       tch_career = #{tchCareer,jdbcType=LONGVARCHAR}
-    where teacher_id = #{teacherId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.Teacher" >
     update teacher
-    set teacher_gmt_create = #{teacherGmtCreate,jdbcType=TIMESTAMP},
-      teacher_gmt_modified = #{teacherGmtModified,jdbcType=TIMESTAMP},
-      tch_name = #{tchName,jdbcType=VARCHAR},
-      tch_education = #{tchEducation,jdbcType=VARCHAR},
-      tch_is_star = #{tchIsStar,jdbcType=INTEGER},
+    set tch_name = #{tchName,jdbcType=VARCHAR},
       tch_pic_path = #{tchPicPath,jdbcType=VARCHAR},
-      tch_status = #{tchStatus,jdbcType=TIMESTAMP},
-      tch_subject = #{tchSubject,jdbcType=VARCHAR}
-    where teacher_id = #{teacherId,jdbcType=BIGINT}
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      tch_subject = #{tchSubject,jdbcType=VARCHAR},
+      tch_status = #{tchStatus,jdbcType=INTEGER},
+      logic_delete = #{logicDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

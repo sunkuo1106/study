@@ -16,15 +16,16 @@
     <result column="edu_user_is_avalible" property="eduUserIsAvalible" jdbcType="VARCHAR" />
     <result column="edu_user_is_good_student" property="eduUserIsGoodStudent" jdbcType="INTEGER" />
     <result column="edu_user_enrollment_method" property="eduUserEnrollmentMethod" jdbcType="TINYINT" />
-    <result column="mechanism_id" property="mechanismId" jdbcType="INTEGER" />
+    <result column="agency_id" property="agencyId" jdbcType="INTEGER" />
     <result column="edu_user_identity_front" property="eduUserIdentityFront" jdbcType="VARCHAR" />
     <result column="edu_user_identity_reverse" property="eduUserIdentityReverse" jdbcType="VARCHAR" />
     <result column="edu_user_school_prove" property="eduUserSchoolProve" jdbcType="VARCHAR" />
     <result column="edu_user_work_prove" property="eduUserWorkProve" jdbcType="VARCHAR" />
     <result column="edu_user_soldier_prove" property="eduUserSoldierProve" jdbcType="VARCHAR" />
     <result column="edu_user_highest_education" property="eduUserHighestEducation" jdbcType="VARCHAR" />
-    <result column="edu_user_class" property="eduUserClass" jdbcType="INTEGER" />
-    <result column="edu_user_class_type" property="eduUserClassType" jdbcType="INTEGER" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="grade_type_id" property="gradeTypeId" jdbcType="INTEGER" />
+    <result column="agency_address_id" property="agencyAddressId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -87,9 +88,9 @@
   <sql id="Base_Column_List" >
     id, gmt_create, gmt_modified, edu_user_name, edu_user_phone, edu_user_id_card, edu_user_gender, 
     edu_user_pic_img, edu_user_school_roll, edu_user_is_pass, edu_user_email, edu_user_is_avalible, 
-    edu_user_is_good_student, edu_user_enrollment_method, mechanism_id, edu_user_identity_front, 
+    edu_user_is_good_student, edu_user_enrollment_method, agency_id, edu_user_identity_front, 
     edu_user_identity_reverse, edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove, 
-    edu_user_highest_education, edu_user_class, edu_user_class_type
+    edu_user_highest_education, grade_id, grade_type_id, agency_address_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.EduUserExample" >
     select
@@ -127,19 +128,19 @@
       edu_user_gender, edu_user_pic_img, edu_user_school_roll, 
       edu_user_is_pass, edu_user_email, edu_user_is_avalible, 
       edu_user_is_good_student, edu_user_enrollment_method, 
-      mechanism_id, edu_user_identity_front, edu_user_identity_reverse, 
+      agency_id, edu_user_identity_front, edu_user_identity_reverse, 
       edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove, 
-      edu_user_highest_education, edu_user_class, 
-      edu_user_class_type)
+      edu_user_highest_education, grade_id, grade_type_id, 
+      agency_address_id)
     values (#{id,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{eduUserName,jdbcType=VARCHAR}, #{eduUserPhone,jdbcType=VARCHAR}, #{eduUserIdCard,jdbcType=VARCHAR}, 
       #{eduUserGender,jdbcType=TINYINT}, #{eduUserPicImg,jdbcType=VARCHAR}, #{eduUserSchoolRoll,jdbcType=TIMESTAMP}, 
       #{eduUserIsPass,jdbcType=TINYINT}, #{eduUserEmail,jdbcType=VARCHAR}, #{eduUserIsAvalible,jdbcType=VARCHAR}, 
       #{eduUserIsGoodStudent,jdbcType=INTEGER}, #{eduUserEnrollmentMethod,jdbcType=TINYINT}, 
-      #{mechanismId,jdbcType=INTEGER}, #{eduUserIdentityFront,jdbcType=VARCHAR}, #{eduUserIdentityReverse,jdbcType=VARCHAR}, 
+      #{agencyId,jdbcType=INTEGER}, #{eduUserIdentityFront,jdbcType=VARCHAR}, #{eduUserIdentityReverse,jdbcType=VARCHAR}, 
       #{eduUserSchoolProve,jdbcType=VARCHAR}, #{eduUserWorkProve,jdbcType=VARCHAR}, #{eduUserSoldierProve,jdbcType=VARCHAR}, 
-      #{eduUserHighestEducation,jdbcType=VARCHAR}, #{eduUserClass,jdbcType=INTEGER}, 
-      #{eduUserClassType,jdbcType=INTEGER})
+      #{eduUserHighestEducation,jdbcType=VARCHAR}, #{gradeId,jdbcType=INTEGER}, #{gradeTypeId,jdbcType=INTEGER}, 
+      #{agencyAddressId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.EduUser" >
     insert into edu_user
@@ -186,8 +187,8 @@
       <if test="eduUserEnrollmentMethod != null" >
         edu_user_enrollment_method,
       </if>
-      <if test="mechanismId != null" >
-        mechanism_id,
+      <if test="agencyId != null" >
+        agency_id,
       </if>
       <if test="eduUserIdentityFront != null" >
         edu_user_identity_front,
@@ -207,11 +208,14 @@
       <if test="eduUserHighestEducation != null" >
         edu_user_highest_education,
       </if>
-      <if test="eduUserClass != null" >
-        edu_user_class,
+      <if test="gradeId != null" >
+        grade_id,
       </if>
-      <if test="eduUserClassType != null" >
-        edu_user_class_type,
+      <if test="gradeTypeId != null" >
+        grade_type_id,
+      </if>
+      <if test="agencyAddressId != null" >
+        agency_address_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -257,8 +261,8 @@
       <if test="eduUserEnrollmentMethod != null" >
         #{eduUserEnrollmentMethod,jdbcType=TINYINT},
       </if>
-      <if test="mechanismId != null" >
-        #{mechanismId,jdbcType=INTEGER},
+      <if test="agencyId != null" >
+        #{agencyId,jdbcType=INTEGER},
       </if>
       <if test="eduUserIdentityFront != null" >
         #{eduUserIdentityFront,jdbcType=VARCHAR},
@@ -278,11 +282,14 @@
       <if test="eduUserHighestEducation != null" >
         #{eduUserHighestEducation,jdbcType=VARCHAR},
       </if>
-      <if test="eduUserClass != null" >
-        #{eduUserClass,jdbcType=INTEGER},
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
       </if>
-      <if test="eduUserClassType != null" >
-        #{eduUserClassType,jdbcType=INTEGER},
+      <if test="gradeTypeId != null" >
+        #{gradeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="agencyAddressId != null" >
+        #{agencyAddressId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -337,8 +344,8 @@
       <if test="record.eduUserEnrollmentMethod != null" >
         edu_user_enrollment_method = #{record.eduUserEnrollmentMethod,jdbcType=TINYINT},
       </if>
-      <if test="record.mechanismId != null" >
-        mechanism_id = #{record.mechanismId,jdbcType=INTEGER},
+      <if test="record.agencyId != null" >
+        agency_id = #{record.agencyId,jdbcType=INTEGER},
       </if>
       <if test="record.eduUserIdentityFront != null" >
         edu_user_identity_front = #{record.eduUserIdentityFront,jdbcType=VARCHAR},
@@ -358,11 +365,14 @@
       <if test="record.eduUserHighestEducation != null" >
         edu_user_highest_education = #{record.eduUserHighestEducation,jdbcType=VARCHAR},
       </if>
-      <if test="record.eduUserClass != null" >
-        edu_user_class = #{record.eduUserClass,jdbcType=INTEGER},
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
       </if>
-      <if test="record.eduUserClassType != null" >
-        edu_user_class_type = #{record.eduUserClassType,jdbcType=INTEGER},
+      <if test="record.gradeTypeId != null" >
+        grade_type_id = #{record.gradeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.agencyAddressId != null" >
+        agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -385,15 +395,16 @@
       edu_user_is_avalible = #{record.eduUserIsAvalible,jdbcType=VARCHAR},
       edu_user_is_good_student = #{record.eduUserIsGoodStudent,jdbcType=INTEGER},
       edu_user_enrollment_method = #{record.eduUserEnrollmentMethod,jdbcType=TINYINT},
-      mechanism_id = #{record.mechanismId,jdbcType=INTEGER},
+      agency_id = #{record.agencyId,jdbcType=INTEGER},
       edu_user_identity_front = #{record.eduUserIdentityFront,jdbcType=VARCHAR},
       edu_user_identity_reverse = #{record.eduUserIdentityReverse,jdbcType=VARCHAR},
       edu_user_school_prove = #{record.eduUserSchoolProve,jdbcType=VARCHAR},
       edu_user_work_prove = #{record.eduUserWorkProve,jdbcType=VARCHAR},
       edu_user_soldier_prove = #{record.eduUserSoldierProve,jdbcType=VARCHAR},
       edu_user_highest_education = #{record.eduUserHighestEducation,jdbcType=VARCHAR},
-      edu_user_class = #{record.eduUserClass,jdbcType=INTEGER},
-      edu_user_class_type = #{record.eduUserClassType,jdbcType=INTEGER}
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      grade_type_id = #{record.gradeTypeId,jdbcType=INTEGER},
+      agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -440,8 +451,8 @@
       <if test="eduUserEnrollmentMethod != null" >
         edu_user_enrollment_method = #{eduUserEnrollmentMethod,jdbcType=TINYINT},
       </if>
-      <if test="mechanismId != null" >
-        mechanism_id = #{mechanismId,jdbcType=INTEGER},
+      <if test="agencyId != null" >
+        agency_id = #{agencyId,jdbcType=INTEGER},
       </if>
       <if test="eduUserIdentityFront != null" >
         edu_user_identity_front = #{eduUserIdentityFront,jdbcType=VARCHAR},
@@ -461,11 +472,14 @@
       <if test="eduUserHighestEducation != null" >
         edu_user_highest_education = #{eduUserHighestEducation,jdbcType=VARCHAR},
       </if>
-      <if test="eduUserClass != null" >
-        edu_user_class = #{eduUserClass,jdbcType=INTEGER},
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
       </if>
-      <if test="eduUserClassType != null" >
-        edu_user_class_type = #{eduUserClassType,jdbcType=INTEGER},
+      <if test="gradeTypeId != null" >
+        grade_type_id = #{gradeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="agencyAddressId != null" >
+        agency_address_id = #{agencyAddressId,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -485,15 +499,16 @@
       edu_user_is_avalible = #{eduUserIsAvalible,jdbcType=VARCHAR},
       edu_user_is_good_student = #{eduUserIsGoodStudent,jdbcType=INTEGER},
       edu_user_enrollment_method = #{eduUserEnrollmentMethod,jdbcType=TINYINT},
-      mechanism_id = #{mechanismId,jdbcType=INTEGER},
+      agency_id = #{agencyId,jdbcType=INTEGER},
       edu_user_identity_front = #{eduUserIdentityFront,jdbcType=VARCHAR},
       edu_user_identity_reverse = #{eduUserIdentityReverse,jdbcType=VARCHAR},
       edu_user_school_prove = #{eduUserSchoolProve,jdbcType=VARCHAR},
       edu_user_work_prove = #{eduUserWorkProve,jdbcType=VARCHAR},
       edu_user_soldier_prove = #{eduUserSoldierProve,jdbcType=VARCHAR},
       edu_user_highest_education = #{eduUserHighestEducation,jdbcType=VARCHAR},
-      edu_user_class = #{eduUserClass,jdbcType=INTEGER},
-      edu_user_class_type = #{eduUserClassType,jdbcType=INTEGER}
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      grade_type_id = #{gradeTypeId,jdbcType=INTEGER},
+      agency_address_id = #{agencyAddressId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

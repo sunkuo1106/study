@@ -3,9 +3,7 @@ package com.kgc.study.bean;
 import java.util.Date;
 
 public class EduGoodUser {
-    private Integer id;
-
-    private Integer eduUserId;
+    private Long id;
 
     private String goodUserImg;
 
@@ -19,20 +17,16 @@ public class EduGoodUser {
 
     private String goodUserCompany;
 
-    public Integer getId() {
+    private Integer logicDelete;
+
+    private String goodUserName;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getEduUserId() {
-        return eduUserId;
-    }
-
-    public void setEduUserId(Integer eduUserId) {
-        this.eduUserId = eduUserId;
     }
 
     public String getGoodUserImg() {
@@ -81,5 +75,21 @@ public class EduGoodUser {
 
     public void setGoodUserCompany(String goodUserCompany) {
         this.goodUserCompany = goodUserCompany == null ? null : goodUserCompany.trim();
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
+    }
+
+    public String getGoodUserName() {
+        return goodUserName;
+    }
+
+    public void setGoodUserName(String goodUserName) {
+        this.goodUserName = goodUserName == null ? null : goodUserName.trim();
     }
 }

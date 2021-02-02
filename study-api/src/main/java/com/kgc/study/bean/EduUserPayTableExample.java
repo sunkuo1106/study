@@ -285,213 +285,213 @@ public class EduUserPayTableExample {
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameIsNull() {
-            addCriterion("edu_order_name is null");
+        public Criteria andPayUserNameIsNull() {
+            addCriterion("pay_user_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameIsNotNull() {
-            addCriterion("edu_order_name is not null");
+        public Criteria andPayUserNameIsNotNull() {
+            addCriterion("pay_user_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameEqualTo(String value) {
-            addCriterion("edu_order_name =", value, "eduOrderName");
+        public Criteria andPayUserNameEqualTo(String value) {
+            addCriterion("pay_user_name =", value, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameNotEqualTo(String value) {
-            addCriterion("edu_order_name <>", value, "eduOrderName");
+        public Criteria andPayUserNameNotEqualTo(String value) {
+            addCriterion("pay_user_name <>", value, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameGreaterThan(String value) {
-            addCriterion("edu_order_name >", value, "eduOrderName");
+        public Criteria andPayUserNameGreaterThan(String value) {
+            addCriterion("pay_user_name >", value, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameGreaterThanOrEqualTo(String value) {
-            addCriterion("edu_order_name >=", value, "eduOrderName");
+        public Criteria andPayUserNameGreaterThanOrEqualTo(String value) {
+            addCriterion("pay_user_name >=", value, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameLessThan(String value) {
-            addCriterion("edu_order_name <", value, "eduOrderName");
+        public Criteria andPayUserNameLessThan(String value) {
+            addCriterion("pay_user_name <", value, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameLessThanOrEqualTo(String value) {
-            addCriterion("edu_order_name <=", value, "eduOrderName");
+        public Criteria andPayUserNameLessThanOrEqualTo(String value) {
+            addCriterion("pay_user_name <=", value, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameLike(String value) {
-            addCriterion("edu_order_name like", value, "eduOrderName");
+        public Criteria andPayUserNameLike(String value) {
+            addCriterion("pay_user_name like", value, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameNotLike(String value) {
-            addCriterion("edu_order_name not like", value, "eduOrderName");
+        public Criteria andPayUserNameNotLike(String value) {
+            addCriterion("pay_user_name not like", value, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameIn(List<String> values) {
-            addCriterion("edu_order_name in", values, "eduOrderName");
+        public Criteria andPayUserNameIn(List<String> values) {
+            addCriterion("pay_user_name in", values, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameNotIn(List<String> values) {
-            addCriterion("edu_order_name not in", values, "eduOrderName");
+        public Criteria andPayUserNameNotIn(List<String> values) {
+            addCriterion("pay_user_name not in", values, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameBetween(String value1, String value2) {
-            addCriterion("edu_order_name between", value1, value2, "eduOrderName");
+        public Criteria andPayUserNameBetween(String value1, String value2) {
+            addCriterion("pay_user_name between", value1, value2, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderNameNotBetween(String value1, String value2) {
-            addCriterion("edu_order_name not between", value1, value2, "eduOrderName");
+        public Criteria andPayUserNameNotBetween(String value1, String value2) {
+            addCriterion("pay_user_name not between", value1, value2, "payUserName");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardIsNull() {
-            addCriterion("edu_order_id_card is null");
+        public Criteria andPayUserIdCardIsNull() {
+            addCriterion("pay_user_id_card is null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardIsNotNull() {
-            addCriterion("edu_order_id_card is not null");
+        public Criteria andPayUserIdCardIsNotNull() {
+            addCriterion("pay_user_id_card is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardEqualTo(String value) {
-            addCriterion("edu_order_id_card =", value, "eduOrderIdCard");
+        public Criteria andPayUserIdCardEqualTo(String value) {
+            addCriterion("pay_user_id_card =", value, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardNotEqualTo(String value) {
-            addCriterion("edu_order_id_card <>", value, "eduOrderIdCard");
+        public Criteria andPayUserIdCardNotEqualTo(String value) {
+            addCriterion("pay_user_id_card <>", value, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardGreaterThan(String value) {
-            addCriterion("edu_order_id_card >", value, "eduOrderIdCard");
+        public Criteria andPayUserIdCardGreaterThan(String value) {
+            addCriterion("pay_user_id_card >", value, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardGreaterThanOrEqualTo(String value) {
-            addCriterion("edu_order_id_card >=", value, "eduOrderIdCard");
+        public Criteria andPayUserIdCardGreaterThanOrEqualTo(String value) {
+            addCriterion("pay_user_id_card >=", value, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardLessThan(String value) {
-            addCriterion("edu_order_id_card <", value, "eduOrderIdCard");
+        public Criteria andPayUserIdCardLessThan(String value) {
+            addCriterion("pay_user_id_card <", value, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardLessThanOrEqualTo(String value) {
-            addCriterion("edu_order_id_card <=", value, "eduOrderIdCard");
+        public Criteria andPayUserIdCardLessThanOrEqualTo(String value) {
+            addCriterion("pay_user_id_card <=", value, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardLike(String value) {
-            addCriterion("edu_order_id_card like", value, "eduOrderIdCard");
+        public Criteria andPayUserIdCardLike(String value) {
+            addCriterion("pay_user_id_card like", value, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardNotLike(String value) {
-            addCriterion("edu_order_id_card not like", value, "eduOrderIdCard");
+        public Criteria andPayUserIdCardNotLike(String value) {
+            addCriterion("pay_user_id_card not like", value, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardIn(List<String> values) {
-            addCriterion("edu_order_id_card in", values, "eduOrderIdCard");
+        public Criteria andPayUserIdCardIn(List<String> values) {
+            addCriterion("pay_user_id_card in", values, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardNotIn(List<String> values) {
-            addCriterion("edu_order_id_card not in", values, "eduOrderIdCard");
+        public Criteria andPayUserIdCardNotIn(List<String> values) {
+            addCriterion("pay_user_id_card not in", values, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardBetween(String value1, String value2) {
-            addCriterion("edu_order_id_card between", value1, value2, "eduOrderIdCard");
+        public Criteria andPayUserIdCardBetween(String value1, String value2) {
+            addCriterion("pay_user_id_card between", value1, value2, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderIdCardNotBetween(String value1, String value2) {
-            addCriterion("edu_order_id_card not between", value1, value2, "eduOrderIdCard");
+        public Criteria andPayUserIdCardNotBetween(String value1, String value2) {
+            addCriterion("pay_user_id_card not between", value1, value2, "payUserIdCard");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneIsNull() {
-            addCriterion("edu_order_phone is null");
+        public Criteria andPayUserPhoneIsNull() {
+            addCriterion("pay_user_phone is null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneIsNotNull() {
-            addCriterion("edu_order_phone is not null");
+        public Criteria andPayUserPhoneIsNotNull() {
+            addCriterion("pay_user_phone is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneEqualTo(String value) {
-            addCriterion("edu_order_phone =", value, "eduOrderPhone");
+        public Criteria andPayUserPhoneEqualTo(String value) {
+            addCriterion("pay_user_phone =", value, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneNotEqualTo(String value) {
-            addCriterion("edu_order_phone <>", value, "eduOrderPhone");
+        public Criteria andPayUserPhoneNotEqualTo(String value) {
+            addCriterion("pay_user_phone <>", value, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneGreaterThan(String value) {
-            addCriterion("edu_order_phone >", value, "eduOrderPhone");
+        public Criteria andPayUserPhoneGreaterThan(String value) {
+            addCriterion("pay_user_phone >", value, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneGreaterThanOrEqualTo(String value) {
-            addCriterion("edu_order_phone >=", value, "eduOrderPhone");
+        public Criteria andPayUserPhoneGreaterThanOrEqualTo(String value) {
+            addCriterion("pay_user_phone >=", value, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneLessThan(String value) {
-            addCriterion("edu_order_phone <", value, "eduOrderPhone");
+        public Criteria andPayUserPhoneLessThan(String value) {
+            addCriterion("pay_user_phone <", value, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneLessThanOrEqualTo(String value) {
-            addCriterion("edu_order_phone <=", value, "eduOrderPhone");
+        public Criteria andPayUserPhoneLessThanOrEqualTo(String value) {
+            addCriterion("pay_user_phone <=", value, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneLike(String value) {
-            addCriterion("edu_order_phone like", value, "eduOrderPhone");
+        public Criteria andPayUserPhoneLike(String value) {
+            addCriterion("pay_user_phone like", value, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneNotLike(String value) {
-            addCriterion("edu_order_phone not like", value, "eduOrderPhone");
+        public Criteria andPayUserPhoneNotLike(String value) {
+            addCriterion("pay_user_phone not like", value, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneIn(List<String> values) {
-            addCriterion("edu_order_phone in", values, "eduOrderPhone");
+        public Criteria andPayUserPhoneIn(List<String> values) {
+            addCriterion("pay_user_phone in", values, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneNotIn(List<String> values) {
-            addCriterion("edu_order_phone not in", values, "eduOrderPhone");
+        public Criteria andPayUserPhoneNotIn(List<String> values) {
+            addCriterion("pay_user_phone not in", values, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneBetween(String value1, String value2) {
-            addCriterion("edu_order_phone between", value1, value2, "eduOrderPhone");
+        public Criteria andPayUserPhoneBetween(String value1, String value2) {
+            addCriterion("pay_user_phone between", value1, value2, "payUserPhone");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPhoneNotBetween(String value1, String value2) {
-            addCriterion("edu_order_phone not between", value1, value2, "eduOrderPhone");
+        public Criteria andPayUserPhoneNotBetween(String value1, String value2) {
+            addCriterion("pay_user_phone not between", value1, value2, "payUserPhone");
             return (Criteria) this;
         }
 
@@ -555,123 +555,183 @@ public class EduUserPayTableExample {
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeIsNull() {
-            addCriterion("edu_order_type is null");
+        public Criteria andPayStatusIsNull() {
+            addCriterion("pay_status is null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeIsNotNull() {
-            addCriterion("edu_order_type is not null");
+        public Criteria andPayStatusIsNotNull() {
+            addCriterion("pay_status is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeEqualTo(Integer value) {
-            addCriterion("edu_order_type =", value, "eduOrderType");
+        public Criteria andPayStatusEqualTo(Integer value) {
+            addCriterion("pay_status =", value, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeNotEqualTo(Integer value) {
-            addCriterion("edu_order_type <>", value, "eduOrderType");
+        public Criteria andPayStatusNotEqualTo(Integer value) {
+            addCriterion("pay_status <>", value, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeGreaterThan(Integer value) {
-            addCriterion("edu_order_type >", value, "eduOrderType");
+        public Criteria andPayStatusGreaterThan(Integer value) {
+            addCriterion("pay_status >", value, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("edu_order_type >=", value, "eduOrderType");
+        public Criteria andPayStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pay_status >=", value, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeLessThan(Integer value) {
-            addCriterion("edu_order_type <", value, "eduOrderType");
+        public Criteria andPayStatusLessThan(Integer value) {
+            addCriterion("pay_status <", value, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("edu_order_type <=", value, "eduOrderType");
+        public Criteria andPayStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("pay_status <=", value, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeIn(List<Integer> values) {
-            addCriterion("edu_order_type in", values, "eduOrderType");
+        public Criteria andPayStatusIn(List<Integer> values) {
+            addCriterion("pay_status in", values, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeNotIn(List<Integer> values) {
-            addCriterion("edu_order_type not in", values, "eduOrderType");
+        public Criteria andPayStatusNotIn(List<Integer> values) {
+            addCriterion("pay_status not in", values, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeBetween(Integer value1, Integer value2) {
-            addCriterion("edu_order_type between", value1, value2, "eduOrderType");
+        public Criteria andPayStatusBetween(Integer value1, Integer value2) {
+            addCriterion("pay_status between", value1, value2, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("edu_order_type not between", value1, value2, "eduOrderType");
+        public Criteria andPayStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("pay_status not between", value1, value2, "payStatus");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentIsNull() {
-            addCriterion("edu_order_payment is null");
+        public Criteria andPayMannerIsNull() {
+            addCriterion("pay_manner is null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentIsNotNull() {
-            addCriterion("edu_order_payment is not null");
+        public Criteria andPayMannerIsNotNull() {
+            addCriterion("pay_manner is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentEqualTo(Integer value) {
-            addCriterion("edu_order_payment =", value, "eduOrderPayment");
+        public Criteria andPayMannerEqualTo(Integer value) {
+            addCriterion("pay_manner =", value, "payManner");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentNotEqualTo(Integer value) {
-            addCriterion("edu_order_payment <>", value, "eduOrderPayment");
+        public Criteria andPayMannerNotEqualTo(Integer value) {
+            addCriterion("pay_manner <>", value, "payManner");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentGreaterThan(Integer value) {
-            addCriterion("edu_order_payment >", value, "eduOrderPayment");
+        public Criteria andPayMannerGreaterThan(Integer value) {
+            addCriterion("pay_manner >", value, "payManner");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentGreaterThanOrEqualTo(Integer value) {
-            addCriterion("edu_order_payment >=", value, "eduOrderPayment");
+        public Criteria andPayMannerGreaterThanOrEqualTo(Integer value) {
+            addCriterion("pay_manner >=", value, "payManner");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentLessThan(Integer value) {
-            addCriterion("edu_order_payment <", value, "eduOrderPayment");
+        public Criteria andPayMannerLessThan(Integer value) {
+            addCriterion("pay_manner <", value, "payManner");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentLessThanOrEqualTo(Integer value) {
-            addCriterion("edu_order_payment <=", value, "eduOrderPayment");
+        public Criteria andPayMannerLessThanOrEqualTo(Integer value) {
+            addCriterion("pay_manner <=", value, "payManner");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentIn(List<Integer> values) {
-            addCriterion("edu_order_payment in", values, "eduOrderPayment");
+        public Criteria andPayMannerIn(List<Integer> values) {
+            addCriterion("pay_manner in", values, "payManner");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentNotIn(List<Integer> values) {
-            addCriterion("edu_order_payment not in", values, "eduOrderPayment");
+        public Criteria andPayMannerNotIn(List<Integer> values) {
+            addCriterion("pay_manner not in", values, "payManner");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentBetween(Integer value1, Integer value2) {
-            addCriterion("edu_order_payment between", value1, value2, "eduOrderPayment");
+        public Criteria andPayMannerBetween(Integer value1, Integer value2) {
+            addCriterion("pay_manner between", value1, value2, "payManner");
             return (Criteria) this;
         }
 
-        public Criteria andEduOrderPaymentNotBetween(Integer value1, Integer value2) {
-            addCriterion("edu_order_payment not between", value1, value2, "eduOrderPayment");
+        public Criteria andPayMannerNotBetween(Integer value1, Integer value2) {
+            addCriterion("pay_manner not between", value1, value2, "payManner");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
     }

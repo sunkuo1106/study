@@ -7,11 +7,11 @@ public class Learning {
 
     private Integer courseId;
 
-    private Integer learCount;
+    private Date gmtCreate;
 
-    private String courseName;
+    private Date gmtModified;
 
-    private Date learUpdateTime;
+    private Integer logicDelete;
 
     public Long getId() {
         return id;
@@ -29,27 +29,27 @@ public class Learning {
         this.courseId = courseId;
     }
 
-    public Integer getLearCount() {
-        return learCount;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setLearCount(Integer learCount) {
-        this.learCount = learCount;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public Date getGmtModified() {
+        return gmtModified;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName == null ? null : courseName.trim();
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
-    public Date getLearUpdateTime() {
-        return learUpdateTime;
+    public Integer getLogicDelete() {
+        return logicDelete;
     }
 
-    public void setLearUpdateTime(Date learUpdateTime) {
-        this.learUpdateTime = learUpdateTime;
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

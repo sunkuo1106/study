@@ -5,6 +5,8 @@ import java.util.Date;
 public class ActivityInfo {
     private Long id;
 
+    private String acInfoTitle;
+
     private String acInfoSummary;
 
     private String acInfoSource;
@@ -15,17 +17,13 @@ public class ActivityInfo {
 
     private Date gmtModified;
 
-    private Integer acInfoClickNum;
-
-    private Integer acInfoPraiseCount;
-
-    private Integer acInfoCommentNum;
-
     private Integer acIstop;
 
-    private Integer acTypeId;
+    private String acThumbnail;
 
-    private Integer acThumbnail;
+    private Integer logicDelete;
+
+    private String acContentName;
 
     public Long getId() {
         return id;
@@ -33,6 +31,14 @@ public class ActivityInfo {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getAcInfoTitle() {
+        return acInfoTitle;
+    }
+
+    public void setAcInfoTitle(String acInfoTitle) {
+        this.acInfoTitle = acInfoTitle == null ? null : acInfoTitle.trim();
     }
 
     public String getAcInfoSummary() {
@@ -75,30 +81,6 @@ public class ActivityInfo {
         this.gmtModified = gmtModified;
     }
 
-    public Integer getAcInfoClickNum() {
-        return acInfoClickNum;
-    }
-
-    public void setAcInfoClickNum(Integer acInfoClickNum) {
-        this.acInfoClickNum = acInfoClickNum;
-    }
-
-    public Integer getAcInfoPraiseCount() {
-        return acInfoPraiseCount;
-    }
-
-    public void setAcInfoPraiseCount(Integer acInfoPraiseCount) {
-        this.acInfoPraiseCount = acInfoPraiseCount;
-    }
-
-    public Integer getAcInfoCommentNum() {
-        return acInfoCommentNum;
-    }
-
-    public void setAcInfoCommentNum(Integer acInfoCommentNum) {
-        this.acInfoCommentNum = acInfoCommentNum;
-    }
-
     public Integer getAcIstop() {
         return acIstop;
     }
@@ -107,19 +89,27 @@ public class ActivityInfo {
         this.acIstop = acIstop;
     }
 
-    public Integer getAcTypeId() {
-        return acTypeId;
-    }
-
-    public void setAcTypeId(Integer acTypeId) {
-        this.acTypeId = acTypeId;
-    }
-
-    public Integer getAcThumbnail() {
+    public String getAcThumbnail() {
         return acThumbnail;
     }
 
-    public void setAcThumbnail(Integer acThumbnail) {
-        this.acThumbnail = acThumbnail;
+    public void setAcThumbnail(String acThumbnail) {
+        this.acThumbnail = acThumbnail == null ? null : acThumbnail.trim();
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
+    }
+
+    public String getAcContentName() {
+        return acContentName;
+    }
+
+    public void setAcContentName(String acContentName) {
+        this.acContentName = acContentName == null ? null : acContentName.trim();
     }
 }

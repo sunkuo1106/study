@@ -9,17 +9,19 @@ public class EduUserPayTable {
 
     private Date gmtModified;
 
-    private String eduOrderName;
+    private String payUserName;
 
-    private String eduOrderIdCard;
+    private String payUserIdCard;
 
-    private String eduOrderPhone;
+    private String payUserPhone;
 
     private Long eduOrderClassPrice;
 
-    private Integer eduOrderType;
+    private Integer payStatus;
 
-    private Integer eduOrderPayment;
+    private Integer payManner;
+
+    private Integer logicDelete;
 
     public Long getId() {
         return id;
@@ -45,28 +47,28 @@ public class EduUserPayTable {
         this.gmtModified = gmtModified;
     }
 
-    public String getEduOrderName() {
-        return eduOrderName;
+    public String getPayUserName() {
+        return payUserName;
     }
 
-    public void setEduOrderName(String eduOrderName) {
-        this.eduOrderName = eduOrderName == null ? null : eduOrderName.trim();
+    public void setPayUserName(String payUserName) {
+        this.payUserName = payUserName == null ? null : payUserName.trim();
     }
 
-    public String getEduOrderIdCard() {
-        return eduOrderIdCard;
+    public String getPayUserIdCard() {
+        return payUserIdCard;
     }
 
-    public void setEduOrderIdCard(String eduOrderIdCard) {
-        this.eduOrderIdCard = eduOrderIdCard == null ? null : eduOrderIdCard.trim();
+    public void setPayUserIdCard(String payUserIdCard) {
+        this.payUserIdCard = payUserIdCard == null ? null : payUserIdCard.trim();
     }
 
-    public String getEduOrderPhone() {
-        return eduOrderPhone;
+    public String getPayUserPhone() {
+        return payUserPhone;
     }
 
-    public void setEduOrderPhone(String eduOrderPhone) {
-        this.eduOrderPhone = eduOrderPhone == null ? null : eduOrderPhone.trim();
+    public void setPayUserPhone(String payUserPhone) {
+        this.payUserPhone = payUserPhone == null ? null : payUserPhone.trim();
     }
 
     public Long getEduOrderClassPrice() {
@@ -77,19 +79,27 @@ public class EduUserPayTable {
         this.eduOrderClassPrice = eduOrderClassPrice;
     }
 
-    public Integer getEduOrderType() {
-        return eduOrderType;
+    public Integer getPayStatus() {
+        return payStatus;
     }
 
-    public void setEduOrderType(Integer eduOrderType) {
-        this.eduOrderType = eduOrderType;
+    public void setPayStatus(Integer payStatus) {
+        this.payStatus = payStatus;
     }
 
-    public Integer getEduOrderPayment() {
-        return eduOrderPayment;
+    public Integer getPayManner() {
+        return payManner;
     }
 
-    public void setEduOrderPayment(Integer eduOrderPayment) {
-        this.eduOrderPayment = eduOrderPayment;
+    public void setPayManner(Integer payManner) {
+        this.payManner = payManner;
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

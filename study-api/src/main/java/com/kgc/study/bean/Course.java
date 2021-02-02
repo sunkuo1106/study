@@ -9,23 +9,13 @@ public class Course {
 
     private String courseSubjec;
 
-    private Date courseAddtime;
+    private String courseIntroduction;
 
-    private String courseTitle;
+    private Date gmtCreate;
 
-    private String courseContent;
+    private Date gmtModified;
 
-    private Integer courseLessionNum;
-
-    private String courseVideoUrl;
-
-    private Date courseUpdateTime;
-
-    private Integer pageViewcount;
-
-    private Date courseEndTime;
-
-    private Long currId;
+    private Integer logicDelete;
 
     public Long getId() {
         return id;
@@ -51,75 +41,35 @@ public class Course {
         this.courseSubjec = courseSubjec == null ? null : courseSubjec.trim();
     }
 
-    public Date getCourseAddtime() {
-        return courseAddtime;
+    public String getCourseIntroduction() {
+        return courseIntroduction;
     }
 
-    public void setCourseAddtime(Date courseAddtime) {
-        this.courseAddtime = courseAddtime;
+    public void setCourseIntroduction(String courseIntroduction) {
+        this.courseIntroduction = courseIntroduction == null ? null : courseIntroduction.trim();
     }
 
-    public String getCourseTitle() {
-        return courseTitle;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setCourseTitle(String courseTitle) {
-        this.courseTitle = courseTitle == null ? null : courseTitle.trim();
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public String getCourseContent() {
-        return courseContent;
+    public Date getGmtModified() {
+        return gmtModified;
     }
 
-    public void setCourseContent(String courseContent) {
-        this.courseContent = courseContent == null ? null : courseContent.trim();
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
-    public Integer getCourseLessionNum() {
-        return courseLessionNum;
+    public Integer getLogicDelete() {
+        return logicDelete;
     }
 
-    public void setCourseLessionNum(Integer courseLessionNum) {
-        this.courseLessionNum = courseLessionNum;
-    }
-
-    public String getCourseVideoUrl() {
-        return courseVideoUrl;
-    }
-
-    public void setCourseVideoUrl(String courseVideoUrl) {
-        this.courseVideoUrl = courseVideoUrl == null ? null : courseVideoUrl.trim();
-    }
-
-    public Date getCourseUpdateTime() {
-        return courseUpdateTime;
-    }
-
-    public void setCourseUpdateTime(Date courseUpdateTime) {
-        this.courseUpdateTime = courseUpdateTime;
-    }
-
-    public Integer getPageViewcount() {
-        return pageViewcount;
-    }
-
-    public void setPageViewcount(Integer pageViewcount) {
-        this.pageViewcount = pageViewcount;
-    }
-
-    public Date getCourseEndTime() {
-        return courseEndTime;
-    }
-
-    public void setCourseEndTime(Date courseEndTime) {
-        this.courseEndTime = courseEndTime;
-    }
-
-    public Long getCurrId() {
-        return currId;
-    }
-
-    public void setCurrId(Long currId) {
-        this.currId = currId;
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

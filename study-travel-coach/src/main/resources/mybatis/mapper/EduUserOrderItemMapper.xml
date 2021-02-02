@@ -2,16 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.kgc.study.studytravelcoach.mapper.EduUserOrderItemMapper" >
   <resultMap id="BaseResultMap" type="com.kgc.study.bean.EduUserOrderItem" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="BIGINT" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="edu_order_name" property="eduOrderName" jdbcType="VARCHAR" />
     <result column="edu_order_id_card" property="eduOrderIdCard" jdbcType="VARCHAR" />
     <result column="edu_order_phone" property="eduOrderPhone" jdbcType="VARCHAR" />
-    <result column="edu_order_class" property="eduOrderClass" jdbcType="VARCHAR" />
+    <result column="agency_address_id" property="agencyAddressId" jdbcType="INTEGER" />
+    <result column="agency_address_name" property="agencyAddressName" jdbcType="VARCHAR" />
     <result column="edu_order_class_type" property="eduOrderClassType" jdbcType="VARCHAR" />
-    <result column="edu_order_class_price" property="eduOrderClassPrice" jdbcType="VARCHAR" />
+    <result column="edu_order_class_price" property="eduOrderClassPrice" jdbcType="DECIMAL" />
+    <result column="edu_order_class_discount_price" property="eduOrderClassDiscountPrice" jdbcType="DECIMAL" />
     <result column="edu_order_type" property="eduOrderType" jdbcType="INTEGER" />
+    <result column="agency_id" property="agencyId" jdbcType="VARCHAR" />
+    <result column="agency_name" property="agencyName" jdbcType="VARCHAR" />
+    <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -73,7 +78,8 @@
   </sql>
   <sql id="Base_Column_List" >
     id, gmt_create, gmt_modified, edu_order_name, edu_order_id_card, edu_order_phone, 
-    edu_order_class, edu_order_class_type, edu_order_class_price, edu_order_type
+    agency_address_id, agency_address_name, edu_order_class_type, edu_order_class_price, 
+    edu_order_class_discount_price, edu_order_type, agency_id, agency_name, logic_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.EduUserOrderItemExample" >
     select
@@ -89,15 +95,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from edu_user_order_item
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from edu_user_order_item
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.kgc.study.bean.EduUserOrderItemExample" >
     delete from edu_user_order_item
@@ -108,12 +114,16 @@
   <insert id="insert" parameterType="com.kgc.study.bean.EduUserOrderItem" >
     insert into edu_user_order_item (id, gmt_create, gmt_modified, 
       edu_order_name, edu_order_id_card, edu_order_phone, 
-      edu_order_class, edu_order_class_type, edu_order_class_price, 
-      edu_order_type)
-    values (#{id,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      agency_address_id, agency_address_name, edu_order_class_type, 
+      edu_order_class_price, edu_order_class_discount_price, 
+      edu_order_type, agency_id, agency_name, 
+      logic_delete)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{eduOrderName,jdbcType=VARCHAR}, #{eduOrderIdCard,jdbcType=VARCHAR}, #{eduOrderPhone,jdbcType=VARCHAR}, 
-      #{eduOrderClass,jdbcType=VARCHAR}, #{eduOrderClassType,jdbcType=VARCHAR}, #{eduOrderClassPrice,jdbcType=VARCHAR}, 
-      #{eduOrderType,jdbcType=INTEGER})
+      #{agencyAddressId,jdbcType=INTEGER}, #{agencyAddressName,jdbcType=VARCHAR}, #{eduOrderClassType,jdbcType=VARCHAR}, 
+      #{eduOrderClassPrice,jdbcType=DECIMAL}, #{eduOrderClassDiscountPrice,jdbcType=DECIMAL}, 
+      #{eduOrderType,jdbcType=INTEGER}, #{agencyId,jdbcType=VARCHAR}, #{agencyName,jdbcType=VARCHAR}, 
+      #{logicDelete,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.EduUserOrderItem" >
     insert into edu_user_order_item
@@ -136,8 +146,11 @@
       <if test="eduOrderPhone != null" >
         edu_order_phone,
       </if>
-      <if test="eduOrderClass != null" >
-        edu_order_class,
+      <if test="agencyAddressId != null" >
+        agency_address_id,
+      </if>
+      <if test="agencyAddressName != null" >
+        agency_address_name,
       </if>
       <if test="eduOrderClassType != null" >
         edu_order_class_type,
@@ -145,13 +158,25 @@
       <if test="eduOrderClassPrice != null" >
         edu_order_class_price,
       </if>
+      <if test="eduOrderClassDiscountPrice != null" >
+        edu_order_class_discount_price,
+      </if>
       <if test="eduOrderType != null" >
         edu_order_type,
+      </if>
+      <if test="agencyId != null" >
+        agency_id,
+      </if>
+      <if test="agencyName != null" >
+        agency_name,
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=BIGINT},
       </if>
       <if test="gmtCreate != null" >
         #{gmtCreate,jdbcType=TIMESTAMP},
@@ -168,17 +193,32 @@
       <if test="eduOrderPhone != null" >
         #{eduOrderPhone,jdbcType=VARCHAR},
       </if>
-      <if test="eduOrderClass != null" >
-        #{eduOrderClass,jdbcType=VARCHAR},
+      <if test="agencyAddressId != null" >
+        #{agencyAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="agencyAddressName != null" >
+        #{agencyAddressName,jdbcType=VARCHAR},
       </if>
       <if test="eduOrderClassType != null" >
         #{eduOrderClassType,jdbcType=VARCHAR},
       </if>
       <if test="eduOrderClassPrice != null" >
-        #{eduOrderClassPrice,jdbcType=VARCHAR},
+        #{eduOrderClassPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="eduOrderClassDiscountPrice != null" >
+        #{eduOrderClassDiscountPrice,jdbcType=DECIMAL},
       </if>
       <if test="eduOrderType != null" >
         #{eduOrderType,jdbcType=INTEGER},
+      </if>
+      <if test="agencyId != null" >
+        #{agencyId,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyName != null" >
+        #{agencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="logicDelete != null" >
+        #{logicDelete,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -192,7 +232,7 @@
     update edu_user_order_item
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.gmtCreate != null" >
         gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
@@ -209,17 +249,32 @@
       <if test="record.eduOrderPhone != null" >
         edu_order_phone = #{record.eduOrderPhone,jdbcType=VARCHAR},
       </if>
-      <if test="record.eduOrderClass != null" >
-        edu_order_class = #{record.eduOrderClass,jdbcType=VARCHAR},
+      <if test="record.agencyAddressId != null" >
+        agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="record.agencyAddressName != null" >
+        agency_address_name = #{record.agencyAddressName,jdbcType=VARCHAR},
       </if>
       <if test="record.eduOrderClassType != null" >
         edu_order_class_type = #{record.eduOrderClassType,jdbcType=VARCHAR},
       </if>
       <if test="record.eduOrderClassPrice != null" >
-        edu_order_class_price = #{record.eduOrderClassPrice,jdbcType=VARCHAR},
+        edu_order_class_price = #{record.eduOrderClassPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.eduOrderClassDiscountPrice != null" >
+        edu_order_class_discount_price = #{record.eduOrderClassDiscountPrice,jdbcType=DECIMAL},
       </if>
       <if test="record.eduOrderType != null" >
         edu_order_type = #{record.eduOrderType,jdbcType=INTEGER},
+      </if>
+      <if test="record.agencyId != null" >
+        agency_id = #{record.agencyId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.agencyName != null" >
+        agency_name = #{record.agencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logicDelete != null" >
+        logic_delete = #{record.logicDelete,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -228,16 +283,21 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update edu_user_order_item
-    set id = #{record.id,jdbcType=INTEGER},
+    set id = #{record.id,jdbcType=BIGINT},
       gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       edu_order_name = #{record.eduOrderName,jdbcType=VARCHAR},
       edu_order_id_card = #{record.eduOrderIdCard,jdbcType=VARCHAR},
       edu_order_phone = #{record.eduOrderPhone,jdbcType=VARCHAR},
-      edu_order_class = #{record.eduOrderClass,jdbcType=VARCHAR},
+      agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER},
+      agency_address_name = #{record.agencyAddressName,jdbcType=VARCHAR},
       edu_order_class_type = #{record.eduOrderClassType,jdbcType=VARCHAR},
-      edu_order_class_price = #{record.eduOrderClassPrice,jdbcType=VARCHAR},
-      edu_order_type = #{record.eduOrderType,jdbcType=INTEGER}
+      edu_order_class_price = #{record.eduOrderClassPrice,jdbcType=DECIMAL},
+      edu_order_class_discount_price = #{record.eduOrderClassDiscountPrice,jdbcType=DECIMAL},
+      edu_order_type = #{record.eduOrderType,jdbcType=INTEGER},
+      agency_id = #{record.agencyId,jdbcType=VARCHAR},
+      agency_name = #{record.agencyName,jdbcType=VARCHAR},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -260,20 +320,35 @@
       <if test="eduOrderPhone != null" >
         edu_order_phone = #{eduOrderPhone,jdbcType=VARCHAR},
       </if>
-      <if test="eduOrderClass != null" >
-        edu_order_class = #{eduOrderClass,jdbcType=VARCHAR},
+      <if test="agencyAddressId != null" >
+        agency_address_id = #{agencyAddressId,jdbcType=INTEGER},
+      </if>
+      <if test="agencyAddressName != null" >
+        agency_address_name = #{agencyAddressName,jdbcType=VARCHAR},
       </if>
       <if test="eduOrderClassType != null" >
         edu_order_class_type = #{eduOrderClassType,jdbcType=VARCHAR},
       </if>
       <if test="eduOrderClassPrice != null" >
-        edu_order_class_price = #{eduOrderClassPrice,jdbcType=VARCHAR},
+        edu_order_class_price = #{eduOrderClassPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="eduOrderClassDiscountPrice != null" >
+        edu_order_class_discount_price = #{eduOrderClassDiscountPrice,jdbcType=DECIMAL},
       </if>
       <if test="eduOrderType != null" >
         edu_order_type = #{eduOrderType,jdbcType=INTEGER},
       </if>
+      <if test="agencyId != null" >
+        agency_id = #{agencyId,jdbcType=VARCHAR},
+      </if>
+      <if test="agencyName != null" >
+        agency_name = #{agencyName,jdbcType=VARCHAR},
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete = #{logicDelete,jdbcType=INTEGER},
+      </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.EduUserOrderItem" >
     update edu_user_order_item
@@ -282,10 +357,15 @@
       edu_order_name = #{eduOrderName,jdbcType=VARCHAR},
       edu_order_id_card = #{eduOrderIdCard,jdbcType=VARCHAR},
       edu_order_phone = #{eduOrderPhone,jdbcType=VARCHAR},
-      edu_order_class = #{eduOrderClass,jdbcType=VARCHAR},
+      agency_address_id = #{agencyAddressId,jdbcType=INTEGER},
+      agency_address_name = #{agencyAddressName,jdbcType=VARCHAR},
       edu_order_class_type = #{eduOrderClassType,jdbcType=VARCHAR},
-      edu_order_class_price = #{eduOrderClassPrice,jdbcType=VARCHAR},
-      edu_order_type = #{eduOrderType,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+      edu_order_class_price = #{eduOrderClassPrice,jdbcType=DECIMAL},
+      edu_order_class_discount_price = #{eduOrderClassDiscountPrice,jdbcType=DECIMAL},
+      edu_order_type = #{eduOrderType,jdbcType=INTEGER},
+      agency_id = #{agencyId,jdbcType=VARCHAR},
+      agency_name = #{agencyName,jdbcType=VARCHAR},
+      logic_delete = #{logicDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

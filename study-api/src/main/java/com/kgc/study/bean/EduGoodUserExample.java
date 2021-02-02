@@ -115,113 +115,53 @@ public class EduGoodUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(Integer value) {
+        public Criteria andIdEqualTo(Long value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(Integer value) {
+        public Criteria andIdNotEqualTo(Long value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(Integer value) {
+        public Criteria andIdGreaterThan(Long value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(Integer value) {
+        public Criteria andIdLessThan(Long value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(Integer value) {
+        public Criteria andIdLessThanOrEqualTo(Long value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdIn(List<Integer> values) {
+        public Criteria andIdIn(List<Long> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<Integer> values) {
+        public Criteria andIdNotIn(List<Long> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(Integer value1, Integer value2) {
+        public Criteria andIdBetween(Long value1, Long value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("id not between", value1, value2, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdIsNull() {
-            addCriterion("edu_user_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdIsNotNull() {
-            addCriterion("edu_user_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdEqualTo(Integer value) {
-            addCriterion("edu_user_id =", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdNotEqualTo(Integer value) {
-            addCriterion("edu_user_id <>", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdGreaterThan(Integer value) {
-            addCriterion("edu_user_id >", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("edu_user_id >=", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdLessThan(Integer value) {
-            addCriterion("edu_user_id <", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdLessThanOrEqualTo(Integer value) {
-            addCriterion("edu_user_id <=", value, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdIn(List<Integer> values) {
-            addCriterion("edu_user_id in", values, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdNotIn(List<Integer> values) {
-            addCriterion("edu_user_id not in", values, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdBetween(Integer value1, Integer value2) {
-            addCriterion("edu_user_id between", value1, value2, "eduUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andEduUserIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("edu_user_id not between", value1, value2, "eduUserId");
             return (Criteria) this;
         }
 
@@ -612,6 +552,136 @@ public class EduGoodUserExample {
 
         public Criteria andGoodUserCompanyNotBetween(String value1, String value2) {
             addCriterion("good_user_company not between", value1, value2, "goodUserCompany");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameIsNull() {
+            addCriterion("good_user_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameIsNotNull() {
+            addCriterion("good_user_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameEqualTo(String value) {
+            addCriterion("good_user_name =", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameNotEqualTo(String value) {
+            addCriterion("good_user_name <>", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameGreaterThan(String value) {
+            addCriterion("good_user_name >", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameGreaterThanOrEqualTo(String value) {
+            addCriterion("good_user_name >=", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameLessThan(String value) {
+            addCriterion("good_user_name <", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameLessThanOrEqualTo(String value) {
+            addCriterion("good_user_name <=", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameLike(String value) {
+            addCriterion("good_user_name like", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameNotLike(String value) {
+            addCriterion("good_user_name not like", value, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameIn(List<String> values) {
+            addCriterion("good_user_name in", values, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameNotIn(List<String> values) {
+            addCriterion("good_user_name not in", values, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameBetween(String value1, String value2) {
+            addCriterion("good_user_name between", value1, value2, "goodUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andGoodUserNameNotBetween(String value1, String value2) {
+            addCriterion("good_user_name not between", value1, value2, "goodUserName");
             return (Criteria) this;
         }
     }

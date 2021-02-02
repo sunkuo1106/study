@@ -5,15 +5,10 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="course_name" property="courseName" jdbcType="VARCHAR" />
     <result column="course_subjec" property="courseSubjec" jdbcType="VARCHAR" />
-    <result column="course_addtime" property="courseAddtime" jdbcType="TIMESTAMP" />
-    <result column="course_title" property="courseTitle" jdbcType="VARCHAR" />
-    <result column="course_content" property="courseContent" jdbcType="VARCHAR" />
-    <result column="course_lession_num" property="courseLessionNum" jdbcType="INTEGER" />
-    <result column="course_video_url" property="courseVideoUrl" jdbcType="VARCHAR" />
-    <result column="course_update_time" property="courseUpdateTime" jdbcType="TIMESTAMP" />
-    <result column="page_viewcount" property="pageViewcount" jdbcType="INTEGER" />
-    <result column="course_end_time" property="courseEndTime" jdbcType="TIMESTAMP" />
-    <result column="curr_id" property="currId" jdbcType="BIGINT" />
+    <result column="course_introduction" property="courseIntroduction" jdbcType="VARCHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -74,8 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, course_name, course_subjec, course_addtime, course_title, course_content, course_lession_num, 
-    course_video_url, course_update_time, page_viewcount, course_end_time, curr_id
+    id, course_name, course_subjec, course_introduction, gmt_create, gmt_modified, logic_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.CourseExample" >
     select
@@ -109,15 +103,11 @@
   </delete>
   <insert id="insert" parameterType="com.kgc.study.bean.Course" >
     insert into course (id, course_name, course_subjec, 
-      course_addtime, course_title, course_content, 
-      course_lession_num, course_video_url, course_update_time, 
-      page_viewcount, course_end_time, curr_id
-      )
+      course_introduction, gmt_create, gmt_modified, 
+      logic_delete)
     values (#{id,jdbcType=BIGINT}, #{courseName,jdbcType=VARCHAR}, #{courseSubjec,jdbcType=VARCHAR}, 
-      #{courseAddtime,jdbcType=TIMESTAMP}, #{courseTitle,jdbcType=VARCHAR}, #{courseContent,jdbcType=VARCHAR}, 
-      #{courseLessionNum,jdbcType=INTEGER}, #{courseVideoUrl,jdbcType=VARCHAR}, #{courseUpdateTime,jdbcType=TIMESTAMP}, 
-      #{pageViewcount,jdbcType=INTEGER}, #{courseEndTime,jdbcType=TIMESTAMP}, #{currId,jdbcType=BIGINT}
-      )
+      #{courseIntroduction,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{logicDelete,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.Course" >
     insert into course
@@ -131,32 +121,17 @@
       <if test="courseSubjec != null" >
         course_subjec,
       </if>
-      <if test="courseAddtime != null" >
-        course_addtime,
+      <if test="courseIntroduction != null" >
+        course_introduction,
       </if>
-      <if test="courseTitle != null" >
-        course_title,
+      <if test="gmtCreate != null" >
+        gmt_create,
       </if>
-      <if test="courseContent != null" >
-        course_content,
+      <if test="gmtModified != null" >
+        gmt_modified,
       </if>
-      <if test="courseLessionNum != null" >
-        course_lession_num,
-      </if>
-      <if test="courseVideoUrl != null" >
-        course_video_url,
-      </if>
-      <if test="courseUpdateTime != null" >
-        course_update_time,
-      </if>
-      <if test="pageViewcount != null" >
-        page_viewcount,
-      </if>
-      <if test="courseEndTime != null" >
-        course_end_time,
-      </if>
-      <if test="currId != null" >
-        curr_id,
+      <if test="logicDelete != null" >
+        logic_delete,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -169,32 +144,17 @@
       <if test="courseSubjec != null" >
         #{courseSubjec,jdbcType=VARCHAR},
       </if>
-      <if test="courseAddtime != null" >
-        #{courseAddtime,jdbcType=TIMESTAMP},
+      <if test="courseIntroduction != null" >
+        #{courseIntroduction,jdbcType=VARCHAR},
       </if>
-      <if test="courseTitle != null" >
-        #{courseTitle,jdbcType=VARCHAR},
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="courseContent != null" >
-        #{courseContent,jdbcType=VARCHAR},
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="courseLessionNum != null" >
-        #{courseLessionNum,jdbcType=INTEGER},
-      </if>
-      <if test="courseVideoUrl != null" >
-        #{courseVideoUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="courseUpdateTime != null" >
-        #{courseUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="pageViewcount != null" >
-        #{pageViewcount,jdbcType=INTEGER},
-      </if>
-      <if test="courseEndTime != null" >
-        #{courseEndTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="currId != null" >
-        #{currId,jdbcType=BIGINT},
+      <if test="logicDelete != null" >
+        #{logicDelete,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -216,32 +176,17 @@
       <if test="record.courseSubjec != null" >
         course_subjec = #{record.courseSubjec,jdbcType=VARCHAR},
       </if>
-      <if test="record.courseAddtime != null" >
-        course_addtime = #{record.courseAddtime,jdbcType=TIMESTAMP},
+      <if test="record.courseIntroduction != null" >
+        course_introduction = #{record.courseIntroduction,jdbcType=VARCHAR},
       </if>
-      <if test="record.courseTitle != null" >
-        course_title = #{record.courseTitle,jdbcType=VARCHAR},
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.courseContent != null" >
-        course_content = #{record.courseContent,jdbcType=VARCHAR},
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.courseLessionNum != null" >
-        course_lession_num = #{record.courseLessionNum,jdbcType=INTEGER},
-      </if>
-      <if test="record.courseVideoUrl != null" >
-        course_video_url = #{record.courseVideoUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="record.courseUpdateTime != null" >
-        course_update_time = #{record.courseUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.pageViewcount != null" >
-        page_viewcount = #{record.pageViewcount,jdbcType=INTEGER},
-      </if>
-      <if test="record.courseEndTime != null" >
-        course_end_time = #{record.courseEndTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.currId != null" >
-        curr_id = #{record.currId,jdbcType=BIGINT},
+      <if test="record.logicDelete != null" >
+        logic_delete = #{record.logicDelete,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -253,15 +198,10 @@
     set id = #{record.id,jdbcType=BIGINT},
       course_name = #{record.courseName,jdbcType=VARCHAR},
       course_subjec = #{record.courseSubjec,jdbcType=VARCHAR},
-      course_addtime = #{record.courseAddtime,jdbcType=TIMESTAMP},
-      course_title = #{record.courseTitle,jdbcType=VARCHAR},
-      course_content = #{record.courseContent,jdbcType=VARCHAR},
-      course_lession_num = #{record.courseLessionNum,jdbcType=INTEGER},
-      course_video_url = #{record.courseVideoUrl,jdbcType=VARCHAR},
-      course_update_time = #{record.courseUpdateTime,jdbcType=TIMESTAMP},
-      page_viewcount = #{record.pageViewcount,jdbcType=INTEGER},
-      course_end_time = #{record.courseEndTime,jdbcType=TIMESTAMP},
-      curr_id = #{record.currId,jdbcType=BIGINT}
+      course_introduction = #{record.courseIntroduction,jdbcType=VARCHAR},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -275,32 +215,17 @@
       <if test="courseSubjec != null" >
         course_subjec = #{courseSubjec,jdbcType=VARCHAR},
       </if>
-      <if test="courseAddtime != null" >
-        course_addtime = #{courseAddtime,jdbcType=TIMESTAMP},
+      <if test="courseIntroduction != null" >
+        course_introduction = #{courseIntroduction,jdbcType=VARCHAR},
       </if>
-      <if test="courseTitle != null" >
-        course_title = #{courseTitle,jdbcType=VARCHAR},
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       </if>
-      <if test="courseContent != null" >
-        course_content = #{courseContent,jdbcType=VARCHAR},
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="courseLessionNum != null" >
-        course_lession_num = #{courseLessionNum,jdbcType=INTEGER},
-      </if>
-      <if test="courseVideoUrl != null" >
-        course_video_url = #{courseVideoUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="courseUpdateTime != null" >
-        course_update_time = #{courseUpdateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="pageViewcount != null" >
-        page_viewcount = #{pageViewcount,jdbcType=INTEGER},
-      </if>
-      <if test="courseEndTime != null" >
-        course_end_time = #{courseEndTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="currId != null" >
-        curr_id = #{currId,jdbcType=BIGINT},
+      <if test="logicDelete != null" >
+        logic_delete = #{logicDelete,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -309,15 +234,10 @@
     update course
     set course_name = #{courseName,jdbcType=VARCHAR},
       course_subjec = #{courseSubjec,jdbcType=VARCHAR},
-      course_addtime = #{courseAddtime,jdbcType=TIMESTAMP},
-      course_title = #{courseTitle,jdbcType=VARCHAR},
-      course_content = #{courseContent,jdbcType=VARCHAR},
-      course_lession_num = #{courseLessionNum,jdbcType=INTEGER},
-      course_video_url = #{courseVideoUrl,jdbcType=VARCHAR},
-      course_update_time = #{courseUpdateTime,jdbcType=TIMESTAMP},
-      page_viewcount = #{pageViewcount,jdbcType=INTEGER},
-      course_end_time = #{courseEndTime,jdbcType=TIMESTAMP},
-      curr_id = #{currId,jdbcType=BIGINT}
+      course_introduction = #{courseIntroduction,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      logic_delete = #{logicDelete,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

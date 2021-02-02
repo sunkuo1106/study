@@ -105,183 +105,63 @@ public class TeacherExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andTeacherIdIsNull() {
-            addCriterion("teacher_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdIsNotNull() {
-            addCriterion("teacher_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdEqualTo(Long value) {
-            addCriterion("teacher_id =", value, "teacherId");
+        public Criteria andIdEqualTo(Long value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdNotEqualTo(Long value) {
-            addCriterion("teacher_id <>", value, "teacherId");
+        public Criteria andIdNotEqualTo(Long value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdGreaterThan(Long value) {
-            addCriterion("teacher_id >", value, "teacherId");
+        public Criteria andIdGreaterThan(Long value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("teacher_id >=", value, "teacherId");
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdLessThan(Long value) {
-            addCriterion("teacher_id <", value, "teacherId");
+        public Criteria andIdLessThan(Long value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdLessThanOrEqualTo(Long value) {
-            addCriterion("teacher_id <=", value, "teacherId");
+        public Criteria andIdLessThanOrEqualTo(Long value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdIn(List<Long> values) {
-            addCriterion("teacher_id in", values, "teacherId");
+        public Criteria andIdIn(List<Long> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdNotIn(List<Long> values) {
-            addCriterion("teacher_id not in", values, "teacherId");
+        public Criteria andIdNotIn(List<Long> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdBetween(Long value1, Long value2) {
-            addCriterion("teacher_id between", value1, value2, "teacherId");
+        public Criteria andIdBetween(Long value1, Long value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdNotBetween(Long value1, Long value2) {
-            addCriterion("teacher_id not between", value1, value2, "teacherId");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateIsNull() {
-            addCriterion("teacher_gmt_create is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateIsNotNull() {
-            addCriterion("teacher_gmt_create is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateEqualTo(Date value) {
-            addCriterion("teacher_gmt_create =", value, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateNotEqualTo(Date value) {
-            addCriterion("teacher_gmt_create <>", value, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateGreaterThan(Date value) {
-            addCriterion("teacher_gmt_create >", value, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateGreaterThanOrEqualTo(Date value) {
-            addCriterion("teacher_gmt_create >=", value, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateLessThan(Date value) {
-            addCriterion("teacher_gmt_create <", value, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateLessThanOrEqualTo(Date value) {
-            addCriterion("teacher_gmt_create <=", value, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateIn(List<Date> values) {
-            addCriterion("teacher_gmt_create in", values, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateNotIn(List<Date> values) {
-            addCriterion("teacher_gmt_create not in", values, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateBetween(Date value1, Date value2) {
-            addCriterion("teacher_gmt_create between", value1, value2, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtCreateNotBetween(Date value1, Date value2) {
-            addCriterion("teacher_gmt_create not between", value1, value2, "teacherGmtCreate");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedIsNull() {
-            addCriterion("teacher_gmt_modified is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedIsNotNull() {
-            addCriterion("teacher_gmt_modified is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedEqualTo(Date value) {
-            addCriterion("teacher_gmt_modified =", value, "teacherGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedNotEqualTo(Date value) {
-            addCriterion("teacher_gmt_modified <>", value, "teacherGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedGreaterThan(Date value) {
-            addCriterion("teacher_gmt_modified >", value, "teacherGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedGreaterThanOrEqualTo(Date value) {
-            addCriterion("teacher_gmt_modified >=", value, "teacherGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedLessThan(Date value) {
-            addCriterion("teacher_gmt_modified <", value, "teacherGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedLessThanOrEqualTo(Date value) {
-            addCriterion("teacher_gmt_modified <=", value, "teacherGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedIn(List<Date> values) {
-            addCriterion("teacher_gmt_modified in", values, "teacherGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedNotIn(List<Date> values) {
-            addCriterion("teacher_gmt_modified not in", values, "teacherGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedBetween(Date value1, Date value2) {
-            addCriterion("teacher_gmt_modified between", value1, value2, "teacherGmtModified");
-            return (Criteria) this;
-        }
-
-        public Criteria andTeacherGmtModifiedNotBetween(Date value1, Date value2) {
-            addCriterion("teacher_gmt_modified not between", value1, value2, "teacherGmtModified");
+        public Criteria andIdNotBetween(Long value1, Long value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
@@ -355,136 +235,6 @@ public class TeacherExample {
             return (Criteria) this;
         }
 
-        public Criteria andTchEducationIsNull() {
-            addCriterion("tch_education is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationIsNotNull() {
-            addCriterion("tch_education is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationEqualTo(String value) {
-            addCriterion("tch_education =", value, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationNotEqualTo(String value) {
-            addCriterion("tch_education <>", value, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationGreaterThan(String value) {
-            addCriterion("tch_education >", value, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationGreaterThanOrEqualTo(String value) {
-            addCriterion("tch_education >=", value, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationLessThan(String value) {
-            addCriterion("tch_education <", value, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationLessThanOrEqualTo(String value) {
-            addCriterion("tch_education <=", value, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationLike(String value) {
-            addCriterion("tch_education like", value, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationNotLike(String value) {
-            addCriterion("tch_education not like", value, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationIn(List<String> values) {
-            addCriterion("tch_education in", values, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationNotIn(List<String> values) {
-            addCriterion("tch_education not in", values, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationBetween(String value1, String value2) {
-            addCriterion("tch_education between", value1, value2, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchEducationNotBetween(String value1, String value2) {
-            addCriterion("tch_education not between", value1, value2, "tchEducation");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarIsNull() {
-            addCriterion("tch_is_star is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarIsNotNull() {
-            addCriterion("tch_is_star is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarEqualTo(Integer value) {
-            addCriterion("tch_is_star =", value, "tchIsStar");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarNotEqualTo(Integer value) {
-            addCriterion("tch_is_star <>", value, "tchIsStar");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarGreaterThan(Integer value) {
-            addCriterion("tch_is_star >", value, "tchIsStar");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarGreaterThanOrEqualTo(Integer value) {
-            addCriterion("tch_is_star >=", value, "tchIsStar");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarLessThan(Integer value) {
-            addCriterion("tch_is_star <", value, "tchIsStar");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarLessThanOrEqualTo(Integer value) {
-            addCriterion("tch_is_star <=", value, "tchIsStar");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarIn(List<Integer> values) {
-            addCriterion("tch_is_star in", values, "tchIsStar");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarNotIn(List<Integer> values) {
-            addCriterion("tch_is_star not in", values, "tchIsStar");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarBetween(Integer value1, Integer value2) {
-            addCriterion("tch_is_star between", value1, value2, "tchIsStar");
-            return (Criteria) this;
-        }
-
-        public Criteria andTchIsStarNotBetween(Integer value1, Integer value2) {
-            addCriterion("tch_is_star not between", value1, value2, "tchIsStar");
-            return (Criteria) this;
-        }
-
         public Criteria andTchPicPathIsNull() {
             addCriterion("tch_pic_path is null");
             return (Criteria) this;
@@ -555,63 +305,123 @@ public class TeacherExample {
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusIsNull() {
-            addCriterion("tch_status is null");
+        public Criteria andGmtCreateIsNull() {
+            addCriterion("gmt_create is null");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusIsNotNull() {
-            addCriterion("tch_status is not null");
+        public Criteria andGmtCreateIsNotNull() {
+            addCriterion("gmt_create is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusEqualTo(Date value) {
-            addCriterion("tch_status =", value, "tchStatus");
+        public Criteria andGmtCreateEqualTo(Date value) {
+            addCriterion("gmt_create =", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusNotEqualTo(Date value) {
-            addCriterion("tch_status <>", value, "tchStatus");
+        public Criteria andGmtCreateNotEqualTo(Date value) {
+            addCriterion("gmt_create <>", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusGreaterThan(Date value) {
-            addCriterion("tch_status >", value, "tchStatus");
+        public Criteria andGmtCreateGreaterThan(Date value) {
+            addCriterion("gmt_create >", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusGreaterThanOrEqualTo(Date value) {
-            addCriterion("tch_status >=", value, "tchStatus");
+        public Criteria andGmtCreateGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_create >=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusLessThan(Date value) {
-            addCriterion("tch_status <", value, "tchStatus");
+        public Criteria andGmtCreateLessThan(Date value) {
+            addCriterion("gmt_create <", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusLessThanOrEqualTo(Date value) {
-            addCriterion("tch_status <=", value, "tchStatus");
+        public Criteria andGmtCreateLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_create <=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusIn(List<Date> values) {
-            addCriterion("tch_status in", values, "tchStatus");
+        public Criteria andGmtCreateIn(List<Date> values) {
+            addCriterion("gmt_create in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusNotIn(List<Date> values) {
-            addCriterion("tch_status not in", values, "tchStatus");
+        public Criteria andGmtCreateNotIn(List<Date> values) {
+            addCriterion("gmt_create not in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusBetween(Date value1, Date value2) {
-            addCriterion("tch_status between", value1, value2, "tchStatus");
+        public Criteria andGmtCreateBetween(Date value1, Date value2) {
+            addCriterion("gmt_create between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andTchStatusNotBetween(Date value1, Date value2) {
-            addCriterion("tch_status not between", value1, value2, "tchStatus");
+        public Criteria andGmtCreateNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_create not between", value1, value2, "gmtCreate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedIsNull() {
+            addCriterion("gmt_modified is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedIsNotNull() {
+            addCriterion("gmt_modified is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedEqualTo(Date value) {
+            addCriterion("gmt_modified =", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedNotEqualTo(Date value) {
+            addCriterion("gmt_modified <>", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedGreaterThan(Date value) {
+            addCriterion("gmt_modified >", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified >=", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedLessThan(Date value) {
+            addCriterion("gmt_modified <", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified <=", value, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedIn(List<Date> values) {
+            addCriterion("gmt_modified in", values, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedNotIn(List<Date> values) {
+            addCriterion("gmt_modified not in", values, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified between", value1, value2, "gmtModified");
+            return (Criteria) this;
+        }
+
+        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
@@ -682,6 +492,126 @@ public class TeacherExample {
 
         public Criteria andTchSubjectNotBetween(String value1, String value2) {
             addCriterion("tch_subject not between", value1, value2, "tchSubject");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusIsNull() {
+            addCriterion("tch_status is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusIsNotNull() {
+            addCriterion("tch_status is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusEqualTo(Integer value) {
+            addCriterion("tch_status =", value, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusNotEqualTo(Integer value) {
+            addCriterion("tch_status <>", value, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusGreaterThan(Integer value) {
+            addCriterion("tch_status >", value, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("tch_status >=", value, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusLessThan(Integer value) {
+            addCriterion("tch_status <", value, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("tch_status <=", value, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusIn(List<Integer> values) {
+            addCriterion("tch_status in", values, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusNotIn(List<Integer> values) {
+            addCriterion("tch_status not in", values, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusBetween(Integer value1, Integer value2) {
+            addCriterion("tch_status between", value1, value2, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andTchStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("tch_status not between", value1, value2, "tchStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
     }

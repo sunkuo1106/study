@@ -1005,63 +1005,63 @@ public class EduUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdIsNull() {
-            addCriterion("mechanism_id is null");
+        public Criteria andAgencyIdIsNull() {
+            addCriterion("agency_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdIsNotNull() {
-            addCriterion("mechanism_id is not null");
+        public Criteria andAgencyIdIsNotNull() {
+            addCriterion("agency_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdEqualTo(Integer value) {
-            addCriterion("mechanism_id =", value, "mechanismId");
+        public Criteria andAgencyIdEqualTo(Integer value) {
+            addCriterion("agency_id =", value, "agencyId");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdNotEqualTo(Integer value) {
-            addCriterion("mechanism_id <>", value, "mechanismId");
+        public Criteria andAgencyIdNotEqualTo(Integer value) {
+            addCriterion("agency_id <>", value, "agencyId");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdGreaterThan(Integer value) {
-            addCriterion("mechanism_id >", value, "mechanismId");
+        public Criteria andAgencyIdGreaterThan(Integer value) {
+            addCriterion("agency_id >", value, "agencyId");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("mechanism_id >=", value, "mechanismId");
+        public Criteria andAgencyIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("agency_id >=", value, "agencyId");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdLessThan(Integer value) {
-            addCriterion("mechanism_id <", value, "mechanismId");
+        public Criteria andAgencyIdLessThan(Integer value) {
+            addCriterion("agency_id <", value, "agencyId");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdLessThanOrEqualTo(Integer value) {
-            addCriterion("mechanism_id <=", value, "mechanismId");
+        public Criteria andAgencyIdLessThanOrEqualTo(Integer value) {
+            addCriterion("agency_id <=", value, "agencyId");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdIn(List<Integer> values) {
-            addCriterion("mechanism_id in", values, "mechanismId");
+        public Criteria andAgencyIdIn(List<Integer> values) {
+            addCriterion("agency_id in", values, "agencyId");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdNotIn(List<Integer> values) {
-            addCriterion("mechanism_id not in", values, "mechanismId");
+        public Criteria andAgencyIdNotIn(List<Integer> values) {
+            addCriterion("agency_id not in", values, "agencyId");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdBetween(Integer value1, Integer value2) {
-            addCriterion("mechanism_id between", value1, value2, "mechanismId");
+        public Criteria andAgencyIdBetween(Integer value1, Integer value2) {
+            addCriterion("agency_id between", value1, value2, "agencyId");
             return (Criteria) this;
         }
 
-        public Criteria andMechanismIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("mechanism_id not between", value1, value2, "mechanismId");
+        public Criteria andAgencyIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("agency_id not between", value1, value2, "agencyId");
             return (Criteria) this;
         }
 
@@ -1485,123 +1485,183 @@ public class EduUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassIsNull() {
-            addCriterion("edu_user_class is null");
+        public Criteria andGradeIdIsNull() {
+            addCriterion("grade_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassIsNotNull() {
-            addCriterion("edu_user_class is not null");
+        public Criteria andGradeIdIsNotNull() {
+            addCriterion("grade_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassEqualTo(Integer value) {
-            addCriterion("edu_user_class =", value, "eduUserClass");
+        public Criteria andGradeIdEqualTo(Integer value) {
+            addCriterion("grade_id =", value, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassNotEqualTo(Integer value) {
-            addCriterion("edu_user_class <>", value, "eduUserClass");
+        public Criteria andGradeIdNotEqualTo(Integer value) {
+            addCriterion("grade_id <>", value, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassGreaterThan(Integer value) {
-            addCriterion("edu_user_class >", value, "eduUserClass");
+        public Criteria andGradeIdGreaterThan(Integer value) {
+            addCriterion("grade_id >", value, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassGreaterThanOrEqualTo(Integer value) {
-            addCriterion("edu_user_class >=", value, "eduUserClass");
+        public Criteria andGradeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("grade_id >=", value, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassLessThan(Integer value) {
-            addCriterion("edu_user_class <", value, "eduUserClass");
+        public Criteria andGradeIdLessThan(Integer value) {
+            addCriterion("grade_id <", value, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassLessThanOrEqualTo(Integer value) {
-            addCriterion("edu_user_class <=", value, "eduUserClass");
+        public Criteria andGradeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("grade_id <=", value, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassIn(List<Integer> values) {
-            addCriterion("edu_user_class in", values, "eduUserClass");
+        public Criteria andGradeIdIn(List<Integer> values) {
+            addCriterion("grade_id in", values, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassNotIn(List<Integer> values) {
-            addCriterion("edu_user_class not in", values, "eduUserClass");
+        public Criteria andGradeIdNotIn(List<Integer> values) {
+            addCriterion("grade_id not in", values, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassBetween(Integer value1, Integer value2) {
-            addCriterion("edu_user_class between", value1, value2, "eduUserClass");
+        public Criteria andGradeIdBetween(Integer value1, Integer value2) {
+            addCriterion("grade_id between", value1, value2, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassNotBetween(Integer value1, Integer value2) {
-            addCriterion("edu_user_class not between", value1, value2, "eduUserClass");
+        public Criteria andGradeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("grade_id not between", value1, value2, "gradeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeIsNull() {
-            addCriterion("edu_user_class_type is null");
+        public Criteria andGradeTypeIdIsNull() {
+            addCriterion("grade_type_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeIsNotNull() {
-            addCriterion("edu_user_class_type is not null");
+        public Criteria andGradeTypeIdIsNotNull() {
+            addCriterion("grade_type_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeEqualTo(Integer value) {
-            addCriterion("edu_user_class_type =", value, "eduUserClassType");
+        public Criteria andGradeTypeIdEqualTo(Integer value) {
+            addCriterion("grade_type_id =", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeNotEqualTo(Integer value) {
-            addCriterion("edu_user_class_type <>", value, "eduUserClassType");
+        public Criteria andGradeTypeIdNotEqualTo(Integer value) {
+            addCriterion("grade_type_id <>", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeGreaterThan(Integer value) {
-            addCriterion("edu_user_class_type >", value, "eduUserClassType");
+        public Criteria andGradeTypeIdGreaterThan(Integer value) {
+            addCriterion("grade_type_id >", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("edu_user_class_type >=", value, "eduUserClassType");
+        public Criteria andGradeTypeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("grade_type_id >=", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeLessThan(Integer value) {
-            addCriterion("edu_user_class_type <", value, "eduUserClassType");
+        public Criteria andGradeTypeIdLessThan(Integer value) {
+            addCriterion("grade_type_id <", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("edu_user_class_type <=", value, "eduUserClassType");
+        public Criteria andGradeTypeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("grade_type_id <=", value, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeIn(List<Integer> values) {
-            addCriterion("edu_user_class_type in", values, "eduUserClassType");
+        public Criteria andGradeTypeIdIn(List<Integer> values) {
+            addCriterion("grade_type_id in", values, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeNotIn(List<Integer> values) {
-            addCriterion("edu_user_class_type not in", values, "eduUserClassType");
+        public Criteria andGradeTypeIdNotIn(List<Integer> values) {
+            addCriterion("grade_type_id not in", values, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeBetween(Integer value1, Integer value2) {
-            addCriterion("edu_user_class_type between", value1, value2, "eduUserClassType");
+        public Criteria andGradeTypeIdBetween(Integer value1, Integer value2) {
+            addCriterion("grade_type_id between", value1, value2, "gradeTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserClassTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("edu_user_class_type not between", value1, value2, "eduUserClassType");
+        public Criteria andGradeTypeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("grade_type_id not between", value1, value2, "gradeTypeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdIsNull() {
+            addCriterion("agency_address_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdIsNotNull() {
+            addCriterion("agency_address_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdEqualTo(Integer value) {
+            addCriterion("agency_address_id =", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdNotEqualTo(Integer value) {
+            addCriterion("agency_address_id <>", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdGreaterThan(Integer value) {
+            addCriterion("agency_address_id >", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id >=", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdLessThan(Integer value) {
+            addCriterion("agency_address_id <", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdLessThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id <=", value, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdIn(List<Integer> values) {
+            addCriterion("agency_address_id in", values, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdNotIn(List<Integer> values) {
+            addCriterion("agency_address_id not in", values, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id between", value1, value2, "agencyAddressId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAgencyAddressIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id not between", value1, value2, "agencyAddressId");
             return (Criteria) this;
         }
     }

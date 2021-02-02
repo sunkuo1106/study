@@ -3,48 +3,30 @@ package com.kgc.study.bean;
 import java.util.Date;
 
 public class Teacher {
-    private Long teacherId;
-
-    private Date teacherGmtCreate;
-
-    private Date teacherGmtModified;
+    private Long id;
 
     private String tchName;
 
-    private String tchEducation;
-
-    private Integer tchIsStar;
-
     private String tchPicPath;
 
-    private Date tchStatus;
+    private Date gmtCreate;
+
+    private Date gmtModified;
 
     private String tchSubject;
 
+    private Integer tchStatus;
+
+    private Integer logicDelete;
+
     private String tchCareer;
 
-    public Long getTeacherId() {
-        return teacherId;
+    public Long getId() {
+        return id;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public Date getTeacherGmtCreate() {
-        return teacherGmtCreate;
-    }
-
-    public void setTeacherGmtCreate(Date teacherGmtCreate) {
-        this.teacherGmtCreate = teacherGmtCreate;
-    }
-
-    public Date getTeacherGmtModified() {
-        return teacherGmtModified;
-    }
-
-    public void setTeacherGmtModified(Date teacherGmtModified) {
-        this.teacherGmtModified = teacherGmtModified;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTchName() {
@@ -55,22 +37,6 @@ public class Teacher {
         this.tchName = tchName == null ? null : tchName.trim();
     }
 
-    public String getTchEducation() {
-        return tchEducation;
-    }
-
-    public void setTchEducation(String tchEducation) {
-        this.tchEducation = tchEducation == null ? null : tchEducation.trim();
-    }
-
-    public Integer getTchIsStar() {
-        return tchIsStar;
-    }
-
-    public void setTchIsStar(Integer tchIsStar) {
-        this.tchIsStar = tchIsStar;
-    }
-
     public String getTchPicPath() {
         return tchPicPath;
     }
@@ -79,12 +45,20 @@ public class Teacher {
         this.tchPicPath = tchPicPath == null ? null : tchPicPath.trim();
     }
 
-    public Date getTchStatus() {
-        return tchStatus;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setTchStatus(Date tchStatus) {
-        this.tchStatus = tchStatus;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
     public String getTchSubject() {
@@ -93,6 +67,22 @@ public class Teacher {
 
     public void setTchSubject(String tchSubject) {
         this.tchSubject = tchSubject == null ? null : tchSubject.trim();
+    }
+
+    public Integer getTchStatus() {
+        return tchStatus;
+    }
+
+    public void setTchStatus(Integer tchStatus) {
+        this.tchStatus = tchStatus;
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 
     public String getTchCareer() {

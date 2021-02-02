@@ -165,183 +165,183 @@ public class ClasstoinformInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateIsNull() {
-            addCriterion("ctf_gmt_create is null");
+        public Criteria andGmtCreateIsNull() {
+            addCriterion("gmt_create is null");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateIsNotNull() {
-            addCriterion("ctf_gmt_create is not null");
+        public Criteria andGmtCreateIsNotNull() {
+            addCriterion("gmt_create is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateEqualTo(Date value) {
-            addCriterion("ctf_gmt_create =", value, "ctfGmtCreate");
+        public Criteria andGmtCreateEqualTo(Date value) {
+            addCriterion("gmt_create =", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateNotEqualTo(Date value) {
-            addCriterion("ctf_gmt_create <>", value, "ctfGmtCreate");
+        public Criteria andGmtCreateNotEqualTo(Date value) {
+            addCriterion("gmt_create <>", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateGreaterThan(Date value) {
-            addCriterion("ctf_gmt_create >", value, "ctfGmtCreate");
+        public Criteria andGmtCreateGreaterThan(Date value) {
+            addCriterion("gmt_create >", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateGreaterThanOrEqualTo(Date value) {
-            addCriterion("ctf_gmt_create >=", value, "ctfGmtCreate");
+        public Criteria andGmtCreateGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_create >=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateLessThan(Date value) {
-            addCriterion("ctf_gmt_create <", value, "ctfGmtCreate");
+        public Criteria andGmtCreateLessThan(Date value) {
+            addCriterion("gmt_create <", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateLessThanOrEqualTo(Date value) {
-            addCriterion("ctf_gmt_create <=", value, "ctfGmtCreate");
+        public Criteria andGmtCreateLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_create <=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateIn(List<Date> values) {
-            addCriterion("ctf_gmt_create in", values, "ctfGmtCreate");
+        public Criteria andGmtCreateIn(List<Date> values) {
+            addCriterion("gmt_create in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateNotIn(List<Date> values) {
-            addCriterion("ctf_gmt_create not in", values, "ctfGmtCreate");
+        public Criteria andGmtCreateNotIn(List<Date> values) {
+            addCriterion("gmt_create not in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateBetween(Date value1, Date value2) {
-            addCriterion("ctf_gmt_create between", value1, value2, "ctfGmtCreate");
+        public Criteria andGmtCreateBetween(Date value1, Date value2) {
+            addCriterion("gmt_create between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtCreateNotBetween(Date value1, Date value2) {
-            addCriterion("ctf_gmt_create not between", value1, value2, "ctfGmtCreate");
+        public Criteria andGmtCreateNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_create not between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedIsNull() {
-            addCriterion("ctf_gmt_modified is null");
+        public Criteria andGmtModifiedIsNull() {
+            addCriterion("gmt_modified is null");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedIsNotNull() {
-            addCriterion("ctf_gmt_modified is not null");
+        public Criteria andGmtModifiedIsNotNull() {
+            addCriterion("gmt_modified is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedEqualTo(Date value) {
-            addCriterion("ctf_gmt_modified =", value, "ctfGmtModified");
+        public Criteria andGmtModifiedEqualTo(Date value) {
+            addCriterion("gmt_modified =", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedNotEqualTo(Date value) {
-            addCriterion("ctf_gmt_modified <>", value, "ctfGmtModified");
+        public Criteria andGmtModifiedNotEqualTo(Date value) {
+            addCriterion("gmt_modified <>", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedGreaterThan(Date value) {
-            addCriterion("ctf_gmt_modified >", value, "ctfGmtModified");
+        public Criteria andGmtModifiedGreaterThan(Date value) {
+            addCriterion("gmt_modified >", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedGreaterThanOrEqualTo(Date value) {
-            addCriterion("ctf_gmt_modified >=", value, "ctfGmtModified");
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified >=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedLessThan(Date value) {
-            addCriterion("ctf_gmt_modified <", value, "ctfGmtModified");
+        public Criteria andGmtModifiedLessThan(Date value) {
+            addCriterion("gmt_modified <", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedLessThanOrEqualTo(Date value) {
-            addCriterion("ctf_gmt_modified <=", value, "ctfGmtModified");
+        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified <=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedIn(List<Date> values) {
-            addCriterion("ctf_gmt_modified in", values, "ctfGmtModified");
+        public Criteria andGmtModifiedIn(List<Date> values) {
+            addCriterion("gmt_modified in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedNotIn(List<Date> values) {
-            addCriterion("ctf_gmt_modified not in", values, "ctfGmtModified");
+        public Criteria andGmtModifiedNotIn(List<Date> values) {
+            addCriterion("gmt_modified not in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedBetween(Date value1, Date value2) {
-            addCriterion("ctf_gmt_modified between", value1, value2, "ctfGmtModified");
+        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfGmtModifiedNotBetween(Date value1, Date value2) {
-            addCriterion("ctf_gmt_modified not between", value1, value2, "ctfGmtModified");
+        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdIsNull() {
-            addCriterion("ctf_address_id is null");
+        public Criteria andAgencyAddressIdIsNull() {
+            addCriterion("agency_address_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdIsNotNull() {
-            addCriterion("ctf_address_id is not null");
+        public Criteria andAgencyAddressIdIsNotNull() {
+            addCriterion("agency_address_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdEqualTo(Integer value) {
-            addCriterion("ctf_address_id =", value, "ctfAddressId");
+        public Criteria andAgencyAddressIdEqualTo(Integer value) {
+            addCriterion("agency_address_id =", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdNotEqualTo(Integer value) {
-            addCriterion("ctf_address_id <>", value, "ctfAddressId");
+        public Criteria andAgencyAddressIdNotEqualTo(Integer value) {
+            addCriterion("agency_address_id <>", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdGreaterThan(Integer value) {
-            addCriterion("ctf_address_id >", value, "ctfAddressId");
+        public Criteria andAgencyAddressIdGreaterThan(Integer value) {
+            addCriterion("agency_address_id >", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ctf_address_id >=", value, "ctfAddressId");
+        public Criteria andAgencyAddressIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id >=", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdLessThan(Integer value) {
-            addCriterion("ctf_address_id <", value, "ctfAddressId");
+        public Criteria andAgencyAddressIdLessThan(Integer value) {
+            addCriterion("agency_address_id <", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdLessThanOrEqualTo(Integer value) {
-            addCriterion("ctf_address_id <=", value, "ctfAddressId");
+        public Criteria andAgencyAddressIdLessThanOrEqualTo(Integer value) {
+            addCriterion("agency_address_id <=", value, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdIn(List<Integer> values) {
-            addCriterion("ctf_address_id in", values, "ctfAddressId");
+        public Criteria andAgencyAddressIdIn(List<Integer> values) {
+            addCriterion("agency_address_id in", values, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdNotIn(List<Integer> values) {
-            addCriterion("ctf_address_id not in", values, "ctfAddressId");
+        public Criteria andAgencyAddressIdNotIn(List<Integer> values) {
+            addCriterion("agency_address_id not in", values, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdBetween(Integer value1, Integer value2) {
-            addCriterion("ctf_address_id between", value1, value2, "ctfAddressId");
+        public Criteria andAgencyAddressIdBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id between", value1, value2, "agencyAddressId");
             return (Criteria) this;
         }
 
-        public Criteria andCtfAddressIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("ctf_address_id not between", value1, value2, "ctfAddressId");
+        public Criteria andAgencyAddressIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("agency_address_id not between", value1, value2, "agencyAddressId");
             return (Criteria) this;
         }
 
@@ -552,6 +552,126 @@ public class ClasstoinformInfoExample {
 
         public Criteria andCtfPicNotBetween(String value1, String value2) {
             addCriterion("ctf_pic not between", value1, value2, "ctfPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdIsNull() {
+            addCriterion("ctf_gmt_founder_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdIsNotNull() {
+            addCriterion("ctf_gmt_founder_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdEqualTo(Integer value) {
+            addCriterion("ctf_gmt_founder_id =", value, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdNotEqualTo(Integer value) {
+            addCriterion("ctf_gmt_founder_id <>", value, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdGreaterThan(Integer value) {
+            addCriterion("ctf_gmt_founder_id >", value, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ctf_gmt_founder_id >=", value, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdLessThan(Integer value) {
+            addCriterion("ctf_gmt_founder_id <", value, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdLessThanOrEqualTo(Integer value) {
+            addCriterion("ctf_gmt_founder_id <=", value, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdIn(List<Integer> values) {
+            addCriterion("ctf_gmt_founder_id in", values, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdNotIn(List<Integer> values) {
+            addCriterion("ctf_gmt_founder_id not in", values, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdBetween(Integer value1, Integer value2) {
+            addCriterion("ctf_gmt_founder_id between", value1, value2, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCtfGmtFounderIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("ctf_gmt_founder_id not between", value1, value2, "ctfGmtFounderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
     }

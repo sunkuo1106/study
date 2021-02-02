@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.NewsInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.NewsInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="news_info_title" property="newsInfoTitle" jdbcType="VARCHAR" />
+    <result column="news_info_source" property="newsInfoSource" jdbcType="VARCHAR" />
+    <result column="news_info_author" property="newsInfoAuthor" jdbcType="VARCHAR" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column=" gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="news_info_click_count" property="newsInfoClickCount" jdbcType="INTEGER" />
+    <result column="news_isTop" property="newsIstop" jdbcType="INTEGER" />
+    <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.kgc.study.bean.NewsInfo" extends="BaseResultMap" >
+    <result column="news_info_text" property="newsInfoText" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, news_info_title, news_info_source, news_info_author, gmt_create, " gmt_modified", 
+    news_info_click_count, news_isTop, logic_delete
+  </sql>
+  <sql id="Blob_Column_List" >
+    news_info_text
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.kgc.study.bean.NewsInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from news_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.NewsInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from news_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from news_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from news_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.NewsInfoExample" >
+    delete from news_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.NewsInfo" >
+    insert into news_info (id, news_info_title, news_info_source, 
+      news_info_author, gmt_create, " gmt_modified", 
+      news_info_click_count, news_isTop, logic_delete, 
+      news_info_text)
+    values (#{id,jdbcType=BIGINT}, #{newsInfoTitle,jdbcType=VARCHAR}, #{newsInfoSource,jdbcType=VARCHAR}, 
+      #{newsInfoAuthor,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{newsInfoClickCount,jdbcType=INTEGER}, #{newsIstop,jdbcType=INTEGER}, #{logicDelete,jdbcType=INTEGER}, 
+      #{newsInfoText,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.NewsInfo" >
+    insert into news_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="newsInfoTitle != null" >
+        news_info_title,
+      </if>
+      <if test="newsInfoSource != null" >
+        news_info_source,
+      </if>
+      <if test="newsInfoAuthor != null" >
+        news_info_author,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        " gmt_modified",
+      </if>
+      <if test="newsInfoClickCount != null" >
+        news_info_click_count,
+      </if>
+      <if test="newsIstop != null" >
+        news_isTop,
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete,
+      </if>
+      <if test="newsInfoText != null" >
+        news_info_text,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="newsInfoTitle != null" >
+        #{newsInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="newsInfoSource != null" >
+        #{newsInfoSource,jdbcType=VARCHAR},
+      </if>
+      <if test="newsInfoAuthor != null" >
+        #{newsInfoAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="newsInfoClickCount != null" >
+        #{newsInfoClickCount,jdbcType=INTEGER},
+      </if>
+      <if test="newsIstop != null" >
+        #{newsIstop,jdbcType=INTEGER},
+      </if>
+      <if test="logicDelete != null" >
+        #{logicDelete,jdbcType=INTEGER},
+      </if>
+      <if test="newsInfoText != null" >
+        #{newsInfoText,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.NewsInfoExample" resultType="java.lang.Integer" >
+    select count(*) from news_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update news_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.newsInfoTitle != null" >
+        news_info_title = #{record.newsInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsInfoSource != null" >
+        news_info_source = #{record.newsInfoSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsInfoAuthor != null" >
+        news_info_author = #{record.newsInfoAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        " gmt_modified" = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.newsInfoClickCount != null" >
+        news_info_click_count = #{record.newsInfoClickCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.newsIstop != null" >
+        news_isTop = #{record.newsIstop,jdbcType=INTEGER},
+      </if>
+      <if test="record.logicDelete != null" >
+        logic_delete = #{record.logicDelete,jdbcType=INTEGER},
+      </if>
+      <if test="record.newsInfoText != null" >
+        news_info_text = #{record.newsInfoText,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update news_info
+    set id = #{record.id,jdbcType=BIGINT},
+      news_info_title = #{record.newsInfoTitle,jdbcType=VARCHAR},
+      news_info_source = #{record.newsInfoSource,jdbcType=VARCHAR},
+      news_info_author = #{record.newsInfoAuthor,jdbcType=VARCHAR},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      " gmt_modified" = #{record.gmtModified,jdbcType=TIMESTAMP},
+      news_info_click_count = #{record.newsInfoClickCount,jdbcType=INTEGER},
+      news_isTop = #{record.newsIstop,jdbcType=INTEGER},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER},
+      news_info_text = #{record.newsInfoText,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update news_info
+    set id = #{record.id,jdbcType=BIGINT},
+      news_info_title = #{record.newsInfoTitle,jdbcType=VARCHAR},
+      news_info_source = #{record.newsInfoSource,jdbcType=VARCHAR},
+      news_info_author = #{record.newsInfoAuthor,jdbcType=VARCHAR},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      " gmt_modified" = #{record.gmtModified,jdbcType=TIMESTAMP},
+      news_info_click_count = #{record.newsInfoClickCount,jdbcType=INTEGER},
+      news_isTop = #{record.newsIstop,jdbcType=INTEGER},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.NewsInfo" >
+    update news_info
+    <set >
+      <if test="newsInfoTitle != null" >
+        news_info_title = #{newsInfoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="newsInfoSource != null" >
+        news_info_source = #{newsInfoSource,jdbcType=VARCHAR},
+      </if>
+      <if test="newsInfoAuthor != null" >
+        news_info_author = #{newsInfoAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        " gmt_modified" = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="newsInfoClickCount != null" >
+        news_info_click_count = #{newsInfoClickCount,jdbcType=INTEGER},
+      </if>
+      <if test="newsIstop != null" >
+        news_isTop = #{newsIstop,jdbcType=INTEGER},
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete = #{logicDelete,jdbcType=INTEGER},
+      </if>
+      <if test="newsInfoText != null" >
+        news_info_text = #{newsInfoText,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kgc.study.bean.NewsInfo" >
+    update news_info
+    set news_info_title = #{newsInfoTitle,jdbcType=VARCHAR},
+      news_info_source = #{newsInfoSource,jdbcType=VARCHAR},
+      news_info_author = #{newsInfoAuthor,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      " gmt_modified" = #{gmtModified,jdbcType=TIMESTAMP},
+      news_info_click_count = #{newsInfoClickCount,jdbcType=INTEGER},
+      news_isTop = #{newsIstop,jdbcType=INTEGER},
+      logic_delete = #{logicDelete,jdbcType=INTEGER},
+      news_info_text = #{newsInfoText,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.NewsInfo" >
+    update news_info
+    set news_info_title = #{newsInfoTitle,jdbcType=VARCHAR},
+      news_info_source = #{newsInfoSource,jdbcType=VARCHAR},
+      news_info_author = #{newsInfoAuthor,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      " gmt_modified" = #{gmtModified,jdbcType=TIMESTAMP},
+      news_info_click_count = #{newsInfoClickCount,jdbcType=INTEGER},
+      news_isTop = #{newsIstop,jdbcType=INTEGER},
+      logic_delete = #{logicDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -225,193 +225,183 @@ public class LearningExample {
             return (Criteria) this;
         }
 
-        public Criteria andLearCountIsNull() {
-            addCriterion("lear_count is null");
+        public Criteria andGmtCreateIsNull() {
+            addCriterion("gmt_create is null");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountIsNotNull() {
-            addCriterion("lear_count is not null");
+        public Criteria andGmtCreateIsNotNull() {
+            addCriterion("gmt_create is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountEqualTo(Integer value) {
-            addCriterion("lear_count =", value, "learCount");
+        public Criteria andGmtCreateEqualTo(Date value) {
+            addCriterion("gmt_create =", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountNotEqualTo(Integer value) {
-            addCriterion("lear_count <>", value, "learCount");
+        public Criteria andGmtCreateNotEqualTo(Date value) {
+            addCriterion("gmt_create <>", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountGreaterThan(Integer value) {
-            addCriterion("lear_count >", value, "learCount");
+        public Criteria andGmtCreateGreaterThan(Date value) {
+            addCriterion("gmt_create >", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("lear_count >=", value, "learCount");
+        public Criteria andGmtCreateGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_create >=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountLessThan(Integer value) {
-            addCriterion("lear_count <", value, "learCount");
+        public Criteria andGmtCreateLessThan(Date value) {
+            addCriterion("gmt_create <", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountLessThanOrEqualTo(Integer value) {
-            addCriterion("lear_count <=", value, "learCount");
+        public Criteria andGmtCreateLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_create <=", value, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountIn(List<Integer> values) {
-            addCriterion("lear_count in", values, "learCount");
+        public Criteria andGmtCreateIn(List<Date> values) {
+            addCriterion("gmt_create in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountNotIn(List<Integer> values) {
-            addCriterion("lear_count not in", values, "learCount");
+        public Criteria andGmtCreateNotIn(List<Date> values) {
+            addCriterion("gmt_create not in", values, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountBetween(Integer value1, Integer value2) {
-            addCriterion("lear_count between", value1, value2, "learCount");
+        public Criteria andGmtCreateBetween(Date value1, Date value2) {
+            addCriterion("gmt_create between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andLearCountNotBetween(Integer value1, Integer value2) {
-            addCriterion("lear_count not between", value1, value2, "learCount");
+        public Criteria andGmtCreateNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_create not between", value1, value2, "gmtCreate");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameIsNull() {
-            addCriterion("course_name is null");
+        public Criteria andGmtModifiedIsNull() {
+            addCriterion("gmt_modified is null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameIsNotNull() {
-            addCriterion("course_name is not null");
+        public Criteria andGmtModifiedIsNotNull() {
+            addCriterion("gmt_modified is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameEqualTo(String value) {
-            addCriterion("course_name =", value, "courseName");
+        public Criteria andGmtModifiedEqualTo(Date value) {
+            addCriterion("gmt_modified =", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameNotEqualTo(String value) {
-            addCriterion("course_name <>", value, "courseName");
+        public Criteria andGmtModifiedNotEqualTo(Date value) {
+            addCriterion("gmt_modified <>", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameGreaterThan(String value) {
-            addCriterion("course_name >", value, "courseName");
+        public Criteria andGmtModifiedGreaterThan(Date value) {
+            addCriterion("gmt_modified >", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameGreaterThanOrEqualTo(String value) {
-            addCriterion("course_name >=", value, "courseName");
+        public Criteria andGmtModifiedGreaterThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified >=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameLessThan(String value) {
-            addCriterion("course_name <", value, "courseName");
+        public Criteria andGmtModifiedLessThan(Date value) {
+            addCriterion("gmt_modified <", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameLessThanOrEqualTo(String value) {
-            addCriterion("course_name <=", value, "courseName");
+        public Criteria andGmtModifiedLessThanOrEqualTo(Date value) {
+            addCriterion("gmt_modified <=", value, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameLike(String value) {
-            addCriterion("course_name like", value, "courseName");
+        public Criteria andGmtModifiedIn(List<Date> values) {
+            addCriterion("gmt_modified in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameNotLike(String value) {
-            addCriterion("course_name not like", value, "courseName");
+        public Criteria andGmtModifiedNotIn(List<Date> values) {
+            addCriterion("gmt_modified not in", values, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameIn(List<String> values) {
-            addCriterion("course_name in", values, "courseName");
+        public Criteria andGmtModifiedBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameNotIn(List<String> values) {
-            addCriterion("course_name not in", values, "courseName");
+        public Criteria andGmtModifiedNotBetween(Date value1, Date value2) {
+            addCriterion("gmt_modified not between", value1, value2, "gmtModified");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameBetween(String value1, String value2) {
-            addCriterion("course_name between", value1, value2, "courseName");
+        public Criteria andLogicDeleteIsNull() {
+            addCriterion("logic_delete is null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseNameNotBetween(String value1, String value2) {
-            addCriterion("course_name not between", value1, value2, "courseName");
+        public Criteria andLogicDeleteIsNotNull() {
+            addCriterion("logic_delete is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeIsNull() {
-            addCriterion("lear_update_time is null");
+        public Criteria andLogicDeleteEqualTo(Integer value) {
+            addCriterion("logic_delete =", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeIsNotNull() {
-            addCriterion("lear_update_time is not null");
+        public Criteria andLogicDeleteNotEqualTo(Integer value) {
+            addCriterion("logic_delete <>", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeEqualTo(Date value) {
-            addCriterion("lear_update_time =", value, "learUpdateTime");
+        public Criteria andLogicDeleteGreaterThan(Integer value) {
+            addCriterion("logic_delete >", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeNotEqualTo(Date value) {
-            addCriterion("lear_update_time <>", value, "learUpdateTime");
+        public Criteria andLogicDeleteGreaterThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete >=", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeGreaterThan(Date value) {
-            addCriterion("lear_update_time >", value, "learUpdateTime");
+        public Criteria andLogicDeleteLessThan(Integer value) {
+            addCriterion("logic_delete <", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("lear_update_time >=", value, "learUpdateTime");
+        public Criteria andLogicDeleteLessThanOrEqualTo(Integer value) {
+            addCriterion("logic_delete <=", value, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeLessThan(Date value) {
-            addCriterion("lear_update_time <", value, "learUpdateTime");
+        public Criteria andLogicDeleteIn(List<Integer> values) {
+            addCriterion("logic_delete in", values, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("lear_update_time <=", value, "learUpdateTime");
+        public Criteria andLogicDeleteNotIn(List<Integer> values) {
+            addCriterion("logic_delete not in", values, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeIn(List<Date> values) {
-            addCriterion("lear_update_time in", values, "learUpdateTime");
+        public Criteria andLogicDeleteBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
 
-        public Criteria andLearUpdateTimeNotIn(List<Date> values) {
-            addCriterion("lear_update_time not in", values, "learUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearUpdateTimeBetween(Date value1, Date value2) {
-            addCriterion("lear_update_time between", value1, value2, "learUpdateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLearUpdateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("lear_update_time not between", value1, value2, "learUpdateTime");
+        public Criteria andLogicDeleteNotBetween(Integer value1, Integer value2) {
+            addCriterion("logic_delete not between", value1, value2, "logicDelete");
             return (Criteria) this;
         }
     }

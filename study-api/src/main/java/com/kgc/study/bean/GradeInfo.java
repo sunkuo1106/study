@@ -5,21 +5,23 @@ import java.util.Date;
 public class GradeInfo {
     private Long id;
 
-    private Date gradeGmtCreate;
+    private Date gmtCreate;
 
-    private Date fradeGmtModified;
+    private Date gmtModified;
 
-    private Integer gradeAddressId;
+    private Integer agencyAddressId;
 
     private String gradeName;
 
-    private String gradeType;
+    private Integer gradeTypeId;
 
     private Integer gradePerson;
 
-    private Date gradeDate;
+    private Date gradeStartTime;
 
-    private Long gradePrice;
+    private Integer gradeGmtFounderId;
+
+    private Integer logicDelete;
 
     public Long getId() {
         return id;
@@ -29,28 +31,28 @@ public class GradeInfo {
         this.id = id;
     }
 
-    public Date getGradeGmtCreate() {
-        return gradeGmtCreate;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setGradeGmtCreate(Date gradeGmtCreate) {
-        this.gradeGmtCreate = gradeGmtCreate;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public Date getFradeGmtModified() {
-        return fradeGmtModified;
+    public Date getGmtModified() {
+        return gmtModified;
     }
 
-    public void setFradeGmtModified(Date fradeGmtModified) {
-        this.fradeGmtModified = fradeGmtModified;
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
     }
 
-    public Integer getGradeAddressId() {
-        return gradeAddressId;
+    public Integer getAgencyAddressId() {
+        return agencyAddressId;
     }
 
-    public void setGradeAddressId(Integer gradeAddressId) {
-        this.gradeAddressId = gradeAddressId;
+    public void setAgencyAddressId(Integer agencyAddressId) {
+        this.agencyAddressId = agencyAddressId;
     }
 
     public String getGradeName() {
@@ -61,12 +63,12 @@ public class GradeInfo {
         this.gradeName = gradeName == null ? null : gradeName.trim();
     }
 
-    public String getGradeType() {
-        return gradeType;
+    public Integer getGradeTypeId() {
+        return gradeTypeId;
     }
 
-    public void setGradeType(String gradeType) {
-        this.gradeType = gradeType == null ? null : gradeType.trim();
+    public void setGradeTypeId(Integer gradeTypeId) {
+        this.gradeTypeId = gradeTypeId;
     }
 
     public Integer getGradePerson() {
@@ -77,19 +79,27 @@ public class GradeInfo {
         this.gradePerson = gradePerson;
     }
 
-    public Date getGradeDate() {
-        return gradeDate;
+    public Date getGradeStartTime() {
+        return gradeStartTime;
     }
 
-    public void setGradeDate(Date gradeDate) {
-        this.gradeDate = gradeDate;
+    public void setGradeStartTime(Date gradeStartTime) {
+        this.gradeStartTime = gradeStartTime;
     }
 
-    public Long getGradePrice() {
-        return gradePrice;
+    public Integer getGradeGmtFounderId() {
+        return gradeGmtFounderId;
     }
 
-    public void setGradePrice(Long gradePrice) {
-        this.gradePrice = gradePrice;
+    public void setGradeGmtFounderId(Integer gradeGmtFounderId) {
+        this.gradeGmtFounderId = gradeGmtFounderId;
+    }
+
+    public Integer getLogicDelete() {
+        return logicDelete;
+    }
+
+    public void setLogicDelete(Integer logicDelete) {
+        this.logicDelete = logicDelete;
     }
 }

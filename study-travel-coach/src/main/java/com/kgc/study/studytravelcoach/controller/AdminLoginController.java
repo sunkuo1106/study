@@ -1,10 +1,9 @@
 package com.kgc.study.studytravelcoach.controller;
 
-import com.kgc.study.bean.AdminLogin;
-import com.kgc.study.service.AdminLoginService;
+import com.kgc.study.bean.AdministratorTable;
+import com.kgc.study.service.AdministratorTableService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -13,7 +12,7 @@ import javax.servlet.http.HttpSession;
 public class AdminLoginController {
 
     @Resource
-    AdminLoginService adminLoginService;
+    AdministratorTableService administratorTableService;
 
     @RequestMapping("/")
     public String ToLogin(){
@@ -22,7 +21,7 @@ public class AdminLoginController {
 
     @RequestMapping("/login")
     public String login(String adminName, String adminPassword, HttpSession session){
-        AdminLogin adminLogin = adminLoginService.AdminLogin(adminName, adminPassword);
+        AdministratorTable adminLogin = administratorTableService.AdminLogin(adminName, adminPassword);
         session.setAttribute("admin",adminLogin);
         return "index";
     }

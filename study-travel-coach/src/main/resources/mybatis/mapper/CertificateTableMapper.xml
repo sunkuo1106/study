@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.CertificateTableMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.CertificateTable" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="edu_user_id" property="eduUserId" jdbcType="INTEGER" />
+    <result column="cer_group_exam_score" property="cerGroupExamScore" jdbcType="DECIMAL" />
+    <result column="cer_exam_score" property="cerExamScore" jdbcType="DECIMAL" />
+    <result column="cer_sum_score" property="cerSumScore" jdbcType="DECIMAL" />
+    <result column="cer_examination_date" property="cerExaminationDate" jdbcType="TIMESTAMP" />
+    <result column="cer_get_time" property="cerGetTime" jdbcType="TIMESTAMP" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, edu_user_id, cer_group_exam_score, cer_exam_score, cer_sum_score, cer_examination_date, 
+    cer_get_time, gmt_create, gmt_modified, logic_delete
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.CertificateTableExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from certificate_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from certificate_table
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from certificate_table
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.CertificateTableExample" >
+    delete from certificate_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.CertificateTable" >
+    insert into certificate_table (id, edu_user_id, cer_group_exam_score, 
+      cer_exam_score, cer_sum_score, cer_examination_date, 
+      cer_get_time, gmt_create, gmt_modified, 
+      logic_delete)
+    values (#{id,jdbcType=INTEGER}, #{eduUserId,jdbcType=INTEGER}, #{cerGroupExamScore,jdbcType=DECIMAL}, 
+      #{cerExamScore,jdbcType=DECIMAL}, #{cerSumScore,jdbcType=DECIMAL}, #{cerExaminationDate,jdbcType=TIMESTAMP}, 
+      #{cerGetTime,jdbcType=TIMESTAMP}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{logicDelete,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.CertificateTable" >
+    insert into certificate_table
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="eduUserId != null" >
+        edu_user_id,
+      </if>
+      <if test="cerGroupExamScore != null" >
+        cer_group_exam_score,
+      </if>
+      <if test="cerExamScore != null" >
+        cer_exam_score,
+      </if>
+      <if test="cerSumScore != null" >
+        cer_sum_score,
+      </if>
+      <if test="cerExaminationDate != null" >
+        cer_examination_date,
+      </if>
+      <if test="cerGetTime != null" >
+        cer_get_time,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eduUserId != null" >
+        #{eduUserId,jdbcType=INTEGER},
+      </if>
+      <if test="cerGroupExamScore != null" >
+        #{cerGroupExamScore,jdbcType=DECIMAL},
+      </if>
+      <if test="cerExamScore != null" >
+        #{cerExamScore,jdbcType=DECIMAL},
+      </if>
+      <if test="cerSumScore != null" >
+        #{cerSumScore,jdbcType=DECIMAL},
+      </if>
+      <if test="cerExaminationDate != null" >
+        #{cerExaminationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cerGetTime != null" >
+        #{cerGetTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logicDelete != null" >
+        #{logicDelete,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.CertificateTableExample" resultType="java.lang.Integer" >
+    select count(*) from certificate_table
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update certificate_table
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.eduUserId != null" >
+        edu_user_id = #{record.eduUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.cerGroupExamScore != null" >
+        cer_group_exam_score = #{record.cerGroupExamScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cerExamScore != null" >
+        cer_exam_score = #{record.cerExamScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cerSumScore != null" >
+        cer_sum_score = #{record.cerSumScore,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cerExaminationDate != null" >
+        cer_examination_date = #{record.cerExaminationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cerGetTime != null" >
+        cer_get_time = #{record.cerGetTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.logicDelete != null" >
+        logic_delete = #{record.logicDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update certificate_table
+    set id = #{record.id,jdbcType=INTEGER},
+      edu_user_id = #{record.eduUserId,jdbcType=INTEGER},
+      cer_group_exam_score = #{record.cerGroupExamScore,jdbcType=DECIMAL},
+      cer_exam_score = #{record.cerExamScore,jdbcType=DECIMAL},
+      cer_sum_score = #{record.cerSumScore,jdbcType=DECIMAL},
+      cer_examination_date = #{record.cerExaminationDate,jdbcType=TIMESTAMP},
+      cer_get_time = #{record.cerGetTime,jdbcType=TIMESTAMP},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      logic_delete = #{record.logicDelete,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.CertificateTable" >
+    update certificate_table
+    <set >
+      <if test="eduUserId != null" >
+        edu_user_id = #{eduUserId,jdbcType=INTEGER},
+      </if>
+      <if test="cerGroupExamScore != null" >
+        cer_group_exam_score = #{cerGroupExamScore,jdbcType=DECIMAL},
+      </if>
+      <if test="cerExamScore != null" >
+        cer_exam_score = #{cerExamScore,jdbcType=DECIMAL},
+      </if>
+      <if test="cerSumScore != null" >
+        cer_sum_score = #{cerSumScore,jdbcType=DECIMAL},
+      </if>
+      <if test="cerExaminationDate != null" >
+        cer_examination_date = #{cerExaminationDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cerGetTime != null" >
+        cer_get_time = #{cerGetTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logicDelete != null" >
+        logic_delete = #{logicDelete,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.CertificateTable" >
+    update certificate_table
+    set edu_user_id = #{eduUserId,jdbcType=INTEGER},
+      cer_group_exam_score = #{cerGroupExamScore,jdbcType=DECIMAL},
+      cer_exam_score = #{cerExamScore,jdbcType=DECIMAL},
+      cer_sum_score = #{cerSumScore,jdbcType=DECIMAL},
+      cer_examination_date = #{cerExaminationDate,jdbcType=TIMESTAMP},
+      cer_get_time = #{cerGetTime,jdbcType=TIMESTAMP},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      logic_delete = #{logicDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

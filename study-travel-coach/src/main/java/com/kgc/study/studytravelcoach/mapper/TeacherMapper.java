@@ -11,7 +11,7 @@ public interface TeacherMapper {
 
     int deleteByExample(TeacherExample example);
 
-    int deleteByPrimaryKey(Long teacherId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Teacher record);
 
@@ -21,7 +21,7 @@ public interface TeacherMapper {
 
     List<Teacher> selectByExample(TeacherExample example);
 
-    Teacher selectByPrimaryKey(Long teacherId);
+    Teacher selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") Teacher record, @Param("example") TeacherExample example);
 
