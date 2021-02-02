@@ -5,6 +5,7 @@ import com.kgc.study.bean.AdvertisementInfoExample;
 import com.kgc.study.service.zhangjiaheService.AdvertisementInfoService;
 import com.kgc.study.studytravelcoach.mapper.AdvertisementInfoMapper;
 
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -31,15 +32,38 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
     }
 
     @Override
-    public int deletelist(String str) {
+    public int updatedeletelist(String str) {
         ArrayList list=new ArrayList();
         String []idd=str.split(",");
         for(int i=0;i<idd.length;i++) {
             int num=Integer.parseInt(idd[i]);
             list.add(num);
         }
-        int delete = advertisementInfoMapper.deletelist( list);
+        int delete = advertisementInfoMapper.updatedeletelist( list);
         return delete;
+    }
+
+    @Override
+    public int updatedeleteID(Long adId) {
+        AdvertisementInfo advertisementInfo=new AdvertisementInfo();
+        advertisementInfo.setAdId(adId);
+        advertisementInfo.setLogicDelete(1);
+        return advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo);
+    }
+
+    @Override
+    public int insertbanner(AdvertisementInfo advertisementInfo) {
+        return advertisementInfoMapper.insertSelective(advertisementInfo);
+    }
+
+    @Override
+    public AdvertisementInfo updatecha(Long adId) {
+        return advertisementInfoMapper.selectByPrimaryKey(adId);
+    }
+
+    @Override
+    public int updatebanner(AdvertisementInfo advertisementInfo) {
+        return advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo);
     }
 
 }

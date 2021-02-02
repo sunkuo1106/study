@@ -43,14 +43,14 @@
                         <div class="layui-card-header">
                             <button class="layui-btn layui-btn-danger" onclick="AllDel()">
                                 <i class="layui-icon" ></i>批量删除</button>
-                            <button class="layui-btn" onclick="xadmin.open('添加用户','./order-add.html',800,600)">
+                            <button class="layui-btn" onclick="xadmin.open('添加用户','/bannerinsert',800,600)">
                                 <i class="layui-icon"></i>添加</button></div>
                         <div class="layui-card-body ">
                             <table class="layui-table layui-form">
                                 <thead>
                                     <tr>
-                                        <th>
-                                            <input type="checkbox" name="" lay-skin="primary">
+                                        <th>选择
+                                           <!-- <input type="checkbox" name="" lay-skin="primary">-->
                                         </th>
                                         <th>广告编号</th>
                                         <th>广告名称</th>
@@ -67,30 +67,30 @@
                                         <td th:text="${ad.adId}"></td>
                                         <td th:text="${ad.adName}"></td>
                                         <td th:text="${ad.adRemarks}"></td>
-                                        <td th:text="${ad.adImg}"></td>
+                                        <td ><img th:src="${ad.adImg}"></img></td>
                                         <td th:text="${ad.adUrl}"></td>
                                         <td th:text="${ad.adTitle}"></td>
                                         <td class="td-manage">
-                                            <a title="查看" onclick="xadmin.open('编辑','order-view.html')" href="javascript:;">
+                                            <a title="查看"  th:href="@{/bannerupdate(adId=${ad.adId})}">
                                                 <i class="layui-icon">&#xe63c;</i></a>
-                                            <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+                                            <a title="删除" onclick="updatedeleteID(this)" th:id="${ad.adId}" href="javascript:;">
                                                 <i class="layui-icon">&#xe640;</i></a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="layui-card-body ">
-                            <div class="page">
-                                <div>
-                                    <a class="prev" href="">&lt;&lt;</a>
-                                    <a class="num" href="">1</a>
-                                    <span class="current">2</span>
-                                    <a class="num" href="">3</a>
-                                    <a class="num" href="">489</a>
-                                    <a class="next" href="">&gt;&gt;</a></div>
-                            </div>
-                        </div>
+                        <!--<div class="layui-card-body ">-->
+                            <!--<div class="page">-->
+                                <!--<div>-->
+                                    <!--<a class="prev" href="">&lt;&lt;</a>-->
+                                    <!--<a class="num" href="">1</a>-->
+                                    <!--<span class="current">2</span>-->
+                                    <!--<a class="num" href="">3</a>-->
+                                    <!--<a class="num" href="">489</a>-->
+                                    <!--<a class="next" href="">&gt;&gt;</a></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
@@ -100,16 +100,42 @@
         function AllDel(){
             var checks=$("[name='selected item']:checked");
             if(checks.length==0){
-                layer.confirm('请选择一条广告？')
+                layer.confirm('请选择一条广告!')
                 return false;
             }
-            if( layer.confirm('确定要删除所选广告吗?')){
+            if(confirm('确定要删除所选广告吗?')){
                 var str="";
                 checks.each(function(){
                     str+=$(this).val()+",";
                 })
-                location.href="/deletelist?str="+str;
+                $.post('/updatedeletelist',{str:str},function (data) {
+                    if (data.status=="true"){
+                        layer.msg("删除成功!")
+                        setTimeout(function () {
+                            location.reload();
+                        }, 300);
+                    }else{
+                        layer.msg("删除失败!")
+                    }
+
+                },"json")
             }
+        }
+
+        <!--单条删除广告-->
+        function updatedeleteID(a) {
+            var adId=$(a).attr("id");
+            $.post('/updatedeleteID',{adId:adId},function (data) {
+                if (data.status=="true"){
+                  layer.msg("删除成功!")
+                    setTimeout(function () {
+                        location.reload();
+                    }, 300);
+                }else{
+                    layer.msg("删除失败!")
+                }
+
+            },"json")
         }
     </script>
     <script>layui.use(['laydate', 'form'],
@@ -155,19 +181,6 @@
                     });
                 }
 
-            });
-        }
-
-        /*用户-删除*/
-        function member_del(obj, id) {
-            layer.confirm('确认要删除吗？',
-            function(index) {
-                //发异步删除数据
-                $(obj).parents("tr").remove();
-                layer.msg('已删除!', {
-                    icon: 1,
-                    time: 1000
-                });
             });
         }
 
