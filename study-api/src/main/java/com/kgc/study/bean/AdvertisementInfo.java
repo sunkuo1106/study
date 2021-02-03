@@ -15,6 +15,8 @@ public class AdvertisementInfo {
 
     private String adTitle;
 
+    private Integer adSequence;
+
     private Date adGmtCreate;
 
     private Date adGmtModified;
@@ -69,6 +71,14 @@ public class AdvertisementInfo {
         this.adTitle = adTitle == null ? null : adTitle.trim();
     }
 
+    public Integer getAdSequence() {
+        return adSequence;
+    }
+
+    public void setAdSequence(Integer adSequence) {
+        this.adSequence = adSequence;
+    }
+
     public Date getAdGmtCreate() {
         return adGmtCreate;
     }
@@ -91,20 +101,5 @@ public class AdvertisementInfo {
 
     public void setLogicDelete(Integer logicDelete) {
         this.logicDelete = logicDelete;
-    }
-
-    @Override
-    public String toString() {
-        return "AdvertisementInfo{" +
-                "adId=" + adId +
-                ", adName='" + adName + '\'' +
-                ", adRemarks='" + adRemarks + '\'' +
-                ", adImg='" + adImg + '\'' +
-                ", adUrl='" + adUrl + '\'' +
-                ", adTitle='" + adTitle + '\'' +
-                ", adGmtCreate=" + adGmtCreate +
-                ", adGmtModified=" + adGmtModified +
-                ", logicDelete=" + logicDelete +
-                '}';
     }
 }
