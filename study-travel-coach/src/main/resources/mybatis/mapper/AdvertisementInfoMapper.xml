@@ -8,17 +8,18 @@
     <result column="ad_img" property="adImg" jdbcType="VARCHAR" />
     <result column="ad_url" property="adUrl" jdbcType="VARCHAR" />
     <result column="ad_title" property="adTitle" jdbcType="VARCHAR" />
+    <result column="ad_sequence" property="adSequence" jdbcType="INTEGER" />
     <result column="ad_gmt_create" property="adGmtCreate" jdbcType="TIMESTAMP" />
     <result column="ad_gmt_modified" property="adGmtModified" jdbcType="TIMESTAMP" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
   <!--批量删除 逻辑删除-->
-<update id="updatedeletelist">
-  UPDATE  advertisement_info SET logic_delete=1 WHERE  ad_id IN
-  <foreach collection="list" separator="," open="(" close=")" item="id">
-    #{id}
-  </foreach>
-</update>
+  <update id="updatedeletelist">
+    UPDATE  advertisement_info SET logic_delete=1 WHERE  ad_id IN
+    <foreach collection="list" separator="," open="(" close=")" item="id">
+      #{id}
+    </foreach>
+  </update>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -78,8 +79,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ad_id, ad_name, ad_remarks, ad_img, ad_url, ad_title, ad_gmt_create, ad_gmt_modified, 
-    logic_delete
+    ad_id, ad_name, ad_remarks, ad_img, ad_url, ad_title, ad_sequence, ad_gmt_create, 
+    ad_gmt_modified, logic_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.AdvertisementInfoExample" >
     select
@@ -114,12 +115,12 @@
   <insert id="insert" parameterType="com.kgc.study.bean.AdvertisementInfo" >
     insert into advertisement_info (ad_id, ad_name, ad_remarks, 
       ad_img, ad_url, ad_title, 
-      ad_gmt_create, ad_gmt_modified, logic_delete
-      )
+      ad_sequence, ad_gmt_create, ad_gmt_modified, 
+      logic_delete)
     values (#{adId,jdbcType=BIGINT}, #{adName,jdbcType=VARCHAR}, #{adRemarks,jdbcType=VARCHAR}, 
       #{adImg,jdbcType=VARCHAR}, #{adUrl,jdbcType=VARCHAR}, #{adTitle,jdbcType=VARCHAR}, 
-      #{adGmtCreate,jdbcType=TIMESTAMP}, #{adGmtModified,jdbcType=TIMESTAMP}, #{logicDelete,jdbcType=INTEGER}
-      )
+      #{adSequence,jdbcType=INTEGER}, #{adGmtCreate,jdbcType=TIMESTAMP}, #{adGmtModified,jdbcType=TIMESTAMP}, 
+      #{logicDelete,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.AdvertisementInfo" >
     insert into advertisement_info
@@ -141,6 +142,9 @@
       </if>
       <if test="adTitle != null" >
         ad_title,
+      </if>
+      <if test="adSequence != null" >
+        ad_sequence,
       </if>
       <if test="adGmtCreate != null" >
         ad_gmt_create,
@@ -170,6 +174,9 @@
       </if>
       <if test="adTitle != null" >
         #{adTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="adSequence != null" >
+        #{adSequence,jdbcType=INTEGER},
       </if>
       <if test="adGmtCreate != null" >
         #{adGmtCreate,jdbcType=TIMESTAMP},
@@ -209,6 +216,9 @@
       <if test="record.adTitle != null" >
         ad_title = #{record.adTitle,jdbcType=VARCHAR},
       </if>
+      <if test="record.adSequence != null" >
+        ad_sequence = #{record.adSequence,jdbcType=INTEGER},
+      </if>
       <if test="record.adGmtCreate != null" >
         ad_gmt_create = #{record.adGmtCreate,jdbcType=TIMESTAMP},
       </if>
@@ -231,6 +241,7 @@
       ad_img = #{record.adImg,jdbcType=VARCHAR},
       ad_url = #{record.adUrl,jdbcType=VARCHAR},
       ad_title = #{record.adTitle,jdbcType=VARCHAR},
+      ad_sequence = #{record.adSequence,jdbcType=INTEGER},
       ad_gmt_create = #{record.adGmtCreate,jdbcType=TIMESTAMP},
       ad_gmt_modified = #{record.adGmtModified,jdbcType=TIMESTAMP},
       logic_delete = #{record.logicDelete,jdbcType=INTEGER}
@@ -256,6 +267,9 @@
       <if test="adTitle != null" >
         ad_title = #{adTitle,jdbcType=VARCHAR},
       </if>
+      <if test="adSequence != null" >
+        ad_sequence = #{adSequence,jdbcType=INTEGER},
+      </if>
       <if test="adGmtCreate != null" >
         ad_gmt_create = #{adGmtCreate,jdbcType=TIMESTAMP},
       </if>
@@ -275,6 +289,7 @@
       ad_img = #{adImg,jdbcType=VARCHAR},
       ad_url = #{adUrl,jdbcType=VARCHAR},
       ad_title = #{adTitle,jdbcType=VARCHAR},
+      ad_sequence = #{adSequence,jdbcType=INTEGER},
       ad_gmt_create = #{adGmtCreate,jdbcType=TIMESTAMP},
       ad_gmt_modified = #{adGmtModified,jdbcType=TIMESTAMP},
       logic_delete = #{logicDelete,jdbcType=INTEGER}
