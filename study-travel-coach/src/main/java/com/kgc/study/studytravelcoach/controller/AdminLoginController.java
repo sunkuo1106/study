@@ -23,6 +23,7 @@ public class AdminLoginController {
     public String login(String adminName, String adminPassword, HttpSession session){
         AdministratorTable adminLogin = administratorTableService.AdminLogin(adminName, adminPassword);
         session.setAttribute("admin",adminLogin);
+        session.setAttribute("AgencyId",adminLogin.getAgencyId());
         return "index";
     }
 }
