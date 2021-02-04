@@ -12,4 +12,6 @@ public interface AdvertisementInfoService {
     int insertbanner(AdvertisementInfo advertisementInfo);//添加广告
     AdvertisementInfo updatecha(Long adId);//修改广告进行查询
     int updatebanner(AdvertisementInfo advertisementInfo);//修改广告
+    int updatesequence(AdvertisementInfo advertisementInfo);//设置广告显示等级
+
 }

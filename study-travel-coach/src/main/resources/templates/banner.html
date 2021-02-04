@@ -43,8 +43,8 @@
                         <div class="layui-card-header">
                             <button class="layui-btn layui-btn-danger" onclick="AllDel()">
                                 <i class="layui-icon" ></i>批量删除</button>
-                            <button class="layui-btn" onclick="xadmin.open('添加用户','/bannerinsert',800,600)">
-                                <i class="layui-icon"></i>添加</button></div>
+                            <button class="layui-btn">
+                               <a th:href="@{/bannerinsert}" style="color: white"> <i class="layui-icon"></i>添加</a></button></div>
                         <div class="layui-card-body ">
                             <table class="layui-table layui-form">
                                 <thead>
@@ -54,10 +54,11 @@
                                         </th>
                                         <th>广告编号</th>
                                         <th>广告名称</th>
-                                        <th>广告备注</th>
+                                        <th>广告标题</th>
                                         <th>广告图片</th>
                                         <th>广告地址</th>
-                                        <th>广告标题</th>
+                                        <th>广告备注</th>
+                                        <th>广告显示等级</th>
                                         <th>操作</th></tr>
                                 </thead>
                                 <tbody>
@@ -66,10 +67,13 @@
                                             <input type="checkbox" name="selected item" th:value="${ad.adId}" lay-skin="primary"></td>
                                         <td th:text="${ad.adId}"></td>
                                         <td th:text="${ad.adName}"></td>
-                                        <td th:text="${ad.adRemarks}"></td>
+                                        <td th:text="${ad.adTitle}"></td>
                                         <td ><img th:src="${ad.adImg}"></img></td>
                                         <td th:text="${ad.adUrl}"></td>
-                                        <td th:text="${ad.adTitle}"></td>
+                                        <td th:text="${ad.adRemarks}"></td>
+                                        <td  th:if="${ad.adSequence==null}">  <button class="layui-btn" >
+                                            <a th:href="@{/bannersequence(adId=${ad.adId})}" style="color: white"> <i class="layui-icon">&#xe66e;</i>等级设置</a></button></td>
+                                        <td  th:if="${ad.adSequence!=null}" style="color: red" th:text="|${ad.adSequence}级|"></td>
                                         <td class="td-manage">
                                             <a title="查看"  th:href="@{/bannerupdate(adId=${ad.adId})}">
                                                 <i class="layui-icon">&#xe63c;</i></a>
@@ -139,6 +143,7 @@
         }
     </script>
     <script>layui.use(['laydate', 'form'],
+
         function() {
             var laydate = layui.laydate;
 
