@@ -1,5 +1,7 @@
 package com.kgc.study.studytravelcoach.service.wangxinyuServiceImpl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.kgc.study.bean.AgencyAddress;
 import com.kgc.study.bean.AgencyAddressExample;
 import com.kgc.study.bean.AgencyInfo;
@@ -21,32 +23,25 @@ import java.util.List;
 public class AgencyServiceImpl implements AgencyService {
     @Resource
     AgencyInfoMapper agencyInfoMapper;
-    @Resource
-    AgencyAddressMapper agencyAddressMapper;
+
 
     //根据机构Id,查询当前机构总部信息
     @Override
-    public  List<AgencyInfo> selectAgency(Long AgencyId) {
+    public PageInfo<AgencyInfo> selectAgency(Long AgencyId, String agencyAddress, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
         AgencyInfoExample agencyInfoExample=new AgencyInfoExample();
         AgencyInfoExample.Criteria criteria = agencyInfoExample.createCriteria();
-        if(AgencyId==1){
-            return agencyInfoMapper.selectByExample(agencyInfoExample);
-        }else{
-            criteria.andIdEqualTo(AgencyId);
-            return agencyInfoMapper.selectByExample(agencyInfoExample);
+        if(agencyAddress!=null&&agencyAddress.isEmpty()==false){
+            criteria.andAgencyAddressLike(agencyAddress);
         }
+        if(AgencyId!=1){
+            criteria.andIdEqualTo(AgencyId);
+        }
+            List<AgencyInfo> agencyInfos = agencyInfoMapper.selectByExample(agencyInfoExample);
+            PageInfo<AgencyInfo> agencyInfoPageInfo=new PageInfo<>(agencyInfos);
+            return agencyInfoPageInfo;
+
 
     }
-    //查询当前机构分部信息
-    @Override
-    public List<AgencyAddress> selectAllAgency(Long AgencyId) {
-        AgencyAddressExample agencyAddressExample=new AgencyAddressExample();
-        AgencyAddressExample.Criteria criteria = agencyAddressExample.createCriteria();
-        if(AgencyId==1){
-            return agencyAddressMapper.selectByExample(agencyAddressExample);
-        }else{
-            criteria.andAgencyIdEqualTo(AgencyId);
-            return agencyAddressMapper.selectByExample(agencyAddressExample);
-        }
-    }
+
 }
