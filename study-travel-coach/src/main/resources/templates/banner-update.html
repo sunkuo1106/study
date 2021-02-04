@@ -47,6 +47,19 @@
                             <img th:src="${updatecha.adImg}">
                             <input type="file" id="img" name="img" multiple="multiple"   class="layui-input"></div>
                     </div>
+                    <div class="layui-form-item" th:if="${updatecha.adSequence!=null}">
+                        <label for="adSequence" class="layui-form-label">
+                            <span class="x-red">*</span>广告显示等级</label>
+                        <div class="layui-input-inline">
+                            <select name="adSequence" id="adSequence">
+                                <option  th:selected="${updatecha.adSequence==1}" name="adSequence" value="1">1级</option>
+                                <option th:selected="${updatecha.adSequence==2}"  name="adSequence" value="2">2级</option>
+                                <option  th:selected="${updatecha.adSequence==3}"  name="adSequence" value="3">3级</option>
+                                <option th:selected="${updatecha.adSequence==4}"  name="adSequence" value="4">4级</option>
+                            </select>
+                        </div>
+                    </div>
+
         <div class="layui-form-item layui-form-text">
             <label for="adRemarks" class="layui-form-label">广告备注</label>
             <div class="layui-input-block">

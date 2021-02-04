@@ -20,6 +20,18 @@
       #{id}
     </foreach>
   </update>
+  <!--查询星级最大-->
+  <select id="maxadSequence"  resultType="int" >
+select max(ad_sequence) from advertisement_info where logic_delete=0
+  </select>
+  <!--从小升大星级-->
+  <select id="smallbigsequence" resultMap="BaseResultMap">
+    SELECT * FROM advertisement_info WHERE logic_delete=0 AND ad_sequence>#{sequence}
+  </select>
+  <!--从大升小星级-->
+  <select id="bigsmallsequence" resultMap="BaseResultMap">
+    SELECT * FROM advertisement_info WHERE logic_delete=0 AND ad_sequence &lt; #{sequence}
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

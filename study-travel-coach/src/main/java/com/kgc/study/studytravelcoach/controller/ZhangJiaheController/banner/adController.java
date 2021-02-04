@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.swing.*;
 import java.io.*;
 import java.net.URL;
@@ -101,9 +102,6 @@ public class adController {
             InputStream inputStream=new FileInputStream(realPath+"/"+fileName);
             String s= Aliyun2.upload(inputStream,oldname);
             advertisementInfo.setAdImg(s);
-            advertisementInfo.setLogicDelete(0);
-            advertisementInfo.setAdGmtCreate(new Date());
-            advertisementInfo.setAdGmtModified(new Date());
             advertisementInfoService.insertbanner(advertisementInfo);
             return "redirect:banner";
         } catch (IOException e) {
@@ -158,5 +156,21 @@ public class adController {
         }
         return "redirect:banner";
     }
-
+    @ApiOperation("跳转显示等级设置页面")
+    @GetMapping("/bannersequence")
+    @ApiImplicitParam(name = "adId",value = "根绝id设置该数据的显示等级",required = true)
+    /* @RequestMapping("/bannersequence")*/
+    public  String bannersequence(Model model, Long adId){
+        AdvertisementInfo sequencecha = advertisementInfoService.updatecha(adId);
+        model.addAttribute("sequence",sequencecha);
+        return "banner-sequence.html";
+    }
+    @ApiOperation("设置等级")
+    @PostMapping("/dosequenceupdate")
+    @ApiImplicitParam(name = "AdvertisementInfo",value = "advertisementInfo实体类",required = true)
+    /* @RequestMapping("/dosequenceupdate")*/
+    public  String dosequenceupdate(AdvertisementInfo advertisementInfo){
+          advertisementInfoService.updatesequence(advertisementInfo);
+        return "redirect:banner";
+    }
 }

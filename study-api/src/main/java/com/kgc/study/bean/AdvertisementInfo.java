@@ -102,4 +102,20 @@ public class AdvertisementInfo {
     public void setLogicDelete(Integer logicDelete) {
         this.logicDelete = logicDelete;
     }
+
+    @Override
+    public String toString() {
+        return "AdvertisementInfo{" +
+                "adId=" + adId +
+                ", adName='" + adName + '\'' +
+                ", adRemarks='" + adRemarks + '\'' +
+                ", adImg='" + adImg + '\'' +
+                ", adUrl='" + adUrl + '\'' +
+                ", adTitle='" + adTitle + '\'' +
+                ", adSequence=" + adSequence +
+                ", adGmtCreate=" + adGmtCreate +
+                ", adGmtModified=" + adGmtModified +
+                ", logicDelete=" + logicDelete +
+                '}';
+    }
 }
