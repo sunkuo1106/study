@@ -33,6 +33,7 @@
         <commons.lang3>3.8.1</commons.lang3>
         <jjwt.version>0.9.0</jjwt.version>
         <httpclient.version>4.5.5</httpclient.version>
+        <springsecurity5.version>3.0.4.RELEASE</springsecurity5.version>
     </properties>
 
     <dependencyManagement>
@@ -106,6 +107,12 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5 -->
+            <dependency>
+                <groupId>org.thymeleaf.extras</groupId>
+                <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+                <version>${springsecurity5.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

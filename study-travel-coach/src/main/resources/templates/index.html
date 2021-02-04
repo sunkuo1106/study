@@ -1,5 +1,6 @@
 <!doctype html>
-<html class="x-admin-sm" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <head>
         <meta charset="UTF-8">
         <title>后台登录-X-admin2.2</title>
@@ -23,6 +24,9 @@
         </script>
     </head>
     <body class="index">
+<!--    sec:authorize="hasAnyAuthority('inse')"-->
+<!--    您好，您的角色及权限有:-->
+<!--    <span sec:authentication="principal.authorities"></span>-->
         <!-- 顶部开始 -->
         <div class="container">
             <div class="logo">
@@ -55,7 +59,7 @@
             </ul>
             <ul class="layui-nav right" lay-filter="">
                 <li class="layui-nav-item">
-                    <a href="javascript:;" th:text="${session.admin.adminName}">admin</a>
+                    <a href="javascript:;" sec:authentication="principal.administratorTable.adminName">admin</a>
                     <dl class="layui-nav-child">
                         <!-- 二级菜单 -->
                         <dd>
