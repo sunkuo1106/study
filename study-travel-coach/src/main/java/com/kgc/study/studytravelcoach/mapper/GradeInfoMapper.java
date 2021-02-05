@@ -28,4 +28,8 @@ public interface GradeInfoMapper {
     int updateByPrimaryKeySelective(GradeInfo record);
 
     int updateByPrimaryKey(GradeInfo record);
+
+    GradeInfo GradeDesc();
+
+    int updateList(List id);
 }

@@ -12,7 +12,20 @@
     <result column="grade_start_time" property="gradeStartTime" jdbcType="TIMESTAMP" />
     <result column="grade_gmt_founder_id" property="gradeGmtFounderId" jdbcType="INTEGER" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
+    <association property="agencyAddress" javaType="com.kgc.study.bean.AgencyAddress">
+    </association>
   </resultMap>
+  <!--查询最新添加得班级信息-->
+  <select id="GradeDesc" resultMap="BaseResultMap">
+    SELECT * FROM grade_info ORDER BY id DESC LIMIT 0,1
+  </select>
+  <!--批量删除-->
+  <update id="updateList">
+    UPDATE grade_info SET logic_delete=1 WHERE id IN
+    <foreach collection="list" item="gradeid" open="(" close=")" separator=",">
+      #{gradeid}
+    </foreach>
+  </update>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
