@@ -29,7 +29,7 @@ public interface AdvertisementInfoMapper {
 
     int updateByPrimaryKey(AdvertisementInfo record);
     int updatedeletelist(List id);//批量删除广告
-    int maxadSequence();//添加时最大的广告等级往后+1
+    Integer maxadSequence();//添加时最大的广告等级往后+1
     List<AdvertisementInfo> smallbigsequence(Integer sequence);//小到大
     List<AdvertisementInfo> bigsmallsequence(Integer sequence);//大到小
 }

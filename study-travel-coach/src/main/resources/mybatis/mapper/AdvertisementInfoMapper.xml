@@ -15,13 +15,13 @@
   </resultMap>
   <!--批量删除 逻辑删除-->
   <update id="updatedeletelist">
-    UPDATE  advertisement_info SET logic_delete=1 WHERE  ad_id IN
+    UPDATE  advertisement_info SET logic_delete=1,ad_sequence=NULL,ad_gmt_modified=(select now()) WHERE  ad_id IN
     <foreach collection="list" separator="," open="(" close=")" item="id">
       #{id}
     </foreach>
   </update>
   <!--查询星级最大-->
-  <select id="maxadSequence"  resultType="int" >
+  <select id="maxadSequence"  resultType="Integer" >
 select max(ad_sequence) from advertisement_info where logic_delete=0
   </select>
   <!--从小升大星级-->
