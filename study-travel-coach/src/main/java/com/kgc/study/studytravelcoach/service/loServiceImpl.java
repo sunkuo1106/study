@@ -21,32 +21,39 @@ public class loServiceImpl implements loService {
 
     @Override
     public MyPageInfo<EduUser> selectEduUser(
-            String eduUserName, String eduUserPhone, String eduUserIdCard, Byte eduUserGender, String eduUserIsAvalible, Integer eduUserIsGoodStudent, Byte eduUserEnrollmentMethod,
+            String eduUserName, String eduUserPhone, String eduUserIdCard, Integer eduUserGender, String eduUserIsAvalible, Integer eduUserIsGoodStudent, Integer eduUserEnrollmentMethod,
             Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         EduUserExample eduUserExample=new EduUserExample();
         EduUserExample.Criteria criteria = eduUserExample.createCriteria();
         System.out.println("性别"+eduUserGender);
-        if(eduUserName!=null){
-           criteria.andEduUserNameLike("%"+eduUserName+"%");
+        if(!eduUserName.equals("-1")){
+            System.out.println("进入了if1");
+            criteria.andEduUserNameLike("%"+eduUserName+"%");
         }
-        if(eduUserPhone!=null){
+       /* if(eduUserPhone!=null){
+            System.out.println("进入了if2");
             criteria.andEduUserPhoneLike("%"+eduUserPhone+"%");
         }
         if(eduUserIdCard!=null){
+            System.out.println("进入了if3");
             criteria.andEduUserIdCardLike("%"+eduUserIdCard+"%");
-        }
+        }*/
         if(eduUserGender!=2){
-            System.out.println("进入了if");
+            System.out.println("进入了if4");
             criteria.andEduUserGenderEqualTo(eduUserGender);
         }
-        if(!eduUserIsAvalible.equals(0)){
+        System.out.println(eduUserIsAvalible);
+        if(!eduUserIsAvalible.equals("3")){
+            System.out.println("进入了if5");
             criteria.andEduUserIsAvalibleEqualTo(eduUserIsAvalible);
         }
         if(eduUserIsGoodStudent!=2){
+            System.out.println("进入了if6");
             criteria.andEduUserIsGoodStudentEqualTo(eduUserIsGoodStudent);
         }
         if(eduUserEnrollmentMethod!=2){
+            System.out.println("进入了if7");
             criteria.andEduUserEnrollmentMethodEqualTo(eduUserEnrollmentMethod);
         }
         List<EduUser> eduUsers = eduUserMapper.selectByExample(eduUserExample);
@@ -63,7 +70,7 @@ public class loServiceImpl implements loService {
         int i = eduUserMapper.insertSelectiveList(eduUsers);
         return i;
     }
-}
+
 
 //    @Override
 //    public List<EduUser> selectById(String eduUserName, String eduUserPhone, String eduUserIdCard, Byte eduUserGender, String eduUserIsAvalible, Integer eduUserIsGoodStudent, Byte eduUserEnrollmentMethod) {

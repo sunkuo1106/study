@@ -1,4 +1,4 @@
-package com.kgc.study.service.loService;
+package com.kgc.study.service.looService;
 
 /**
  * @author shkstart

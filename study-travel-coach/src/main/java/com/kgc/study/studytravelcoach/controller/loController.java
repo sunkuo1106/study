@@ -35,13 +35,13 @@ public class loController {
     ExcelUtils excelUtils;
     @RequestMapping("userlist")
     public String userlist(
-            @RequestParam(value = "eduUserName", required = false, defaultValue = "") String eduUserName,
+            @RequestParam(value = "eduUserName", required = false, defaultValue = "-1") String eduUserName,
                            @RequestParam(value = "eduUserPhone", required = false, defaultValue = "") String eduUserPhone,
                            @RequestParam(value = "eduUserIdCard", required = false, defaultValue = "") String eduUserIdCard,
-                           @RequestParam(value = "eduUserGender", required = false, defaultValue = "2") Byte eduUserGender,
-                          @RequestParam(value = "eduUserIsAvalible", required = false, defaultValue = "0") String eduUserIsAvalible,
+                           @RequestParam(value = "eduUserGender", required = false, defaultValue = "2") Integer eduUserGender,
+                          @RequestParam(value = "eduUserIsAvalible", required = false, defaultValue = "3") String eduUserIsAvalible,
                          @RequestParam(value = "eduUserIsGoodStudent", required = false, defaultValue = "2") Integer eduUserIsGoodStudent,
-                          @RequestParam(value = "eduUserEnrollmentMethod", required = false, defaultValue = "2") Byte eduUserEnrollmentMethod,
+                          @RequestParam(value = "eduUserEnrollmentMethod", required = false, defaultValue = "2") Integer eduUserEnrollmentMethod,
                            @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum,
                            @RequestParam(value = "pageSize", required = false, defaultValue = "2") Integer pageSize,
                            Model model){
