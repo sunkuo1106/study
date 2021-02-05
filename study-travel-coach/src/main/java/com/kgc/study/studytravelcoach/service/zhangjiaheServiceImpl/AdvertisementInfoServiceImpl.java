@@ -45,14 +45,17 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
             criteria.andAdSequenceIsNotNull();
             List<AdvertisementInfo> advertisementInfos = advertisementInfoMapper.selectByExample(advertisementInfoExample);
             AdvertisementInfo advertisementInfo2 = advertisementInfoMapper.selectByPrimaryKey(num);
-            for (AdvertisementInfo info : advertisementInfos) {
-                if (info.getAdSequence()>=advertisementInfo2.getAdSequence()){
-                    AdvertisementInfo advertisementInfo1=new AdvertisementInfo();
-                    advertisementInfo1.setAdId(info.getAdId());
-                    advertisementInfo1.setAdSequence(info.getAdSequence()-1);
-                    advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo1);
-                }
+            if (advertisementInfo2.getAdSequence()!=null) {
+                for (AdvertisementInfo info : advertisementInfos) {
+                    if (info.getAdSequence() >= advertisementInfo2.getAdSequence()) {
+                        AdvertisementInfo advertisementInfo1 = new AdvertisementInfo();
+                        advertisementInfo1.setAdId(info.getAdId());
+                        advertisementInfo1.setAdSequence(info.getAdSequence() - 1);
+                        advertisementInfo1.setAdGmtModified(new Date());
+                        advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo1);
+                    }
 
+                }
             }
             list.add(num);
 
@@ -74,31 +77,43 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
         criteria.andAdSequenceIsNotNull();
         List<AdvertisementInfo> advertisementInfos = advertisementInfoMapper.selectByExample(advertisementInfoExample);
         AdvertisementInfo advertisementInfo2 = advertisementInfoMapper.selectByPrimaryKey(adId);
+   if (advertisementInfo2.getAdSequence()!=null) {
+       for (AdvertisementInfo info : advertisementInfos) {
+           if (info.getAdSequence() >= advertisementInfo2.getAdSequence()) {
 
-        for (AdvertisementInfo info : advertisementInfos) {
-            if (info.getAdSequence()>=advertisementInfo2.getAdSequence()){
+               AdvertisementInfo advertisementInfo1 = new AdvertisementInfo();
+               advertisementInfo1.setAdId(info.getAdId());
+               advertisementInfo1.setAdSequence(info.getAdSequence() - 1);
+               advertisementInfo1.setAdGmtModified(new Date());
+               advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo1);
+           }
 
-                AdvertisementInfo advertisementInfo1=new AdvertisementInfo();
-                advertisementInfo1.setAdId(info.getAdId());
-                advertisementInfo1.setAdSequence(info.getAdSequence()-1);
-                advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo1);
-            }
-
-        }
-        advertisementInfo.setAdSequence(advertisementInfo2.getAdSequence());
+       }
+       advertisementInfo.setAdSequence(null);
+       advertisementInfo.setAdGmtModified(new Date());
+       return advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo);
+   }else {
+        advertisementInfo.setAdSequence(null);
+       advertisementInfo.setAdGmtModified(new Date());
         return advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo);
+   }
     }
 
     @Override
     public int insertbanner(AdvertisementInfo advertisementInfo) {
+        System.out.println("添加方法");
         advertisementInfo.setLogicDelete(0);
         advertisementInfo.setAdGmtCreate(new Date());
         advertisementInfo.setAdGmtModified(new Date());
-        int maxadSequence = advertisementInfoMapper.maxadSequence();
-        System.out.println(maxadSequence);
-        if (maxadSequence<4) {
+        Integer maxadSequence = advertisementInfoMapper.maxadSequence();
+        System.out.println("maxadSequence"+maxadSequence);
+        if (maxadSequence==null) {
+                advertisementInfo.setAdSequence(1);
+        }else  if (maxadSequence<4){
             advertisementInfo.setAdSequence(maxadSequence + 1);
-        }else {
+        }
+
+        else if (maxadSequence>=4){
             advertisementInfo.setAdSequence(null);
         }
         return advertisementInfoMapper.insertSelective(advertisementInfo);
@@ -121,6 +136,7 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
         AdvertisementInfo advertisementInfo2 = advertisementInfoMapper.selectByPrimaryKey(advertisementInfo.getAdId());
         //如果等级相同
         if (advertisementInfo2.getAdSequence() == adSequence) {
+            advertisementInfo.setAdGmtModified(new Date());
             return advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo);
         }
         //小往大升
@@ -134,6 +150,7 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
                     AdvertisementInfo advertisementInfo3 = new AdvertisementInfo();
                     advertisementInfo3.setAdId(info.getAdId());
                     advertisementInfo3.setAdSequence(info.getAdSequence() - 1);
+                    advertisementInfo3.setAdGmtModified(new Date());
                     advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo3);
                 }
             }
@@ -149,6 +166,7 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
                     AdvertisementInfo advertisementInfo1 = new AdvertisementInfo();
                     advertisementInfo1.setAdId(info.getAdId());
                     advertisementInfo1.setAdSequence(info.getAdSequence() + 1);
+                    advertisementInfo1.setAdGmtModified(new Date());
                     advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo1);
 
                 }
@@ -183,6 +201,7 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
                 AdvertisementInfo advertisementInfo4 = new AdvertisementInfo();
                 advertisementInfo4.setAdId(maxid);
                 advertisementInfo4.setAdSequence(advertisementInfo3.getAdSequence() + 1);
+                advertisementInfo4.setAdGmtModified(new Date());
                 advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo4);
 
             }
@@ -199,16 +218,17 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
         criteria.andLogicDeleteEqualTo(0);
         criteria.andAdSequenceIsNotNull();
         List<AdvertisementInfo> advertisementInfos = advertisementInfoMapper.selectByExample(advertisementInfoExample);
-
         for (AdvertisementInfo info : advertisementInfos) {
             if (info.getAdSequence()>=adSequence){
                     AdvertisementInfo advertisementInfo1=new AdvertisementInfo();
                     advertisementInfo1.setAdId(info.getAdId());
                     advertisementInfo1.setAdSequence(info.getAdSequence()+1);
+                    advertisementInfo1.setAdGmtModified(new Date());
                 advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo1);
             }
 
         }
+        advertisementInfo.setAdGmtModified(new Date());
         return advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo);
     }
 

@@ -49,8 +49,7 @@
                             <table class="layui-table layui-form">
                                 <thead>
                                     <tr>
-                                        <th>选择
-                                           <!-- <input type="checkbox" name="" lay-skin="primary">-->
+                                        <th><input type="checkbox"  name=""  lay-filter="checkall"  lay-skin="primary">
                                         </th>
                                         <th>广告编号</th>
                                         <th>广告名称</th>
@@ -64,16 +63,16 @@
                                 <tbody>
                                     <tr th:each="ad :${advertisementInfos}">
                                         <td>
-                                            <input type="checkbox" name="selected item" th:value="${ad.adId}" lay-skin="primary"></td>
+                                            <input type="checkbox" name="selected item" class="all" th:value="${ad.adId}" lay-skin="primary"></td>
                                         <td th:text="${ad.adId}"></td>
                                         <td th:text="${ad.adName}"></td>
                                         <td th:text="${ad.adTitle}"></td>
                                         <td ><img th:src="${ad.adImg}"></img></td>
-                                        <td th:text="${ad.adUrl}"></td>
+                                        <td ><a th:href="${ad.adUrl}" style="color: #0000FF" th:text="${ad.adUrl}"></a></td>
                                         <td th:text="${ad.adRemarks}"></td>
-                                        <td  th:if="${ad.adSequence==null}">  <button class="layui-btn" >
+                                        <td  th:if="${ad.adSequence==null||ad.adSequence==0}">  <button class="layui-btn" >
                                             <a th:href="@{/bannersequence(adId=${ad.adId})}" style="color: white"> <i class="layui-icon">&#xe66e;</i>等级设置</a></button></td>
-                                        <td  th:if="${ad.adSequence!=null}" style="color: red" th:text="|${ad.adSequence}级|"></td>
+                                        <td  th:if="${ad.adSequence!=null&&ad.adSequence!=0}" style="color: red" th:text="|${ad.adSequence}级|"></td>
                                         <td class="td-manage">
                                             <a title="查看"  th:href="@{/bannerupdate(adId=${ad.adId})}">
                                                 <i class="layui-icon">&#xe63c;</i></a>
@@ -99,20 +98,36 @@
                 </div>
             </div>
         </div>
-    </body>
-    <script type="text/javascript">
-        function AllDel(){
-            var checks=$("[name='selected item']:checked");
-            if(checks.length==0){
-                layer.confirm('请选择一条广告!')
-                return false;
+        <script type="text/javascript">
+            function AllDel(){
+                var checks=$("[name='selected item']:checked");
+                if(checks.length==0){
+                    layer.confirm('请选择一条广告!')
+                    return false;
+                }
+                if(confirm('确定要删除所选广告吗?')){
+                    var str="";
+                    checks.each(function(){
+                        str+=$(this).val()+",";
+                    })
+                    $.post('/updatedeletelist',{str:str},function (data) {
+                        if (data.status=="true"){
+                            layer.msg("删除成功!")
+                            setTimeout(function () {
+                                location.reload();
+                            }, 300);
+                        }else{
+                            layer.msg("删除失败!")
+                        }
+
+                    },"json")
+                }
             }
-            if(confirm('确定要删除所选广告吗?')){
-                var str="";
-                checks.each(function(){
-                    str+=$(this).val()+",";
-                })
-                $.post('/updatedeletelist',{str:str},function (data) {
+
+            <!--单条删除广告-->
+            function updatedeleteID(a) {
+                var adId=$(a).attr("id");
+                $.post('/updatedeleteID',{adId:adId},function (data) {
                     if (data.status=="true"){
                         layer.msg("删除成功!")
                         setTimeout(function () {
@@ -124,28 +139,25 @@
 
                 },"json")
             }
-        }
+        </script>
+    </body>
 
-        <!--单条删除广告-->
-        function updatedeleteID(a) {
-            var adId=$(a).attr("id");
-            $.post('/updatedeleteID',{adId:adId},function (data) {
-                if (data.status=="true"){
-                  layer.msg("删除成功!")
-                    setTimeout(function () {
-                        location.reload();
-                    }, 300);
-                }else{
-                    layer.msg("删除失败!")
-                }
-
-            },"json")
-        }
-    </script>
-    <script>layui.use(['laydate', 'form'],
-
-        function() {
+    <script>
+        layui.use(['laydate','form'], function(){
             var laydate = layui.laydate;
+            var  form = layui.form;
+
+
+            // 监听全选
+            form.on('checkbox(checkall)', function(data){
+
+                if(data.elem.checked){
+                    $('tbody input').prop('checked',true);
+                }else{
+                    $('tbody input').prop('checked',false);
+                }
+                form.render('checkbox');
+            });
 
             //执行一个laydate实例
             laydate.render({
@@ -156,51 +168,60 @@
             laydate.render({
                 elem: '#end' //指定元素
             });
+
+
         });
 
         /*用户-停用*/
-        function member_stop(obj, id) {
-            layer.confirm('确认要停用吗？',
-            function(index) {
+        function member_stop(obj,id){
+            layer.confirm('确认要停用吗？',function(index){
 
-                if ($(obj).attr('title') == '启用') {
+                if($(obj).attr('title')=='启用'){
 
                     //发异步把用户状态进行更改
-                    $(obj).attr('title', '停用');
+                    $(obj).attr('title','停用')
                     $(obj).find('i').html('&#xe62f;');
 
                     $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
-                    layer.msg('已停用!', {
-                        icon: 5,
-                        time: 1000
-                    });
+                    layer.msg('已停用!',{icon: 5,time:1000});
 
-                } else {
-                    $(obj).attr('title', '启用');
+                }else{
+                    $(obj).attr('title','启用')
                     $(obj).find('i').html('&#xe601;');
 
                     $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
-                    layer.msg('已启用!', {
-                        icon: 5,
-                        time: 1000
-                    });
+                    layer.msg('已启用!',{icon: 5,time:1000});
                 }
 
             });
         }
 
-        function delAll(argument) {
+        /*用户-删除*/
+        function member_del(obj,id){
+            layer.confirm('确认要删除吗？',function(index){
+                //发异步删除数据
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!',{icon:1,time:1000});
+            });
+        }
 
-            var data = tableCheck.getData();
 
-            layer.confirm('确认要删除吗？' + data,
-            function(index) {
+
+        function delAll (argument) {
+            var ids = [];
+
+            // 获取选中的id
+            $('tbody input').each(function(index, el) {
+                if($(this).prop('checked')){
+                    ids.push($(this).val())
+                }
+            });
+
+            layer.confirm('确认要删除吗？'+ids.toString(),function(index){
                 //捉到所有被选中的，发异步进行删除
-                layer.msg('删除成功', {
-                    icon: 1
-                });
+                layer.msg('删除成功', {icon: 1});
                 $(".layui-form-checked").not('.header').parents('tr').remove();
             });
-        }</script>
-
+        }
+    </script>
 </html>
