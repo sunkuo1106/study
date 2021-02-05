@@ -15,13 +15,13 @@ public class EduUser {
 
     private String eduUserIdCard;
 
-    private Byte eduUserGender;
+    private Integer eduUserGender;
 
     private String eduUserPicImg;
 
     private Date eduUserSchoolRoll;
 
-    private Byte eduUserIsPass;
+    private Integer eduUserIsPass;
 
     private String eduUserEmail;
 
@@ -29,7 +29,7 @@ public class EduUser {
 
     private Integer eduUserIsGoodStudent;
 
-    private Byte eduUserEnrollmentMethod;
+    private Integer eduUserEnrollmentMethod;
 
     private Integer agencyId;
 
@@ -129,11 +129,11 @@ public class EduUser {
         this.eduUserIdCard = eduUserIdCard == null ? null : eduUserIdCard.trim();
     }
 
-    public Byte getEduUserGender() {
+    public Integer getEduUserGender() {
         return eduUserGender;
     }
 
-    public void setEduUserGender(Byte eduUserGender) {
+    public void setEduUserGender(Integer eduUserGender) {
         this.eduUserGender = eduUserGender;
     }
 
@@ -153,11 +153,11 @@ public class EduUser {
         this.eduUserSchoolRoll = eduUserSchoolRoll;
     }
 
-    public Byte getEduUserIsPass() {
+    public Integer getEduUserIsPass() {
         return eduUserIsPass;
     }
 
-    public void setEduUserIsPass(Byte eduUserIsPass) {
+    public void setEduUserIsPass(Integer eduUserIsPass) {
         this.eduUserIsPass = eduUserIsPass;
     }
 
@@ -185,11 +185,11 @@ public class EduUser {
         this.eduUserIsGoodStudent = eduUserIsGoodStudent;
     }
 
-    public Byte getEduUserEnrollmentMethod() {
+    public Integer getEduUserEnrollmentMethod() {
         return eduUserEnrollmentMethod;
     }
 
-    public void setEduUserEnrollmentMethod(Byte eduUserEnrollmentMethod) {
+    public void setEduUserEnrollmentMethod(Integer eduUserEnrollmentMethod) {
         this.eduUserEnrollmentMethod = eduUserEnrollmentMethod;
     }
 

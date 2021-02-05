@@ -58,6 +58,13 @@ public class loServiceImpl implements loService {
         return myPageInfo;
     }
 
+    @Override
+    public int insertEduUserList(List<EduUser> eduUsers) {
+        int i = eduUserMapper.insertSelectiveList(eduUsers);
+        return i;
+    }
+}
+
 //    @Override
 //    public List<EduUser> selectById(String eduUserName, String eduUserPhone, String eduUserIdCard, Byte eduUserGender, String eduUserIsAvalible, Integer eduUserIsGoodStudent, Byte eduUserEnrollmentMethod) {
 //        EduUserExample eduUserExample=new EduUserExample();

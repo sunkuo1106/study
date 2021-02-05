@@ -505,52 +505,52 @@ public class EduUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderEqualTo(Byte value) {
+        public Criteria andEduUserGenderEqualTo(Integer value) {
             addCriterion("edu_user_gender =", value, "eduUserGender");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderNotEqualTo(Byte value) {
+        public Criteria andEduUserGenderNotEqualTo(Integer value) {
             addCriterion("edu_user_gender <>", value, "eduUserGender");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderGreaterThan(Byte value) {
+        public Criteria andEduUserGenderGreaterThan(Integer value) {
             addCriterion("edu_user_gender >", value, "eduUserGender");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderGreaterThanOrEqualTo(Byte value) {
+        public Criteria andEduUserGenderGreaterThanOrEqualTo(Integer value) {
             addCriterion("edu_user_gender >=", value, "eduUserGender");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderLessThan(Byte value) {
+        public Criteria andEduUserGenderLessThan(Integer value) {
             addCriterion("edu_user_gender <", value, "eduUserGender");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderLessThanOrEqualTo(Byte value) {
+        public Criteria andEduUserGenderLessThanOrEqualTo(Integer value) {
             addCriterion("edu_user_gender <=", value, "eduUserGender");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderIn(List<Byte> values) {
+        public Criteria andEduUserGenderIn(List<Integer> values) {
             addCriterion("edu_user_gender in", values, "eduUserGender");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderNotIn(List<Byte> values) {
+        public Criteria andEduUserGenderNotIn(List<Integer> values) {
             addCriterion("edu_user_gender not in", values, "eduUserGender");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderBetween(Byte value1, Byte value2) {
+        public Criteria andEduUserGenderBetween(Integer value1, Integer value2) {
             addCriterion("edu_user_gender between", value1, value2, "eduUserGender");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserGenderNotBetween(Byte value1, Byte value2) {
+        public Criteria andEduUserGenderNotBetween(Integer value1, Integer value2) {
             addCriterion("edu_user_gender not between", value1, value2, "eduUserGender");
             return (Criteria) this;
         }
@@ -695,52 +695,52 @@ public class EduUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassEqualTo(Byte value) {
+        public Criteria andEduUserIsPassEqualTo(Integer value) {
             addCriterion("edu_user_is_pass =", value, "eduUserIsPass");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassNotEqualTo(Byte value) {
+        public Criteria andEduUserIsPassNotEqualTo(Integer value) {
             addCriterion("edu_user_is_pass <>", value, "eduUserIsPass");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassGreaterThan(Byte value) {
+        public Criteria andEduUserIsPassGreaterThan(Integer value) {
             addCriterion("edu_user_is_pass >", value, "eduUserIsPass");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassGreaterThanOrEqualTo(Byte value) {
+        public Criteria andEduUserIsPassGreaterThanOrEqualTo(Integer value) {
             addCriterion("edu_user_is_pass >=", value, "eduUserIsPass");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassLessThan(Byte value) {
+        public Criteria andEduUserIsPassLessThan(Integer value) {
             addCriterion("edu_user_is_pass <", value, "eduUserIsPass");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassLessThanOrEqualTo(Byte value) {
+        public Criteria andEduUserIsPassLessThanOrEqualTo(Integer value) {
             addCriterion("edu_user_is_pass <=", value, "eduUserIsPass");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassIn(List<Byte> values) {
+        public Criteria andEduUserIsPassIn(List<Integer> values) {
             addCriterion("edu_user_is_pass in", values, "eduUserIsPass");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassNotIn(List<Byte> values) {
+        public Criteria andEduUserIsPassNotIn(List<Integer> values) {
             addCriterion("edu_user_is_pass not in", values, "eduUserIsPass");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassBetween(Byte value1, Byte value2) {
+        public Criteria andEduUserIsPassBetween(Integer value1, Integer value2) {
             addCriterion("edu_user_is_pass between", value1, value2, "eduUserIsPass");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserIsPassNotBetween(Byte value1, Byte value2) {
+        public Criteria andEduUserIsPassNotBetween(Integer value1, Integer value2) {
             addCriterion("edu_user_is_pass not between", value1, value2, "eduUserIsPass");
             return (Criteria) this;
         }
@@ -955,52 +955,52 @@ public class EduUserExample {
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodEqualTo(Byte value) {
+        public Criteria andEduUserEnrollmentMethodEqualTo(Integer value) {
             addCriterion("edu_user_enrollment_method =", value, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodNotEqualTo(Byte value) {
+        public Criteria andEduUserEnrollmentMethodNotEqualTo(Integer value) {
             addCriterion("edu_user_enrollment_method <>", value, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodGreaterThan(Byte value) {
+        public Criteria andEduUserEnrollmentMethodGreaterThan(Integer value) {
             addCriterion("edu_user_enrollment_method >", value, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodGreaterThanOrEqualTo(Byte value) {
+        public Criteria andEduUserEnrollmentMethodGreaterThanOrEqualTo(Integer value) {
             addCriterion("edu_user_enrollment_method >=", value, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodLessThan(Byte value) {
+        public Criteria andEduUserEnrollmentMethodLessThan(Integer value) {
             addCriterion("edu_user_enrollment_method <", value, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodLessThanOrEqualTo(Byte value) {
+        public Criteria andEduUserEnrollmentMethodLessThanOrEqualTo(Integer value) {
             addCriterion("edu_user_enrollment_method <=", value, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodIn(List<Byte> values) {
+        public Criteria andEduUserEnrollmentMethodIn(List<Integer> values) {
             addCriterion("edu_user_enrollment_method in", values, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodNotIn(List<Byte> values) {
+        public Criteria andEduUserEnrollmentMethodNotIn(List<Integer> values) {
             addCriterion("edu_user_enrollment_method not in", values, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodBetween(Byte value1, Byte value2) {
+        public Criteria andEduUserEnrollmentMethodBetween(Integer value1, Integer value2) {
             addCriterion("edu_user_enrollment_method between", value1, value2, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }
 
-        public Criteria andEduUserEnrollmentMethodNotBetween(Byte value1, Byte value2) {
+        public Criteria andEduUserEnrollmentMethodNotBetween(Integer value1, Integer value2) {
             addCriterion("edu_user_enrollment_method not between", value1, value2, "eduUserEnrollmentMethod");
             return (Criteria) this;
         }

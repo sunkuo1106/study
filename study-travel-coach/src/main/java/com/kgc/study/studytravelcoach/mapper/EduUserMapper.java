@@ -28,4 +28,6 @@ public interface EduUserMapper {
     int updateByPrimaryKeySelective(EduUser record);
 
     int updateByPrimaryKey(EduUser record);
+
+    int insertSelectiveList(List<EduUser> eduUsers);
 }

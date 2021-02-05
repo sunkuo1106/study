@@ -8,14 +8,14 @@
     <result column="edu_user_name" property="eduUserName" jdbcType="VARCHAR" />
     <result column="edu_user_phone" property="eduUserPhone" jdbcType="VARCHAR" />
     <result column="edu_user_id_card" property="eduUserIdCard" jdbcType="VARCHAR" />
-    <result column="edu_user_gender" property="eduUserGender" jdbcType="TINYINT" />
+    <result column="edu_user_gender" property="eduUserGender" jdbcType="INTEGER" />
     <result column="edu_user_pic_img" property="eduUserPicImg" jdbcType="VARCHAR" />
     <result column="edu_user_school_roll" property="eduUserSchoolRoll" jdbcType="TIMESTAMP" />
-    <result column="edu_user_is_pass" property="eduUserIsPass" jdbcType="TINYINT" />
+    <result column="edu_user_is_pass" property="eduUserIsPass" jdbcType="INTEGER" />
     <result column="edu_user_email" property="eduUserEmail" jdbcType="VARCHAR" />
     <result column="edu_user_is_avalible" property="eduUserIsAvalible" jdbcType="VARCHAR" />
     <result column="edu_user_is_good_student" property="eduUserIsGoodStudent" jdbcType="INTEGER" />
-    <result column="edu_user_enrollment_method" property="eduUserEnrollmentMethod" jdbcType="TINYINT" />
+    <result column="edu_user_enrollment_method" property="eduUserEnrollmentMethod" jdbcType="INTEGER" />
     <result column="agency_id" property="agencyId" jdbcType="INTEGER" />
     <result column="edu_user_identity_front" property="eduUserIdentityFront" jdbcType="VARCHAR" />
     <result column="edu_user_identity_reverse" property="eduUserIdentityReverse" jdbcType="VARCHAR" />
@@ -27,6 +27,120 @@
     <result column="grade_type_id" property="gradeTypeId" jdbcType="INTEGER" />
     <result column="agency_address_id" property="agencyAddressId" jdbcType="INTEGER" />
   </resultMap>
+
+  <insert id="insertSelectiveList" parameterType="com.kgc.study.bean.EduUser">
+    insert into edu_user (id, gmt_create, gmt_modified,
+    edu_user_name, edu_user_phone, edu_user_id_card,
+    edu_user_gender, edu_user_pic_img, edu_user_school_roll,
+    edu_user_is_pass, edu_user_email, edu_user_is_avalible,
+    edu_user_is_good_student, edu_user_enrollment_method,
+    agency_id, edu_user_identity_front, edu_user_identity_reverse,
+    edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove,
+    edu_user_highest_education, grade_id, grade_type_id,
+    agency_address_id) VALUES
+    <foreach collection="list" item="eduUser"  index="index" separator=",">
+      <trim prefix="(" suffix=")">
+      <choose>
+        <when test="eduUser.id != null">#{eduUser.id},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.gmtCreate != null">#{eduUser.gmtCreate},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.gmtModified != null">#{eduUser.gmtModified},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserName != null">#{eduUser.eduUserName},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserPhone != null">#{eduUser.eduUserPhone},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIdCard != null">#{eduUser.eduUserIdCard},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserGender != null">#{eduUser.eduUserGender},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserPicImg != null">#{eduUser.eduUserPicImg},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserSchoolRoll != null">#{eduUser.eduUserSchoolRoll},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIsPass != null">#{eduUser.eduUserIsPass},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserEmail != null">#{eduUser.eduUserEmail},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIsAvalible != null">#{eduUser.eduUserIsAvalible},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIsGoodStudent != null">#{eduUser.eduUserIsGoodStudent},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserEnrollmentMethod != null">#{eduUser.eduUserEnrollmentMethod},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.agencyId != null">#{eduUser.agencyId},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIdentityFront != null">#{eduUser.eduUserIdentityFront},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIdentityReverse != null">#{eduUser.eduUserIdentityReverse},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserSchoolProve != null">#{eduUser.eduUserSchoolProve},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserWorkProve != null">#{eduUser.eduUserWorkProve},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserSoldierProve != null">#{eduUser.eduUserSoldierProve},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserHighestEducation != null">#{eduUser.eduUserHighestEducation},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.gradeId != null">#{eduUser.gradeId},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.gradeTypeId != null">#{eduUser.gradeTypeId},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.agencyAddressId != null">#{eduUser.agencyAddressId}</when>
+        <otherwise>null</otherwise>
+      </choose>
+      </trim>
+    </foreach>
+  </insert>
+
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -92,33 +206,6 @@
     edu_user_identity_reverse, edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove, 
     edu_user_highest_education, grade_id, grade_type_id, agency_address_id
   </sql>
-  <select id="selectBy"  parameterType="com.kgc.study.bean.EduUser" >
-    select * from edu_user where
-    <!-- 用户姓名 -->
-    <if test="edu_user_name!=null and edu_user_name!=''">
-      and edu_user_name like '%#{edu_user_name}%'
-    </if>
-    <!-- 用户手机号 -->
-    <if test="edu_user_phone!=null and edu_user_phone!=''">
-      and edu_user_phone like '%#{edu_user_phone}%'
-    </if>
-    <!-- 用户身份证 -->
-    <if test="edu_user_id_card!=null and edu_user_id_card!=''">
-      and edu_user_id_card like '%#{edu_user_id_card}%'
-    </if>
-    <!-- 用户性别 1男 0女 -->
-    <if test="edu_user_gender!=null and edu_user_gender!=''">
-      and edu_user_gender="#{edu_user_gender}"
-    </if>
-    <!-- 用户是否可用 1正常 2冻结 -->
-    <if test="edu_user_is_avalible!=null and edu_user_is_avalible!=''">
-      and edu_user_is_avalible="#{edu_user_is_avalible}"
-    </if>
-    <!-- 用户是否是优秀学员 1是 0不是 -->
-    <if test="edu_user_is_good_student!=null and edu_user_is_good_student!=''">
-      and edu_user_is_good_student="#{edu_user_is_good_student}"
-    </if>
-  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.EduUserExample" >
     select
     <if test="distinct" >
@@ -161,9 +248,9 @@
       agency_address_id)
     values (#{id,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
       #{eduUserName,jdbcType=VARCHAR}, #{eduUserPhone,jdbcType=VARCHAR}, #{eduUserIdCard,jdbcType=VARCHAR}, 
-      #{eduUserGender,jdbcType=TINYINT}, #{eduUserPicImg,jdbcType=VARCHAR}, #{eduUserSchoolRoll,jdbcType=TIMESTAMP}, 
-      #{eduUserIsPass,jdbcType=TINYINT}, #{eduUserEmail,jdbcType=VARCHAR}, #{eduUserIsAvalible,jdbcType=VARCHAR}, 
-      #{eduUserIsGoodStudent,jdbcType=INTEGER}, #{eduUserEnrollmentMethod,jdbcType=TINYINT}, 
+      #{eduUserGender,jdbcType=INTEGER}, #{eduUserPicImg,jdbcType=VARCHAR}, #{eduUserSchoolRoll,jdbcType=TIMESTAMP}, 
+      #{eduUserIsPass,jdbcType=INTEGER}, #{eduUserEmail,jdbcType=VARCHAR}, #{eduUserIsAvalible,jdbcType=VARCHAR}, 
+      #{eduUserIsGoodStudent,jdbcType=INTEGER}, #{eduUserEnrollmentMethod,jdbcType=INTEGER}, 
       #{agencyId,jdbcType=INTEGER}, #{eduUserIdentityFront,jdbcType=VARCHAR}, #{eduUserIdentityReverse,jdbcType=VARCHAR}, 
       #{eduUserSchoolProve,jdbcType=VARCHAR}, #{eduUserWorkProve,jdbcType=VARCHAR}, #{eduUserSoldierProve,jdbcType=VARCHAR}, 
       #{eduUserHighestEducation,jdbcType=VARCHAR}, #{gradeId,jdbcType=INTEGER}, #{gradeTypeId,jdbcType=INTEGER}, 
@@ -265,7 +352,7 @@
         #{eduUserIdCard,jdbcType=VARCHAR},
       </if>
       <if test="eduUserGender != null" >
-        #{eduUserGender,jdbcType=TINYINT},
+        #{eduUserGender,jdbcType=INTEGER},
       </if>
       <if test="eduUserPicImg != null" >
         #{eduUserPicImg,jdbcType=VARCHAR},
@@ -274,7 +361,7 @@
         #{eduUserSchoolRoll,jdbcType=TIMESTAMP},
       </if>
       <if test="eduUserIsPass != null" >
-        #{eduUserIsPass,jdbcType=TINYINT},
+        #{eduUserIsPass,jdbcType=INTEGER},
       </if>
       <if test="eduUserEmail != null" >
         #{eduUserEmail,jdbcType=VARCHAR},
@@ -286,7 +373,7 @@
         #{eduUserIsGoodStudent,jdbcType=INTEGER},
       </if>
       <if test="eduUserEnrollmentMethod != null" >
-        #{eduUserEnrollmentMethod,jdbcType=TINYINT},
+        #{eduUserEnrollmentMethod,jdbcType=INTEGER},
       </if>
       <if test="agencyId != null" >
         #{agencyId,jdbcType=INTEGER},
@@ -348,7 +435,7 @@
         edu_user_id_card = #{record.eduUserIdCard,jdbcType=VARCHAR},
       </if>
       <if test="record.eduUserGender != null" >
-        edu_user_gender = #{record.eduUserGender,jdbcType=TINYINT},
+        edu_user_gender = #{record.eduUserGender,jdbcType=INTEGER},
       </if>
       <if test="record.eduUserPicImg != null" >
         edu_user_pic_img = #{record.eduUserPicImg,jdbcType=VARCHAR},
@@ -357,7 +444,7 @@
         edu_user_school_roll = #{record.eduUserSchoolRoll,jdbcType=TIMESTAMP},
       </if>
       <if test="record.eduUserIsPass != null" >
-        edu_user_is_pass = #{record.eduUserIsPass,jdbcType=TINYINT},
+        edu_user_is_pass = #{record.eduUserIsPass,jdbcType=INTEGER},
       </if>
       <if test="record.eduUserEmail != null" >
         edu_user_email = #{record.eduUserEmail,jdbcType=VARCHAR},
@@ -369,7 +456,7 @@
         edu_user_is_good_student = #{record.eduUserIsGoodStudent,jdbcType=INTEGER},
       </if>
       <if test="record.eduUserEnrollmentMethod != null" >
-        edu_user_enrollment_method = #{record.eduUserEnrollmentMethod,jdbcType=TINYINT},
+        edu_user_enrollment_method = #{record.eduUserEnrollmentMethod,jdbcType=INTEGER},
       </if>
       <if test="record.agencyId != null" >
         agency_id = #{record.agencyId,jdbcType=INTEGER},
@@ -414,14 +501,14 @@
       edu_user_name = #{record.eduUserName,jdbcType=VARCHAR},
       edu_user_phone = #{record.eduUserPhone,jdbcType=VARCHAR},
       edu_user_id_card = #{record.eduUserIdCard,jdbcType=VARCHAR},
-      edu_user_gender = #{record.eduUserGender,jdbcType=TINYINT},
+      edu_user_gender = #{record.eduUserGender,jdbcType=INTEGER},
       edu_user_pic_img = #{record.eduUserPicImg,jdbcType=VARCHAR},
       edu_user_school_roll = #{record.eduUserSchoolRoll,jdbcType=TIMESTAMP},
-      edu_user_is_pass = #{record.eduUserIsPass,jdbcType=TINYINT},
+      edu_user_is_pass = #{record.eduUserIsPass,jdbcType=INTEGER},
       edu_user_email = #{record.eduUserEmail,jdbcType=VARCHAR},
       edu_user_is_avalible = #{record.eduUserIsAvalible,jdbcType=VARCHAR},
       edu_user_is_good_student = #{record.eduUserIsGoodStudent,jdbcType=INTEGER},
-      edu_user_enrollment_method = #{record.eduUserEnrollmentMethod,jdbcType=TINYINT},
+      edu_user_enrollment_method = #{record.eduUserEnrollmentMethod,jdbcType=INTEGER},
       agency_id = #{record.agencyId,jdbcType=INTEGER},
       edu_user_identity_front = #{record.eduUserIdentityFront,jdbcType=VARCHAR},
       edu_user_identity_reverse = #{record.eduUserIdentityReverse,jdbcType=VARCHAR},
@@ -455,7 +542,7 @@
         edu_user_id_card = #{eduUserIdCard,jdbcType=VARCHAR},
       </if>
       <if test="eduUserGender != null" >
-        edu_user_gender = #{eduUserGender,jdbcType=TINYINT},
+        edu_user_gender = #{eduUserGender,jdbcType=INTEGER},
       </if>
       <if test="eduUserPicImg != null" >
         edu_user_pic_img = #{eduUserPicImg,jdbcType=VARCHAR},
@@ -464,7 +551,7 @@
         edu_user_school_roll = #{eduUserSchoolRoll,jdbcType=TIMESTAMP},
       </if>
       <if test="eduUserIsPass != null" >
-        edu_user_is_pass = #{eduUserIsPass,jdbcType=TINYINT},
+        edu_user_is_pass = #{eduUserIsPass,jdbcType=INTEGER},
       </if>
       <if test="eduUserEmail != null" >
         edu_user_email = #{eduUserEmail,jdbcType=VARCHAR},
@@ -476,7 +563,7 @@
         edu_user_is_good_student = #{eduUserIsGoodStudent,jdbcType=INTEGER},
       </if>
       <if test="eduUserEnrollmentMethod != null" >
-        edu_user_enrollment_method = #{eduUserEnrollmentMethod,jdbcType=TINYINT},
+        edu_user_enrollment_method = #{eduUserEnrollmentMethod,jdbcType=INTEGER},
       </if>
       <if test="agencyId != null" >
         agency_id = #{agencyId,jdbcType=INTEGER},
@@ -518,14 +605,14 @@
       edu_user_name = #{eduUserName,jdbcType=VARCHAR},
       edu_user_phone = #{eduUserPhone,jdbcType=VARCHAR},
       edu_user_id_card = #{eduUserIdCard,jdbcType=VARCHAR},
-      edu_user_gender = #{eduUserGender,jdbcType=TINYINT},
+      edu_user_gender = #{eduUserGender,jdbcType=INTEGER},
       edu_user_pic_img = #{eduUserPicImg,jdbcType=VARCHAR},
       edu_user_school_roll = #{eduUserSchoolRoll,jdbcType=TIMESTAMP},
-      edu_user_is_pass = #{eduUserIsPass,jdbcType=TINYINT},
+      edu_user_is_pass = #{eduUserIsPass,jdbcType=INTEGER},
       edu_user_email = #{eduUserEmail,jdbcType=VARCHAR},
       edu_user_is_avalible = #{eduUserIsAvalible,jdbcType=VARCHAR},
       edu_user_is_good_student = #{eduUserIsGoodStudent,jdbcType=INTEGER},
-      edu_user_enrollment_method = #{eduUserEnrollmentMethod,jdbcType=TINYINT},
+      edu_user_enrollment_method = #{eduUserEnrollmentMethod,jdbcType=INTEGER},
       agency_id = #{agencyId,jdbcType=INTEGER},
       edu_user_identity_front = #{eduUserIdentityFront,jdbcType=VARCHAR},
       edu_user_identity_reverse = #{eduUserIdentityReverse,jdbcType=VARCHAR},

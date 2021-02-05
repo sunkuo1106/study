@@ -11,5 +11,6 @@ public interface loService {
             String eduUserName,String eduUserPhone,String eduUserIdCard,Byte eduUserGender,String eduUserIsAvalible,Integer eduUserIsGoodStudent,Byte eduUserEnrollmentMethod,
             Integer pageNum, Integer pageSize);
 
+    int insertEduUserList(List<EduUser> eduUsers);
 //    List<EduUser> selectById(String eduUserName,String eduUserPhone,String eduUserIdCard,Byte eduUserGender,String eduUserIsAvalible,Integer eduUserIsGoodStudent,Byte eduUserEnrollmentMethod);
 }

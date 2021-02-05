@@ -1,5 +1,12 @@
 package com.kgc.study.studytravelcoach.controller.locontroller;
 
+import com.kgc.study.studytravelcoach.service.loservice.IndexService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+
+@Controller
 public class IndexController {
 
     /*
@@ -22,4 +29,5 @@ public class IndexController {
     <input type="submit" value="提交">
 </form>
     */
+
 }
