@@ -27,7 +27,7 @@ public class AgencyAddressServiceImpl implements AgencyAddressService {
             AgencyAddressExample agencyAddressExample = new AgencyAddressExample();
             AgencyAddressExample.Criteria criteria = agencyAddressExample.createCriteria();
             if (agencyAddress != null && agencyAddress.isEmpty() == false) {
-                criteria.andAgencyAddressNameLike(agencyAddress);
+                criteria.andAgencyAddressNameLike("%"+agencyAddress+"%");
             }
 
             criteria.andAgencyIdEqualTo(Long.valueOf(AgencyId));
