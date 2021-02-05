@@ -92,6 +92,33 @@
     edu_user_identity_reverse, edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove, 
     edu_user_highest_education, grade_id, grade_type_id, agency_address_id
   </sql>
+  <select id="selectBy"  parameterType="com.kgc.study.bean.EduUser" >
+    select * from edu_user where
+    <!-- 用户姓名 -->
+    <if test="edu_user_name!=null and edu_user_name!=''">
+      and edu_user_name like '%#{edu_user_name}%'
+    </if>
+    <!-- 用户手机号 -->
+    <if test="edu_user_phone!=null and edu_user_phone!=''">
+      and edu_user_phone like '%#{edu_user_phone}%'
+    </if>
+    <!-- 用户身份证 -->
+    <if test="edu_user_id_card!=null and edu_user_id_card!=''">
+      and edu_user_id_card like '%#{edu_user_id_card}%'
+    </if>
+    <!-- 用户性别 1男 0女 -->
+    <if test="edu_user_gender!=null and edu_user_gender!=''">
+      and edu_user_gender="#{edu_user_gender}"
+    </if>
+    <!-- 用户是否可用 1正常 2冻结 -->
+    <if test="edu_user_is_avalible!=null and edu_user_is_avalible!=''">
+      and edu_user_is_avalible="#{edu_user_is_avalible}"
+    </if>
+    <!-- 用户是否是优秀学员 1是 0不是 -->
+    <if test="edu_user_is_good_student!=null and edu_user_is_good_student!=''">
+      and edu_user_is_good_student="#{edu_user_is_good_student}"
+    </if>
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.EduUserExample" >
     select
     <if test="distinct" >

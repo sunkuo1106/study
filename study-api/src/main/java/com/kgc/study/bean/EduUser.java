@@ -51,6 +51,36 @@ public class EduUser {
 
     private Integer agencyAddressId;
 
+    @Override
+    public String toString() {
+        return "EduUser{" +
+                "id=" + id +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", eduUserName='" + eduUserName + '\'' +
+                ", eduUserPhone='" + eduUserPhone + '\'' +
+                ", eduUserIdCard='" + eduUserIdCard + '\'' +
+                ", eduUserGender=" + eduUserGender +
+                ", eduUserPicImg='" + eduUserPicImg + '\'' +
+                ", eduUserSchoolRoll=" + eduUserSchoolRoll +
+                ", eduUserIsPass=" + eduUserIsPass +
+                ", eduUserEmail='" + eduUserEmail + '\'' +
+                ", eduUserIsAvalible='" + eduUserIsAvalible + '\'' +
+                ", eduUserIsGoodStudent=" + eduUserIsGoodStudent +
+                ", eduUserEnrollmentMethod=" + eduUserEnrollmentMethod +
+                ", agencyId=" + agencyId +
+                ", eduUserIdentityFront='" + eduUserIdentityFront + '\'' +
+                ", eduUserIdentityReverse='" + eduUserIdentityReverse + '\'' +
+                ", eduUserSchoolProve='" + eduUserSchoolProve + '\'' +
+                ", eduUserWorkProve='" + eduUserWorkProve + '\'' +
+                ", eduUserSoldierProve='" + eduUserSoldierProve + '\'' +
+                ", eduUserHighestEducation='" + eduUserHighestEducation + '\'' +
+                ", gradeId=" + gradeId +
+                ", gradeTypeId=" + gradeTypeId +
+                ", agencyAddressId=" + agencyAddressId +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
