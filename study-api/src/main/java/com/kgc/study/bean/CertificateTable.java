@@ -1,5 +1,7 @@
 package com.kgc.study.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class CertificateTable {
@@ -12,13 +14,13 @@ public class CertificateTable {
     private Long cerExamScore;
 
     private Long cerSumScore;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date cerExaminationDate;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date cerGetTime;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date gmtCreate;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date gmtModified;
 
     private Integer logicDelete;

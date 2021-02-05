@@ -4,6 +4,7 @@ import com.kgc.study.bean.CertificateTable;
 import com.kgc.study.bean.CertificateTableExample;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface CertificateTableMapper {
@@ -28,4 +29,6 @@ public interface CertificateTableMapper {
     int updateByPrimaryKeySelective(CertificateTable record);
 
     int updateByPrimaryKey(CertificateTable record);
+    int deleteAll(@Param("ids") Integer[] ids, @Param("modifieddate") Date modifieddate);
+
 }

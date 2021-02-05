@@ -14,6 +14,7 @@
           <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
           <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <script type="text/javascript" src="./js/jquery.min.js"></script>
     </head>
     <body>
         <div class="x-nav">
@@ -31,28 +32,19 @@
                 <div class="layui-col-md12">
                     <div class="layui-card">
                         <div class="layui-card-body ">
-                            <form class="layui-form layui-col-space5" th:action="@{/agencyaddress}">
-                                <!--<div class="layui-inline layui-show-xs-block">-->
-                                    <!--<input class="layui-input"  autocomplete="off" placeholder="开始日" name="start" id="start">-->
-                                <!--</div>-->
-                                <!--<div class="layui-inline layui-show-xs-block">-->
-                                    <!--<input class="layui-input"  autocomplete="off" placeholder="截止日" name="end" id="end">-->
-                                <!--</div>-->
                                 <div class="layui-inline layui-show-xs-block">
-                                    <input type="text" name="agencyAddress"  placeholder="请输入地址" autocomplete="off" class="layui-input">
+                                    <input type="text" name="agencyAddress"  placeholder="请输入地址" autocomplete="off" class="layui-input agencyAddress2">
                                 </div>
                                 <div class="layui-inline layui-show-xs-block">
-                                    <input type="submit" class="layui-btn"  lay-submit="" lay-filter="sreach">
+                                    <button  class="layui-btn btn-agency-address"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
                                 </div>
-                            </form>
                         </div>
                         <div class="layui-card-header">
                             <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
                             <button class="layui-btn" onclick="xadmin.open('添加用户','./member-add.html',600,400)"><i class="layui-icon"></i>添加</button>
                         </div>
                         <div class="layui-card-body layui-table-body layui-table-main">
-                            <table class="layui-table layui-form">
-                                <thead>
+                            <table class="layui-table layui-form table-agency-address table-agency-address">
                                   <tr>
                                     <th>
                                       <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
@@ -60,65 +52,68 @@
                                     <th>上课地点</th>
                                     <th>代理机构</th>
                                     <th>创建时间</th>
-                                    <th>操作</th></tr>
-                                </thead>
-                                <tbody th:if="${agencyAddresses!=null}">
-                                  <tr th:each="agency:${agencyAddresses.list}">
-                                    <td>
-                                      <input type="checkbox" name="id" value="1"   lay-skin="primary"> 
-                                    </td>
-                                    <td th:text="${agency.agencyAddressName}"></td>
-                                    <!--<td th:text="${agency.agencyAddress}"></td>-->
-                                    <!--<td th:text="${agency.agencyPhone}"></td>-->
-                                    <td class="td-manage">
-                                      <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
-                                        <i class="layui-icon">&#xe601;</i>
-                                      </a>
-                                      <a title="编辑"  onclick="xadmin.open('编辑','member-edit.html',600,400)" href="javascript:;">
-                                        <i class="layui-icon">&#xe642;</i>
-                                      </a>
-                                      <a onclick="xadmin.open('修改密码','member-password.html',600,400)" title="修改密码" href="javascript:;">
-                                        <i class="layui-icon">&#xe631;</i>
-                                      </a>
-                                      <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                                        <i class="layui-icon">&#xe640;</i>
-                                      </a>
-                                    </td>
+                                    <th>操作</th>
                                   </tr>
-
-                                </tbody>
                             </table>
                         </div>
-                        <div class="layui-card-body ">
-                            <div class="page">
-                                <div>
-                                  <!--<a class="prev" href="">&lt;&lt;</a>-->
-                                  <!--<a class="num" href="">1</a>-->
-                                  <!--<span class="current">2</span>-->
-                                  <!--<a class="num" href="">3</a>-->
-                                  <!--<a class="num" href="">489</a>-->
-                                  <!--<a class="next" href="">&gt;&gt;</a>-->
-
-                                </div>
-                            </div>
-                        </div>
-                        <div style="font-size: 16px;color: #00F7DE" align="center"  th:if="${agencyAddresses!=null}">
-                            <a th:href="|@{/agencyaddress}?pageNum=${agencyAddresses.firstPage}|" th:text="首页" style="color: #00F7DE"></a>
-                            <span th:if="${agencyAddresses.hasPreviousPage}">
-                                <a th:href="|@{/agencyaddress}?pageNum=${agencyAddresses.prePage}|" th:text="上一页" style="color: #00F7DE"></a>
-                            </span>
-                            <span th:if="${agencyAddresses.hasNextPage}">
-                                <a th:href="|@{/agencyaddress}?pageNum=${agencyAddresses.nextPage}|" th:text="下一页" style="color: #00F7DE"></a>
-                            </span>
-                            <a  th:href="|@{/agencyaddress}?pageNum=${agencyAddresses.lastPage}|" th:text="末页" style="color: #00F7DE"></a>
-                            <span th:text="|第${agencyAddresses.pageNum}页/共${agencyAddresses.pages}页|"></span>
-                        </div>
+                        <!--<div style="font-size: 16px;color: #00F7DE" align="center"  th:if="${agencyAddresses!=null}">-->
+                            <!--<a th:href="|@{/agencyaddress}?pageNum=${agencyAddresses.firstPage}|" th:text="首页" style="color: #00F7DE"></a>-->
+                            <!--<span th:if="${agencyAddresses.hasPreviousPage}">-->
+                                <!--<a th:href="|@{/agencyaddress}?pageNum=${agencyAddresses.prePage}|" th:text="上一页" style="color: #00F7DE"></a>-->
+                            <!--</span>-->
+                            <!--<span th:if="${agencyAddresses.hasNextPage}">-->
+                                <!--<a th:href="|@{/agencyaddress}?pageNum=${agencyAddresses.nextPage}|" th:text="下一页" style="color: #00F7DE"></a>-->
+                            <!--</span>-->
+                            <!--<a  th:href="|@{/agencyaddress}?pageNum=${agencyAddresses.lastPage}|" th:text="末页" style="color: #00F7DE"></a>-->
+                            <!--<span th:text="|第${agencyAddresses.pageNum}页/共${agencyAddresses.pages}页|"></span>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
         </div> 
     </body>
     <script>
+        $(document).ready(function () {
+            agencyAddressSelect();
+            $(".btn-agency-address").click(function () {
+                agencyAddressSelect();
+            })
+        })
+        function agencyAddressSelect() {
+            $(".table-agency-address tr:gt(0)").remove();
+            var agencyAddress=$(".agencyAddress2").val();
+            var pageNum=1;
+            var pageSize=6;
+            var json={
+                agencyAddress:agencyAddress,
+                pageNum:pageNum,
+                pageSize:pageSize
+            }
+            $.post("/doagencyaddress",json,function (result) {
+                $.each(result.agencyAddresses.list,function (i,v) {
+                    var gmtCreatDate= v.gmtCreate.substring(0,10);
+                    $(".table-agency-address").append(" <tr>\n" +
+                        "                                    <td>\n" +
+                        "                                      <input type=\"checkbox\" name=\"id\" value=\"1\"   lay-skin=\"primary\"> \n" +
+                        "                                    </td>\n" +
+                        "                                    <td hidden>"+v.id+"</td>\n" +
+                        "                                    <td>"+v.agencyAddressName+"</td>\n" +
+                        "                                    <td>"+result.agencyName+"</td>\n" +
+                        "                                    <td>"+gmtCreatDate+"</td>\n" +
+                        "                                    <td class=\"td-manage\">\n" +
+                        "                                      <a onclick=\"xadmin.open('修改信息','member-password.html',600,400)\" title=\"修改信息\" href=\"javascript:;\">\n" +
+                        "                                        <i class=\"layui-icon\">&#xe631;</i>\n" +
+                        "                                      </a>\n" +
+                        "                                      <a title=\"删除\" onclick=\"member_del(this,'要删除的id')\" href=\"javascript:;\">\n" +
+                        "                                        <i class=\"layui-icon\">&#xe640;</i>\n" +
+                        "                                      </a>\n" +
+                        "                                    </td>\n" +
+                        "                                  </tr>");
+                })
+
+            },"json")
+
+        }
       layui.use(['laydate','form'], function(){
         var laydate = layui.laydate;
         var  form = layui.form;

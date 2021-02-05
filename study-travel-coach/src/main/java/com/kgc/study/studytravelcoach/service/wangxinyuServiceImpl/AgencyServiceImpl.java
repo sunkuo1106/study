@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,21 +28,51 @@ public class AgencyServiceImpl implements AgencyService {
 
     //根据机构Id,查询当前机构总部信息
     @Override
-    public PageInfo<AgencyInfo> selectAgency(Long AgencyId, String agencyAddress, Integer pageNum, Integer pageSize) {
+    public PageInfo<AgencyInfo> selectAgency(Integer AgencyId, String agencyName, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum,pageSize);
         AgencyInfoExample agencyInfoExample=new AgencyInfoExample();
         AgencyInfoExample.Criteria criteria = agencyInfoExample.createCriteria();
-        if(agencyAddress!=null&&agencyAddress.isEmpty()==false){
-            criteria.andAgencyAddressLike(agencyAddress);
+        if(agencyName!=null&&agencyName.isEmpty()==false){
+            criteria.andAgencyNameLike("%"+agencyName+"%");
         }
         if(AgencyId!=1){
-            criteria.andIdEqualTo(AgencyId);
+            criteria.andIdEqualTo(Long.valueOf(AgencyId));
         }
-            List<AgencyInfo> agencyInfos = agencyInfoMapper.selectByExample(agencyInfoExample);
-            PageInfo<AgencyInfo> agencyInfoPageInfo=new PageInfo<>(agencyInfos);
-            return agencyInfoPageInfo;
+        criteria.andLogicDeleteEqualTo(0);
+        List<AgencyInfo> agencyInfos = agencyInfoMapper.selectByExample(agencyInfoExample);
+        PageInfo<AgencyInfo> agencyInfoPageInfo=new PageInfo<>(agencyInfos);
+        return agencyInfoPageInfo;
 
 
+    }
+
+    @Override
+    public int updAgency(AgencyInfo agencyInfo) {
+        int i = agencyInfoMapper.updateByPrimaryKeySelective(agencyInfo);
+        return i;
+    }
+
+    @Override
+    public int addAgency(AgencyInfo agencyInfo) {
+        int i = agencyInfoMapper.insertSelective(agencyInfo);
+        return i;
+    }
+
+    @Override
+    public int delAgency(AgencyInfo agencyInfo) {
+        int i = agencyInfoMapper.updateByPrimaryKeySelective(agencyInfo);
+        return i;
+    }
+
+    @Override
+    public AgencyInfo selectAgencyById(Integer id) {
+        return agencyInfoMapper.selectByPrimaryKey(Long.valueOf(id));
+    }
+
+    @Override
+    public int delAllAgency(Integer[] ids,Date modifieddate) {
+        int i = agencyInfoMapper.deleteAll(ids,modifieddate);
+        return i;
     }
 
 }
