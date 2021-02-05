@@ -14,15 +14,25 @@ public class AdminLoginController {
     @Resource
     AdministratorTableService administratorTableService;
 
+    /**
+     * 登陆页
+     * @return
+     */
     @RequestMapping("/")
-    public String ToLogin(){
+    public String toLogin(){
         return "login";
     }
 
     @RequestMapping("/login")
     public String login(String adminName, String adminPassword, HttpSession session){
-        AdministratorTable adminLogin = administratorTableService.AdminLogin(adminName, adminPassword);
-        session.setAttribute("admin",adminLogin);
+//        AdministratorTable adminLogin = administratorTableService.AdminLogin(adminName, adminPassword);
+//        session.setAttribute("admin",adminLogin);
+//        session.setAttribute("AgencyId",adminLogin.getAgencyId());
+        return "index";
+    }
+
+    @RequestMapping("/toIndex")
+    public String index(){
         return "index";
     }
 }

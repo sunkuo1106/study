@@ -515,6 +515,66 @@ public class AdvertisementInfoExample {
             return (Criteria) this;
         }
 
+        public Criteria andAdSequenceIsNull() {
+            addCriterion("ad_sequence is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceIsNotNull() {
+            addCriterion("ad_sequence is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceEqualTo(Integer value) {
+            addCriterion("ad_sequence =", value, "adSequence");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceNotEqualTo(Integer value) {
+            addCriterion("ad_sequence <>", value, "adSequence");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceGreaterThan(Integer value) {
+            addCriterion("ad_sequence >", value, "adSequence");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ad_sequence >=", value, "adSequence");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceLessThan(Integer value) {
+            addCriterion("ad_sequence <", value, "adSequence");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceLessThanOrEqualTo(Integer value) {
+            addCriterion("ad_sequence <=", value, "adSequence");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceIn(List<Integer> values) {
+            addCriterion("ad_sequence in", values, "adSequence");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceNotIn(List<Integer> values) {
+            addCriterion("ad_sequence not in", values, "adSequence");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceBetween(Integer value1, Integer value2) {
+            addCriterion("ad_sequence between", value1, value2, "adSequence");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdSequenceNotBetween(Integer value1, Integer value2) {
+            addCriterion("ad_sequence not between", value1, value2, "adSequence");
+            return (Criteria) this;
+        }
+
         public Criteria andAdGmtCreateIsNull() {
             addCriterion("ad_gmt_create is null");
             return (Criteria) this;

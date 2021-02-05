@@ -15,6 +15,8 @@ public class AdvertisementInfo {
 
     private String adTitle;
 
+    private Integer adSequence;
+
     private Date adGmtCreate;
 
     private Date adGmtModified;
@@ -69,6 +71,14 @@ public class AdvertisementInfo {
         this.adTitle = adTitle == null ? null : adTitle.trim();
     }
 
+    public Integer getAdSequence() {
+        return adSequence;
+    }
+
+    public void setAdSequence(Integer adSequence) {
+        this.adSequence = adSequence;
+    }
+
     public Date getAdGmtCreate() {
         return adGmtCreate;
     }
@@ -102,6 +112,7 @@ public class AdvertisementInfo {
                 ", adImg='" + adImg + '\'' +
                 ", adUrl='" + adUrl + '\'' +
                 ", adTitle='" + adTitle + '\'' +
+                ", adSequence=" + adSequence +
                 ", adGmtCreate=" + adGmtCreate +
                 ", adGmtModified=" + adGmtModified +
                 ", logicDelete=" + logicDelete +
