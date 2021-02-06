@@ -34,4 +34,6 @@ public interface NewsInfoMapper {
     int updateByPrimaryKeyWithBLOBs(NewsInfo record);
 
     int updateByPrimaryKey(NewsInfo record);
+
+    int updateByLogicDelete(@Param("id")Long id,@Param("logicDelete")Integer logicDelete);
 }

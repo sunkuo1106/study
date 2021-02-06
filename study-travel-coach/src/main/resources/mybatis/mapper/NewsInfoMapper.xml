@@ -338,4 +338,9 @@
       logic_delete = #{logicDelete,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <update id="updateByLogicDelete" parameterType="com.kgc.study.bean.NewsInfo" >
+    update news_info
+    set logicDelete = #{logicDelete}
+    where id = #{id}
+  </update>
 </mapper>
