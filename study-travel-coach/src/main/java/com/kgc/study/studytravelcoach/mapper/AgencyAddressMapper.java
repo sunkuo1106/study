@@ -4,6 +4,7 @@ import com.kgc.study.bean.AgencyAddress;
 import com.kgc.study.bean.AgencyAddressExample;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
 
 public interface AgencyAddressMapper {
@@ -28,4 +29,5 @@ public interface AgencyAddressMapper {
     int updateByPrimaryKeySelective(AgencyAddress record);
 
     int updateByPrimaryKey(AgencyAddress record);
+    int delAllAgencyAddress(@Param("ids") Integer[] ids,@Param("modifieddate") Date modifieddate);
 }

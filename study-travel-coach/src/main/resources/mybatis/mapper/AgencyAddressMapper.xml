@@ -9,6 +9,12 @@
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
+  <update id="delAllAgencyAddress" parameterType="com.kgc.study.bean.AgencyAddress">
+    UPDATE agency_address SET logic_delete=1,gmt_modified=#{modifieddate} WHERE id in
+    <foreach collection="ids" item="ids" open="(" close=")" separator=",">
+      #{ids}
+    </foreach>
+  </update>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
