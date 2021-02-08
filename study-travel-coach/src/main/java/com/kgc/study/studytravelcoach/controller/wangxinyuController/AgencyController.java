@@ -23,8 +23,7 @@ import java.util.*;
 public class AgencyController {
     @Resource
     AgencyService agencyService;
-    @Resource
-    AgencyAddressService agencyAddressService;
+
     /*
     *跳转机构管理页面
     * */
@@ -56,19 +55,7 @@ public class AgencyController {
         session.setAttribute("agencyName",agencyName);
         return map;
     }
-    @PostMapping("/doagencyaddress")
-    @ResponseBody
-    public Map<String,Object> toagencyaddress(Model model, HttpSession session,String agencyAddress,@RequestParam(value = "pageNum",required = false) Integer pageNum,
-                @RequestParam(value = "pageSize",required = false) Integer pageSize) {
-        Map<String,Object> map=new HashMap<>();
-         //拿到查看机构的上课点时的当前机构的Id和名字
-            Integer agencyAddressId = (Integer) session.getAttribute("agencyAddressId");
-             String agencyName = (String) session.getAttribute("agencyName");
-                PageInfo<AgencyAddress> agencyAddresses = agencyAddressService.selectAllAgency(agencyAddressId, agencyAddress, pageNum, pageSize);
-                map.put("agencyAddresses", agencyAddresses);
-                map.put("agencyName",agencyName);
-            return map;
-    }
+
     @GetMapping("/toagencyadd")
     public String toagencyadd(){
         return "agency-add";

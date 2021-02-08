@@ -9,6 +9,7 @@ import com.kgc.study.studytravelcoach.mapper.AgencyAddressMapper;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,10 +32,40 @@ public class AgencyAddressServiceImpl implements AgencyAddressService {
             }
 
             criteria.andAgencyIdEqualTo(Long.valueOf(AgencyId));
+            criteria.andLogicDeleteEqualTo(0);
             List<AgencyAddress> agencyAddresses = agencyAddressMapper.selectByExample(agencyAddressExample);
             PageInfo<AgencyAddress> agencyAddressPageInfo = new PageInfo<>(agencyAddresses);
             return agencyAddressPageInfo;
         }
         return null;
+    }
+
+    @Override
+    public int updAgencyAddress(AgencyAddress agencyAddress) {
+        int i = agencyAddressMapper.updateByPrimaryKeySelective(agencyAddress);
+        return i;
+    }
+
+    @Override
+    public int addAgencyAddress(AgencyAddress agencyAddress) {
+        int i = agencyAddressMapper.insertSelective(agencyAddress);
+        return i;
+    }
+
+    @Override
+    public int delAgencyAddress(AgencyAddress agencyAddress) {
+        int i = agencyAddressMapper.updateByPrimaryKeySelective(agencyAddress);
+        return i;
+    }
+
+    @Override
+    public AgencyAddress selectAgencyAddressById(Integer id) {
+        return agencyAddressMapper.selectByPrimaryKey(Long.valueOf(id));
+    }
+
+    @Override
+    public int delAllAgencyAddress(Integer[] ids, Date modifieddate) {
+        int i = agencyAddressMapper.delAllAgencyAddress(ids, modifieddate);
+        return i;
     }
 }
