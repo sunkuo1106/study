@@ -36,9 +36,9 @@ public class NewsServiceImpl implements NewsService {
         criteria.andLogicDeleteEqualTo(0);
         if (title!=null&&gmtCreate1!=null&&gmtCreate2!=null){
             criteria.andGmtCreateBetween(gmtCreate1,gmtCreate2);
-            criteria.andNewsInfoTitleEqualTo(title);
+            criteria.andNewsInfoTitleLike("%"+title+"%");
         }else if (title!=null&&gmtCreate1==null&&gmtCreate2==null){
-            criteria.andNewsInfoTitleEqualTo(title);
+            criteria.andNewsInfoTitleLike("%"+title+"%");
         }else if (title==null&&gmtCreate1!=null&&gmtCreate2!=null){
             criteria.andGmtCreateBetween(gmtCreate1,gmtCreate2);
         }else{

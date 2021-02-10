@@ -23,6 +23,22 @@ public class NewsInfo {
 
     private String newsInfoText;
 
+    @Override
+    public String toString() {
+        return "NewsInfo{" +
+                "id=" + id +
+                ", newsInfoTitle='" + newsInfoTitle + '\'' +
+                ", newsInfoSource='" + newsInfoSource + '\'' +
+                ", newsInfoAuthor='" + newsInfoAuthor + '\'' +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", newsInfoClickCount=" + newsInfoClickCount +
+                ", newsIstop=" + newsIstop +
+                ", logicDelete=" + logicDelete +
+                ", newsInfoText='" + newsInfoText + '\'' +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }

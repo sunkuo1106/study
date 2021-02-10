@@ -340,7 +340,7 @@
   </update>
   <update id="updateByLogicDelete" parameterType="com.kgc.study.bean.NewsInfo" >
     update news_info
-    set logicDelete = #{logicDelete}
+    set logic_delete = #{logicDelete}
     where id = #{id}
   </update>
 </mapper>

@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,13 +45,12 @@ public class newsController {
     @ApiOperation("查询新闻")
     @GetMapping("/news-list")
     @ApiImplicitParam(name = "NewsInfo",value = "NewsInfo实体类",required = true)
-    public String doNewsList(Model model,@RequestParam(value = "pageSize",required = false,defaultValue = "5") int pageSize,
+    public String doNewsList(Model model,@RequestParam(value = "pageSize",required = false,defaultValue = "2") int pageSize,
                                          @RequestParam(value = "pageIndex",required = false,defaultValue = "1") int pageIndex,
                                          @RequestParam(value = "title",required = false) String title,
                                          @RequestParam(value = "gmtCreate1",required = false) Date gmtCreate1,
                                          @RequestParam(value = "gmtCreate2",required = false) Date gmtCreate2){
         PageInfo<NewsInfo> pageInfo = newsService.selNewsAndCreateAndmodifiedOrtitle(pageSize, pageIndex, title, gmtCreate1, gmtCreate2);
-        System.out.println(pageInfo);
         model.addAttribute("pageInfo",pageInfo);
         return "news-list";
     }
@@ -92,11 +93,11 @@ public class newsController {
     @ResponseBody
     @ApiImplicitParam(name = "NewsInfo",value = "NewsInfo实体类",required = true)
     public Map<String,Object> doNewsAdd(NewsInfo newsInfo){
-        int a = 0;
+        Integer a = 0;
         Map<String,Object> map = new HashMap<>();
         newsInfo.setGmtCreate(new Date());
         Integer newsInfoClickCount = newsInfo.getNewsInfoClickCount();
-        if (newsInfoClickCount==null){
+        if (newsInfoClickCount.equals("")){
             newsInfoClickCount = a;
         }else{
             newsInfo.setNewsInfoClickCount(newsInfoClickCount++);
@@ -153,18 +154,11 @@ public class newsController {
      * @return
      */
     @ApiOperation("删除新闻")
-    @PostMapping("/news-edit-del")
-    @ResponseBody
+    @GetMapping("/news-edit-del")
     @ApiImplicitParam(name = "NewsInfo",value = "NewsInfo实体类",required = true)
-    public Map<String,Object> doNewsdel(Long id,Integer logicDelete){
-        Map<String,Object> map = new HashMap<>();
-        int i = newsService.delNews(id,logicDelete);
-        if (i>0){
-            map.put("status", "true");
-        }else{
-            map.put("status", "false");
-        }
-        return map;
+    public String doNewsdel(Long id,Integer logicDelete){
+        newsService.delNews(id,1);
+        return "redirect:/news-list";
     }
 
 }

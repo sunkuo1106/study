@@ -82,7 +82,6 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
                 advertisementInfo1.setAdSequence(info.getAdSequence()-1);
                 advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo1);
             }
-
         }
         advertisementInfo.setAdSequence(advertisementInfo2.getAdSequence());
         return advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo);

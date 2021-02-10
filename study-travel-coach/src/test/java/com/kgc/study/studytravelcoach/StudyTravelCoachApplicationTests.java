@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @SpringBootTest
 class StudyTravelCoachApplicationTests {
@@ -16,7 +19,16 @@ class StudyTravelCoachApplicationTests {
 
     @Test
     void contextLoads() {
-        PageInfo<NewsInfo> pageInfo = newsService.selNewsAndCreateAndmodifiedOrtitle(2, 1, null, null, null);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = null;
+        Date date2 = null;
+        try {
+             date = format.parse("2021-02-06");
+             date2 = format.parse("2021-02-11");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        PageInfo<NewsInfo> pageInfo = newsService.selNewsAndCreateAndmodifiedOrtitle(5, 1, null,date , date2);
         for (NewsInfo o : pageInfo.getList()) {
             System.out.println(o);
         }
