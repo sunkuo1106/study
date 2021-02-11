@@ -14,6 +14,14 @@
     <result column="record_test_keys_list" property="recordTestKeysList" jdbcType="VARCHAR" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
+
+  <!--批量逻辑删除-->
+  <update id="updateList">
+    UPDATE record_info SET logic_delete=1 WHERE id IN
+    <foreach collection="list" item="recordid" open="(" close=")" separator=",">
+      #{recordid}
+    </foreach>
+  </update>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

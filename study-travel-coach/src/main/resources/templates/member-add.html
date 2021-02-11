@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <div>
+        <form th:action="@{/doadd}">
+            <input type="hidden" name="logicDelete" th:value="0"/>
+            <p><span style="font-weight: bolder">班级类型:</span><input type="text" name="gradeTyepName"><span style="color:red;">*</span></p>
+            <p><span style="font-weight: bolder">班级价格:</span><input type="text" name="gradeTypePrice"><span style="color:red;">*</span></p>
+            <p><input type="submit" value="提交">&nbsp;<input type="reset"></p>
+        </form>
+    </div>
+</center>
+</body>
+</html>

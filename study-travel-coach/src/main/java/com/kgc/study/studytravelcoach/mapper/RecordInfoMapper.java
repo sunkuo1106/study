@@ -28,4 +28,6 @@ public interface RecordInfoMapper {
     int updateByPrimaryKeySelective(RecordInfo record);
 
     int updateByPrimaryKey(RecordInfo record);
+
+    int updateList(List recordId);
 }

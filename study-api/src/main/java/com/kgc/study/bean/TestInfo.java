@@ -9,11 +9,11 @@ public class TestInfo {
 
     private Date gmtModified;
 
-    private Date testTime;
+    private String testName;
 
     private Integer testScore;
 
-    private Integer testTyepe;
+    private Integer testType;
 
     private String testA;
 
@@ -30,6 +30,35 @@ public class TestInfo {
     private String testCourseTitle;
 
     private Integer logicDelete;
+
+    private String keys;
+
+    public String getKeys() {
+        return keys;
+    }
+
+    public void setKeys(String keys) {
+        this.keys = keys;
+    }
+    @Override
+    public String toString() {
+        return "TestInfo{" +
+                "id=" + id +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", testName='" + testName + '\'' +
+                ", testScore=" + testScore +
+                ", testType=" + testType +
+                ", testA='" + testA + '\'' +
+                ", testB='" + testB + '\'' +
+                ", testC='" + testC + '\'' +
+                ", testD='" + testD + '\'' +
+                ", testKeys='" + testKeys + '\'' +
+                ", testHints='" + testHints + '\'' +
+                ", testCourseTitle='" + testCourseTitle + '\'' +
+                ", logicDelete=" + logicDelete +
+                '}';
+    }
 
     public Long getId() {
         return id;
@@ -55,12 +84,12 @@ public class TestInfo {
         this.gmtModified = gmtModified;
     }
 
-    public Date getTestTime() {
-        return testTime;
+    public String getTestName() {
+        return testName;
     }
 
-    public void setTestTime(Date testTime) {
-        this.testTime = testTime;
+    public void setTestName(String testName) {
+        this.testName = testName == null ? null : testName.trim();
     }
 
     public Integer getTestScore() {
@@ -71,12 +100,12 @@ public class TestInfo {
         this.testScore = testScore;
     }
 
-    public Integer getTestTyepe() {
-        return testTyepe;
+    public Integer getTestType() {
+        return testType;
     }
 
-    public void setTestTyepe(Integer testTyepe) {
-        this.testTyepe = testTyepe;
+    public void setTestType(Integer testType) {
+        this.testType = testType;
     }
 
     public String getTestA() {

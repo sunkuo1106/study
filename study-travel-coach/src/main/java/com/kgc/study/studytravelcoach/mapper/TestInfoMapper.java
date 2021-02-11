@@ -28,4 +28,6 @@ public interface TestInfoMapper {
     int updateByPrimaryKeySelective(TestInfo record);
 
     int updateByPrimaryKey(TestInfo record);
+
+    int updateList(List id);
 }

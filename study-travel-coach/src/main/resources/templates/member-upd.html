@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <div>
+        <form th:action="@{/doupd}">
+            <input type="hidden" th:value="${gradeTypeList.id}" name="id">
+     <!--       <input type="hidden" th:value="${gradeTypeList.gmtCreate}" name="gmtCreate">
+            <input type="hidden" th:value="${gradeTypeList.gmtModified}" name="gmtModified">
+            <input type="hidden" th:value="${gradeTypeList.logicDelete}" name="logicDelete">-->
+            <p><span style="font-weight: bolder">班级类型:</span><input type="text" name="gradeTyepName" th:value="${gradeTypeList.gradeTyepName}"><span style="color:red;">*</span></p>
+            <p><span style="font-weight: bolder">班级价格:</span><input type="text" name="gradeTypePrice" th:value="${gradeTypeList.gradeTypePrice}"><span style="color:red;">*</span></p>
+            <p><input type="submit" value="提交">&nbsp;<input type="reset"></p>
+        </form>
+    </div>
+</center>
+</body>
+</html>

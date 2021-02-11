@@ -5,9 +5,9 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
-    <result column="test_time" property="testTime" jdbcType="TIMESTAMP" />
+    <result column="test_name" property="testName" jdbcType="VARCHAR" />
     <result column="test_score" property="testScore" jdbcType="INTEGER" />
-    <result column="test_tyepe" property="testTyepe" jdbcType="INTEGER" />
+    <result column="test_type" property="testType" jdbcType="INTEGER" />
     <result column="test_a" property="testA" jdbcType="VARCHAR" />
     <result column="test_b" property="testB" jdbcType="VARCHAR" />
     <result column="test_c" property="testC" jdbcType="VARCHAR" />
@@ -17,6 +17,13 @@
     <result column="test_course_title" property="testCourseTitle" jdbcType="VARCHAR" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
+  <!--批量逻辑删除-->
+  <update id="updateList">
+    UPDATE test_info SET logic_delete=1 WHERE id IN
+    <foreach collection="list" item="testid" open="(" close=")" separator=",">
+      #{testid}
+    </foreach>
+  </update>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -76,8 +83,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, gmt_create, gmt_modified, test_time, test_score, test_tyepe, test_a, test_b, 
-    test_c, test_d, test_keys, test_hints, test_course_title, logic_delete
+    id, gmt_create, gmt_modified, test_name, test_score, test_type, test_a, test_b, test_c, 
+    test_d, test_keys, test_hints, test_course_title, logic_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.TestInfoExample" >
     select
@@ -111,12 +118,12 @@
   </delete>
   <insert id="insert" parameterType="com.kgc.study.bean.TestInfo" >
     insert into test_info (id, gmt_create, gmt_modified, 
-      test_time, test_score, test_tyepe, 
+      test_name, test_score, test_type, 
       test_a, test_b, test_c, 
       test_d, test_keys, test_hints, 
       test_course_title, logic_delete)
     values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{testTime,jdbcType=TIMESTAMP}, #{testScore,jdbcType=INTEGER}, #{testTyepe,jdbcType=INTEGER}, 
+      #{testName,jdbcType=VARCHAR}, #{testScore,jdbcType=INTEGER}, #{testType,jdbcType=INTEGER}, 
       #{testA,jdbcType=VARCHAR}, #{testB,jdbcType=VARCHAR}, #{testC,jdbcType=VARCHAR}, 
       #{testD,jdbcType=VARCHAR}, #{testKeys,jdbcType=VARCHAR}, #{testHints,jdbcType=VARCHAR}, 
       #{testCourseTitle,jdbcType=VARCHAR}, #{logicDelete,jdbcType=INTEGER})
@@ -133,14 +140,14 @@
       <if test="gmtModified != null" >
         gmt_modified,
       </if>
-      <if test="testTime != null" >
-        test_time,
+      <if test="testName != null" >
+        test_name,
       </if>
       <if test="testScore != null" >
         test_score,
       </if>
-      <if test="testTyepe != null" >
-        test_tyepe,
+      <if test="testType != null" >
+        test_type,
       </if>
       <if test="testA != null" >
         test_a,
@@ -177,14 +184,14 @@
       <if test="gmtModified != null" >
         #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="testTime != null" >
-        #{testTime,jdbcType=TIMESTAMP},
+      <if test="testName != null" >
+        #{testName,jdbcType=VARCHAR},
       </if>
       <if test="testScore != null" >
         #{testScore,jdbcType=INTEGER},
       </if>
-      <if test="testTyepe != null" >
-        #{testTyepe,jdbcType=INTEGER},
+      <if test="testType != null" >
+        #{testType,jdbcType=INTEGER},
       </if>
       <if test="testA != null" >
         #{testA,jdbcType=VARCHAR},
@@ -230,14 +237,14 @@
       <if test="record.gmtModified != null" >
         gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.testTime != null" >
-        test_time = #{record.testTime,jdbcType=TIMESTAMP},
+      <if test="record.testName != null" >
+        test_name = #{record.testName,jdbcType=VARCHAR},
       </if>
       <if test="record.testScore != null" >
         test_score = #{record.testScore,jdbcType=INTEGER},
       </if>
-      <if test="record.testTyepe != null" >
-        test_tyepe = #{record.testTyepe,jdbcType=INTEGER},
+      <if test="record.testType != null" >
+        test_type = #{record.testType,jdbcType=INTEGER},
       </if>
       <if test="record.testA != null" >
         test_a = #{record.testA,jdbcType=VARCHAR},
@@ -273,9 +280,9 @@
     set id = #{record.id,jdbcType=BIGINT},
       gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
-      test_time = #{record.testTime,jdbcType=TIMESTAMP},
+      test_name = #{record.testName,jdbcType=VARCHAR},
       test_score = #{record.testScore,jdbcType=INTEGER},
-      test_tyepe = #{record.testTyepe,jdbcType=INTEGER},
+      test_type = #{record.testType,jdbcType=INTEGER},
       test_a = #{record.testA,jdbcType=VARCHAR},
       test_b = #{record.testB,jdbcType=VARCHAR},
       test_c = #{record.testC,jdbcType=VARCHAR},
@@ -297,14 +304,14 @@
       <if test="gmtModified != null" >
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
-      <if test="testTime != null" >
-        test_time = #{testTime,jdbcType=TIMESTAMP},
+      <if test="testName != null" >
+        test_name = #{testName,jdbcType=VARCHAR},
       </if>
       <if test="testScore != null" >
         test_score = #{testScore,jdbcType=INTEGER},
       </if>
-      <if test="testTyepe != null" >
-        test_tyepe = #{testTyepe,jdbcType=INTEGER},
+      <if test="testType != null" >
+        test_type = #{testType,jdbcType=INTEGER},
       </if>
       <if test="testA != null" >
         test_a = #{testA,jdbcType=VARCHAR},
@@ -337,9 +344,9 @@
     update test_info
     set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      test_time = #{testTime,jdbcType=TIMESTAMP},
+      test_name = #{testName,jdbcType=VARCHAR},
       test_score = #{testScore,jdbcType=INTEGER},
-      test_tyepe = #{testTyepe,jdbcType=INTEGER},
+      test_type = #{testType,jdbcType=INTEGER},
       test_a = #{testA,jdbcType=VARCHAR},
       test_b = #{testB,jdbcType=VARCHAR},
       test_c = #{testC,jdbcType=VARCHAR},

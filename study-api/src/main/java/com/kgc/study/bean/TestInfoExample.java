@@ -285,63 +285,73 @@ public class TestInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeIsNull() {
-            addCriterion("test_time is null");
+        public Criteria andTestNameIsNull() {
+            addCriterion("test_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeIsNotNull() {
-            addCriterion("test_time is not null");
+        public Criteria andTestNameIsNotNull() {
+            addCriterion("test_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeEqualTo(Date value) {
-            addCriterion("test_time =", value, "testTime");
+        public Criteria andTestNameEqualTo(String value) {
+            addCriterion("test_name =", value, "testName");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeNotEqualTo(Date value) {
-            addCriterion("test_time <>", value, "testTime");
+        public Criteria andTestNameNotEqualTo(String value) {
+            addCriterion("test_name <>", value, "testName");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeGreaterThan(Date value) {
-            addCriterion("test_time >", value, "testTime");
+        public Criteria andTestNameGreaterThan(String value) {
+            addCriterion("test_name >", value, "testName");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("test_time >=", value, "testTime");
+        public Criteria andTestNameGreaterThanOrEqualTo(String value) {
+            addCriterion("test_name >=", value, "testName");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeLessThan(Date value) {
-            addCriterion("test_time <", value, "testTime");
+        public Criteria andTestNameLessThan(String value) {
+            addCriterion("test_name <", value, "testName");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeLessThanOrEqualTo(Date value) {
-            addCriterion("test_time <=", value, "testTime");
+        public Criteria andTestNameLessThanOrEqualTo(String value) {
+            addCriterion("test_name <=", value, "testName");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeIn(List<Date> values) {
-            addCriterion("test_time in", values, "testTime");
+        public Criteria andTestNameLike(String value) {
+            addCriterion("test_name like", value, "testName");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeNotIn(List<Date> values) {
-            addCriterion("test_time not in", values, "testTime");
+        public Criteria andTestNameNotLike(String value) {
+            addCriterion("test_name not like", value, "testName");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeBetween(Date value1, Date value2) {
-            addCriterion("test_time between", value1, value2, "testTime");
+        public Criteria andTestNameIn(List<String> values) {
+            addCriterion("test_name in", values, "testName");
             return (Criteria) this;
         }
 
-        public Criteria andTestTimeNotBetween(Date value1, Date value2) {
-            addCriterion("test_time not between", value1, value2, "testTime");
+        public Criteria andTestNameNotIn(List<String> values) {
+            addCriterion("test_name not in", values, "testName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestNameBetween(String value1, String value2) {
+            addCriterion("test_name between", value1, value2, "testName");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestNameNotBetween(String value1, String value2) {
+            addCriterion("test_name not between", value1, value2, "testName");
             return (Criteria) this;
         }
 
@@ -405,63 +415,63 @@ public class TestInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeIsNull() {
-            addCriterion("test_tyepe is null");
+        public Criteria andTestTypeIsNull() {
+            addCriterion("test_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeIsNotNull() {
-            addCriterion("test_tyepe is not null");
+        public Criteria andTestTypeIsNotNull() {
+            addCriterion("test_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeEqualTo(Integer value) {
-            addCriterion("test_tyepe =", value, "testTyepe");
+        public Criteria andTestTypeEqualTo(Integer value) {
+            addCriterion("test_type =", value, "testType");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeNotEqualTo(Integer value) {
-            addCriterion("test_tyepe <>", value, "testTyepe");
+        public Criteria andTestTypeNotEqualTo(Integer value) {
+            addCriterion("test_type <>", value, "testType");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeGreaterThan(Integer value) {
-            addCriterion("test_tyepe >", value, "testTyepe");
+        public Criteria andTestTypeGreaterThan(Integer value) {
+            addCriterion("test_type >", value, "testType");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("test_tyepe >=", value, "testTyepe");
+        public Criteria andTestTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("test_type >=", value, "testType");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeLessThan(Integer value) {
-            addCriterion("test_tyepe <", value, "testTyepe");
+        public Criteria andTestTypeLessThan(Integer value) {
+            addCriterion("test_type <", value, "testType");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeLessThanOrEqualTo(Integer value) {
-            addCriterion("test_tyepe <=", value, "testTyepe");
+        public Criteria andTestTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("test_type <=", value, "testType");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeIn(List<Integer> values) {
-            addCriterion("test_tyepe in", values, "testTyepe");
+        public Criteria andTestTypeIn(List<Integer> values) {
+            addCriterion("test_type in", values, "testType");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeNotIn(List<Integer> values) {
-            addCriterion("test_tyepe not in", values, "testTyepe");
+        public Criteria andTestTypeNotIn(List<Integer> values) {
+            addCriterion("test_type not in", values, "testType");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeBetween(Integer value1, Integer value2) {
-            addCriterion("test_tyepe between", value1, value2, "testTyepe");
+        public Criteria andTestTypeBetween(Integer value1, Integer value2) {
+            addCriterion("test_type between", value1, value2, "testType");
             return (Criteria) this;
         }
 
-        public Criteria andTestTyepeNotBetween(Integer value1, Integer value2) {
-            addCriterion("test_tyepe not between", value1, value2, "testTyepe");
+        public Criteria andTestTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("test_type not between", value1, value2, "testType");
             return (Criteria) this;
         }
 

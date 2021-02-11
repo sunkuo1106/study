@@ -1,5 +1,7 @@
 package com.kgc.study.bean;
 
+import org.springframework.security.core.userdetails.User;
+
 import java.util.Date;
 
 public class RecordInfo {
@@ -24,6 +26,16 @@ public class RecordInfo {
     private String recordTestKeysList;
 
     private Integer logicDelete;
+
+    private EduUser user;
+
+    public EduUser getUser() {
+        return user;
+    }
+
+    public void setUser(EduUser user) {
+        this.user = user;
+    }
 
     public Long getId() {
         return id;
