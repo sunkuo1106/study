@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="x-admin-sm"  xmlns:th="http://www.thymeleaf.org">
+<html class="x-admin-sm"   xmlns:th="http://www.thymeleaf.org" >
     
     <head>
         <meta charset="UTF-8">
@@ -36,20 +36,30 @@
                 <div class="layui-col-md12">
                     <div class="layui-card">
                         <div class="layui-card-body ">
-                            <form class="layui-form layui-col-space5">
+                            <form class="layui-form layui-col-space5" th:action="@{/learncenter}" method="post">
+                                <div th:if="${coursename}!=null" class="layui-input-inline layui-show-xs-block">
+                                    <input class="layui-input" th:value="${coursename}" placeholder="课程名称" name="coursename"></div>
+                                <div th:if="${coursename}==null" class="layui-input-inline layui-show-xs-block">
+                                    <input class="layui-input"  placeholder="课程名称" name="coursename"></div>
                                 <div class="layui-input-inline layui-show-xs-block">
-                                    <input class="layui-input" placeholder="分类名" name="cate_name"></div>
-                                <div class="layui-input-inline layui-show-xs-block">
-                                    <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon"></i>增加</button>
+                                    <button class="layui-btn"  type="submit"><i class="layui-icon layui-icon-search">查询</i></button>
+                                  <!--  <input value="搜索"/><a th:href="@{/toadd}">新增理财信息</a>-->
+
                                 </div>
                             </form>
-                            <hr>
-                            <blockquote class="layui-elem-quote">每个tr 上有两个属性 cate-id='1' 当前分类id fid='0' 父级id ,顶级分类为 0，有子分类的前面加收缩图标<i class="layui-icon x-show" status='true'>&#xe623;</i></blockquote>
+
+                          <!--  <hr>
+                            <blockquote class="layui-elem-quote">每个tr 上有两个属性 cate-id='1' 当前分类id fid='0' 父级id ,顶级分类为 0，有子分类的前面加收缩图标<i class="layui-icon x-show" status='true'>&#xe623;</i></blockquote>-->
                         </div>
                         <div class="layui-card-header">
-                            <button class="layui-btn layui-btn-danger" onclick="delAll()">
+                            <button class="layui-btn layui-btn-danger" onclick="AllDel()">
                                 <i class="layui-icon"></i>批量删除</button>
+                            <td class="td-manage">
+                           <a th:href="@{/course-add}"><button class="layui-btn"  lay-submit="" lay-filter="sreach"  ><i class="layui-icon"></i>增加</button></a>
+                           <!--     onclick="xadmin.open('编辑','/admin-editt')"-->
+                            </td>
                         </div>
+
                         <div class="layui-card-body ">
                             <table class="layui-table layui-form">
                               <thead>
@@ -57,146 +67,53 @@
                                   <th width="20">
                                     <input type="checkbox" name="" lay-skin="primary">
                                   </th>
-                                  <th width="70">ID</th>
-                                  <th>栏目名</th>
-                                  <th width="50">排序</th>
-                                  <th width="80">状态</th>
+                                  <th width="70">课程编号</th>
+                                  <th>课程名称</th>
+                                  <th>课程专业</th>
+                                  <th>课程介绍</th>
+                               <!--   <th width="50">排序</th>
+                                  <th width="80">状态</th>-->
                                   <th width="250">操作</th>
                               </thead>
+
+
+
                               <tbody class="x-cate">
-                                <tr cate-id='1' fid='0' >
+
+                                <tr cate-id='1' fid='0'th:each="course:${select.list}" >
                                   <td>
-                                    <input type="checkbox" name="" lay-skin="primary">
+                                   <!-- <input type="checkbox" name="" lay-skin="primary">-->
+                                      <input type="checkbox" name="selected item" class="all" th:value="${course.id}" lay-skin="primary"></td>
                                   </td>
-                                  <td>1</td>
+                                    <td th:text="${course.id}"></td>
+                                    <td th:text="${course.courseName}"></td>
+                                    <td th:text="${course.courseSubjec}"></td>
+                                    <td th:text="${course.courseIntroduction}"></td>
+                                   <!-- <td><input type="text" class="layui-input x-sort" name="order" value="1"></td>
+                                    <td>
+                                        <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
+                                    </td>-->
+                                    <td class="td-manage">
+                                        <a th:href="@{/course-updcha(id=${course.id})}"><button class="layui-btn layui-btn layui-btn-xs"><i class="layui-icon">&#xe642;</i>编辑</button></a>
+                                        <a th:href="@{/chapterSelect(courseId=${course.id})}"><button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>查看章节</button></a>
+                                        <a  onclick="return window.confirm('确定删除此课程吗？')" th:href="@{'/course-dele/'+${course.id}}"><button class="layui-btn-danger layui-btn layui-btn-xs"   href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button></a>
+<!--
+                                        <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
+-->
+                                    </td>
+                                    <!--   <td th:text="${#dates.format(book.salestarting,'yyyy-MM-dd')}"></td>
+                                       <td th:text="${#dates.format(book.saleend,'yyyy-MM-dd')}"></td>
+                                       <td th:text="${#dates.format(book.end,'yyyy-MM-dd')}"></td>-->
+
+                                    <!--<td><a th:href="@{'/updcha/'+${course.id}}">修改</a>||<a onclick="return window.confirm('确定删除吗？')" th:href="@{'/delete/'+${book.id}}">删除</a></td>-->
+
+                                <!--  <td>1</td>
                                   <td>
                                     <i class="layui-icon x-show" status='true'>&#xe623;</i>
                                     产品管理
                                   </td>
-                                  <td><input type="text" class="layui-input x-sort" name="order" value="1"></td>
-                                  <td>
-                                    <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
-                                  </td>
-                                  <td class="td-manage">
-                                    <button class="layui-btn layui-btn layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-                                    <button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>添加子栏目</button>
-                                    <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
-                                  </td>
-                                </tr>
-                                <tr cate-id='2' fid='1' >
-                                  <td>
-                                    <input type="checkbox" name="" lay-skin="primary">
-                                  </td>
-                                  <td>2</td>
-                                  <td>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <i class="layui-icon x-show" status='true'>&#xe623;</i>
-                                    产品列表
-                                  </td>
-                                  <td><input type="text" class="layui-input x-sort" name="order" value="1"></td>
-                                  <td>
-                                    <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
-                                  </td>
-                                  <td class="td-manage">
-                                    <button class="layui-btn layui-btn layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-                                    <button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>添加子栏目</button>
-                                    <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
-                                  </td>
-                                </tr>
-                                <tr cate-id='3' fid='2' >
-                                  <td>
-                                    <input type="checkbox" name="" lay-skin="primary">
-                                  </td>
-                                  <td>3</td>
-                                  <td>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    ├产品列表
-                                  </td>
-                                  <td><input type="text" class="layui-input x-sort" name="order" value="1"></td>
-                                  <td>
-                                    <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
-                                  </td>
-                                  <td class="td-manage">
-                                    <button class="layui-btn layui-btn layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-                                    <button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>添加子栏目</button>
-                                    <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
-                                  </td>
-                                </tr>
-                                <tr cate-id='4' fid='2' >
-                                  <td>
-                                    <input type="checkbox" name="" lay-skin="primary">
-                                  </td>
-                                  <td>4</td>
-                                  <td>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    ├产品列表
-                                  </td>
-                                  <td><input type="text" class="layui-input x-sort" name="order" value="1"></td>
-                                  <td>
-                                    <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
-                                  </td>
-                                  <td class="td-manage">
-                                    <button class="layui-btn layui-btn layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-                                    <button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>添加子栏目</button>
-                                    <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
-                                  </td>
-                                </tr>
-                                <tr cate-id='5' fid='0' >
-                                  <td>
-                                   <input type="checkbox" name="" lay-skin="primary">
-                                  </td>
-                                  <td>5</td>
-                                  <td>
-                                    
-                                    <i class="layui-icon x-show" status='true'>&#xe623;</i>新闻
-                                  </td>
-                                  <td><input type="text" class="layui-input x-sort" name="order" value="1"></td>
-                                  <td>
-                                    <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
-                                  </td>
-                                  <td class="td-manage">
-                                    <button class="layui-btn layui-btn layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-                                    <button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>添加子栏目</button>
-                                    <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
-                                  </td>
-                                </tr>
-                                <tr cate-id='6' fid='5' >
-                                  <td>
-                                    <input type="checkbox" name="" lay-skin="primary">
-                                  </td>
-                                  <td>6</td>
-                                  <td>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    ├国内新闻
-                                  </td>
-                                  <td><input type="text" class="layui-input x-sort" name="order" value="1"></td>
-                                  <td>
-                                    <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
-                                  </td>
-                                  <td class="td-manage">
-                                    <button class="layui-btn layui-btn layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-                                    <button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>添加子栏目</button>
-                                    <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
-                                  </td>
-                                </tr>
-                                <tr cate-id='7' fid='5' >
-                                  <td>
-                                    <input type="checkbox" name="" lay-skin="primary">
-                                  </td>
-                                  <td>7</td>
-                                  <td>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    ├国外新闻
-                                  </td>
-                                  <td><input type="text" class="layui-input x-sort" name="order" value="1"></td>
-                                  <td>
-                                    <input type="checkbox" name="switch"  lay-text="开启|停用"  checked="" lay-skin="switch">
-                                  </td>
-                                  <td class="td-manage">
-                                    <button class="layui-btn layui-btn layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>编辑</button>
-                                    <button class="layui-btn layui-btn-warm layui-btn-xs"  onclick="xadmin.open('编辑','admin-edit.html')" ><i class="layui-icon">&#xe642;</i>添加子栏目</button>
-                                    <button class="layui-btn-danger layui-btn layui-btn-xs"  onclick="member_del(this,'要删除的id')" href="javascript:;" ><i class="layui-icon">&#xe640;</i>删除</button>
-                                  </td>
+                                 -->
+
                                 </tr>
                               </tbody>
                             </table>
@@ -204,12 +121,12 @@
                         <div class="layui-card-body ">
                             <div class="page">
                                 <div>
-                                    <a class="prev" href="">&lt;&lt;</a>
-                                    <a class="num" href="">1</a>
-                                    <span class="current">2</span>
-                                    <a class="num" href="">3</a>
-                                    <a class="num" href="">489</a>
-                                    <a class="next" href="">&gt;&gt;</a></div>
+                                    <a class="current" th:href="@{/learncenter(pageNum=1,coursename=${coursename})}">首页</a>
+                                    <a class="prev" th:href="@{/learncenter(pageNum=${select.prePage},coursename=${coursename})}">上一页</a>
+                                    <a class="next" th:href="@{/learncenter(pageNum=${select.nextPage},coursename=${coursename})}">下一页</a>
+                                    <a class="num" th:href="@{/learncenter(pageNum=${select.lastPage},coursename=${coursename})}">尾页</a>
+                                    <span style="color:#888888">第[[${select.pageNum}]]页,共[[${select.pages}]]页</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -217,19 +134,88 @@
             </div>
         </div>
         <script>
-          layui.use(['form'], function(){
+
+
+            /*用户-停用*/
+            function member_stop(obj,id){
+                layer.confirm('确认要停用吗？',function(index){
+
+                    if($(obj).attr('title')=='启用'){
+
+                        //发异步把用户状态进行更改
+                        $(obj).attr('title','停用')
+                        $(obj).find('i').html('&#xe62f;');
+
+                        $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
+                        layer.msg('已停用!',{icon: 5,time:1000});
+
+                    }else{
+                        $(obj).attr('title','启用')
+                        $(obj).find('i').html('&#xe601;');
+
+                        $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
+                        layer.msg('已启用!',{icon: 5,time:1000});
+                    }
+
+                });
+            }
+
+
+
+            layui.use(['form'], function(){
             form = layui.form;
             
           });
 
-           /*用户-删除*/
+      /*     /!*用户-删除*!/
           function member_del(obj,id){
               layer.confirm('确认要删除吗？',function(index){
                   //发异步删除数据
                   $(obj).parents("tr").remove();
                   layer.msg('已删除!',{icon:1,time:1000});
               });
+          }*/
+
+           /*用户-删除*/
+          function member_del(){
+              if(confirm('确定要删除所选课程吗?')){
+                  var str="";
+                  checks.each(function(){
+                      str+=$(this).val()+",";
+                  })
+                  $.post('/courseupdatedeletelist',{str:str},function (data) {
+                      if (data.status=="true"){
+                          layer.msg("课程删除成功!")
+                          setTimeout(function () {
+                              location.reload();
+                          }, 300);
+                      }else{
+                          layer.msg("课程删除失败!")
+                      }
+
+                  },"json")
+                  window.location.reload();
+              }
           }
+
+    /*        if(confirm('确定要删除所选课程吗?')){
+                var str="";
+                checks.each(function(){
+                    str+=$(this).val()+",";
+                })
+                $.post('/courseupdatedeletelist',{str:str},function (data) {
+                    if (data.status=="true"){
+                        layer.msg("课程删除成功!")
+                        setTimeout(function () {
+                            location.reload();
+                        }, 300);
+                    }else{
+                        layer.msg("课程删除失败!")
+                    }
+
+                },"json")
+                window.location.reload();
+            }*/
 
           // 分类展开收起的分类的逻辑
           // 
@@ -263,7 +249,36 @@
                   getCateId(id);
               });
           }
+
+
+            function AllDel(){
+                var checks=$("[name='selected item']:checked");
+                if(checks.length==0){
+                    layer.confirm('请选择课程!')
+                    return false;
+                }
+                if(confirm('确定要删除所选课程吗?')){
+                    var str="";
+                    checks.each(function(){
+                        str+=$(this).val()+",";
+                    })
+                    $.post('/courseupdatedeletelist',{str:str},function (data) {
+                        if (data.status=="true"){
+                            layer.msg("课程删除成功!")
+                            setTimeout(function () {
+                                location.reload();
+                            }, 300);
+                        }else{
+                            layer.msg("课程删除失败!")
+                        }
+
+                    },"json")
+                    window.location.reload();
+                }
+            }
    
         </script>
+
+
     </body>
 </html>

@@ -4,6 +4,7 @@ import com.kgc.study.bean.Course;
 import com.kgc.study.bean.CourseExample;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface CourseMapper {
@@ -28,4 +29,6 @@ public interface CourseMapper {
     int updateByPrimaryKeySelective(Course record);
 
     int updateByPrimaryKey(Course record);
+    int updatedeletelist(ArrayList list);
+
 }

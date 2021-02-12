@@ -51,7 +51,7 @@
                                     <tr>
                                         <th><input type="checkbox"  name=""  lay-filter="checkall"  lay-skin="primary">
                                         </th>
-                                        <th>广告编号</th>
+                                       <!-- <th>广告编号</th>-->
                                         <th>广告名称</th>
                                         <th>广告标题</th>
                                         <th>广告图片</th>
@@ -64,7 +64,7 @@
                                     <tr th:each="ad :${advertisementInfos}">
                                         <td>
                                             <input type="checkbox" name="selected item" class="all" th:value="${ad.adId}" lay-skin="primary"></td>
-                                        <td th:text="${ad.adId}"></td>
+                                     <!--   <td th:text="${ad.adId}"></td>-->
                                         <td th:text="${ad.adName}"></td>
                                         <td th:text="${ad.adTitle}"></td>
                                         <td ><img th:src="${ad.adImg}"></img></td>
