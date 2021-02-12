@@ -11,7 +11,7 @@ public interface ChapterTableMapper {
 
     int deleteByExample(ChapterTableExample example);
 
-    int deleteByPrimaryKey(Integer chapterTableId);
+    int deleteByPrimaryKey(Long chapterTableId);
 
     int insert(ChapterTable record);
 
@@ -19,7 +19,7 @@ public interface ChapterTableMapper {
 
     List<ChapterTable> selectByExample(ChapterTableExample example);
 
-    ChapterTable selectByPrimaryKey(Integer chapterTableId);
+    ChapterTable selectByPrimaryKey(Long chapterTableId);
 
     int updateByExampleSelective(@Param("record") ChapterTable record, @Param("example") ChapterTableExample example);
 
@@ -28,4 +28,6 @@ public interface ChapterTableMapper {
     int updateByPrimaryKeySelective(ChapterTable record);
 
     int updateByPrimaryKey(ChapterTable record);
+    //批量删除  逻辑删除
+    int Chapterupdatedeletelist(List chapterTableId);
 }

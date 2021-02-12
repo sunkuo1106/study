@@ -10,6 +10,13 @@
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
+  <!--批量删除 逻辑删除-->
+  <update id="updatedeletelist">
+    UPDATE  Course SET logic_delete=1,gmt_modified=(select now()) WHERE  id IN
+    <foreach collection="list" separator="," open="(" close=")" item="id">
+      #{id}
+    </foreach>
+  </update>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

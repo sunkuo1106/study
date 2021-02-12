@@ -3,9 +3,9 @@ package com.kgc.study.bean;
 import java.util.Date;
 
 public class ChapterTable {
-    private Integer chapterTableId;
+    private Long chapterTableId;
 
-    private String courseName;
+    private String chapterName;
 
     private Long courseId;
 
@@ -15,20 +15,20 @@ public class ChapterTable {
 
     private Integer logicDelete;
 
-    public Integer getChapterTableId() {
+    public Long getChapterTableId() {
         return chapterTableId;
     }
 
-    public void setChapterTableId(Integer chapterTableId) {
+    public void setChapterTableId(Long chapterTableId) {
         this.chapterTableId = chapterTableId;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getChapterName() {
+        return chapterName;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName == null ? null : courseName.trim();
+    public void setChapterName(String chapterName) {
+        this.chapterName = chapterName == null ? null : chapterName.trim();
     }
 
     public Long getCourseId() {

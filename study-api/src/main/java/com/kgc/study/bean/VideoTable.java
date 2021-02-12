@@ -18,6 +18,16 @@ public class VideoTable {
     private Date gmtModified;
 
     private Integer logicDelete;
+    /*讲师姓名*/
+    private String tchName;
+
+    public String getTchName() {
+        return tchName;
+    }
+
+    public void setTchName(String tchName) {
+        this.tchName = tchName;
+    }
 
     public Long getVideoTableId() {
         return videoTableId;
