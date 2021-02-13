@@ -9,7 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @SpringBootTest
 class StudyTravelCoachApplicationTests {
@@ -31,6 +33,17 @@ class StudyTravelCoachApplicationTests {
         PageInfo<NewsInfo> pageInfo = newsService.selNewsAndCreateAndmodifiedOrtitle(5, 1, null,date , date2);
         for (NewsInfo o : pageInfo.getList()) {
             System.out.println(o);
+        }
+    }
+
+
+    @Test
+    void contextLoads2() {
+        int i = newsService.delNewsList("2,3,4");
+        if (i>0){
+            System.out.println("成功");
+        }else{
+            System.out.println("失败");
         }
     }
 

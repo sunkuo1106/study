@@ -35,15 +35,16 @@
                 <form th:action="@{/news-list}" method="get">
                     <div class="layui-card-body ">
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="date" autocomplete="off" placeholder="创建时间"
+                            <input th:value="${gmtCreate1}"  type="date" autocomplete="off" placeholder="创建时间"
                                    name="gmtCreate1" id="start">
+                            <!--class="layui-input"-->
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input class="layui-input" type="date" autocomplete="off" placeholder="发布时间"
+                            <input th:value="${gmtCreate2}" type="date" autocomplete="off" placeholder="发布时间"
                                    name="gmtCreate2" id="end">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input type="text" name="title" placeholder="新闻标题" id="title" autocomplete="off"
+                            <input type="text" th:value="${title}" name="title" placeholder="新闻标题" id="title" autocomplete="off"
                                    class="layui-input">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
@@ -64,7 +65,9 @@
                         <thead>
                         <tr>
                             <th>
-                                <input type="checkbox" name="" lay-skin="primary">
+                                <!--<input type="checkbox" onclick="xanZhong()" name="" lay-skin="primary">-->
+                                <!--<input type="checkbox" οnclick="xanZhong()" name="selected item" />-->
+                                <span onclick="swapCheck()">全选</span>
                             </th>
                             <th>新闻编号</th>
                             <th>新闻标题</th>
@@ -73,7 +76,7 @@
                         <tbody th:each="p:${pageInfo.list}">
                         <tr>
                             <td>
-                                <input type="checkbox" name="" lay-skin="primary">
+                                <input type="checkbox" th:value="${p.id}" name="selected item" lay-skin="primary">
                             </td>
                             <td th:text="${p.id}">1</td>
                             <td th:text="${p.newsInfoTitle}">超级管理员</td>
@@ -106,6 +109,24 @@
 <script src="./js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 <script>
+
+    //checkbox 全选/取消全选
+    var isCheckAll = false;
+    function swapCheck() {
+        alert(1)
+        if (isCheckAll) {
+            $("input[type='checkbox']").each(function() {
+                this.checked = false;
+            });
+            isCheckAll = false;
+        } else {
+            $("input[type='checkbox']").each(function() {
+                this.checked = true;
+            });
+            isCheckAll = true;
+        }
+    }
+
     
     layui.use(['laydate', 'form'], function () {
         var laydate = layui.laydate;
@@ -157,14 +178,28 @@
 
 
     function delAll(argument) {
+            var checks=$("[name='selected item']:checked");
+            if(checks.length==0){
+                layer.confirm('请选择一条要删除的新闻!')
+                return false;
+            }
+            if(confirm('确定要删除所选新闻吗?')){
+                var str="";
+                checks.each(function(){
+                    str+=$(this).val()+",";
+                })
+                $.post('/doNewsdelList',{gpId:str},function (data) {
+                    if (data.status=="true"){
+                        layer.msg("删除成功!")
+                        setTimeout(function () {
+                            location.reload();
+                        }, 300);
+                    }else{
+                        layer.msg("删除失败!")
+                    }
 
-        var data = tableCheck.getData();
-
-        layer.confirm('确认要删除吗？' + data, function (index) {
-            //捉到所有被选中的，发异步进行删除
-            layer.msg('删除成功', {icon: 1});
-            $(".layui-form-checked").not('.header').parents('tr').remove();
-        });
+                },"json")
+            }
     }
 </script>
 <script>var _hmt = _hmt || [];

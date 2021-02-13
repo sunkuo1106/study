@@ -35,5 +35,18 @@ public interface NewsInfoMapper {
 
     int updateByPrimaryKey(NewsInfo record);
 
+    /**
+     * 单个
+     * @param id
+     * @param logicDelete
+     * @return
+     */
     int updateByLogicDelete(@Param("id")Long id,@Param("logicDelete")Integer logicDelete);
+
+    /**
+     * 批量修改，逻辑删除
+     * @param id
+     * @return
+     */
+    int updateByLogicDeleteList(List id);
 }

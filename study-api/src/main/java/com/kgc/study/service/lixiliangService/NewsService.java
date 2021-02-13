@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.kgc.study.bean.NewsInfo;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author 李锡良
@@ -32,8 +33,15 @@ public interface NewsService {
     int updNewsAll(NewsInfo newsInfo);
 
     /**
-     *  根据id删除新闻 逻辑删除
+     *  根据id删除新闻 逻辑修改
      */
     int delNews(Long id,Integer logicDelete);
+
+    /**
+     * 根据id批量删除新闻，逻辑修改
+     * @param gpId
+     * @return
+     */
+    int delNewsList(String gpId);
 
 }

@@ -343,4 +343,13 @@
     set logic_delete = #{logicDelete}
     where id = #{id}
   </update>
+
+  <update id="updateByLogicDeleteList" parameterType="com.kgc.study.bean.NewsInfo">
+     update news_info set logic_delete = 1 where id in
+    <foreach collection="list" item="id" open="(" separator="," close=")">
+      #{id}
+     </foreach>
+  </update>
+
+
 </mapper>

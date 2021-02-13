@@ -48,10 +48,22 @@ public class newsController {
     public String doNewsList(Model model,@RequestParam(value = "pageSize",required = false,defaultValue = "2") int pageSize,
                                          @RequestParam(value = "pageIndex",required = false,defaultValue = "1") int pageIndex,
                                          @RequestParam(value = "title",required = false) String title,
-                                         @RequestParam(value = "gmtCreate1",required = false) Date gmtCreate1,
-                                         @RequestParam(value = "gmtCreate2",required = false) Date gmtCreate2){
-        PageInfo<NewsInfo> pageInfo = newsService.selNewsAndCreateAndmodifiedOrtitle(pageSize, pageIndex, title, gmtCreate1, gmtCreate2);
+                                         @RequestParam(value = "gmtCreate1",required = false) String gmtCreate1,
+                                         @RequestParam(value = "gmtCreate2",required = false) String gmtCreate2) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date date1 = null;
+        if (gmtCreate1!=null){
+            date1 = format.parse(gmtCreate1);
+        }
+        Date date2 = null;
+        if (gmtCreate2!=null){
+            date2 = format.parse(gmtCreate2);
+        }
+        PageInfo<NewsInfo> pageInfo = newsService.selNewsAndCreateAndmodifiedOrtitle(pageSize, pageIndex, title, date1, date2);
         model.addAttribute("pageInfo",pageInfo);
+        model.addAttribute("gmtCreate1",date1);
+        model.addAttribute("gmtCreate2",date2);
+        model.addAttribute("title",title);
         return "news-list";
     }
 
@@ -159,6 +171,27 @@ public class newsController {
     public String doNewsdel(Long id,Integer logicDelete){
         newsService.delNews(id,1);
         return "redirect:/news-list";
+    }
+
+    /**
+     * 逻辑删除,批量修改
+     * @param gpId
+     * @return
+     */
+    @ApiOperation("批量修改新闻")
+    @PostMapping("/doNewsdelList")
+    @ApiImplicitParam(name = "str",value = "数组",required = true)
+    @ResponseBody
+    public Map doNewsdelList(String gpId){
+        Map map = new HashMap();
+        int i = newsService.delNewsList(gpId);
+        if (i>0){
+            map.put("status", "true");
+        }else {
+            map.put("status", "false");
+        }
+
+        return map;
     }
 
 }

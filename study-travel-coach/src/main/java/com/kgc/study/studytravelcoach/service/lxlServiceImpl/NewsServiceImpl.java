@@ -10,6 +10,7 @@ import org.apache.dubbo.config.annotation.Service;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -73,4 +74,18 @@ public class NewsServiceImpl implements NewsService {
         int i = newsInfoMapper.updateByLogicDelete(id, logicDelete);
         return i;
     }
+
+    @Override
+    public int delNewsList(String gpId) {
+        ArrayList arrayList = new ArrayList();
+        String[] gpIds = gpId.split(",");
+        for (int i = 0; i < gpIds.length; i++) {
+            Long num = Long.parseLong(gpIds[i]);
+            arrayList.add(num);
+        }
+        int i = newsInfoMapper.updateByLogicDeleteList(arrayList);
+        return i;
+    }
+
+
 }
