@@ -425,52 +425,62 @@ public class PastExamPaperExample {
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdEqualTo(Long value) {
+        public Criteria andPepTestInfoIdEqualTo(String value) {
             addCriterion("pep_test_info_id =", value, "pepTestInfoId");
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdNotEqualTo(Long value) {
+        public Criteria andPepTestInfoIdNotEqualTo(String value) {
             addCriterion("pep_test_info_id <>", value, "pepTestInfoId");
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdGreaterThan(Long value) {
+        public Criteria andPepTestInfoIdGreaterThan(String value) {
             addCriterion("pep_test_info_id >", value, "pepTestInfoId");
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdGreaterThanOrEqualTo(Long value) {
+        public Criteria andPepTestInfoIdGreaterThanOrEqualTo(String value) {
             addCriterion("pep_test_info_id >=", value, "pepTestInfoId");
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdLessThan(Long value) {
+        public Criteria andPepTestInfoIdLessThan(String value) {
             addCriterion("pep_test_info_id <", value, "pepTestInfoId");
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdLessThanOrEqualTo(Long value) {
+        public Criteria andPepTestInfoIdLessThanOrEqualTo(String value) {
             addCriterion("pep_test_info_id <=", value, "pepTestInfoId");
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdIn(List<Long> values) {
+        public Criteria andPepTestInfoIdLike(String value) {
+            addCriterion("pep_test_info_id like", value, "pepTestInfoId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPepTestInfoIdNotLike(String value) {
+            addCriterion("pep_test_info_id not like", value, "pepTestInfoId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPepTestInfoIdIn(List<String> values) {
             addCriterion("pep_test_info_id in", values, "pepTestInfoId");
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdNotIn(List<Long> values) {
+        public Criteria andPepTestInfoIdNotIn(List<String> values) {
             addCriterion("pep_test_info_id not in", values, "pepTestInfoId");
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdBetween(Long value1, Long value2) {
+        public Criteria andPepTestInfoIdBetween(String value1, String value2) {
             addCriterion("pep_test_info_id between", value1, value2, "pepTestInfoId");
             return (Criteria) this;
         }
 
-        public Criteria andPepTestInfoIdNotBetween(Long value1, Long value2) {
+        public Criteria andPepTestInfoIdNotBetween(String value1, String value2) {
             addCriterion("pep_test_info_id not between", value1, value2, "pepTestInfoId");
             return (Criteria) this;
         }

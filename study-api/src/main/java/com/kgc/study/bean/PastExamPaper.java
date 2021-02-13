@@ -13,7 +13,7 @@ public class PastExamPaper {
 
     private Date pepExamDate;
 
-    private Long pepTestInfoId;
+    private String pepTestInfoId;
 
     private Integer logicDelete;
 
@@ -57,12 +57,12 @@ public class PastExamPaper {
         this.pepExamDate = pepExamDate;
     }
 
-    public Long getPepTestInfoId() {
+    public String getPepTestInfoId() {
         return pepTestInfoId;
     }
 
-    public void setPepTestInfoId(Long pepTestInfoId) {
-        this.pepTestInfoId = pepTestInfoId;
+    public void setPepTestInfoId(String pepTestInfoId) {
+        this.pepTestInfoId = pepTestInfoId == null ? null : pepTestInfoId.trim();
     }
 
     public Integer getLogicDelete() {

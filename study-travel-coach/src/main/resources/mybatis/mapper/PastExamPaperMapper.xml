@@ -7,7 +7,7 @@
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="pep_image" property="pepImage" jdbcType="VARCHAR" />
     <result column="pep_exam_date" property="pepExamDate" jdbcType="TIMESTAMP" />
-    <result column="pep_test_info_id" property="pepTestInfoId" jdbcType="BIGINT" />
+    <result column="pep_test_info_id" property="pepTestInfoId" jdbcType="VARCHAR" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -106,7 +106,7 @@
       pep_image, pep_exam_date, pep_test_info_id, 
       logic_delete)
     values (#{id,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
-      #{pepImage,jdbcType=VARCHAR}, #{pepExamDate,jdbcType=TIMESTAMP}, #{pepTestInfoId,jdbcType=BIGINT}, 
+      #{pepImage,jdbcType=VARCHAR}, #{pepExamDate,jdbcType=TIMESTAMP}, #{pepTestInfoId,jdbcType=VARCHAR}, 
       #{logicDelete,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.kgc.study.bean.PastExamPaper" >
@@ -151,7 +151,7 @@
         #{pepExamDate,jdbcType=TIMESTAMP},
       </if>
       <if test="pepTestInfoId != null" >
-        #{pepTestInfoId,jdbcType=BIGINT},
+        #{pepTestInfoId,jdbcType=VARCHAR},
       </if>
       <if test="logicDelete != null" >
         #{logicDelete,jdbcType=INTEGER},
@@ -183,7 +183,7 @@
         pep_exam_date = #{record.pepExamDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.pepTestInfoId != null" >
-        pep_test_info_id = #{record.pepTestInfoId,jdbcType=BIGINT},
+        pep_test_info_id = #{record.pepTestInfoId,jdbcType=VARCHAR},
       </if>
       <if test="record.logicDelete != null" >
         logic_delete = #{record.logicDelete,jdbcType=INTEGER},
@@ -200,7 +200,7 @@
       gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
       pep_image = #{record.pepImage,jdbcType=VARCHAR},
       pep_exam_date = #{record.pepExamDate,jdbcType=TIMESTAMP},
-      pep_test_info_id = #{record.pepTestInfoId,jdbcType=BIGINT},
+      pep_test_info_id = #{record.pepTestInfoId,jdbcType=VARCHAR},
       logic_delete = #{record.logicDelete,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -222,7 +222,7 @@
         pep_exam_date = #{pepExamDate,jdbcType=TIMESTAMP},
       </if>
       <if test="pepTestInfoId != null" >
-        pep_test_info_id = #{pepTestInfoId,jdbcType=BIGINT},
+        pep_test_info_id = #{pepTestInfoId,jdbcType=VARCHAR},
       </if>
       <if test="logicDelete != null" >
         logic_delete = #{logicDelete,jdbcType=INTEGER},
@@ -236,7 +236,7 @@
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       pep_image = #{pepImage,jdbcType=VARCHAR},
       pep_exam_date = #{pepExamDate,jdbcType=TIMESTAMP},
-      pep_test_info_id = #{pepTestInfoId,jdbcType=BIGINT},
+      pep_test_info_id = #{pepTestInfoId,jdbcType=VARCHAR},
       logic_delete = #{logicDelete,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
