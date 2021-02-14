@@ -194,13 +194,13 @@ public class GradeController {
         try {
             if(img.isEmpty()==false){
                 System.out.println("img为"+img);
-                // String realPath = ResourceUtils.getURL("classpath:").getPath() + "/static/images";
+                String realPath = ResourceUtils.getURL("classpath:").getPath() + "/static/images";
                 String oldname = img.getOriginalFilename();
                 /*获取拓展名*/
                 String extension = FilenameUtils.getExtension(oldname);
                 //生成新文件名
                 String fileName = System.currentTimeMillis() + RandomUtils.nextInt(1000000) + "_Personal." + extension;
-                String realPath="D:/第三期/IdeaProjects/study/study-travel-coach/target/classes/static/images";
+//                String realPath="D:/第三期/IdeaProjects/study/study-travel-coach/target/classes/static/images";
                 File file1 = new File(realPath, fileName);
                 // 把内存图片写入磁盘中
                 img.transferTo(file1);

@@ -42,15 +42,16 @@
                                 <form th:action="@{/pepImages}" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="id" th:value="${pastExamPaper.getId()}">
                                     <input type="file" id="img" name="file" multiple="multiple" style="width: 300px">
-                                    <input type="submit" value="上传" />
+                                    <input type="submit" value="上传" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red" th:text="${session.msg}"></span>
                                 </form>
                               </div>
                             </li>
                             <br/>
                             <li th:if="${img!=null}">
                                 <center>
-                                    <div th:each="image:${img}">
+                                    <div th:each="image,i:${img}">
                                         <img th:src="${image}" style="width: 700px;height: 900px;"/>
+                                        <a th:href="@{/delete(num=${i.index},id=${pastExamPaper.getId()})}">删除</a>
                                         <br/>
                                         <br/>
                                     </div>
@@ -58,9 +59,10 @@
                             </li>
                             <li th:if="${pdf!=null}">
                                 <center>
-                                    <div th:each="PDF:${pdf}">
+                                    <div th:each="PDF,i:${pdf}">
                                         <span th:text="${PDF}" id="wenjian"></span>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="yulan()" id="pdf">预览</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                         <!--<a th:href="@{/down(filename=${PDF})}">下载</a>-->
+                                        <a th:href="@{/delete(num=${i.index},id=${pastExamPaper.getId()})}">删除</a>
                                         <br/>
                                         <br/>
                                     </div>
