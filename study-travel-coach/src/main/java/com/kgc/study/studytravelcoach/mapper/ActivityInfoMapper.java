@@ -4,6 +4,7 @@ import com.kgc.study.bean.ActivityInfo;
 import com.kgc.study.bean.ActivityInfoExample;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface ActivityInfoMapper {
@@ -34,4 +35,6 @@ public interface ActivityInfoMapper {
     int updateByPrimaryKeyWithBLOBs(ActivityInfo record);
 
     int updateByPrimaryKey(ActivityInfo record);
+
+    int updateByLogicDeleteList(ArrayList arrayList);
 }

@@ -1,135 +1,144 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.kgc.study.studytravelcoach.mapper.ActivityInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.kgc.study.bean.ActivityInfo" >
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="ac_info_title" property="acInfoTitle" jdbcType="VARCHAR" />
-    <result column="ac_info_summary" property="acInfoSummary" jdbcType="VARCHAR" />
-    <result column="ac_info_source" property="acInfoSource" jdbcType="VARCHAR" />
-    <result column="ac_info_author" property="acInfoAuthor" jdbcType="VARCHAR" />
-    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
-    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
-    <result column="ac_isTop" property="acIstop" jdbcType="INTEGER" />
-    <result column="ac_thumbnail" property="acThumbnail" jdbcType="VARCHAR" />
-    <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.kgc.study.bean.ActivityInfo" extends="BaseResultMap" >
-    <result column="ac_content_name" property="acContentName" jdbcType="LONGVARCHAR" />
-  </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.ActivityInfoMapper">
+    <resultMap id="BaseResultMap" type="com.kgc.study.bean.ActivityInfo">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="ac_info_title" property="acInfoTitle" jdbcType="VARCHAR"/>
+        <result column="ac_info_summary" property="acInfoSummary" jdbcType="VARCHAR"/>
+        <result column="ac_info_source" property="acInfoSource" jdbcType="VARCHAR"/>
+        <result column="ac_info_author" property="acInfoAuthor" jdbcType="VARCHAR"/>
+        <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP"/>
+        <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP"/>
+        <result column="ac_isTop" property="acIstop" jdbcType="INTEGER"/>
+        <result column="ac_thumbnail" property="acThumbnail" jdbcType="VARCHAR"/>
+        <result column="logic_delete" property="logicDelete" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.kgc.study.bean.ActivityInfo" extends="BaseResultMap">
+        <result column="ac_content_name" property="acContentName" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <update id="updateByLogicDeleteList" parameterType="com.kgc.study.bean.ActivityInfo">
+        update activity_info set logic_delete = 1 where id in
+        <foreach collection="list" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
             </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List" >
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
     id, ac_info_title, ac_info_summary, ac_info_source, ac_info_author, gmt_create, gmt_modified, 
     ac_isTop, ac_thumbnail, logic_delete
   </sql>
-  <sql id="Blob_Column_List" >
+    <sql id="Blob_Column_List">
     ac_content_name
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.kgc.study.bean.ActivityInfoExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from activity_info
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.ActivityInfoExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from activity_info
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from activity_info
-    where id = #{id,jdbcType=BIGINT}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
+            parameterType="com.kgc.study.bean.ActivityInfoExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from activity_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.ActivityInfoExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from activity_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from activity_info
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from activity_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.kgc.study.bean.ActivityInfoExample" >
-    delete from activity_info
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.kgc.study.bean.ActivityInfo" >
+    <delete id="deleteByExample" parameterType="com.kgc.study.bean.ActivityInfoExample">
+        delete from activity_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.kgc.study.bean.ActivityInfo">
     insert into activity_info (id, ac_info_title, ac_info_summary, 
       ac_info_source, ac_info_author, gmt_create, 
       gmt_modified, ac_isTop, ac_thumbnail, 
@@ -139,196 +148,196 @@
       #{gmtModified,jdbcType=TIMESTAMP}, #{acIstop,jdbcType=INTEGER}, #{acThumbnail,jdbcType=VARCHAR}, 
       #{logicDelete,jdbcType=INTEGER}, #{acContentName,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.kgc.study.bean.ActivityInfo" >
-    insert into activity_info
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="acInfoTitle != null" >
-        ac_info_title,
-      </if>
-      <if test="acInfoSummary != null" >
-        ac_info_summary,
-      </if>
-      <if test="acInfoSource != null" >
-        ac_info_source,
-      </if>
-      <if test="acInfoAuthor != null" >
-        ac_info_author,
-      </if>
-      <if test="gmtCreate != null" >
-        gmt_create,
-      </if>
-      <if test="gmtModified != null" >
-        gmt_modified,
-      </if>
-      <if test="acIstop != null" >
-        ac_isTop,
-      </if>
-      <if test="acThumbnail != null" >
-        ac_thumbnail,
-      </if>
-      <if test="logicDelete != null" >
-        logic_delete,
-      </if>
-      <if test="acContentName != null" >
-        ac_content_name,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=BIGINT},
-      </if>
-      <if test="acInfoTitle != null" >
-        #{acInfoTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="acInfoSummary != null" >
-        #{acInfoSummary,jdbcType=VARCHAR},
-      </if>
-      <if test="acInfoSource != null" >
-        #{acInfoSource,jdbcType=VARCHAR},
-      </if>
-      <if test="acInfoAuthor != null" >
-        #{acInfoAuthor,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null" >
-        #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null" >
-        #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="acIstop != null" >
-        #{acIstop,jdbcType=INTEGER},
-      </if>
-      <if test="acThumbnail != null" >
-        #{acThumbnail,jdbcType=VARCHAR},
-      </if>
-      <if test="logicDelete != null" >
-        #{logicDelete,jdbcType=INTEGER},
-      </if>
-      <if test="acContentName != null" >
-        #{acContentName,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.kgc.study.bean.ActivityInfoExample" resultType="java.lang.Integer" >
-    select count(*) from activity_info
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update activity_info
-    <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=BIGINT},
-      </if>
-      <if test="record.acInfoTitle != null" >
+    <insert id="insertSelective" parameterType="com.kgc.study.bean.ActivityInfo">
+        insert into activity_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="acInfoTitle != null">
+                ac_info_title,
+            </if>
+            <if test="acInfoSummary != null">
+                ac_info_summary,
+            </if>
+            <if test="acInfoSource != null">
+                ac_info_source,
+            </if>
+            <if test="acInfoAuthor != null">
+                ac_info_author,
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create,
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+            <if test="acIstop != null">
+                ac_isTop,
+            </if>
+            <if test="acThumbnail != null">
+                ac_thumbnail,
+            </if>
+            <if test="logicDelete != null">
+                logic_delete,
+            </if>
+            <if test="acContentName != null">
+                ac_content_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="acInfoTitle != null">
+                #{acInfoTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="acInfoSummary != null">
+                #{acInfoSummary,jdbcType=VARCHAR},
+            </if>
+            <if test="acInfoSource != null">
+                #{acInfoSource,jdbcType=VARCHAR},
+            </if>
+            <if test="acInfoAuthor != null">
+                #{acInfoAuthor,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="acIstop != null">
+                #{acIstop,jdbcType=INTEGER},
+            </if>
+            <if test="acThumbnail != null">
+                #{acThumbnail,jdbcType=VARCHAR},
+            </if>
+            <if test="logicDelete != null">
+                #{logicDelete,jdbcType=INTEGER},
+            </if>
+            <if test="acContentName != null">
+                #{acContentName,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.kgc.study.bean.ActivityInfoExample" resultType="java.lang.Integer">
+        select count(*) from activity_info
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update activity_info
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.acInfoTitle != null">
+                ac_info_title = #{record.acInfoTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="record.acInfoSummary != null">
+                ac_info_summary = #{record.acInfoSummary,jdbcType=VARCHAR},
+            </if>
+            <if test="record.acInfoSource != null">
+                ac_info_source = #{record.acInfoSource,jdbcType=VARCHAR},
+            </if>
+            <if test="record.acInfoAuthor != null">
+                ac_info_author = #{record.acInfoAuthor,jdbcType=VARCHAR},
+            </if>
+            <if test="record.gmtCreate != null">
+                gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.gmtModified != null">
+                gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.acIstop != null">
+                ac_isTop = #{record.acIstop,jdbcType=INTEGER},
+            </if>
+            <if test="record.acThumbnail != null">
+                ac_thumbnail = #{record.acThumbnail,jdbcType=VARCHAR},
+            </if>
+            <if test="record.logicDelete != null">
+                logic_delete = #{record.logicDelete,jdbcType=INTEGER},
+            </if>
+            <if test="record.acContentName != null">
+                ac_content_name = #{record.acContentName,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExampleWithBLOBs" parameterType="map">
+        update activity_info
+        set id = #{record.id,jdbcType=BIGINT},
         ac_info_title = #{record.acInfoTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="record.acInfoSummary != null" >
         ac_info_summary = #{record.acInfoSummary,jdbcType=VARCHAR},
-      </if>
-      <if test="record.acInfoSource != null" >
         ac_info_source = #{record.acInfoSource,jdbcType=VARCHAR},
-      </if>
-      <if test="record.acInfoAuthor != null" >
         ac_info_author = #{record.acInfoAuthor,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gmtCreate != null" >
         gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.gmtModified != null" >
         gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.acIstop != null" >
         ac_isTop = #{record.acIstop,jdbcType=INTEGER},
-      </if>
-      <if test="record.acThumbnail != null" >
         ac_thumbnail = #{record.acThumbnail,jdbcType=VARCHAR},
-      </if>
-      <if test="record.logicDelete != null" >
         logic_delete = #{record.logicDelete,jdbcType=INTEGER},
-      </if>
-      <if test="record.acContentName != null" >
-        ac_content_name = #{record.acContentName,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map" >
-    update activity_info
-    set id = #{record.id,jdbcType=BIGINT},
-      ac_info_title = #{record.acInfoTitle,jdbcType=VARCHAR},
-      ac_info_summary = #{record.acInfoSummary,jdbcType=VARCHAR},
-      ac_info_source = #{record.acInfoSource,jdbcType=VARCHAR},
-      ac_info_author = #{record.acInfoAuthor,jdbcType=VARCHAR},
-      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
-      ac_isTop = #{record.acIstop,jdbcType=INTEGER},
-      ac_thumbnail = #{record.acThumbnail,jdbcType=VARCHAR},
-      logic_delete = #{record.logicDelete,jdbcType=INTEGER},
-      ac_content_name = #{record.acContentName,jdbcType=LONGVARCHAR}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
-    update activity_info
-    set id = #{record.id,jdbcType=BIGINT},
-      ac_info_title = #{record.acInfoTitle,jdbcType=VARCHAR},
-      ac_info_summary = #{record.acInfoSummary,jdbcType=VARCHAR},
-      ac_info_source = #{record.acInfoSource,jdbcType=VARCHAR},
-      ac_info_author = #{record.acInfoAuthor,jdbcType=VARCHAR},
-      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
-      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
-      ac_isTop = #{record.acIstop,jdbcType=INTEGER},
-      ac_thumbnail = #{record.acThumbnail,jdbcType=VARCHAR},
-      logic_delete = #{record.logicDelete,jdbcType=INTEGER}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.ActivityInfo" >
-    update activity_info
-    <set >
-      <if test="acInfoTitle != null" >
-        ac_info_title = #{acInfoTitle,jdbcType=VARCHAR},
-      </if>
-      <if test="acInfoSummary != null" >
-        ac_info_summary = #{acInfoSummary,jdbcType=VARCHAR},
-      </if>
-      <if test="acInfoSource != null" >
-        ac_info_source = #{acInfoSource,jdbcType=VARCHAR},
-      </if>
-      <if test="acInfoAuthor != null" >
-        ac_info_author = #{acInfoAuthor,jdbcType=VARCHAR},
-      </if>
-      <if test="gmtCreate != null" >
-        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="gmtModified != null" >
-        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
-      </if>
-      <if test="acIstop != null" >
-        ac_isTop = #{acIstop,jdbcType=INTEGER},
-      </if>
-      <if test="acThumbnail != null" >
-        ac_thumbnail = #{acThumbnail,jdbcType=VARCHAR},
-      </if>
-      <if test="logicDelete != null" >
-        logic_delete = #{logicDelete,jdbcType=INTEGER},
-      </if>
-      <if test="acContentName != null" >
-        ac_content_name = #{acContentName,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kgc.study.bean.ActivityInfo" >
+        ac_content_name = #{record.acContentName,jdbcType=LONGVARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update activity_info
+        set id = #{record.id,jdbcType=BIGINT},
+        ac_info_title = #{record.acInfoTitle,jdbcType=VARCHAR},
+        ac_info_summary = #{record.acInfoSummary,jdbcType=VARCHAR},
+        ac_info_source = #{record.acInfoSource,jdbcType=VARCHAR},
+        ac_info_author = #{record.acInfoAuthor,jdbcType=VARCHAR},
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+        ac_isTop = #{record.acIstop,jdbcType=INTEGER},
+        ac_thumbnail = #{record.acThumbnail,jdbcType=VARCHAR},
+        logic_delete = #{record.logicDelete,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.ActivityInfo">
+        update activity_info
+        <set>
+            <if test="acInfoTitle != null">
+                ac_info_title = #{acInfoTitle,jdbcType=VARCHAR},
+            </if>
+            <if test="acInfoSummary != null">
+                ac_info_summary = #{acInfoSummary,jdbcType=VARCHAR},
+            </if>
+            <if test="acInfoSource != null">
+                ac_info_source = #{acInfoSource,jdbcType=VARCHAR},
+            </if>
+            <if test="acInfoAuthor != null">
+                ac_info_author = #{acInfoAuthor,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="acIstop != null">
+                ac_isTop = #{acIstop,jdbcType=INTEGER},
+            </if>
+            <if test="acThumbnail != null">
+                ac_thumbnail = #{acThumbnail,jdbcType=VARCHAR},
+            </if>
+            <if test="logicDelete != null">
+                logic_delete = #{logicDelete,jdbcType=INTEGER},
+            </if>
+            <if test="acContentName != null">
+                ac_content_name = #{acContentName,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kgc.study.bean.ActivityInfo">
     update activity_info
     set ac_info_title = #{acInfoTitle,jdbcType=VARCHAR},
       ac_info_summary = #{acInfoSummary,jdbcType=VARCHAR},
@@ -342,7 +351,7 @@
       ac_content_name = #{acContentName,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.ActivityInfo" >
+    <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.ActivityInfo">
     update activity_info
     set ac_info_title = #{acInfoTitle,jdbcType=VARCHAR},
       ac_info_summary = #{acInfoSummary,jdbcType=VARCHAR},
