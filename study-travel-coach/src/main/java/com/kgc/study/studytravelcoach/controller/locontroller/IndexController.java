@@ -1,5 +1,8 @@
 package com.kgc.study.studytravelcoach.controller.locontroller;
 
+import org.springframework.stereotype.Controller;
+
+@Controller
 public class IndexController {
 
     /*
@@ -22,4 +25,5 @@ public class IndexController {
     <input type="submit" value="提交">
 </form>
     */
+
 }
