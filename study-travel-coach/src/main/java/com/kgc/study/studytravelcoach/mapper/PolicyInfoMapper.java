@@ -34,4 +34,5 @@ public interface PolicyInfoMapper {
     int updateByPrimaryKeyWithBLOBs(PolicyInfo record);
 
     int updateByPrimaryKey(PolicyInfo record);
+
 }
