@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kgc.study.studytravelcoach.mapper.EduUserMapper" >
+  <resultMap id="BaseResultMap" type="com.kgc.study.bean.EduUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="edu_user_name" property="eduUserName" jdbcType="VARCHAR" />
+    <result column="edu_user_phone" property="eduUserPhone" jdbcType="VARCHAR" />
+    <result column="edu_user_id_card" property="eduUserIdCard" jdbcType="VARCHAR" />
+    <result column="edu_user_gender" property="eduUserGender" jdbcType="INTEGER" />
+    <result column="edu_user_pic_img" property="eduUserPicImg" jdbcType="VARCHAR" />
+    <result column="edu_user_school_roll" property="eduUserSchoolRoll" jdbcType="TIMESTAMP" />
+    <result column="edu_user_is_pass" property="eduUserIsPass" jdbcType="INTEGER" />
+    <result column="edu_user_email" property="eduUserEmail" jdbcType="VARCHAR" />
+    <result column="edu_user_is_avalible" property="eduUserIsAvalible" jdbcType="VARCHAR" />
+    <result column="edu_user_is_good_student" property="eduUserIsGoodStudent" jdbcType="INTEGER" />
+    <result column="edu_user_enrollment_method" property="eduUserEnrollmentMethod" jdbcType="INTEGER" />
+    <result column="agency_id" property="agencyId" jdbcType="INTEGER" />
+    <result column="edu_user_identity_front" property="eduUserIdentityFront" jdbcType="VARCHAR" />
+    <result column="edu_user_identity_reverse" property="eduUserIdentityReverse" jdbcType="VARCHAR" />
+    <result column="edu_user_school_prove" property="eduUserSchoolProve" jdbcType="VARCHAR" />
+    <result column="edu_user_work_prove" property="eduUserWorkProve" jdbcType="VARCHAR" />
+    <result column="edu_user_soldier_prove" property="eduUserSoldierProve" jdbcType="VARCHAR" />
+    <result column="edu_user_highest_education" property="eduUserHighestEducation" jdbcType="VARCHAR" />
+    <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="grade_type_id" property="gradeTypeId" jdbcType="INTEGER" />
+    <result column="agency_address_id" property="agencyAddressId" jdbcType="INTEGER" />
+  </resultMap>
+
+  <insert id="insertSelectiveList" parameterType="com.kgc.study.bean.EduUser">
+    insert into edu_user (id, gmt_create, gmt_modified,
+    edu_user_name, edu_user_phone, edu_user_id_card,
+    edu_user_gender, edu_user_pic_img, edu_user_school_roll,
+    edu_user_is_pass, edu_user_email, edu_user_is_avalible,
+    edu_user_is_good_student, edu_user_enrollment_method,
+    agency_id, edu_user_identity_front, edu_user_identity_reverse,
+    edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove,
+    edu_user_highest_education, grade_id, grade_type_id,
+    agency_address_id) VALUES
+    <foreach collection="list" item="eduUser"  index="index" separator=",">
+      <trim prefix="(" suffix=")">
+      <choose>
+        <when test="eduUser.id != null">#{eduUser.id},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.gmtCreate != null">#{eduUser.gmtCreate},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.gmtModified != null">#{eduUser.gmtModified},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserName != null">#{eduUser.eduUserName},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserPhone != null">#{eduUser.eduUserPhone},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIdCard != null">#{eduUser.eduUserIdCard},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserGender != null">#{eduUser.eduUserGender},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserPicImg != null">#{eduUser.eduUserPicImg},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserSchoolRoll != null">#{eduUser.eduUserSchoolRoll},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIsPass != null">#{eduUser.eduUserIsPass},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserEmail != null">#{eduUser.eduUserEmail},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIsAvalible != null">#{eduUser.eduUserIsAvalible},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIsGoodStudent != null">#{eduUser.eduUserIsGoodStudent},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserEnrollmentMethod != null">#{eduUser.eduUserEnrollmentMethod},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.agencyId != null">#{eduUser.agencyId},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIdentityFront != null">#{eduUser.eduUserIdentityFront},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserIdentityReverse != null">#{eduUser.eduUserIdentityReverse},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserSchoolProve != null">#{eduUser.eduUserSchoolProve},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserWorkProve != null">#{eduUser.eduUserWorkProve},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserSoldierProve != null">#{eduUser.eduUserSoldierProve},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.eduUserHighestEducation != null">#{eduUser.eduUserHighestEducation},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.gradeId != null">#{eduUser.gradeId},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.gradeTypeId != null">#{eduUser.gradeTypeId},</when>
+        <otherwise>null,</otherwise>
+      </choose>
+      <choose>
+        <when test="eduUser.agencyAddressId != null">#{eduUser.agencyAddressId}</when>
+        <otherwise>null</otherwise>
+      </choose>
+      </trim>
+    </foreach>
+  </insert>
+
+
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, gmt_create, gmt_modified, edu_user_name, edu_user_phone, edu_user_id_card, edu_user_gender, 
+    edu_user_pic_img, edu_user_school_roll, edu_user_is_pass, edu_user_email, edu_user_is_avalible, 
+    edu_user_is_good_student, edu_user_enrollment_method, agency_id, edu_user_identity_front, 
+    edu_user_identity_reverse, edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove, 
+    edu_user_highest_education, grade_id, grade_type_id, agency_address_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kgc.study.bean.EduUserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from edu_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from edu_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from edu_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kgc.study.bean.EduUserExample" >
+    delete from edu_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kgc.study.bean.EduUser" >
+    insert into edu_user (id, gmt_create, gmt_modified, 
+      edu_user_name, edu_user_phone, edu_user_id_card, 
+      edu_user_gender, edu_user_pic_img, edu_user_school_roll, 
+      edu_user_is_pass, edu_user_email, edu_user_is_avalible, 
+      edu_user_is_good_student, edu_user_enrollment_method, 
+      agency_id, edu_user_identity_front, edu_user_identity_reverse, 
+      edu_user_school_prove, edu_user_work_prove, edu_user_soldier_prove, 
+      edu_user_highest_education, grade_id, grade_type_id, 
+      agency_address_id)
+    values (#{id,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{eduUserName,jdbcType=VARCHAR}, #{eduUserPhone,jdbcType=VARCHAR}, #{eduUserIdCard,jdbcType=VARCHAR}, 
+      #{eduUserGender,jdbcType=INTEGER}, #{eduUserPicImg,jdbcType=VARCHAR}, #{eduUserSchoolRoll,jdbcType=TIMESTAMP}, 
+      #{eduUserIsPass,jdbcType=INTEGER}, #{eduUserEmail,jdbcType=VARCHAR}, #{eduUserIsAvalible,jdbcType=VARCHAR}, 
+      #{eduUserIsGoodStudent,jdbcType=INTEGER}, #{eduUserEnrollmentMethod,jdbcType=INTEGER}, 
+      #{agencyId,jdbcType=INTEGER}, #{eduUserIdentityFront,jdbcType=VARCHAR}, #{eduUserIdentityReverse,jdbcType=VARCHAR}, 
+      #{eduUserSchoolProve,jdbcType=VARCHAR}, #{eduUserWorkProve,jdbcType=VARCHAR}, #{eduUserSoldierProve,jdbcType=VARCHAR}, 
+      #{eduUserHighestEducation,jdbcType=VARCHAR}, #{gradeId,jdbcType=INTEGER}, #{gradeTypeId,jdbcType=INTEGER}, 
+      #{agencyAddressId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kgc.study.bean.EduUser" >
+    insert into edu_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="eduUserName != null" >
+        edu_user_name,
+      </if>
+      <if test="eduUserPhone != null" >
+        edu_user_phone,
+      </if>
+      <if test="eduUserIdCard != null" >
+        edu_user_id_card,
+      </if>
+      <if test="eduUserGender != null" >
+        edu_user_gender,
+      </if>
+      <if test="eduUserPicImg != null" >
+        edu_user_pic_img,
+      </if>
+      <if test="eduUserSchoolRoll != null" >
+        edu_user_school_roll,
+      </if>
+      <if test="eduUserIsPass != null" >
+        edu_user_is_pass,
+      </if>
+      <if test="eduUserEmail != null" >
+        edu_user_email,
+      </if>
+      <if test="eduUserIsAvalible != null" >
+        edu_user_is_avalible,
+      </if>
+      <if test="eduUserIsGoodStudent != null" >
+        edu_user_is_good_student,
+      </if>
+      <if test="eduUserEnrollmentMethod != null" >
+        edu_user_enrollment_method,
+      </if>
+      <if test="agencyId != null" >
+        agency_id,
+      </if>
+      <if test="eduUserIdentityFront != null" >
+        edu_user_identity_front,
+      </if>
+      <if test="eduUserIdentityReverse != null" >
+        edu_user_identity_reverse,
+      </if>
+      <if test="eduUserSchoolProve != null" >
+        edu_user_school_prove,
+      </if>
+      <if test="eduUserWorkProve != null" >
+        edu_user_work_prove,
+      </if>
+      <if test="eduUserSoldierProve != null" >
+        edu_user_soldier_prove,
+      </if>
+      <if test="eduUserHighestEducation != null" >
+        edu_user_highest_education,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="gradeTypeId != null" >
+        grade_type_id,
+      </if>
+      <if test="agencyAddressId != null" >
+        agency_address_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduUserName != null" >
+        #{eduUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserPhone != null" >
+        #{eduUserPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserIdCard != null" >
+        #{eduUserIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserGender != null" >
+        #{eduUserGender,jdbcType=INTEGER},
+      </if>
+      <if test="eduUserPicImg != null" >
+        #{eduUserPicImg,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserSchoolRoll != null" >
+        #{eduUserSchoolRoll,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduUserIsPass != null" >
+        #{eduUserIsPass,jdbcType=INTEGER},
+      </if>
+      <if test="eduUserEmail != null" >
+        #{eduUserEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserIsAvalible != null" >
+        #{eduUserIsAvalible,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserIsGoodStudent != null" >
+        #{eduUserIsGoodStudent,jdbcType=INTEGER},
+      </if>
+      <if test="eduUserEnrollmentMethod != null" >
+        #{eduUserEnrollmentMethod,jdbcType=INTEGER},
+      </if>
+      <if test="agencyId != null" >
+        #{agencyId,jdbcType=INTEGER},
+      </if>
+      <if test="eduUserIdentityFront != null" >
+        #{eduUserIdentityFront,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserIdentityReverse != null" >
+        #{eduUserIdentityReverse,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserSchoolProve != null" >
+        #{eduUserSchoolProve,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserWorkProve != null" >
+        #{eduUserWorkProve,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserSoldierProve != null" >
+        #{eduUserSoldierProve,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserHighestEducation != null" >
+        #{eduUserHighestEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeTypeId != null" >
+        #{gradeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="agencyAddressId != null" >
+        #{agencyAddressId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kgc.study.bean.EduUserExample" resultType="java.lang.Integer" >
+    select count(*) from edu_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update edu_user
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null" >
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.eduUserName != null" >
+        edu_user_name = #{record.eduUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserPhone != null" >
+        edu_user_phone = #{record.eduUserPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserIdCard != null" >
+        edu_user_id_card = #{record.eduUserIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserGender != null" >
+        edu_user_gender = #{record.eduUserGender,jdbcType=INTEGER},
+      </if>
+      <if test="record.eduUserPicImg != null" >
+        edu_user_pic_img = #{record.eduUserPicImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserSchoolRoll != null" >
+        edu_user_school_roll = #{record.eduUserSchoolRoll,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.eduUserIsPass != null" >
+        edu_user_is_pass = #{record.eduUserIsPass,jdbcType=INTEGER},
+      </if>
+      <if test="record.eduUserEmail != null" >
+        edu_user_email = #{record.eduUserEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserIsAvalible != null" >
+        edu_user_is_avalible = #{record.eduUserIsAvalible,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserIsGoodStudent != null" >
+        edu_user_is_good_student = #{record.eduUserIsGoodStudent,jdbcType=INTEGER},
+      </if>
+      <if test="record.eduUserEnrollmentMethod != null" >
+        edu_user_enrollment_method = #{record.eduUserEnrollmentMethod,jdbcType=INTEGER},
+      </if>
+      <if test="record.agencyId != null" >
+        agency_id = #{record.agencyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.eduUserIdentityFront != null" >
+        edu_user_identity_front = #{record.eduUserIdentityFront,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserIdentityReverse != null" >
+        edu_user_identity_reverse = #{record.eduUserIdentityReverse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserSchoolProve != null" >
+        edu_user_school_prove = #{record.eduUserSchoolProve,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserWorkProve != null" >
+        edu_user_work_prove = #{record.eduUserWorkProve,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserSoldierProve != null" >
+        edu_user_soldier_prove = #{record.eduUserSoldierProve,jdbcType=VARCHAR},
+      </if>
+      <if test="record.eduUserHighestEducation != null" >
+        edu_user_highest_education = #{record.eduUserHighestEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.gradeTypeId != null" >
+        grade_type_id = #{record.gradeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.agencyAddressId != null" >
+        agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update edu_user
+    set id = #{record.id,jdbcType=INTEGER},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      edu_user_name = #{record.eduUserName,jdbcType=VARCHAR},
+      edu_user_phone = #{record.eduUserPhone,jdbcType=VARCHAR},
+      edu_user_id_card = #{record.eduUserIdCard,jdbcType=VARCHAR},
+      edu_user_gender = #{record.eduUserGender,jdbcType=INTEGER},
+      edu_user_pic_img = #{record.eduUserPicImg,jdbcType=VARCHAR},
+      edu_user_school_roll = #{record.eduUserSchoolRoll,jdbcType=TIMESTAMP},
+      edu_user_is_pass = #{record.eduUserIsPass,jdbcType=INTEGER},
+      edu_user_email = #{record.eduUserEmail,jdbcType=VARCHAR},
+      edu_user_is_avalible = #{record.eduUserIsAvalible,jdbcType=VARCHAR},
+      edu_user_is_good_student = #{record.eduUserIsGoodStudent,jdbcType=INTEGER},
+      edu_user_enrollment_method = #{record.eduUserEnrollmentMethod,jdbcType=INTEGER},
+      agency_id = #{record.agencyId,jdbcType=INTEGER},
+      edu_user_identity_front = #{record.eduUserIdentityFront,jdbcType=VARCHAR},
+      edu_user_identity_reverse = #{record.eduUserIdentityReverse,jdbcType=VARCHAR},
+      edu_user_school_prove = #{record.eduUserSchoolProve,jdbcType=VARCHAR},
+      edu_user_work_prove = #{record.eduUserWorkProve,jdbcType=VARCHAR},
+      edu_user_soldier_prove = #{record.eduUserSoldierProve,jdbcType=VARCHAR},
+      edu_user_highest_education = #{record.eduUserHighestEducation,jdbcType=VARCHAR},
+      grade_id = #{record.gradeId,jdbcType=INTEGER},
+      grade_type_id = #{record.gradeTypeId,jdbcType=INTEGER},
+      agency_address_id = #{record.agencyAddressId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kgc.study.bean.EduUser" >
+    update edu_user
+    <set >
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduUserName != null" >
+        edu_user_name = #{eduUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserPhone != null" >
+        edu_user_phone = #{eduUserPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserIdCard != null" >
+        edu_user_id_card = #{eduUserIdCard,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserGender != null" >
+        edu_user_gender = #{eduUserGender,jdbcType=INTEGER},
+      </if>
+      <if test="eduUserPicImg != null" >
+        edu_user_pic_img = #{eduUserPicImg,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserSchoolRoll != null" >
+        edu_user_school_roll = #{eduUserSchoolRoll,jdbcType=TIMESTAMP},
+      </if>
+      <if test="eduUserIsPass != null" >
+        edu_user_is_pass = #{eduUserIsPass,jdbcType=INTEGER},
+      </if>
+      <if test="eduUserEmail != null" >
+        edu_user_email = #{eduUserEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserIsAvalible != null" >
+        edu_user_is_avalible = #{eduUserIsAvalible,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserIsGoodStudent != null" >
+        edu_user_is_good_student = #{eduUserIsGoodStudent,jdbcType=INTEGER},
+      </if>
+      <if test="eduUserEnrollmentMethod != null" >
+        edu_user_enrollment_method = #{eduUserEnrollmentMethod,jdbcType=INTEGER},
+      </if>
+      <if test="agencyId != null" >
+        agency_id = #{agencyId,jdbcType=INTEGER},
+      </if>
+      <if test="eduUserIdentityFront != null" >
+        edu_user_identity_front = #{eduUserIdentityFront,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserIdentityReverse != null" >
+        edu_user_identity_reverse = #{eduUserIdentityReverse,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserSchoolProve != null" >
+        edu_user_school_prove = #{eduUserSchoolProve,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserWorkProve != null" >
+        edu_user_work_prove = #{eduUserWorkProve,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserSoldierProve != null" >
+        edu_user_soldier_prove = #{eduUserSoldierProve,jdbcType=VARCHAR},
+      </if>
+      <if test="eduUserHighestEducation != null" >
+        edu_user_highest_education = #{eduUserHighestEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="gradeTypeId != null" >
+        grade_type_id = #{gradeTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="agencyAddressId != null" >
+        agency_address_id = #{agencyAddressId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kgc.study.bean.EduUser" >
+    update edu_user
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      edu_user_name = #{eduUserName,jdbcType=VARCHAR},
+      edu_user_phone = #{eduUserPhone,jdbcType=VARCHAR},
+      edu_user_id_card = #{eduUserIdCard,jdbcType=VARCHAR},
+      edu_user_gender = #{eduUserGender,jdbcType=INTEGER},
+      edu_user_pic_img = #{eduUserPicImg,jdbcType=VARCHAR},
+      edu_user_school_roll = #{eduUserSchoolRoll,jdbcType=TIMESTAMP},
+      edu_user_is_pass = #{eduUserIsPass,jdbcType=INTEGER},
+      edu_user_email = #{eduUserEmail,jdbcType=VARCHAR},
+      edu_user_is_avalible = #{eduUserIsAvalible,jdbcType=VARCHAR},
+      edu_user_is_good_student = #{eduUserIsGoodStudent,jdbcType=INTEGER},
+      edu_user_enrollment_method = #{eduUserEnrollmentMethod,jdbcType=INTEGER},
+      agency_id = #{agencyId,jdbcType=INTEGER},
+      edu_user_identity_front = #{eduUserIdentityFront,jdbcType=VARCHAR},
+      edu_user_identity_reverse = #{eduUserIdentityReverse,jdbcType=VARCHAR},
+      edu_user_school_prove = #{eduUserSchoolProve,jdbcType=VARCHAR},
+      edu_user_work_prove = #{eduUserWorkProve,jdbcType=VARCHAR},
+      edu_user_soldier_prove = #{eduUserSoldierProve,jdbcType=VARCHAR},
+      edu_user_highest_education = #{eduUserHighestEducation,jdbcType=VARCHAR},
+      grade_id = #{gradeId,jdbcType=INTEGER},
+      grade_type_id = #{gradeTypeId,jdbcType=INTEGER},
+      agency_address_id = #{agencyAddressId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
