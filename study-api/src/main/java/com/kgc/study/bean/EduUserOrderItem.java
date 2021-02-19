@@ -17,7 +17,7 @@ public class EduUserOrderItem {
 
     private Integer agencyAddressId;
 
-    private String agencyAddressName;
+    private String agencyAddressName;//机构地址
 
     private String eduOrderClassType;
 
@@ -27,11 +27,43 @@ public class EduUserOrderItem {
 
     private Integer eduOrderType;
 
+    private String eduOrderTypeName;//支付状态
+
     private String agencyId;
 
-    private String agencyName;
+    private String agencyName;//机构名称
 
     private Integer logicDelete;
+    @Override
+    public String toString() {
+        return "EduUserOrderItem{" +
+                "id=" + id +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", eduOrderName='" + eduOrderName + '\'' +
+                ", eduOrderIdCard='" + eduOrderIdCard + '\'' +
+                ", eduOrderPhone='" + eduOrderPhone + '\'' +
+                ", agencyAddressId=" + agencyAddressId +
+                ", agencyAddressName='" + agencyAddressName + '\'' +
+                ", eduOrderClassType='" + eduOrderClassType + '\'' +
+                ", eduOrderClassPrice=" + eduOrderClassPrice +
+                ", eduOrderClassDiscountPrice=" + eduOrderClassDiscountPrice +
+                ", eduOrderType=" + eduOrderType +
+                ", eduOrderTypeName='" + eduOrderTypeName + '\'' +
+                ", agencyId='" + agencyId + '\'' +
+                ", agencyName='" + agencyName + '\'' +
+                ", logicDelete=" + logicDelete +
+                '}';
+    }
+
+    public String getEduOrderTypeName() {
+        return eduOrderTypeName;
+    }
+
+    public void setEduOrderTypeName(String eduOrderTypeName) {
+        this.eduOrderTypeName = eduOrderTypeName;
+    }
+
 
     public Long getId() {
         return id;
