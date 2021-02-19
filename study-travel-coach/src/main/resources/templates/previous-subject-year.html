@@ -47,7 +47,7 @@
                               </div>
                             </li>
                             <br/>
-                            <li th:if="${img!=null}">
+                            <li th:if="${img!=null && img!=''}">
                                 <center>
                                     <div th:each="image,i:${img}">
                                         <img th:src="${image}" style="width: 700px;height: 900px;"/>
@@ -57,12 +57,12 @@
                                     </div>
                                 </center>
                             </li>
-                            <li th:if="${pdf!=null}">
+                            <li th:if="${pdf!=null && pdf!=''}">
                                 <center>
                                     <div th:each="PDF,i:${pdf}">
                                         <span th:text="${PDF}" id="wenjian"></span>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick="yulan()" id="pdf">预览</a>&nbsp;&nbsp;&nbsp;&nbsp;
                                         <!--<a th:href="@{/down(filename=${PDF})}">下载</a>-->
-                                        <a th:href="@{/delete(num=${i.index},id=${pastExamPaper.getId()})}">删除</a>
+                                        <a  th:href="@{/delete(num=${i.index},id=${pastExamPaper.getId()})}">删除</a>
                                         <br/>
                                         <br/>
                                     </div>

@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Controller
 @Api(tags = "历届真题管理",description = "提供历届真题的信息")
@@ -41,11 +44,11 @@ public class PreviousSubjectController {
     @ApiOperation("查看本年度的测试题是文档还是图片")
     @GetMapping("/selectPEP")
     @ApiImplicitParam(name = "id",value = "历届真题的id")
-    public String selectPEP(Model model,Integer id){
+    public String selectPEP(HttpSession session,Model model,Integer id){
         PastExamPaper pastExamPaper = previousSubjectService.selectPEP(id);
         List<String> img=new ArrayList<>();
         List<String> pdf=new ArrayList<>();
-        if(pastExamPaper.getPepImage()!=null){
+        if(pastExamPaper.getPepImage()!=null && pastExamPaper.getPepImage()!=""){
             String pepImage = pastExamPaper.getPepImage();
             String[] split = pepImage.split(",");
             for (int i = 0; i < split.length; i++) {
@@ -53,7 +56,7 @@ public class PreviousSubjectController {
                 img.add(image);
             }
         }
-        if(pastExamPaper.getPepTestInfoId()!=null){
+        if(pastExamPaper.getPepTestInfoId()!=null && pastExamPaper.getPepTestInfoId()!=""){
             String PepTestInfoId = pastExamPaper.getPepTestInfoId();
             String[] split = PepTestInfoId.split(",");
             for (int i = 0; i < split.length; i++) {
@@ -61,8 +64,20 @@ public class PreviousSubjectController {
                 pdf.add(pepPDF);
             }
         }
-        model.addAttribute("pdf",pdf);
-        model.addAttribute("img",img);
+        for (String s : pdf) {
+            if(s.isEmpty()){
+                model.addAttribute("pdf","");
+            }else {
+                model.addAttribute("pdf",pdf);
+            }
+        }
+        for (String s : img) {
+            if(s.isEmpty()){
+                model.addAttribute("img","");
+            }else {
+                model.addAttribute("img",img);
+            }
+        }
         model.addAttribute("pastExamPaper",pastExamPaper);
         return "previous-subject-year";
     }
@@ -88,7 +103,7 @@ public class PreviousSubjectController {
                 //生成新文件名
                 String fileName = System.currentTimeMillis() + RandomUtils.nextInt(1000000) + "_Personal." + extension;
                 String realPath = ResourceUtils.getURL("classpath:").getPath() + "/static/images";
-//                String realPath="D:/第三期/IdeaProjects/study/study-travel-coach/target/classes/static/images";
+                //String realPath="D:/第三期/IdeaProjects/study/study-travel-coach/target/classes/static/images";
                 File file1 = new File(realPath, fileName);
                 // 把内存图片写入磁盘中
                 file.transferTo(file1);
@@ -98,13 +113,13 @@ public class PreviousSubjectController {
                 PastExamPaper pastExamPaper=new PastExamPaper();
                 pastExamPaper.setId((long)id);
                 if(extension.equals("pdf")){
-                    if(pep.getPepTestInfoId()!=null && pep.getPepTestInfoId()!=""){
+                    if(StringUtils.isEmpty(pep.getPepTestInfoId())==false){
                         pastExamPaper.setPepTestInfoId(pep.getPepTestInfoId()+","+s);
                     }else{
                         pastExamPaper.setPepTestInfoId(s);
                     }
                 }else{
-                    if(pep.getPepImage()!=null && pep.getPepImage()!=""){
+                    if(StringUtils.isEmpty(pep.getPepImage())==false){
                         pastExamPaper.setPepImage(pep.getPepImage()+","+s);
                     }else{
                         pastExamPaper.setPepImage(s);
@@ -126,7 +141,7 @@ public class PreviousSubjectController {
             @ApiImplicitParam(name = "num",value = "根据,使用split分割出来的字段下标"),
             @ApiImplicitParam(name = "id",value = "历届真题的id")
     })
-    public String delete(Integer num,Integer id,Model model){
+    public String delete(HttpSession session,Integer num,Integer id,Model model){
         PastExamPaper pastExamPaper = previousSubjectService.selectPEP(id);
         List<String> img=new ArrayList<>();
         List<String> pdf=new ArrayList<>();
@@ -136,38 +151,38 @@ public class PreviousSubjectController {
             String replaceimg=null;
             for (int i = 0; i < split.length; i++) {
                 if(num==i){
-                    if(num==split.length-1){
-                        replaceimg = pepImage.replaceAll(','+split[i], "");
+                    Integer length = Integer.parseInt(String.valueOf(split.length - 1));
+                    if(length==0){
+                        replaceimg = pepImage.replaceAll(split[i], "");
                     }else{
-                        replaceimg = pepImage.replaceAll(split[i]+',', "");
+                        if(num==split.length-1){
+                            replaceimg = pepImage.replaceAll(','+split[i], "");
+                        }else {
+                            replaceimg = pepImage.replaceAll(split[i]+',', "");
+                        }
                     }
                     PastExamPaper pep=new PastExamPaper();
                     pep.setId((long)id);
                     pep.setPepImage(replaceimg);
                     previousSubjectService.update(pep);
-                    break;
-                }
-            }
-            PastExamPaper pepimg = previousSubjectService.selectPEP(id);
-            if(pepimg.getPepImage()!=null){
-                String pepImage2 = pepimg.getPepImage();
-                String[] split2 = pepImage2.split(",");
-                for (int i = 0; i < split2.length; i++) {
-                    String image = (String) split2[i];
-                    img.add(image);
                 }
             }
         }
         if(pastExamPaper.getPepTestInfoId()!=null){
             String PepTestInfoId = pastExamPaper.getPepTestInfoId();
-            String[] split = PepTestInfoId.split(",");
+            String[] split1 = PepTestInfoId.split(",");
             String replacepdf=null;
-            for (int i = 0; i < split.length; i++) {
+            for (int i = 0; i < split1.length; i++) {
                 if(num==i){
-                    if(num==split.length-1){
-                        replacepdf = PepTestInfoId.replaceAll(','+split[i], "");
-                    }else{
-                        replacepdf = PepTestInfoId.replaceAll(split[i]+',', "");
+                    Integer length = Integer.parseInt(String.valueOf(split1.length - 1));
+                    if(length==0){
+                        replacepdf = PepTestInfoId.replaceAll(split1[i], "");
+                    } else{
+                        if(num==split1.length-1){
+                            replacepdf = PepTestInfoId.replaceAll(','+split1[i], "");
+                        }else{
+                            replacepdf = PepTestInfoId.replaceAll(split1[i]+',', "");
+                        }
                     }
                     PastExamPaper pep=new PastExamPaper();
                     pep.setId((long)id);
@@ -175,19 +190,7 @@ public class PreviousSubjectController {
                     previousSubjectService.update(pep);
                 }
             }
-            PastExamPaper peppdf = previousSubjectService.selectPEP(id);
-            if(peppdf.getPepTestInfoId()!=null){
-                String PepTestInfoId2 = peppdf.getPepTestInfoId();
-                String[] split2 = PepTestInfoId2.split(",");
-                for (int i = 0; i < split2.length; i++) {
-                    String pepPDF = (String) split2[i];
-                    pdf.add(pepPDF);
-                }
-            }
         }
-        model.addAttribute("pdf",pdf);
-        model.addAttribute("img",img);
-        model.addAttribute("pastExamPaper",pastExamPaper);
         return  "redirect:/selectPEP?id="+id;
     }
 }
