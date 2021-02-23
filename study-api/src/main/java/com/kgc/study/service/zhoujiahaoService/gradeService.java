@@ -13,7 +13,7 @@ public interface gradeService {
 
     List<GradeType> selectGradeType();
 
-    List<AgencyAddress> selectAddress();
+    List<AgencyAddress> selectAddress(Integer adminId);
 
     void insert(GradeInfo gradeInfo);
 

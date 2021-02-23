@@ -51,7 +51,7 @@ public class GradeController {
         Integer admin = (Integer) session.getAttribute("AgencyId");
         System.out.println(admin);
         PageHelper.startPage(pageNum,pageSize);
-        List<GradeInfo> gradeInfos = grade.selectAll(gradeName,gradeType,1);
+        List<GradeInfo> gradeInfos = grade.selectAll(gradeName,gradeType,admin);
         PageInfo pageInfo=new PageInfo(gradeInfos);
         List<GradeType> gradeTypes = grade.selectGradeType();
         model.addAttribute("gradeType",gradeTypes);
@@ -63,9 +63,10 @@ public class GradeController {
 
     @ApiOperation("查询所有地区和所有班型传到添加页面")
     @GetMapping("/addGrade")
-    public String addGrade(Model model){
+    public String addGrade(Model model,HttpSession session){
+        Integer admin = (Integer) session.getAttribute("AgencyId");
         //全部地区
-        List<AgencyAddress> agencyAddresses = grade.selectAddress();
+        List<AgencyAddress> agencyAddresses = grade.selectAddress(admin);
         //班级类型
         List<GradeType> gradeTypes = grade.selectGradeType();
         model.addAttribute("gradeType",gradeTypes);
@@ -115,10 +116,11 @@ public class GradeController {
     @ApiOperation("查看班级详细信息")
     @GetMapping("gradeUpdate")
     @ApiImplicitParam(name = "gradeId",value = "班级id")
-    public String gradeUpdate(Integer gradeId,Model model){
+    public String gradeUpdate(Integer gradeId,Model model,HttpSession session){
+        Integer admin = (Integer) session.getAttribute("AgencyId");
         GradeInfo gradeInfo = grade.selectGrade(gradeId);
         //全部地区
-        List<AgencyAddress> agencyAddresses = grade.selectAddress();
+        List<AgencyAddress> agencyAddresses = grade.selectAddress(admin);
         //班级类型
         List<GradeType> gradeTypes = grade.selectGradeType();
         model.addAttribute("gradeType",gradeTypes);

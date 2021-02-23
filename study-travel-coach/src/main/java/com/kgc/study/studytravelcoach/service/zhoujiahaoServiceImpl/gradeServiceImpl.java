@@ -37,7 +37,10 @@ public class gradeServiceImpl implements gradeService {
         if(typeId!=null && typeId!=0){
             criteria.andGradeTypeIdEqualTo(typeId);
         }
-        criteria.andGradeGmtFounderIdEqualTo(adminId);
+        if(adminId!=null && adminId!=1 && adminId!=0){
+            System.out.println("进来了");
+            criteria.andGradeGmtFounderIdEqualTo(adminId);
+        }
         //逻辑删除 0--未删  1--删除
         criteria.andLogicDeleteEqualTo(0);
         List<GradeInfo> gradeInfos = gradeInfoMapper.selectByExample(example);
@@ -64,12 +67,31 @@ public class gradeServiceImpl implements gradeService {
         example.createCriteria().andLogicDeleteEqualTo(0);
         return gradeTypeMapper.selectByExample(example);
     }
+    @Resource
+    AgencyInfoMapper agencyInfoMapper;
 
     @Override
-    public List<AgencyAddress> selectAddress() {
+    public List<AgencyAddress> selectAddress(Integer adminId) {
         AgencyAddressExample example=new AgencyAddressExample();
-        example.createCriteria().andLogicDeleteEqualTo(0);
-        return agencyAddressMapper.selectByExample(example);
+        AgencyAddressExample.Criteria criteria = example.createCriteria();
+        criteria.andLogicDeleteEqualTo(0);
+        List<AgencyAddress> agencyAddresses=null;
+        if(adminId!=null && adminId!=1){
+            AgencyInfoExample infoExample=new AgencyInfoExample();
+            AgencyInfoExample.Criteria infoCriteria = infoExample.createCriteria();
+            infoCriteria.andIdEqualTo((long)adminId);
+            infoCriteria.andLogicDeleteEqualTo(0);
+            List<AgencyInfo> agencyInfos = agencyInfoMapper.selectByExample(infoExample);
+            AgencyInfo agencyInfo = agencyInfos.get(0);
+            Long id = agencyInfo.getId();
+            criteria.andAgencyIdEqualTo(id);
+            agencyAddresses = agencyAddressMapper.selectByExample(example);
+        }else{
+            System.out.println("进来了");
+            agencyAddresses = agencyAddressMapper.selectByExample(example);
+        }
+        System.out.println(agencyAddresses.size());
+        return agencyAddresses;
     }
 
     @Override
