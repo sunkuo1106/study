@@ -16,6 +16,12 @@
   <resultMap id="ResultMapWithBLOBs" type="com.kgc.study.bean.ActivityInfo" extends="BaseResultMap" >
     <result column="ac_content_name" property="acContentName" jdbcType="LONGVARCHAR" />
   </resultMap>
+  <update id="updateByLogicDeleteList" parameterType="com.kgc.study.bean.ActivityInfo">
+    update activity_info set logic_delete = 1 where id in
+    <foreach collection="list" item="id" open="(" separator="," close=")">
+      #{id}
+    </foreach>
+  </update>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

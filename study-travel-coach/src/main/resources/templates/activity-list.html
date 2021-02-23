@@ -22,7 +22,7 @@
             <a href="">首页</a>
             <a href="">演示</a>
             <a>
-              <cite>新闻管理</cite></a>
+              <cite>研学旅行活动管理</cite></a>
           </span>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
        onclick="location.reload()" title="刷新">
@@ -32,59 +32,58 @@
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md12">
             <div class="layui-card">
-                <form th:action="@{/news-list}" method="get">
-                    <div class="layui-card-body ">
+                <div class="layui-card-body ">
+                    <form class="layui-form layui-col-space5" th:action="@{/admin-role.html}" method="get">
                         <div class="layui-inline layui-show-xs-block">
-                            <input th:value="${gmtCreate1}"  type="date" autocomplete="off" placeholder="创建时间"
-                                   name="gmtCreate1" id="start">
+                            <input class="layui-input" type="date" autocomplete="off" placeholder="创建时间" name="start"
+                                   id="start">
                             <!--class="layui-input"-->
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input th:value="${gmtCreate2}" type="date" autocomplete="off" placeholder="发布时间"
-                                   name="gmtCreate2" id="end">
+                            <input class="layui-input" type="date" autocomplete="off" placeholder="发布时间" name="end"
+                                   id="end">
+                            <!--class="layui-input"-->
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <input type="text" th:value="${title}" name="title" placeholder="新闻标题" id="title" autocomplete="off"
+                            <input type="text" name="acInfoTitle" placeholder="活动标题" autocomplete="off"
                                    class="layui-input">
                         </div>
                         <div class="layui-inline layui-show-xs-block">
-                            <button class="layui-btn" type="submit" id="btn_div" lay-submit="" lay-filter="sreach"><i
+                            <button class="layui-btn" lay-submit="" lay-filter="sreach"><i
                                     class="layui-icon">&#xe615;</i></button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
                 <div class="layui-card-header">
                     <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除
                     </button>
-                    <button class="layui-btn" onclick="xadmin.open('添加新闻','./news-add',600,400)"><i
+                    <button class="layui-btn" onclick="xadmin.open('添加活动','./activity-add.html',600,400)"><i
                             class="layui-icon"></i>添加新闻
                     </button>
                 </div>
                 <div class="layui-card-body ">
-                    <table class="layui-table layui-form" id="tableNewsList">
+                    <table class="layui-table layui-form">
                         <thead>
                         <tr>
                             <th>
-                                <!--<input type="checkbox" onclick="xanZhong()" name="" lay-skin="primary">-->
-                                <!--<input type="checkbox" οnclick="xanZhong()" name="selected item" />-->
-                                <span onclick="swapCheck()">全选</span>
+                                <input type="checkbox" id="qx" name="qx" lay-skin="primary">
                             </th>
-                            <th>新闻编号</th>
-                            <th>新闻标题</th>
+                            <th>活动编号</th>
+                            <th>活动标题</th>
                             <th>操作</th>
                         </thead>
-                        <tbody th:each="p:${pageInfo.list}">
-                        <tr>
+                        <tbody>
+                        <tr th:each="ac:${activityInfos.list}">
                             <td>
-                                <input type="checkbox" th:value="${p.id}" name="selected item" lay-skin="primary">
+                                <input type="checkbox" th:value="${ac.id}" name="selected item" lay-skin="primary">
                             </td>
-                            <td th:text="${p.id}">1</td>
-                            <td th:text="${p.newsInfoTitle}">超级管理员</td>
+                            <td th:text="${ac.id}">1</td>
+                            <td th:text="${ac.acInfoTitle}">超级管理员</td>
                             <td class="td-manage">
-                                <a title="编辑" th:href="@{/news-edit(id=${p.id})}">
+                                <a title="编辑" th:href="@{/activity-edit/}+${ac.id}">
                                     <i class="layui-icon">&#xe642;</i>
                                 </a>
-                                <a title="删除" th:href="@{/news-edit-del(id=${p.id},logicDelete=${p.logicDelete})}">
+                                <a title="删除" th:onclick="|member_del(this,${ac.id})|" href="javascript:;">
                                     <i class="layui-icon">&#xe640;</i>
                                 </a>
                             </td>
@@ -92,42 +91,34 @@
                         </tbody>
                     </table>
                 </div>
+                <!-- <div class="layui-card-body ">
+                     <div class="page">
+                         <div>
+                             <a class="prev" href="">&lt;&lt;</a>
+                             <a class="num" href="">1</a>
+                             <span class="current">2</span>
+                             <a class="num" href="">3</a>
+                             <a class="num" href="">489</a>
+                             <a class="next" href="">&gt;&gt;</a>
+                         </div>
+                     </div>
+                 </div>-->
                 <div class="layui-card-body ">
                     <div class="page">
-                        <a th:href="@{/news-list(pageIndex=1)}">首页</a>
-                        <a class="prev" th:href="@{/news-list(pageIndex=${pageInfo.prePage})}">&lt;&lt;</a>
-                        <a class="num" th:each="a:${pageInfo.navigatepageNums}" th:text="${a}"></a>
-                        <a class="next" th:href="@{/news-list(pageIndex=${pageInfo.nextPage})}">&gt;&gt;</a>
-                        <a th:href="@{/news-list(pageIndex=${pageInfo.pages})}">尾页</a>
+                        <a th:href="@{/admin-role.html(pageNum=1)}">首页</a>
+                        <a class="prev" th:href="@{/admin-role.html(pageNum=${activityInfos.prePage})}">&lt;&lt;</a>
+                        <a class="num" th:each="a:${activityInfos.navigatepageNums}" th:text="${a}"
+                           th:href="@{/admin-role.html(pageNum=${a})}"></a>
+                        <a class="next" th:href="@{/admin-role.html(pageNum=${activityInfos.nextPage})}">&gt;&gt;</a>
+                        <a th:href="@{/admin-role.html(pageNum=${activityInfos.pages})}">尾页</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
-<script src="./js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 <script>
-
-    // //checkbox 全选/取消全选
-    // var isCheckAll = false;
-    // function swapCheck() {
-    //     alert(1)
-    //     if (isCheckAll) {
-    //         $("input[type='checkbox']").each(function() {
-    //             this.checked = false;
-    //         });
-    //         isCheckAll = false;
-    //     } else {
-    //         $("input[type='checkbox']").each(function() {
-    //             this.checked = true;
-    //         });
-    //         isCheckAll = true;
-    //     }
-    // }
-
-
     layui.use(['laydate', 'form'], function () {
         var laydate = layui.laydate;
         var form = layui.form;
@@ -171,36 +162,45 @@
     function member_del(obj, id) {
         layer.confirm('确认要删除吗？', function (index) {
             //发异步删除数据
-            $(obj).parents("tr").remove();
-            layer.msg('已删除!', {icon: 1, time: 1000});
+            $.post("/activityDel", {id: id}, function (result) {
+                if (result.status == "true") {
+                    $(obj).parents("tr").remove();//删除成功
+                    layer.msg('已删除!', {icon: 1, time: 1000});
+                } else {
+                    alert("删除失败，请检查您的网络");
+                }
+            }, "json")
         });
     }
 
 
     function delAll(argument) {
-        var checks=$("[name='selected item']:checked");
-        if(checks.length==0){
+        var checks = $("[name='selected item']:checked");
+        if (checks.length == 0) {
             layer.confirm('请选择一条要删除的新闻!')
             return false;
         }
-        if(confirm('确定要删除所选新闻吗?')){
-            var str="";
-            checks.each(function(){
-                str+=$(this).val()+",";
+        if (confirm('确定要删除所选新闻吗?')) {
+            var str = "";
+            checks.each(function () {
+                str += $(this).val() + ",";
             })
-            $.post('/doNewsdelList',{gpId:str},function (data) {
-                if (data.status=="true"){
-                    layer.msg("删除成功!")
-                    setTimeout(function () {
-                        location.reload();
-                    }, 300);
-                }else{
+            $.post('/activityDelList', {gpId: str}, function (data) {
+                if (data.status == "true") {
+                    layer.msg("删除成功!");
+                    location.href = "/admin-role.html";
+                    /* setTimeout(function () {
+                         location.reload();
+                     }, 300);*/
+                } else {
                     layer.msg("删除失败!")
                 }
 
-            },"json")
+            }, "json")
         }
     }
+
+
 </script>
 <script>var _hmt = _hmt || [];
 (function () {
@@ -209,4 +209,16 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
 })();</script>
+
+
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js">
+    $("#qx").click(function () {
+        alert("111");
+    })
+    /*
+    * if (this.attr("checked", "true")) {
+            $("[name='zqx']").attr("checked", "true");
+        }
+        */
+</script>
 </html>
