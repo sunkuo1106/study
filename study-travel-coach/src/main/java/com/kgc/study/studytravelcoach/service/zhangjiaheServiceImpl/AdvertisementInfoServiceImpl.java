@@ -109,11 +109,11 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
         System.out.println("maxadSequence"+maxadSequence);
         if (maxadSequence==null) {
                 advertisementInfo.setAdSequence(1);
-        }else  if (maxadSequence<4){
+        }else  if (maxadSequence<6){
             advertisementInfo.setAdSequence(maxadSequence + 1);
         }
 
-        else if (maxadSequence>=4){
+        else if (maxadSequence>=6){
             advertisementInfo.setAdSequence(null);
         }
         return advertisementInfoMapper.insertSelective(advertisementInfo);
@@ -219,12 +219,21 @@ public class AdvertisementInfoServiceImpl implements AdvertisementInfoService {
         criteria.andAdSequenceIsNotNull();
         List<AdvertisementInfo> advertisementInfos = advertisementInfoMapper.selectByExample(advertisementInfoExample);
         for (AdvertisementInfo info : advertisementInfos) {
+
             if (info.getAdSequence()>=adSequence){
-                    AdvertisementInfo advertisementInfo1=new AdvertisementInfo();
+                    AdvertisementInfo advertisementInfo1 = new AdvertisementInfo();
                     advertisementInfo1.setAdId(info.getAdId());
-                    advertisementInfo1.setAdSequence(info.getAdSequence()+1);
+                    advertisementInfo1.setAdSequence(info.getAdSequence() + 1);
                     advertisementInfo1.setAdGmtModified(new Date());
-                advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo1);
+                    advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo1);
+
+            }
+            if (info.getAdSequence()>=6){
+                AdvertisementInfo advertisementInfo2 = new AdvertisementInfo();
+                advertisementInfo2.setAdId(info.getAdId());
+                advertisementInfo2.setAdSequence(0);
+                advertisementInfo2.setAdGmtModified(new Date());
+                advertisementInfoMapper.updateByPrimaryKeySelective(advertisementInfo2);
             }
 
         }

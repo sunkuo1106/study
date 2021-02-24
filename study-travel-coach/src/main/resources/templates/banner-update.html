@@ -44,7 +44,7 @@
                         <label for="img" class="layui-form-label">
                             <span class="x-red">*</span>广告图片</label>
                         <div class="layui-input-inline">
-                            <img th:src="${updatecha.adImg}">
+                            <img th:src="${updatecha.adImg}" >
                             <input type="file" id="img" name="img" multiple="multiple"   class="layui-input"></div>
                     </div>
                     <div class="layui-form-item" th:if="${updatecha.adSequence!=null}">
@@ -56,6 +56,8 @@
                                 <option th:selected="${updatecha.adSequence==2}"  name="adSequence" value="2">2级</option>
                                 <option  th:selected="${updatecha.adSequence==3}"  name="adSequence" value="3">3级</option>
                                 <option th:selected="${updatecha.adSequence==4}"  name="adSequence" value="4">4级</option>
+                                <option th:selected="${updatecha.adSequence==5}"  name="adSequence" value="5">5级</option>
+                                <option th:selected="${updatecha.adSequence==6}"  name="adSequence" value="6">6级</option>
                             </select>
                         </div>
                     </div>
