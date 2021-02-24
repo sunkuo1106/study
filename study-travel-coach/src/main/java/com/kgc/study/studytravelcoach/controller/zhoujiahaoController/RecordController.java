@@ -103,8 +103,134 @@ public class RecordController {
                         testInfo.setKeys(keys);
                         //获取正确答案
                         String testKeys = testInfo.getTestKeys();
-                        if(keys.equals(testKeys)){
-                            num+=5;
+                        if(keys.length()==testKeys.length()){
+                            if(keys.length()==1 && testKeys.length()==1){
+                                if(keys.equals(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                            }
+                            if(keys.length()==3 && testKeys.length()==3){
+                                List AB=new ArrayList();
+                                AB.add("A,B");
+                                AB.add("B,A");
+                                if(AB.contains(keys) && AB.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                                List AC=new ArrayList();
+                                AC.add("A,C");
+                                AC.add("C,A");
+                                if(AC.contains(keys) && AC.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                                List AD=new ArrayList();
+                                AD.add("A,D");
+                                AD.add("D,A");
+                                if(AD.contains(keys) && AD.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                                List BC=new ArrayList();
+                                BC.add("C,B");
+                                BC.add("B,C");
+                                if(BC.contains(keys) && BC.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                                List BD=new ArrayList();
+                                BD.add("D,B");
+                                BD.add("B,D");
+                                if(BD.contains(keys) && BD.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                                List CD=new ArrayList();
+                                CD.add("D,C");
+                                CD.add("C,D");
+                                if(CD.contains(keys) && CD.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                            }
+                            if(keys.length()==5 && testKeys.length()==5){
+                                List ABC=new ArrayList();
+                                ABC.add("A,B,C");
+                                ABC.add("A,C,B");
+                                ABC.add("B,A,C");
+                                ABC.add("B,C,A");
+                                ABC.add("C,A,B");
+                                ABC.add("C,B,A");
+                                if(ABC.contains(keys) && ABC.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                                List ABD=new ArrayList();
+                                ABD.add("A,B,D");
+                                ABD.add("A,D,B");
+                                ABD.add("B,A,D");
+                                ABD.add("B,D,A");
+                                ABD.add("D,A,B");
+                                ABD.add("D,B,A");
+                                if(ABD.contains(keys) && ABD.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                                List ACD=new ArrayList();
+                                ACD.add("A,C,D");
+                                ACD.add("A,D,C");
+                                ACD.add("C,A,D");
+                                ACD.add("C,D,A");
+                                ACD.add("D,A,C");
+                                ACD.add("D,C,A");
+                                if(ACD.contains(keys) && ACD.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                                List BCD=new ArrayList();
+                                BCD.add("B,C,D");
+                                BCD.add("B,D,C");
+                                BCD.add("C,B,D");
+                                BCD.add("C,D,B");
+                                BCD.add("D,B,C");
+                                BCD.add("D,C,B");
+                                if(BCD.contains(keys) && BCD.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                            }
+                            if(keys.length()==7 && testKeys.length()==7){
+                                List ABCD=new ArrayList();
+                                ABCD.add("A,B,C,D");
+                                ABCD.add("A,B,D,C");
+                                ABCD.add("A,C,B,D");
+                                ABCD.add("A,C,D,B");
+                                ABCD.add("A,D,C,B");
+                                ABCD.add("A,D,B,C");
+                                ABCD.add("B,A,C,D");
+                                ABCD.add("B,A,D,C");
+                                ABCD.add("B,C,A,D");
+                                ABCD.add("B,C,D,A");
+                                ABCD.add("B,D,C,A");
+                                ABCD.add("B,D,A,C");
+                                ABCD.add("C,A,B,D");
+                                ABCD.add("C,A,D,B");
+                                ABCD.add("C,B,D,A");
+                                ABCD.add("C,B,A,D");
+                                ABCD.add("C,D,A,B");
+                                ABCD.add("C,D,B,A");
+                                ABCD.add("D,C,B,A");
+                                ABCD.add("D,C,A,B");
+                                ABCD.add("D,B,A,C");
+                                ABCD.add("D,B,C,A");
+                                ABCD.add("D,A,C,B");
+                                ABCD.add("D,A,B,C");
+                                if(ABCD.contains(keys) && ABCD.contains(testKeys)){
+                                    num+=5;
+                                    continue;
+                                }
+                            }
                         }
                     }
                 }

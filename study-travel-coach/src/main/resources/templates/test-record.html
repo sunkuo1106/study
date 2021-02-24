@@ -46,10 +46,121 @@
                             <li th:each="test,i:${TestInfo}">
                                 <h2 th:text="${i.count}+'：'+${test.getTestName()}">烧腊店积分卡来说的放冷箭阿斯蒂芬记录竘</h2>
                                 <br/>
-                                <input type="radio" th:checked="${test.getKeys()=='A'}" value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
-                                <input type="radio" th:checked="${test.getKeys()=='B'}" value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
-                                <input type="radio" th:checked="${test.getKeys()=='C'}" value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
-                                <input type="radio" th:checked="${test.getKeys()=='D'}" value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                <div th:if="${test.getKeys().equals('A')}">
+                                    <input type="radio" checked="checked" value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio"  value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio"  value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio"  value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('B')}">
+                                    <input type="radio"  value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio" checked="checked" value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio"  value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio"  value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('C')}">
+                                    <input type="radio"  value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio"  value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio" checked="checked" value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio"  value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('D')}">
+                                    <input type="radio"  value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio"  value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio"  value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio" checked="checked" value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('A,B') || test.getKeys().equals('B,A')}">
+                                    <input type="radio" checked="checked" value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio" checked="checked" value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio"  value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio"  value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('A,C') || test.getKeys().equals('C,A')}">
+                                    <input type="radio" checked="checked" value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio"  value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio" checked="checked" value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio"  value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('A,D') || test.getKeys().equals('D,A')}">
+                                    <input type="radio" checked="checked" value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio"  value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio"  value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio" checked="checked" value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('B,C') || test.getKeys().equals('C,B')}">
+                                    <input type="radio"  value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio" checked="checked" value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio" checked="checked" value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio"  value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('B,D') || test.getKeys().equals('D,B')}">
+                                    <input type="radio"  value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio" checked="checked" value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio"  value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio" checked="checked" value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('C,D') || test.getKeys().equals('D,C')}">
+                                    <input type="radio"  value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio"  value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio" checked="checked" value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio" checked="checked" value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('A,B,C') || test.getKeys().equals('A,C,B') || test.getKeys().equals('B,A,C')  || test.getKeys().equals('B,C,A') || test.getKeys().equals('C,A,B') || test.getKeys().equals('C,B,A')}">
+                                    <input type="radio" checked="checked" value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio" checked="checked" value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio" checked="checked" value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio"  value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('A,B,D') || test.getKeys().equals('A,D,B') || test.getKeys().equals('B,A,D')  || test.getKeys().equals('B,D,A') || test.getKeys().equals('D,A,B') || test.getKeys().equals('D,B,A')}">
+                                    <input type="radio" checked="checked" value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio" checked="checked" value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio"  value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio" checked="checked" value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('A,C,D') || test.getKeys().equals('A,D,C') || test.getKeys().equals('C,A,D')  || test.getKeys().equals('C,D,A') || test.getKeys().equals('D,A,C') || test.getKeys().equals('D,C,A')}">
+                                    <input type="radio" checked="checked" value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio"  value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio" checked="checked" value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio" checked="checked" value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+                                <div th:if="${test.getKeys().equals('B,C,D') || test.getKeys().equals('B,D,C') || test.getKeys().equals('C,B,D')  || test.getKeys().equals('C,D,B') || test.getKeys().equals('D,B,C') || test.getKeys().equals('D,C,B')}">
+                                    <input type="radio"  value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio" checked="checked" value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio" checked="checked" value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio" checked="checked" value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
+
+
+                                <div th:if="${test.getKeys().equals('A,B,C,D')
+                                || test.getKeys().equals('A,B,D,C')
+                                || test.getKeys().equals('A,C,B,D')
+                                || test.getKeys().equals('A,C,D,B')
+                                || test.getKeys().equals('A,D,B,C')
+                                || test.getKeys().equals('A,D,C,B')
+                                || test.getKeys().equals('B,A,C,D')
+                                || test.getKeys().equals('B,A,D,C')
+                                || test.getKeys().equals('B,C,A,D')
+                                || test.getKeys().equals('B,C,D,A')
+                                || test.getKeys().equals('B,D,C,A')
+                                || test.getKeys().equals('B,D,A,C')
+                                || test.getKeys().equals('C,A,B,D')
+                                || test.getKeys().equals('C,A,D,B')
+                                || test.getKeys().equals('C,B,D,A')
+                                || test.getKeys().equals('C,B,A,D')
+                                || test.getKeys().equals('C,D,A,B')
+                                || test.getKeys().equals('C,D,B,A')
+                                || test.getKeys().equals('D,C,B,A')
+                                || test.getKeys().equals('D,C,A,B')
+                                || test.getKeys().equals('D,B,A,C')
+                                || test.getKeys().equals('D,B,C,A')
+                                || test.getKeys().equals('D,A,C,B')
+                                || test.getKeys().equals('D,A,B,C')}">
+                                    <input type="radio" checked="checked" value="A">&nbsp;&nbsp;<span>A：</span><span th:text="${test.getTestA()}">打发</span><br/>
+                                    <input type="radio" checked="checked" value="B">&nbsp;&nbsp;<span>B：</span><span th:text="${test.getTestB()}">啊</span><br/>
+                                    <input type="radio" checked="checked" value="C">&nbsp;&nbsp;<span>C：</span><span th:text="${test.getTestC()}">阿道夫</span><br/>
+                                    <input type="radio" checked="checked" value="D">&nbsp;&nbsp;<span>D：</span><span th:text="${test.getTestD()}">213</span><br/>
+                                </div>
                                 <hr style="width: 600px"/>
                                 <span>本题答案：</span><span th:text="${test.getTestKeys()}">A</span><br/>
                                 <span>本题解析：</span><span th:text="${test.getTestHints()}"></span><br/>
