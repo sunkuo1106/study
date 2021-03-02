@@ -12,6 +12,22 @@
     <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
     <result column="logic_delete" property="logicDelete" jdbcType="INTEGER" />
   </resultMap>
+  <resultMap id="BaseResultMap2" type="com.kgc.study.bean.AgencyInfo" >
+    <result column="agency_name" property="agencyName" jdbcType="VARCHAR" />
+    <result column="count" property="count" />
+  </resultMap>
+  <select id="selectByExample2" resultMap="BaseResultMap2">
+    SELECT ai.agency_name,IFNULL(count(eu.agency_id ),0) `count`
+    FROM agency_info ai LEFT JOIN edu_user eu
+    on ai.id=eu.agency_id
+    GROUP BY ai.agency_name
+  </select>
+  <select id="selectByExample3" resultMap="BaseResultMap2">
+      SELECT ai.agency_name,IFNULL(count(eu.agency_id ),0) `count`
+    FROM agency_info ai LEFT JOIN edu_user eu
+    on ai.id=eu.agency_id AND eu.gmt_create BETWEEN DATE_SUB(NOW(), interval 1 MONTH) AND SYSDATE()
+    GROUP BY ai.agency_name
+  </select>
   <update id="deleteAll" parameterType="com.kgc.study.bean.AgencyInfo">
     UPDATE agency_info SET logic_delete=1,gmt_modified=#{modifieddate}  WHERE id in
     <foreach collection="ids" item="ids" open="(" close=")" separator=",">

@@ -38,19 +38,19 @@
                                 <div class="layui-inline layui-show-xs-block">
                                     <button class="layui-btn btn-agency"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
                                 </div>
-                        </div>
-                        <div class="layui-card-header" th:if="${session.AgencyId==1}">
-                            <input hidden="hidden" th:value="${session.AgencyId}" class="AgencyId">
-                            <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-                            <button class="layui-btn" onclick="xadmin.open('添加用户','/toagencyadd',600,400)"><i class="layui-icon"></i>添加</button>
-                        </div>
-                        <div class="layui-card-body layui-table-body layui-table-main">
-                            <table class="layui-table layui-form table-agency">
-                                <!--<thead>-->
-                                  <tr>
-                                    <th>
-                                      <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
-                                    </th>
+                    </div>
+                    <div class="layui-card-header" th:if="${session.AgencyId==1}">
+                        <input hidden="hidden" th:value="${session.AgencyId}" class="AgencyId">
+                        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
+                        <button class="layui-btn" onclick="xadmin.open('添加用户','/toagencyadd',600,400)"><i class="layui-icon"></i>添加</button>
+                    </div>
+                    <div class="layui-card-body layui-table-body layui-table-main">
+                        <table class="layui-table layui-form table-agency">
+                            <!--<thead>-->
+                            <tr>
+                                <th>
+                                    <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
+                                </th>
                                     <th>机构名称</th>
                                     <th>机构地址</th>
                                     <th>机构电话</th>
@@ -189,7 +189,7 @@
                                 "                                    <td>" + v.agencyPhone + "</td>\n" +
                                 "                                    <td>" + v.principalName + "</td>\n" +
                                 "                                    <td>" + v.principalPhone + "</td>\n" +
-                                "                                      <td>总部</td>\n" +
+                                "                                      <td>代理机构</td>\n" +
                                 "                                    <td class=\"td-status\">\n" +
                                 "                                          <span class=\"layui-btn layui-btn-normal layui-btn-mini a-agency\" onclick=\"xadmin.open('上课地点','/toagencyaddress',600,550)\" href=\"javascript:;\">\n" +
                                 "                                         上课地点</span></td>\n" +

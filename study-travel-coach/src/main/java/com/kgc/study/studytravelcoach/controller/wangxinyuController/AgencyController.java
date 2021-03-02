@@ -1,11 +1,8 @@
 package com.kgc.study.studytravelcoach.controller.wangxinyuController;
 
 import com.github.pagehelper.PageInfo;
-import com.kgc.study.bean.AgencyAddress;
 import com.kgc.study.bean.AgencyInfo;
-import com.kgc.study.service.wangxinyuService.AgencyAddressService;
 import com.kgc.study.service.wangxinyuService.AgencyService;
-import org.apache.http.protocol.HTTP;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +20,6 @@ import java.util.*;
 public class AgencyController {
     @Resource
     AgencyService agencyService;
-
     /*
     *跳转机构管理页面
     * */
@@ -141,5 +137,26 @@ public class AgencyController {
         }
         return map;
     }
+    @RequestMapping("/selallusercount")
+    @ResponseBody
+    public Map<String,Object> selallusercount(){
+        Map<String,Object>map=new HashMap<>();
+        List<AgencyInfo> agencyInfos = agencyService.selectAllUserCount();
+        map.put("agencyInfoAllCount",agencyInfos);
+        return map;
+    }
+    @RequestMapping("/selbydateusercount")
+    @ResponseBody
+    public Map<String,Object> selbydateusercount(){
+         Map<String,Object>map=new HashMap<>();
+        List<AgencyInfo> agencyInfos = agencyService.selectByDateUserCount();
+        map.put("agencyDateInfoCount",agencyInfos);
+        return map;
+    }
+    @RequestMapping("/towelcome")
+    public String towelcome(){
+        return "welcome";
+    }
+
 
 }
