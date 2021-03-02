@@ -20,5 +20,9 @@ public interface AgencyService {
     int delAgency(AgencyInfo agencyInfo);
     AgencyInfo selectAgencyById(Integer id);
     int delAllAgency(Integer[] ids, Date modifieddate);
+    //查询每个机构的总学生数
+    List<AgencyInfo> selectAllUserCount();
+    //查询每个机构的在一定时间内所招的人数
+    List<AgencyInfo> selectByDateUserCount();
 
 }

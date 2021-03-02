@@ -75,4 +75,14 @@ public class AgencyServiceImpl implements AgencyService {
         return i;
     }
 
+    @Override
+    public List<AgencyInfo> selectAllUserCount() {
+        return agencyInfoMapper.selectByExample2(null);
+    }
+
+    @Override
+    public List<AgencyInfo> selectByDateUserCount() {
+        return agencyInfoMapper.selectByExample3(null);
+    }
+
 }

@@ -31,4 +31,7 @@ public interface AgencyInfoMapper {
     int updateByPrimaryKey(AgencyInfo record);
 
     int deleteAll(@Param("ids") Integer[] ids,@Param("modifieddate") Date modifieddate);
+    List<AgencyInfo> selectByExample2(AgencyInfoExample example);
+
+    List<AgencyInfo> selectByExample3(AgencyInfoExample example);
 }
