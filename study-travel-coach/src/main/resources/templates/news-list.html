@@ -65,9 +65,7 @@
                         <thead>
                         <tr>
                             <th>
-                                <!--<input type="checkbox" onclick="xanZhong()" name="" lay-skin="primary">-->
-                                <!--<input type="checkbox" οnclick="xanZhong()" name="selected item" />-->
-                                <span onclick="swapCheck()">全选</span>
+                                <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
                             </th>
                             <th>新闻编号</th>
                             <th>新闻标题</th>
@@ -131,6 +129,17 @@
     layui.use(['laydate', 'form'], function () {
         var laydate = layui.laydate;
         var form = layui.form;
+
+        // 监听全选
+        form.on('checkbox(checkall)', function(data){
+
+            if(data.elem.checked){
+                $('td input').prop('checked',true);
+            }else{
+                $('td input').prop('checked',false);
+            }
+            form.render('checkbox');
+        });
 
         //执行一个laydate实例
         laydate.render({

@@ -74,7 +74,7 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default">取消</button>
+        <button type="button" class="btn btn-default quxiao">取消</button>
         <button type="button" id="btn" class="btn btn-primary">保存</button>
     </div>
 </div>
@@ -119,10 +119,15 @@
                 if (result.status == "true") {
                     location.href = "/policy-list";
                 } else {
-                    alert("添加失败")
+                    alert("修改失败")
                 }
             }, "json");
         });
+
+        $(".quxiao").click(function () {
+            location.href="policy-list";
+        });
+
     });
 </script>
 </body>

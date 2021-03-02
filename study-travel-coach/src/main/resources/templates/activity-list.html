@@ -66,7 +66,7 @@
                         <thead>
                         <tr>
                             <th>
-                                <input type="checkbox" id="qx" name="qx" lay-skin="primary">
+                                <input type="checkbox" lay-filter="checkall" id="qx" name="qx" lay-skin="primary">
                             </th>
                             <th>活动编号</th>
                             <th>活动标题</th>
@@ -122,6 +122,17 @@
     layui.use(['laydate', 'form'], function () {
         var laydate = layui.laydate;
         var form = layui.form;
+
+        // 监听全选
+        form.on('checkbox(checkall)', function(data){
+
+            if(data.elem.checked){
+                $('td input').prop('checked',true);
+            }else{
+                $('td input').prop('checked',false);
+            }
+            form.render('checkbox');
+        });
 
         //执行一个laydate实例
         laydate.render({
